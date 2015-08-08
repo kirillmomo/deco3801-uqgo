@@ -3,7 +3,7 @@
 	session_start();
 
 	//if user has logged in, go to index page
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['user_id'])){
 		header('Location: homepage.php');
 	}
 
@@ -13,11 +13,11 @@
 	    $username = $_POST['username'];
 	    $password = $_POST['password'];
 	    
-	    $query = 'SELECT * FROM user WHERE username="'.$username.'" and password="'.$password.'"';
-	    $result = mysqli_query($dbconn,$query);
+	    $query = "SELECT * FROM user_information WHERE username='$username' and password='$password'";
+	    $data = mysql_query($query,$dbconn);
 
-	    while($row = mysqli_fetch_array($result)){
-	    	$_SESSION['username'] = $username;
+	    while($row = mysql_fetch_array($data)){
+	    	$_SESSION['user_id'] = $row['user_id'];
 	    	header('Location: homepage.php');
 	    }
 	    
