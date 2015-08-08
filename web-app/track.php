@@ -3,7 +3,7 @@
 	session_start();
 
 	//if user hasn't logged in, go back to login page
-	if(!isset($_SESSION['username'])){
+	if(!isset($_SESSION['user_id'])){
 		header('Location: index.php');
 	}
 
@@ -15,9 +15,9 @@
 		$query = "SELECT latlng FROM route WHERE id = '".$_GET['id']."' ";
 	}
 
-	$result = mysqli_query($dbconn, $query);
+	$data = mysql_query($query,$dbconn);
 
-	while($row = mysqli_fetch_array($result)){
+	while($row = mysql_fetch_array($data)){
 
 		echo "
 			<script>

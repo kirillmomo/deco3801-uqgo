@@ -3,27 +3,47 @@
 	session_start();
 
 	//if user hasn't logged in, go back to login page
-	if(!isset($_SESSION['username'])){
-		header('Location: index.php');
+	if(empty($_SESSION['user_id'])){
+		// header('Location: index.php');
 	}
 
-	$query = "SELECT id, latlng FROM route WHERE id = (SELECT MAX(id) FROM route) ";
+	$user_id = $_SESSION['user_id'];
 
-	$result = mysqli_query($dbconn, $query);
+	$query = "SELECT * FROM route WHERE user_id = '$user_id'";
+	$query1 = "SELECT * FROM user_information WHERE user_id = '$user_id'";
+	$query2 = "SELECT * FROM personal_user_health_data WHERE user_id = '$user_id'";
+
+	$data = mysql_query($query,$dbconn);
+	$data1 = mysql_query($query1,$dbconn);
+	$data2 = mysql_query($query2,$dbconn);
 
 	$id;
-
-	while($row = mysqli_fetch_array($result)){
+	$num=0;
+	while($row = mysql_fetch_array($data)){
 		
 		$id = $row['id'];
 
 		echo "
 			<script>
 				var latlng = ".json_encode($row['latlng']).";
-				console.log(latlng);
+			</script>
+		";
+	}
+	echo "
+			<script>
+				var step=[];
+			</script>
+		";
+
+	while($row2 = mysql_fetch_array($data2)){
+
+		echo "
+			<script>
+				step[".json_encode($num)."] = ".json_encode($row2['steps']).";
 
 			</script>
 		";
+		$num++;
 	}
 
 ?>
@@ -52,7 +72,12 @@
 				<div class="panel-icon">
 					<img src="img/left-panel-me-hover.png">
 				</div>
-				<p class="select">Me</p>
+				<?php while($row1 = mysql_fetch_array($data1)){ ?>
+				<p class="select">
+					<?php echo $row1['username']; ?>
+				</p>
+				<?php }
+				?>
 			</div>
 
 			<!--Community-->
@@ -191,7 +216,6 @@
 		var randomScalingFactor = function(){ return Math.round(Math.random()*10000)};
 		var randomColorFactor = function(){ return Math.round(Math.random()*255)};
 
-
 		/*gradient*/
 		var ctx = document.getElementById('steps').getContext("2d");
 		var gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -209,7 +233,8 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#eeb566",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : step
+					
 				}
 			]
 
@@ -317,8 +342,8 @@
 		var length = latlng_array.length-1;
 
 
-		console.log(length);
-		console.log(latlng_array);
+		// console.log(length);
+		// console.log(latlng_array);
 
 
 		function initialize() {
