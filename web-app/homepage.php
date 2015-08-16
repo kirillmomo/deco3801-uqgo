@@ -32,6 +32,8 @@
 	echo "
 			<script>
 				var step=[];
+				var distance=[];
+				var calorie=[];
 			</script>
 		";
 
@@ -40,7 +42,8 @@
 		echo "
 			<script>
 				step[".json_encode($num)."] = ".json_encode($row2['steps']).";
-
+				distance[".json_encode($num)."] = ".json_encode($row2['distance']).";
+				calorie[".json_encode($num)."] = ".json_encode($row2['steps']/20).";
 			</script>
 		";
 		$num++;
@@ -262,7 +265,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#4D87D1",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : distance
 				}
 			]
 
@@ -290,7 +293,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#B41D02",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : calorie
 				}
 			]
 
