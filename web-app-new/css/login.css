@@ -1,0 +1,40 @@
+html, body {
+	margin: 0;
+	color: #FFF;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color: #49075E;
+}
+
+h1 {
+	text-align: center;
+	background: url("../img/logo_white.png") no-repeat center;
+	background-size: 150px;
+	height: 150px;
+	text-indent: -9999px;
+}
+
+form {
+	text-align: center;
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form input {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.2em;
+}
+
+form input[type=submit] {
+	background-color: #8CB800;
+	color: #FFF;
+	border: none;
+	font-weight: bold;
+}
