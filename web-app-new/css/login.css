@@ -4,23 +4,35 @@ html, body {
 }
 
 body {
-	font-family: 'Raleway', sans-serif;
 	background-color: #49075E;
+	background-image: url("../img/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.center-panel {
+	background: #fff;
+	width: 350px;
+	padding: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
 }
 
 h1 {
 	text-align: center;
-	background: url("../img/logo_white.png") no-repeat center;
-	background-size: 150px;
-	height: 150px;
+	background: url("../img/logo_purple.png") no-repeat center;
+	background-size: contain;
+	height: 100px;
 	text-indent: -9999px;
+	margin-bottom: 30px;
 }
 
 form {
 	text-align: center;
 	width: 350px;
-	margin-left: auto;
-	margin-right: auto;
+	//background: #fff;
+	//padding: 40px;
 }
 
 form input {
@@ -28,7 +40,6 @@ form input {
 	width: 100%;
 	padding: 10px;
 	margin-bottom: 10px;
-	font-family: 'Raleway', sans-serif;
 	font-size: 1.2em;
 }
 

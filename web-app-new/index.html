@@ -4,15 +4,21 @@
     <meta charset="utf-8">
     <title>UQgo</title>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/login.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>
-  	<h1>UQgo</h1>
-    <form id='login-form' method='POST' class='center'>
-			<input type='text' id='username' name='username' class='login-input' placeholder='Username'>
-			<input type='password' id='password' name='password' class='login-input' placeholder='Password'>
-			<input type='submit' id='login' name='login' value='Login' class='login-submit'>
-		</form>
+  	<div class='center-panel'>
+        <h1>UQgo</h1>
+        <form id='login-form' method='POST' class='center'>
+          <input type='text' id='username' name='username' class='login-input' placeholder='Username'>
+          <input type='password' id='password' name='password' class='login-input' placeholder='Password'>
+          <input type='submit' id='login' name='login' value='Login' class='button-primary'>
+        </form>
+    </div>
+    <div class="login-options">
+    </div>
   </body>
 </html>
