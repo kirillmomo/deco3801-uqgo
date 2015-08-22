@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>UQgo</title>
+    <title>UQGO</title>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
@@ -13,12 +13,21 @@
   	<div class='center-panel'>
         <h1>UQgo</h1>
         <form id='login-form' method='POST' class='center'>
-          <input type='text' id='username' name='username' class='login-input' placeholder='Username'>
-          <input type='password' id='password' name='password' class='login-input' placeholder='Password'>
+            <p id="incorrect-message">Incorrect username or password.</p>
+          <input type='text' id='username' name='username' placeholder='Username' required>
+          <input type='password' id='password' name='password' placeholder='Password' required>
           <input type='submit' id='login' name='login' value='Login' class='button-primary'>
         </form>
     </div>
+    <div class="new-user">
+        <h2>New User?</h2>
+        <p>Register using the UQGO app.</p>
+    </div>
     <div class="login-options">
+        <p><a href="admin-login.php">Are you an admin?</a></p>
+    </div>
+    <div class="footer-info">
+        <p>UQ Wellness | Developed by Silversquad.</p>
     </div>
   </body>
 </html>
