@@ -3,11 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>UQgo</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <?php include "./php/page-elements/header.php";?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $("#nav-item-dashboard").addClass("nav-active-item"); // highlight corresponding nav item in sidebar
+      });
+    </script>
   </head>
   <body>
-  	<h1>Dashboard</h1>
+    <?php include "./php/page-elements/sidebar.php";?>
+    <div class="notification-tray">
+      <p>Hello there.</p>
+    </div>
+    <div class="notification-darkness" onClick="hideNotificationTray();">
+    </div>
+    <div class="content">
+        <h1>Dashboard</h1>
+        <p>contents here</p>
+    </div>
   </body>
 </html>

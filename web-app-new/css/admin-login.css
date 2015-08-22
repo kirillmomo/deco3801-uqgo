@@ -1,0 +1,93 @@
+html, body {
+	margin: 0;
+	color: #FFF;
+}
+
+body {
+	background-color: #49075E;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.center-panel, .new-user {
+	background: #fff;
+	width: 350px;
+	padding: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-panel {
+	margin-top: 10%;
+}
+
+h1 {
+	text-align: center;
+	background: url("../img/logo_purple.png") no-repeat center;
+	background-size: contain;
+	height: 100px;
+	text-indent: -9999px;
+	margin-bottom: 30px;
+}
+
+form {
+	text-align: center;
+	width: 350px;
+	margin-bottom: 0;
+}
+
+form input {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+}
+
+form input[type=submit] {
+	background-color: #8CB800;
+	color: #FFF;
+	border: none;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+#incorrect-message {
+	color: red;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+h2 {
+	margin: 0;
+	margin-bottom: 10px;
+	font-size: 1.5em;
+	color: #49075E;
+	text-align: center;
+}
+
+.login-options {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding-right: 40px;
+}
+
+.login-options a, .footer-info {
+	color: #FFF;
+	text-decoration: none;
+	font-weight: bold;
+	transition: all .2s ease-in;
+}
+
+.login-options a:hover {
+	opacity: .5;
+	transition: all .2s ease-in;
+}
+
+.footer-info {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding-left: 40px;
+}
