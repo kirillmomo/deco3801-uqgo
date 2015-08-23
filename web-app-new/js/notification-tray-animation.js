@@ -8,10 +8,10 @@ function toggleNotificationTray() {
 
 function showNotificationTray() {
   $(".notification-tray").addClass("tray-visible");
-  $(".notification-darkness").fadeIn(300, "swing");
+  $(".notification-darkness").stop().fadeIn(300, "swing");
 }
 
 function hideNotificationTray() {
   $(".notification-tray").removeClass("tray-visible");
-  $(".notification-darkness").fadeOut(300, "swing");
+  $(".notification-darkness").stop().fadeOut(300, "swing");
 }
