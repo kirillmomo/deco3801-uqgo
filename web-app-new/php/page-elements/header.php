@@ -5,3 +5,5 @@
 <link rel="stylesheet" href="./resources/font-awesome-4.4.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./js/notification-tray-animation.js"></script>
+<script src="./js/module-loader.js"></script>
+<link href="./img/icon.png" rel="icon" type="image/png">

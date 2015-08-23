@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/login.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="./img/icon.png" rel="icon" type="image/png">
   </head>
   <body>
   	<div class='center-panel'>
