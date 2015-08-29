@@ -41,6 +41,10 @@
   float: left;
   box-sizing: border-box; }
 
+.row {
+  margin-bottom: 20px;
+}
+
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {
@@ -125,7 +129,12 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", Helvetica, Arial, sans-serif;
-  color: #000; }
+  -webkit-font-feature-settings: "lnum";
+     -moz-font-feature-settings: "lnum";
+      -ms-font-feature-settings: "lnum";
+       -o-font-feature-settings: "lnum";
+          font-feature-settings: "lnum";
+  color: #3A3A3A; }
 
 
 /* Typography

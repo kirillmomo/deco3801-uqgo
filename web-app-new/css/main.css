@@ -60,6 +60,20 @@
 	background-color: #370547;
 }
 
+@media (max-height: 745px) {
+	.sidebar nav a {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+@media (max-height: 685px) {
+	.sidebar nav a {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+}
+
 #notify {
 	background: #DE0076;
 	display: inline-block;
@@ -154,4 +168,31 @@
 	font-size: 2em;
 	position: relative;
 	top: 0.14em;
+}
+
+.info-box {
+	border: 1px solid #EAEAEA;
+	border-radius: 3px;
+	padding: 10px;
+	border-bottom: 3px solid #49075E;
+}
+
+.info-box-header {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0;
+	border-bottom: 1px solid #EAEAEA;
+	padding-bottom: 10px;
+}
+
+.data-text {
+	text-align: center;
+	font-size: 3.0em;
+	color: #49075E;
+	margin: 0;
+}
+
+.data-unit {
+	text-align: center;
+	margin: 0;
 }
