@@ -196,3 +196,25 @@
 	text-align: center;
 	margin: 0;
 }
+
+.info-box canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+.info-box-header span {
+	float: right;
+}
+
+.info-box-header span a {
+	display: inline-block;
+	cursor: pointer;
+	//padding-left: 10px;
+	//padding-right: 10px;
+	margin-right: 15px;
+	font-weight: normal;
+}
+
+.switch-active {
+	font-weight: bold !important;
+}

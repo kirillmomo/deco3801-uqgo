@@ -6,4 +6,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./js/notification-tray-animation.js"></script>
 <script src="./js/module-loader.js"></script>
+<script type="text/javascript">
+	//global variables
+	var chartFillColour = "#49075E";
+	var chartHighlightColour = "#49075E";
+</script>
 <link href="./img/icon.png" rel="icon" type="image/png">

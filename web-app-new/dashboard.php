@@ -8,7 +8,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
           $("#nav-item-dashboard").addClass("nav-active-item"); // highlight corresponding nav item in sidebar
-          loadModule('dashboard-overview-module.php');
+          loadModule('dashboard-overview-module.php', "loadSummaryChart");
       });
     </script>
   </head>
@@ -18,7 +18,7 @@
     <div class="content">
         <h1>Dashboard</h1>
         <nav>
-          <a onClick="highlightNavItem(this); loadModule('dashboard-overview-module.php');" class="subnav-active-item">Overview</a>
+          <a onClick="highlightNavItem(this); loadModule('dashboard-overview-module.php', 'loadSummaryChart');" class="subnav-active-item">Overview</a>
           <a onClick="highlightNavItem(this); loadModule('dashboard-steps-module.php');">Steps</a>
           <a onClick="highlightNavItem(this); loadModule('dashboard-distance-module.php');">Distance</a>
           <a onClick="highlightNavItem(this); loadModule('dashboard-calories-module.php');">Calories</a>
