@@ -118,7 +118,7 @@
 }
 
 .content {
-	border-left: 300px solid #49075E;
+	border-left: 300px solid transparent;
 	padding: 30px;
 }
 
@@ -171,7 +171,7 @@
 }
 
 .info-box {
-	border: 1px solid #EAEAEA;
+	border: 1px solid #D1D1D1;
 	border-radius: 3px;
 	padding: 10px;
 	border-bottom: 3px solid #49075E;
@@ -181,7 +181,7 @@
 	text-transform: uppercase;
 	font-weight: bold;
 	margin: 0;
-	border-bottom: 1px solid #EAEAEA;
+	border-bottom: 1px solid #D1D1D1;
 	padding-bottom: 10px;
 }
 

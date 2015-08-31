@@ -16,6 +16,8 @@ body {
 	padding: 30px;
 	margin-left: auto;
 	margin-right: auto;
+	animation: slideIn .3s ease-in-out;
+	animation-fill-mode: forwards;
 }
 
 .center-panel {
@@ -64,6 +66,8 @@ form input[type=submit] {
 	padding-top: 15px;
 	padding-bottom: 15px; 
 	color: #49075E;
+	opacity: 0;
+	animation-delay: .3s;
 }
 
 .new-user h2 {
@@ -100,4 +104,9 @@ form input[type=submit] {
 	bottom: 0;
 	left: 0;
 	padding-left: 40px;
+}
+
+@keyframes slideIn {
+	0% {transform: translate(0px, -30px); opacity: 0;}
+	100% {transform: translate(0px, 0px); opacity: 1;}
 }
