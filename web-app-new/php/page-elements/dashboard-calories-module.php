@@ -1,18 +1,11 @@
-<!-- Module for Dashboard Overview -->
+<!-- Module for Dashboard Calories -->
 <div class="container">
 	<div class="row">
 		<div class="four columns">
 			<div class="info-box">
-				<p class="info-box-header">Steps This Week</p>
+				<p class="info-box-header">Calories Today</p>
 				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
-				<p class="data-unit">steps</p>
-			</div>
-		</div>
-		<div class="four columns">
-			<div class="info-box">
-				<p class="info-box-header">Distance This Week</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
-				<p class="data-unit">km</p>
+				<p class="data-unit">kcal</p>
 			</div>
 		</div>
 		<div class="four columns">
@@ -22,28 +15,42 @@
 				<p class="data-unit">kcal</p>
 			</div>
 		</div>
+		<div class="four columns">
+			<div class="info-box">
+				<p class="info-box-header">Calories This Month</p>
+				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-unit">kcal</p>
+			</div>
+		</div>
 	</div>
 	<div class="row">
-		<div class="twelve columns">
+		<div class="eight columns">
 			<div class="info-box">
-				<p class="info-box-header">Weekly Summary <span id="switch-chart-modes"><a class="switch-active" onClick="switchChartMode(1)">Steps</a><a onClick="switchChartMode(2)">Distance</a><a onClick="switchChartMode(3)">Calories</a></span></p>
-				<canvas id="weekly-summary-chart" width="650" height="350"></canvas>
+				<p class="info-box-header">Calories Over Time<span id="switch-chart-modes"><a class="switch-active" onClick="switchChartMode(1)">Today</a><a onClick="switchChartMode(2)">This Week</a><a onClick="switchChartMode(3)">This Month</a></span></p>
+				<canvas id="steps-chart" width="575" height="350"></canvas>
+			</div>
+		</div>
+		<div class="four columns">
+			<div class="info-box">
+				<p class="info-box-header">Calories All Time</p>
+				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-unit">kcal</p>
 			</div>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-	var summaryChart;
+	var chart;
 
-	function loadSummaryChart(mode) {
-		if (summaryChart === undefined) {
+	function loadStepsChart(mode) {
+		if (chart === undefined) {
 			console.log("no chart");
 		} else {
 			console.log("clearing chart");
-			summaryChart.clear();
-			summaryChart.destroy();
+			chart.clear();
+			chart.destroy();
 		}
-		var ctx = $("#weekly-summary-chart").get(0).getContext("2d");
+		var ctx = $("#steps-chart").get(0).getContext("2d");
 		var data;
 
 		switch (mode) {
@@ -52,7 +59,7 @@
 				    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 				    datasets: [
 				        {
-				            label: "Steps Today",
+				            label: "Calories Today",
 				            fillColor: chartFillColour,
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
@@ -67,7 +74,7 @@
 				    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 				    datasets: [
 				        {
-				            label: "Steps This Week",
+				            label: "Calories This Week",
 				            fillColor: chartFillColour,
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
@@ -83,7 +90,7 @@
 				    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 				    datasets: [
 				        {
-				            label: "Steps This Month",
+				            label: "Calories This Month",
 				            fillColor: chartFillColour,
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
@@ -93,7 +100,7 @@
 				    ]
 				};
 		}
-		summaryChart = new Chart(ctx).Bar(data, {
+		chart = new Chart(ctx).Bar(data, {
 				barShowStroke: false,
 				responsive: false,
 				scaleFontFamily: "'Raleway', 'Helvetica', 'Arial', sans-serif"
@@ -106,6 +113,6 @@
 			$(this).removeClass("switch-active");
 		});
 		$("#switch-chart-modes > a:nth-child(" + mode + ")").addClass("switch-active");
-		loadSummaryChart(mode);
+		loadStepsChart(mode);
 	}
 </script>

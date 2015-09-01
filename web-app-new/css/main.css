@@ -75,13 +75,19 @@
 }
 
 #notify {
-	background: #DE0076;
+	color: #DE0076;
 	display: inline-block;
-	padding: 0px 10px;
-	width: 40px;
-	margin-left: 20px;
-	text-align: center;
-	border-radius: 10px;
+	margin-left: 40px;
+	animation: notifyAnim .3s ease-in-out;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+@keyframes notifyAnim {
+	0%		{transform: scale(0.1);}
+	50%		{transform: scale(4);}
+	100%	{transform: scale(1); opacity: 1;}
 }
 
 #nav-item-notifications {

@@ -18,10 +18,10 @@
     <div class="content">
         <h1>Dashboard</h1>
         <nav>
-          <a onClick="highlightNavItem(this); loadModule('dashboard-overview-module.php', 'loadSummaryChart');" class="subnav-active-item">Overview</a>
-          <a onClick="highlightNavItem(this); loadModule('dashboard-steps-module.php');">Steps</a>
-          <a onClick="highlightNavItem(this); loadModule('dashboard-distance-module.php');">Distance</a>
-          <a onClick="highlightNavItem(this); loadModule('dashboard-calories-module.php');">Calories</a>
+          <a onClick="highlightNavItem(this); loadModule('dashboard-overview-module.php', 'switchChartMode');" class="subnav-active-item">Overview</a>
+          <a onClick="highlightNavItem(this); loadModule('dashboard-steps-module.php', 'switchChartMode');">Steps</a>
+          <a onClick="highlightNavItem(this); loadModule('dashboard-distance-module.php', 'switchChartMode');">Distance</a>
+          <a onClick="highlightNavItem(this); loadModule('dashboard-calories-module.php', 'switchChartMode');">Calories</a>
           <a onClick="highlightNavItem(this); loadModule('dashboard-map-module.php');">Map</a>
         </nav>
         <div class="module-content">
