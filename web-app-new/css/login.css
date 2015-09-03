@@ -1,3 +1,5 @@
+/*Styling specific for Login page*/
+
 html, body {
 	margin: 0;
 	color: #FFF;
@@ -109,6 +111,7 @@ form input[type=submit] {
 	padding-left: 40px;
 }
 
+/*Animations*/
 @keyframes slideIn {
 	0% {transform: translate(0px, -30px); opacity: 0;}
 	100% {transform: translate(0px, 0px); opacity: 1;}

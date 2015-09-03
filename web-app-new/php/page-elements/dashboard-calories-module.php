@@ -27,7 +27,7 @@
 		<div class="eight columns">
 			<div class="info-box">
 				<p class="info-box-header">Calories Over Time<span id="switch-chart-modes"><a class="switch-active" onClick="switchChartMode(1)">Today</a><a onClick="switchChartMode(2)">This Week</a><a onClick="switchChartMode(3)">This Month</a></span></p>
-				<canvas id="steps-chart"></canvas>
+				<canvas id="calories-chart"></canvas>
 			</div>
 		</div>
 		<div class="four columns">
@@ -42,7 +42,7 @@
 <script type="text/javascript">
 	var chart;
 
-	function loadStepsChart(mode) {
+	function loadCaloriesChart(mode) {
 		if (chart === undefined) {
 			console.log("no chart");
 		} else {
@@ -50,7 +50,7 @@
 			chart.clear();
 			chart.destroy();
 		}
-		var ctx = $("#steps-chart").get(0).getContext("2d");
+		var ctx = $("#calories-chart").get(0).getContext("2d");
 		var data;
 
 		switch (mode) {
@@ -109,6 +109,6 @@
 			$(this).removeClass("switch-active");
 		});
 		$("#switch-chart-modes > a:nth-child(" + mode + ")").addClass("switch-active");
-		loadStepsChart(mode);
+		loadCaloriesChart(mode);
 	}
 </script>

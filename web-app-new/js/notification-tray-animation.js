@@ -1,3 +1,5 @@
+/* Notification tray animations */
+
 function toggleNotificationTray() {
   if (!$(".notification-tray").hasClass("tray-visible")) {
     showNotificationTray();
@@ -14,4 +16,8 @@ function showNotificationTray() {
 function hideNotificationTray() {
   $(".notification-tray").removeClass("tray-visible");
   $(".notification-darkness").stop().fadeOut(300, "swing");
+}
+
+function dismissNotificationItem() {
+
 }

@@ -97,7 +97,7 @@
 	}
 
 	function switchChartMode(mode) {
-		if (mode === undefined) {mode = 3} // set default mode
+		if (mode === undefined) {mode = 1} // set default mode
 		$("#switch-chart-modes > a").each(function() {
 			$(this).removeClass("switch-active");
 		});

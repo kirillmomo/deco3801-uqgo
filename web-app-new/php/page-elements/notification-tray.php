@@ -1,3 +1,4 @@
+<!-- Notification tray element -->
 <div class="notification-tray">
   <p>Hello there.</p>
 </div>

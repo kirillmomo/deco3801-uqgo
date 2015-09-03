@@ -1,3 +1,4 @@
+<!-- Header file for main pages -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=all' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/skeleton.css">
@@ -7,7 +8,7 @@
 <script src="./js/notification-tray-animation.js"></script>
 <script src="./js/module-loader.js"></script>
 <script type="text/javascript">
-	//global variables
+	//Global variables
 	var chartFillColour = "#49075E";
 	var chartHighlightColour = "#49075E";
 	var chartOptions = {
