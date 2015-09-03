@@ -10,5 +10,10 @@
 	//global variables
 	var chartFillColour = "#49075E";
 	var chartHighlightColour = "#49075E";
+	var chartOptions = {
+		barShowStroke: false,
+		responsive: true,
+		scaleFontFamily: "'Raleway', 'Helvetica', 'Arial', sans-serif"
+	}
 </script>
 <link href="./img/icon.png" rel="icon" type="image/png">

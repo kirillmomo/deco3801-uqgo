@@ -27,7 +27,7 @@
 		<div class="twelve columns">
 			<div class="info-box">
 				<p class="info-box-header">Weekly Summary <span id="switch-chart-modes"><a class="switch-active" onClick="switchChartMode(1)">Steps</a><a onClick="switchChartMode(2)">Distance</a><a onClick="switchChartMode(3)">Calories</a></span></p>
-				<canvas id="weekly-summary-chart" width="650" height="350"></canvas>
+				<canvas id="weekly-summary-chart"></canvas>
 			</div>
 		</div>
 	</div>
@@ -93,11 +93,7 @@
 				    ]
 				};
 		}
-		summaryChart = new Chart(ctx).Bar(data, {
-				barShowStroke: false,
-				responsive: false,
-				scaleFontFamily: "'Raleway', 'Helvetica', 'Arial', sans-serif"
-			});
+		summaryChart = new Chart(ctx).Bar(data, chartOptions);
 	}
 
 	function switchChartMode(mode) {
