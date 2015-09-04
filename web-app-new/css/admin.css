@@ -1,0 +1,5 @@
+/*Styling specific for the administrator interface*/
+
+.admin .sidebar p:first-child {
+  margin-top: 35px;
+}
