@@ -1,3 +1,10 @@
+<?php
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/login.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/connect.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/login.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +21,12 @@
   	<div class='center-panel'>
         <h1>UQgo</h1>
         <form id='login-form' method='POST' class='center'>
-            <p id="incorrect-message">Incorrect username or password.</p>
+        <?php 
+        if($num_data==0)
+          {
+            ?><p id="incorrect-message"><?php echo $error_msg ?></p><?php
+          }
+        ?>
           <input type='text' id='username' name='username' placeholder='Username' required>
           <input type='password' id='password' name='password' placeholder='Password' required>
           <input type='submit' id='login' name='login' value='Login' class='button-primary'>

@@ -1,24 +1,28 @@
+<?php
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/data.php');
+?>
 <!-- Module for Dashboard Calories -->
 <div class="container">
 	<div class="row">
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Calories Today</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $day_calories?></p>
 				<p class="data-unit">kcal</p>
 			</div>
 		</div>
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Calories This Week</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $week_calories?></p>
 				<p class="data-unit">kcal</p>
 			</div>
 		</div>
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Calories This Month</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $month_calories?></p>
 				<p class="data-unit">kcal</p>
 			</div>
 		</div>
@@ -33,7 +37,7 @@
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Calories All Time</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $total_calories?></p>
 				<p class="data-unit">kcal</p>
 			</div>
 		</div>
@@ -79,7 +83,7 @@
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
 				            highlightStroke: "rgba(220,220,220,1)",
-				            data: [35, 49, 70, 32, 41, 65, 12]
+				            data: [mon_cal,tue_cal,wed_cal,thu_cal,fri_cal,sat_cal,sun_cal]
 				        }
 				    ]
 				};
@@ -87,7 +91,7 @@
 			case 3:
 			default:
 				data = {
-				    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+				    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" ],
 				    datasets: [
 				        {
 				            label: "Calories This Month",
@@ -95,7 +99,7 @@
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
 				            highlightStroke: "rgba(220,220,220,1)",
-				            data: [12, 43, 25, 52, 83, 27, 56]
+				            data: month_graph_cal
 				        }
 				    ]
 				};

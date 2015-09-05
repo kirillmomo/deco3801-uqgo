@@ -1,24 +1,28 @@
+<?php
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/data.php');
+?>
 <!-- Module for Dashboard Overview -->
 <div class="container">
 	<div class="row">
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Steps This Week</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $week_step?></p>
 				<p class="data-unit">steps</p>
 			</div>
 		</div>
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Distance This Week</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $week_distance?></p>
 				<p class="data-unit">km</p>
 			</div>
 		</div>
 		<div class="four columns">
 			<div class="info-box">
 				<p class="info-box-header">Calories This Week</p>
-				<p class="data-text"><i class="fa fa-circle-o-notch fa-spin"></i></p>
+				<p class="data-text"><?php echo $week_calories?></p>
 				<p class="data-unit">kcal</p>
 			</div>
 		</div>
@@ -57,7 +61,7 @@
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
 				            highlightStroke: "rgba(220,220,220,1)",
-				            data: [65, 59, 80, 81, 56, 55, 40]
+				            data: [mon_step,tue_step,wed_step,thu_step,fri_step,sat_step,sun_step]
 				        }
 				    ]
 				};
@@ -72,7 +76,7 @@
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
 				            highlightStroke: "rgba(220,220,220,1)",
-				            data: [35, 49, 70, 32, 41, 65, 12]
+				            data: [mon_distance,tue_distance,wed_distance,thu_distance,fri_distance,sat_distance,sun_distance]
 				        }
 				    ]
 				};
@@ -88,7 +92,7 @@
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
 				            highlightStroke: "rgba(220,220,220,1)",
-				            data: [12, 43, 25, 52, 83, 27, 56]
+				            data: [mon_cal,tue_cal,wed_cal,thu_cal,fri_cal,sat_cal,sun_cal]
 				        }
 				    ]
 				};

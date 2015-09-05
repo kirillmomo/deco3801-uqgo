@@ -1,7 +1,12 @@
+<?php
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/data.php');
+?>
+
 <div class="sidebar">
     <div class="user-display">
         <div class="user-display-image"></div>
-        <p id="user-display-name"><?php echo "%Echo Name%"; ?></p>
+        <p id="user-display-name"><?php echo $user_name; ?></p>
     </div>
     <nav>
         <a href="dashboard.php" id="nav-item-dashboard"><i class="fa fa-area-chart fa-fw"></i>&nbsp;Dashboard</a>
@@ -9,6 +14,6 @@
         <a href="challenges.php" id="nav-item-challenges"><i class="fa fa-calendar-check-o fa-fw"></i>&nbsp;Challenges</a>
         <a onClick="toggleNotificationTray()" id="nav-item-notifications"><i class="fa fa-bell fa-fw"></i>&nbsp;Notifications&nbsp;<i id="notify" class="fa fa-star"></i></a>
         <a href="settings.php" id="nav-item-settings"><i class="fa fa-cog fa-fw"></i>&nbsp;Settings</a>
-        <a href="./php/scripts/logout.php" id="nav-item-logout"><i class="fa fa-close fa-fw"></i>&nbsp;Logout</a>
+        <a href="./php/function/logout.php" id="nav-item-logout"><i class="fa fa-close fa-fw"></i>&nbsp;Logout</a>
     </nav>
 </div>
