@@ -1,6 +1,8 @@
 <?php
-// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/data.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/data.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/session_start.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/distance_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 ?>
 <!-- Module for Dashboard Distance -->
 <div class="container">
