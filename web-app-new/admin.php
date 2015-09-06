@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if(empty($_SESSION['admin_id'])){
+    header('Location: /v0-1/admin-login.php');
+  // header('Location: /Beta/web-app-new/admin-login.php');
+  }    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +22,7 @@
         </div>
         <nav>
             <a href="admin.php" id="nav-item-report" class="nav-active-item"><i class="fa fa-area-chart fa-fw"></i>&nbsp;Reports</a>
-            <a href="./php/scripts/admin-logout.php" id="nav-item-logout"><i class="fa fa-close fa-fw"></i>&nbsp;Logout</a>
+            <a href="./php/function/admin_logout.php" id="nav-item-logout"><i class="fa fa-close fa-fw"></i>&nbsp;Logout</a>
         </nav>
     </div>
     <?php include "./php/page-elements/notification-tray.php";?>

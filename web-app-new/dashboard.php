@@ -1,10 +1,14 @@
 <?php 
 // include "./php/page-elements/sidebar.php";
 // include "./php/page-elements/notification-tray.php";
-//include "./php/page-elements/header.php";
+// include "./php/page-elements/header.php";
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/sidebar.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/notification-tray.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/header.php');    
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/header.php');
+  if(empty($_SESSION['user_id'])){
+    header('Location: /v0-1/index.php');
+  // header('Location: /Beta/web-app-new/index.php');
+  }    
 ?>
 
 <!DOCTYPE html>

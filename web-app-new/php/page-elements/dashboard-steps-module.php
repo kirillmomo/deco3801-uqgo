@@ -32,7 +32,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/step_data.php');
 	<div class="row">
 		<div class="eight columns">
 			<div class="info-box">
-				<p class="info-box-header">Steps Over Time<span id="switch-chart-modes"><a class="switch-active" onClick="switchChartMode(1)">Today</a><a onClick="switchChartMode(2)">This Week</a><a onClick="switchChartMode(3)">This Month</a></span></p>
+				<p class="info-box-header">Steps Over Time<span id="switch-chart-modes"><a class="switch-active" onClick="switchChartMode(1)">Today</a><a onClick="switchChartMode(2)">This Week</a><a onClick="switchChartMode(3)">Monthly</a></span></p>
 				<canvas id="steps-chart"></canvas>
 			</div>
 		</div>

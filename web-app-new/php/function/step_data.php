@@ -2,9 +2,6 @@
 	include('connect.php');
 
 	//if user hasn't logged in, go back to login page
-	if(empty($_SESSION['user_id'])){
-		header('Location: /Beta/web-app-new/index.php');
-	}
 
 	echo "
 		<script>
@@ -75,10 +72,10 @@
 	$total_month_step = 0;
 	$total_month_calories = 0;
 
-	$total_query = "SELECT * FROM session WHERE user_id = '$user_id'";
-	$day_query = "SELECT * FROM session WHERE user_id = '$user_id' AND date = CURDATE()";
-	$week_query = "SELECT * FROM session WHERE user_id = '$user_id' AND WEEK(date)= WEEK(NOW())";
-	$month_query = "SELECT * FROM session WHERE user_id = '$user_id' AND MONTH(date)= MONTH(NOW())";	
+	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
+	$day_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW())";
+	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
+	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";	
 
 	$total_data = mysql_query($total_query,$dbconn);
 	$day_data = mysql_query($day_query,$dbconn);
@@ -88,34 +85,34 @@
 
 	while($week_graph_step_row = mysql_fetch_array($week_graph_step_data))
 		{
-			$date=date("D", strtotime($week_graph_step_row['date']));
+			$date=date("D", strtotime($week_graph_step_row['session_date']));
 			if($date=="Mon")
 				{
-					$mon_step_data = $mon_step_data + $week_graph_step_row['steps'];
+					$mon_step_data = $mon_step_data + $week_graph_step_row['session_steps'];
 				}
 			else if ($date=="Tue") 
 				{
-					$tue_step_data = $tue_step_data + $week_graph_step_row['steps'];
+					$tue_step_data = $tue_step_data + $week_graph_step_row['session_steps'];
 				}
 			else if ($date=="Wed") 
 				{
-					$wed_step_data = $wed_step_data + $week_graph_step_row['steps'];
+					$wed_step_data = $wed_step_data + $week_graph_step_row['session_steps'];
 				}
 			else if ($date=="Thu") 
 				{
-					$thu_step_data = $thu_step_data + $week_graph_step_row['steps'];
+					$thu_step_data = $thu_step_data + $week_graph_step_row['session_steps'];
 				}
 			else if ($date=="Fri") 
 				{
-					$fri_step_data = $fri_step_data + $week_graph_step_row['steps'];
+					$fri_step_data = $fri_step_data + $week_graph_step_row['session_steps'];
 				}
 			else if ($date=="Sat") 
 				{
-					$sat_step_data = $sat_step_data + $week_graph_step_row['steps'];
+					$sat_step_data = $sat_step_data + $week_graph_step_row['session_steps'];
 				}
 			else if ($date=="Sun") 
 				{
-					$sun_step_data = $sun_step_data + $week_graph_step_row['steps'];
+					$sun_step_data = $sun_step_data + $week_graph_step_row['session_steps'];
 				}
 		}
 
@@ -153,14 +150,14 @@
 
 	for ($x = 0; $x <= 11; $x++) 
 	{
-    $month_graph_step_query = "SELECT * FROM session WHERE user_id = '$user_id' AND MONTH(date)=".$x."+1";
+    $month_graph_step_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)=".$x."+1";
     $month_graph_step_data = mysql_query($month_graph_step_query,$dbconn);
     $month_graph_step_display[$x] = 0;
     $month_graph_cal_display[$x] = 0;
     	
 	    while($month_graph_step_row = mysql_fetch_array($month_graph_step_data))
 		{
-			$month_graph_step_display[$x] = $month_graph_step_display[$x]+$month_graph_step_row['steps'];
+			$month_graph_step_display[$x] = $month_graph_step_display[$x]+$month_graph_step_row['session_steps'];
 		}
 
 		$month_graph_cal_display[$x] = $month_graph_step_display[$x]/20;
@@ -176,19 +173,19 @@
 
 	while($total_row = mysql_fetch_array($total_data))
 	{
-		$total_total_step = $total_total_step+$total_row['steps'];
+		$total_total_step = $total_total_step+$total_row['session_steps'];
 	}
 	while($day_row = mysql_fetch_array($day_data))
 	{
-		$total_day_step = $total_day_step+$day_row['steps'];
+		$total_day_step = $total_day_step+$day_row['session_steps'];
 	}
 	while($week_row = mysql_fetch_array($week_data))
 	{
-		$total_week_step = $total_week_step+$week_row['steps'];
+		$total_week_step = $total_week_step+$week_row['session_steps'];
 	}
 	while($month_row = mysql_fetch_array($month_data))
 	{
-		$total_month_step = $total_month_step+$month_row['steps'];
+		$total_month_step = $total_month_step+$month_row['session_steps'];
 	}
 
 	$total_step = $total_total_step;

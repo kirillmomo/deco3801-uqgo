@@ -2,9 +2,6 @@
 	include('connect.php');
 
 	//if user hasn't logged in, go back to login page
-	if(empty($_SESSION['user_id'])){
-		header('Location: /Beta/web-app-new/index.php');
-	}
 
 	echo "
 		<script>
@@ -49,10 +46,10 @@
 
 	$total_month_distance = 0;
 
-	$total_query = "SELECT * FROM session WHERE user_id = '$user_id'";
-	$day_query = "SELECT * FROM session WHERE user_id = '$user_id' AND date = CURDATE()";
-	$week_query = "SELECT * FROM session WHERE user_id = '$user_id' AND WEEK(date)= WEEK(NOW())";
-	$month_query = "SELECT * FROM session WHERE user_id = '$user_id' AND MONTH(date)= MONTH(NOW())";	
+	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
+	$day_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW())";
+	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
+	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";	
 
 	$total_data = mysql_query($total_query,$dbconn);
 	$day_data = mysql_query($day_query,$dbconn);
@@ -62,34 +59,34 @@
 
 	while($week_graph_distance_row = mysql_fetch_array($week_graph_distance_data))
 	{
-		$date=date("D", strtotime($week_graph_distance_row['date']));
+		$date=date("D", strtotime($week_graph_distance_row['session_date']));
 		if($date=="Mon")
 			{
-				$mon_distance_data = $mon_distance_data + $week_graph_distance_row['distance'];
+				$mon_distance_data = $mon_distance_data + $week_graph_distance_row['session_distance'];
 			}
 		else if ($date=="Tue") 
 			{
-				$tue_distance_data = $tue_distance_data + $week_graph_distance_row['distance'];
+				$tue_distance_data = $tue_distance_data + $week_graph_distance_row['session_distance'];
 			}
 		else if ($date=="Wed") 
 			{
-				$wed_distance_data = $wed_distance_data + $week_graph_distance_row['distance'];
+				$wed_distance_data = $wed_distance_data + $week_graph_distance_row['session_distance'];
 			}
 		else if ($date=="Thu") 
 			{
-				$thu_distance_data = $thu_distance_data + $week_graph_distance_row['distance'];
+				$thu_distance_data = $thu_distance_data + $week_graph_distance_row['session_distance'];
 			}
 		else if ($date=="Fri") 
 			{
-				$fri_distance_data = $fri_distance_data + $week_graph_distance_row['distance'];
+				$fri_distance_data = $fri_distance_data + $week_graph_distance_row['session_distance'];
 			}
 		else if ($date=="Sat") 
 			{
-				$sat_distance_data = $sat_distance_data + $week_graph_distance_row['distance'];
+				$sat_distance_data = $sat_distance_data + $week_graph_distance_row['session_distance'];
 			}
 		else if ($date=="Sun") 
 			{
-				$sun_distance_data = $sun_distance_data + $week_graph_distance_row['distance'];
+				$sun_distance_data = $sun_distance_data + $week_graph_distance_row['session_distance'];
 			}
 	}
 
@@ -107,13 +104,13 @@
 
 	for ($x = 0; $x <= 11; $x++) 
 	{
-    $month_graph_distance_query = "SELECT * FROM session WHERE user_id = '$user_id' AND MONTH(date)=".$x."+1";
+    $month_graph_distance_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)=".$x."+1";
     $month_graph_distance_data = mysql_query($month_graph_distance_query,$dbconn);
     $month_graph_distance_display[$x] = 0;
 
 		while($month_graph_distance_row = mysql_fetch_array($month_graph_distance_data))
 		{
-			$month_graph_distance_display[$x] = $month_graph_distance_display[$x]+$month_graph_distance_row['distance'];
+			$month_graph_distance_display[$x] = $month_graph_distance_display[$x]+$month_graph_distance_row['session_distance'];
 		}
 
 	echo "
@@ -126,19 +123,19 @@
 
 	while($total_row = mysql_fetch_array($total_data))
 	{
-		$total_total_distance = $total_total_distance+$total_row['distance'];
+		$total_total_distance = $total_total_distance+$total_row['session_distance'];
 	}
 	while($day_row = mysql_fetch_array($day_data))
 	{
-		$total_day_distance = $total_day_distance+$day_row['distance'];
+		$total_day_distance = $total_day_distance+$day_row['session_distance'];
 	}
 	while($week_row = mysql_fetch_array($week_data))
 	{
-		$total_week_distance = $total_week_distance+$week_row['distance'];
+		$total_week_distance = $total_week_distance+$week_row['session_distance'];
 	}
 	while($month_row = mysql_fetch_array($month_data))
 	{
-		$total_month_distance = $total_month_distance+$month_row['distance'];
+		$total_month_distance = $total_month_distance+$month_row['session_distance'];
 	}
 
 	$total_distance = $total_total_distance;
