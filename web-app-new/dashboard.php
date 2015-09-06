@@ -1,9 +1,17 @@
+<?php 
+// include "./php/page-elements/sidebar.php";
+// include "./php/page-elements/notification-tray.php";
+//include "./php/page-elements/header.php";
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/sidebar.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/notification-tray.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/page-elements/header.php');    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>UQGO - Dashboard</title>
-    <?php include "./php/page-elements/header.php";?>
     <script src="./js/Chart.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
@@ -13,8 +21,6 @@
     </script>
   </head>
   <body>
-    <?php include "./php/page-elements/sidebar.php";?>
-    <?php include "./php/page-elements/notification-tray.php";?>
     <div class="content">
         <h1>Dashboard</h1>
         <nav>

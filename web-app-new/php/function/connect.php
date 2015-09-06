@@ -2,7 +2,7 @@
 	
 	$logindetail = array();
 	$i=0;
-	$file = fopen("detail.txt","r");
+	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-1/detail.txt","r");
 
 	while(! feof($file))
 	  {
