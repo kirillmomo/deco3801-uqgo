@@ -17,10 +17,9 @@
     <div class="content">
         <h1>Challenges</h1>
         <nav>
-          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');" class="subnav-active-item">Module1</a>
-          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');">Module2</a>
-          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');">Module3</a>
-          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');">Module4</a>
+          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');" class="subnav-active-item">Joined</a>
+          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');">Create</a>
+          <a onClick="highlightNavItem(this); loadModule('challenges-xxx-module.php');">Discover</a>
         </nav>
         <div class="module-content">
           <!-- module content will load here automatically -->

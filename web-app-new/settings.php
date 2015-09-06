@@ -17,10 +17,8 @@
     <div class="content">
         <h1>Settings</h1>
         <nav>
-          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');" class="subnav-active-item">Module1</a>
-          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');">Module2</a>
-          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');">Module3</a>
-          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');">Module4</a>
+          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');" class="subnav-active-item">Account</a>
+          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');">Notifications</a>
         </nav>
         <div class="module-content">
           <!-- module content will load here automatically -->

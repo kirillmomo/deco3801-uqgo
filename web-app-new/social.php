@@ -7,7 +7,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
           $("#nav-item-social").addClass("nav-active-item"); // highlight corresponding nav item in sidebar
-          loadModule('social-xxx-module.php');
+          loadModule('social-profile-module.php');
       });
     </script>
   </head>
@@ -17,10 +17,10 @@
     <div class="content">
         <h1>Social</h1>
         <nav>
-          <a onClick="highlightNavItem(this); loadModule('social-xxx-module.php');" class="subnav-active-item">Module1</a>
-          <a onClick="highlightNavItem(this); loadModule('social-xxx-module.php');">Module2</a>
-          <a onClick="highlightNavItem(this); loadModule('social-xxx-module.php');">Module3</a>
-          <a onClick="highlightNavItem(this); loadModule('social-xxx-module.php');">Module4</a>
+          <a onClick="highlightNavItem(this); loadModule('social-profile-module.php');" class="subnav-active-item">Profile</a>
+          <a onClick="highlightNavItem(this); loadModule('social-friends-module.php');">Friends</a>
+          <a onClick="highlightNavItem(this); loadModule('social-groups-module.php');">Groups</a>
+          <a onClick="highlightNavItem(this); loadModule('social-discover-module.php');">Discover</a>
         </nav>
         <div class="module-content">
           <!-- module content will load here automatically -->
