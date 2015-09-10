@@ -52,7 +52,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/step_data.php');
 <script type="text/javascript">
 	var chart;
 
+	// Loads calorie chart data (day, week, monthly)
 	function loadCaloriesChart(mode) {
+		// Clear previous charts
 		if (chart === undefined) {
 			console.log("no chart");
 		} else {
@@ -60,9 +62,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/step_data.php');
 			chart.clear();
 			chart.destroy();
 		}
-		var ctx = $("#calories-chart").get(0).getContext("2d");
-		var data;
 
+		// Get canvas context
+		var ctx = $("#calories-chart").get(0).getContext("2d");
+
+		// Set chart data based on mode
+		var data;
 		switch (mode) {
 			case 1:
 				data = {
@@ -113,6 +118,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/step_data.php');
 		chart = new Chart(ctx).Bar(data, chartOptions);
 	}
 
+	// Changes chart data and highlights active switch
 	function switchChartMode(mode) {
 		if (mode === undefined) {mode = 3} // set default mode
 		$("#switch-chart-modes > a").each(function() {
