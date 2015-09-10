@@ -1,5 +1,5 @@
 <?php
-	
+	// find detail.txt for SQL username and password and store in array
 	$logindetail = array();
 	$i=0;
 	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-1/detail.txt","r");
@@ -21,9 +21,10 @@
 	$dbname = "uq_go_db";	
 	$dbconn = mysql_connect($dbhost, $dbuser, $dbpass);
 	
+	// if unable connect to the database, show error
 	if(! $dbconn )
-{
-  die('Could not connect: ' . mysql_error());
-}
+	{
+	  die('Could not connect: ' . mysql_error());
+	}
 	mysql_select_db($dbname);
 ?>

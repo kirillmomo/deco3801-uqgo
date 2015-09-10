@@ -1,4 +1,7 @@
 <?php
+
+// Include connect and login file.
+
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/login.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/connect.php');
@@ -10,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/login.php');
   <head>
     <meta charset="utf-8">
     <title>UQGO</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700&subset=all' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/login.css">
@@ -18,9 +21,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/login.php');
     <link href="./img/icon.png" rel="icon" type="image/png">
   </head>
   <body>
-  	<div class='center-panel'>
+    <div class='center-panel'>
         <h1>UQgo</h1>
         <form id='login-form' method='POST' class='center'>
+         <!-- Display login error message from user login file when login error -->
         <?php 
         if($num_data==0)
           {

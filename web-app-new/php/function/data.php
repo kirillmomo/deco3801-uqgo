@@ -1,4 +1,5 @@
 <?php
+	// include connect php file
 	include('connect.php');
 	session_start();
 
@@ -7,6 +8,7 @@
 		header('Location: /Beta/web-app-new/index.php');
 	}
 
+	// define variables for JS 
 	echo "
 		<script>
 			var month_graph_step=[];
@@ -39,6 +41,7 @@
 		</script>
 	";
 
+	// define variables for PHP
 	$user_id = $_SESSION['user_id'];
 	$user_name="";
 
@@ -102,6 +105,7 @@
 	$total_month_distance = 0;
 	$total_month_calories = 0;
 
+	// All SQL query
 	$total_query = "SELECT * FROM session WHERE user_id = '$user_id'";
 	$user_query = "SELECT * FROM user WHERE user_id = '$user_id'";
 	$day_query = "SELECT * FROM session WHERE user_id = '$user_id' AND date = CURDATE()";
@@ -116,11 +120,13 @@
 	$week_graph_step_data = mysql_query($week_query,$dbconn);
 	$week_graph_distance_data = mysql_query($week_query,$dbconn);
 
+	// Store the user data into array
 	while($user_row = mysql_fetch_array($user_data))
 		{
 			$user_name = $user_row['username'];
 		}
 
+	// Store user week step data into array 
 	while($week_graph_step_row = mysql_fetch_array($week_graph_step_data))
 		{
 			$date=date("D", strtotime($week_graph_step_row['date']));
@@ -153,7 +159,7 @@
 					$sun_step_data = $sun_step_data + $week_graph_step_row['steps'];
 				}
 		}
-
+	// Store user week data into js array
 	echo "
 			<script>
 				mon_step = ".json_encode($mon_step_data).";
@@ -165,7 +171,8 @@
 				sun_step = ".json_encode($sun_step_data).";
 			</script>
 		";
-
+		
+	// Store user week step data into array 	
 	while($week_graph_distance_row = mysql_fetch_array($week_graph_distance_data))
 	{
 		$date=date("D", strtotime($week_graph_distance_row['date']));

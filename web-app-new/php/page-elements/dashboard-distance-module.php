@@ -1,4 +1,7 @@
 <?php
+
+// Include session_start and distance_data file.
+
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/distance_data.php');
@@ -45,6 +48,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 		</div>
 	</div>
 </div>
+
+<!-- JS for dashboard distance chart -->
 <script type="text/javascript">
 	var chart;
 

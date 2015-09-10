@@ -1,4 +1,7 @@
 <?php
+
+// Include connect and admin_login file.
+
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/admin_login.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/connect.php');
@@ -22,6 +25,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/admin_login.php');
         <h1>UQgo</h1>
         <h2>Admin Login</h2>
         <form id='login-form' method='POST' class='center'>
+        <!-- Display login error message from admin_login file when login error -->
             <?php 
             if($num_data==0)
               {

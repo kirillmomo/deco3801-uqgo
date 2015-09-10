@@ -1,4 +1,7 @@
 <?php
+
+// Include session_start and user_data file.
+
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/user_data.php');

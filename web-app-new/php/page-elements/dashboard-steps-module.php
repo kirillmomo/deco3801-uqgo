@@ -1,4 +1,7 @@
 <?php
+
+// Include session_start and step_data file.
+
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/step_data.php');
@@ -45,6 +48,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/step_data.php');
 		</div>
 	</div>
 </div>
+<!-- JS for dashboard step chart -->
 <script type="text/javascript">
 	var chart;
 

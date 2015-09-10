@@ -1,8 +1,9 @@
 <?php
+
+	// Include connect php file
 	include('connect.php');
 
-	//if user hasn't logged in, go back to login page
-
+	// Define user variable
 	$user_id = $_SESSION['user_id'];
 	$user_name="";
 	$first_name="";
@@ -14,7 +15,8 @@
 	$user_challenges_number=0;
 	$friend_list_display=array();
 	$x=0;
-
+	
+	// SQL query
 	$user_query = "SELECT * FROM user WHERE user_id = '$user_id'";	
 	$user_friend_query = "SELECT * FROM friends WHERE user_id = '$user_id' or friend_id = '$user_id'";
 	$user_group_query = "SELECT * FROM group_member WHERE group_member_user_id = '$user_id'";
@@ -28,6 +30,7 @@
 	$user_challenges_number = mysql_num_rows($user_challenge_data);
 	$user_friend_number = mysql_num_rows($user_friend_data);
 
+	// Store user data into variable
 	while($user_row = mysql_fetch_array($user_data))
 		{
 			$user_name = $user_row['username'];
@@ -36,11 +39,14 @@
 			$user_age = date("Y") - date("Y",strtotime($user_row['user_day_of_birth']));
 			$user_member_date = date("Y",strtotime($user_row['user_date_created']));
 		}
+
+	// Store user friends data into variable
 	while($user_friend_row = mysql_fetch_array($user_friend_data))
 		{
 			$friend_user_id = $user_friend_row['user_id'];
 			$friend_friend_id = $user_friend_row['friend_id'];
 
+			// Check the friend list of the user
 			if($friend_user_id==$user_id && $friend_friend_id!=$user_id)
 			{
 				$friend_query = "SELECT * FROM user WHERE user_id = '$friend_friend_id'";	
@@ -61,12 +67,4 @@
 			}
 			$x++;
 		}
-	// while($user_group_row = mysql_fetch_array($user_group_data))
-	// 	{
-	// 		$user_name = $user_group_row['username'];
-	// 	}
-	// while($user_challenge_row = mysql_fetch_array($user_challenge_data))
-	// 	{
-	// 		$user_name = $user_challenge_row['username'];
-	// 	}
 ?>
