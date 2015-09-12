@@ -13,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/login.php');
   <head>
     <meta charset="utf-8">
     <title>UQGO</title>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700&subset=all' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/login.css">

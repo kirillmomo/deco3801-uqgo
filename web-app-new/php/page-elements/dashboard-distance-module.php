@@ -53,9 +53,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 <script type="text/javascript">
 	var chart;
 
-	// Loads distance chart data (day, week, monthly)
 	function loadDistanceChart(mode) {
-		// Clear previous chart
 		if (chart === undefined) {
 			console.log("no chart");
 		} else {
@@ -63,16 +61,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 			chart.clear();
 			chart.destroy();
 		}
-
-		// Get canvas context
 		var ctx = $("#distance-chart").get(0).getContext("2d");
-
-		// Set chart data based on mode
 		var data;
+
 		switch (mode) {
 			case 1:
 				data = {
-				    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+				    labels: ["12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"],
 				    datasets: [
 				        {
 				            label: "Distance Today",
@@ -80,7 +75,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 				            strokeColor: "rgba(220,220,220,0.8)",
 				            highlightFill: chartHighlightColour,
 				            highlightStroke: "rgba(220,220,220,1)",
-				            data: [65, 59, 80, 81, 56, 55, 40]
+				            data: hour_graph_distance
 				        }
 				    ]
 				};
@@ -119,7 +114,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 		chart = new Chart(ctx).Bar(data, chartOptions);
 	}
 
-	// Changes chart data and highlights active switch
 	function switchChartMode(mode) {
 		if (mode === undefined) {mode = 3} // set default mode
 		$("#switch-chart-modes > a").each(function() {

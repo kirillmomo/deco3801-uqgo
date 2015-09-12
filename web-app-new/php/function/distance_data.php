@@ -5,6 +5,7 @@
 
 	echo "
 		<script>
+			var hour_graph_distance=[];
 			var month_graph_distance=[];
 
 			var mon_distance  = 0;
@@ -19,7 +20,8 @@
 
 	$user_id = $_SESSION['user_id'];
 	$user_name="";
-
+	
+	$hour_graph_distance_display=array();
 	$month_graph_distance_display=array();
 
 	$total_distance = 0;
@@ -47,15 +49,132 @@
 	$total_month_distance = 0;
 
 	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
+	$hour_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
 	$day_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW())";
 	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
 	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";	
 
 	$total_data = mysql_query($total_query,$dbconn);
+	$hour_data = mysql_query($hour_query,$dbconn);
 	$day_data = mysql_query($day_query,$dbconn);
 	$week_data = mysql_query($week_query,$dbconn);
 	$month_data = mysql_query($month_query,$dbconn);
 	$week_graph_distance_data = mysql_query($week_query,$dbconn);
+
+	// Store and calculate total distance into array 	
+	    while($hour_graph_distance_row = mysql_fetch_array($hour_data))
+		{
+		
+			$time=date("H", strtotime($hour_graph_distance_row['session_date']));
+
+			if($time=="00")
+				{
+					$hour_graph_distance_display[0] = $hour_graph_distance_display[0] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="01") 
+				{
+					$hour_graph_distance_display[1] = $hour_graph_distance_display[1] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="02") 
+				{
+					$hour_graph_distance_display[2] = $hour_graph_distance_display[2] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="03") 
+				{
+					$hour_graph_distance_display[3] = $hour_graph_distance_display[3] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="04") 
+				{
+					$hour_graph_distance_display[4] = $hour_graph_distance_display[4] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="05") 
+				{
+					$hour_graph_distance_display[5] = $hour_graph_distance_display[5] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="06") 
+				{
+					$hour_graph_distance_display[6] = $hour_graph_distance_display[6] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="07") 
+				{
+					$hour_graph_distance_display[7] = $hour_graph_distance_display[7] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="08") 
+				{
+					$hour_graph_distance_display[8] = $hour_graph_distance_display[8] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="09") 
+				{
+					$hour_graph_distance_display[9] = $hour_graph_distance_display[9] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="10") 
+				{
+					$hour_graph_distance_display[10] = $hour_graph_distance_display[10] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="11") 
+				{
+					$hour_graph_distance_display[11] = $hour_graph_distance_display[11] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="12") 
+				{
+					$hour_graph_distance_display[12] = $hour_graph_distance_display[12] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="13") 
+				{
+					$hour_graph_distance_display[13] = $hour_graph_distance_display[13] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="14") 
+				{
+					$hour_graph_distance_display[14] = $hour_graph_distance_display[14] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="15") 
+				{
+					$hour_graph_distance_display[15] = $hour_graph_distance_display[15] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="16") 
+				{
+					$hour_graph_distance_display[16] = $hour_graph_distance_display[16] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="17") 
+				{
+					$hour_graph_distance_display[17] = $hour_graph_distance_display[17] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="18") 
+				{
+					$hour_graph_distance_display[18] = $hour_graph_distance_display[18] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="19") 
+				{
+					$hour_graph_distance_display[19] = $hour_graph_distance_display[19] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="20") 
+				{
+					$hour_graph_distance_display[20] = $hour_graph_distance_display[20] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="21") 
+				{
+					$hour_graph_distance_display[21] = $hour_graph_distance_display[21] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="22") 
+				{
+					$hour_graph_distance_display[22] = $hour_graph_distance_display[22] + $hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="23") 
+				{
+					$hour_graph_distance_display[23] = $hour_graph_distance_display[23] + $hour_graph_distance_row['session_distance'];
+				}
+
+		}
+
+	// Store hour distance data into js array
+	for($h=0; $h<=23; $h++)
+	{	
+	echo "
+			<script>
+				hour_graph_distance[".json_encode($h)."] = ".json_encode($hour_graph_distance_display[$h]).";
+			</script>
+		";
+	}
 
 	while($week_graph_distance_row = mysql_fetch_array($week_graph_distance_data))
 	{

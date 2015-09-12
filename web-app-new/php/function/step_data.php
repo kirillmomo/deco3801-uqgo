@@ -7,6 +7,8 @@
 		<script>
 			var month_graph_step=[];
 			var month_graph_cal=[];
+			var hour_graph_step=[];
+			var hour_graph_cal=[];
 
 			var mon_step  = 0;
 			var tue_step  = 0;
@@ -32,6 +34,8 @@
 
 	$month_graph_step_display=array();
 	$month_graph_cal_display=array();
+	$hour_graph_step_display=array();
+	$hour_graph_cal_display=array();
 
 	$total_step = 0;
 	$total_calories = 0;
@@ -75,15 +79,157 @@
 
 	// Data SQL query
 	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
+	$hour_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
 	$day_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW())";
 	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
-	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";	
+	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";
 
+    $hour_data = mysql_query($hour_query,$dbconn);
 	$total_data = mysql_query($total_query,$dbconn);
 	$day_data = mysql_query($day_query,$dbconn);
 	$week_data = mysql_query($week_query,$dbconn);
 	$month_data = mysql_query($month_query,$dbconn);
 	$week_graph_step_data = mysql_query($week_query,$dbconn);
+
+	// Store and calculate total hours step and cal into array 	
+	    while($hour_graph_step_row = mysql_fetch_array($hour_data))
+		{
+			$time=date("H", strtotime($hour_graph_step_row['session_date']));
+
+			if($time=="00")
+				{
+					$hour_graph_step_display[0] = $hour_graph_step_display[0] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[0] = $hour_graph_step_display[0]/20;
+				}
+			else if ($time=="01") 
+				{
+					$hour_graph_step_display[1] = $hour_graph_step_display[1] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[1] = $hour_graph_step_display[1]/20;
+				}
+			else if ($time=="02") 
+				{
+					$hour_graph_step_display[2] = $hour_graph_step_display[2] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[2] = $hour_graph_step_display[2]/20;
+				}
+			else if ($time=="03") 
+				{
+					$hour_graph_step_display[3] = $hour_graph_step_display[3] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[3] = $hour_graph_step_display[3]/20;
+				}
+			else if ($time=="04") 
+				{
+					$hour_graph_step_display[4] = $hour_graph_step_display[4] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[4] = $hour_graph_step_display[4]/20;
+				}
+			else if ($time=="05") 
+				{
+					$hour_graph_step_display[5] = $hour_graph_step_display[5] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[5] = $hour_graph_step_display[5]/20;
+				}
+			else if ($time=="06") 
+				{
+					$hour_graph_step_display[6] = $hour_graph_step_display[6] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[6] = $hour_graph_step_display[6]/20;
+				}
+			else if ($time=="07") 
+				{
+					$hour_graph_step_display[7] = $hour_graph_step_display[7] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[7] = $hour_graph_step_display[7]/20;
+				}
+			else if ($time=="08") 
+				{
+					$hour_graph_step_display[8] = $hour_graph_step_display[8] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[8] = $hour_graph_step_display[8]/20;
+				}
+			else if ($time=="09") 
+				{
+					$hour_graph_step_display[9] = $hour_graph_step_display[9] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[9] = $hour_graph_step_display[9]/20;
+				}
+			else if ($time=="10") 
+				{
+					$hour_graph_step_display[10] = $hour_graph_step_display[10] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[10] = $hour_graph_step_display[10]/20;
+				}
+			else if ($time=="11") 
+				{
+					$hour_graph_step_display[11] = $hour_graph_step_display[11] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[11] = $hour_graph_step_display[11]/20;
+				}
+			else if ($time=="12") 
+				{
+					$hour_graph_step_display[12] = $hour_graph_step_display[12] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[12] = $hour_graph_step_display[12]/20;
+				}
+			else if ($time=="13") 
+				{
+					$hour_graph_step_display[13] = $hour_graph_step_display[13] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[13] = $hour_graph_step_display[13]/20;
+				}
+			else if ($time=="14") 
+				{
+					$hour_graph_step_display[14] = $hour_graph_step_display[14] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[14] = $hour_graph_step_display[14]/20;
+				}
+			else if ($time=="15") 
+				{
+					$hour_graph_step_display[15] = $hour_graph_step_display[15] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[15] = $hour_graph_step_display[15]/20;
+				}
+			else if ($time=="16") 
+				{
+					$hour_graph_step_display[16] = $hour_graph_step_display[16] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[16] = $hour_graph_step_display[16]/20;
+				}
+			else if ($time=="17") 
+				{
+					$hour_graph_step_display[17] = $hour_graph_step_display[17] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[17] = $hour_graph_step_display[17]/20;
+				}
+			else if ($time=="18") 
+				{
+					$hour_graph_step_display[18] = $hour_graph_step_display[18] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[18] = $hour_graph_step_display[18]/20;
+				}
+			else if ($time=="19") 
+				{
+					$hour_graph_step_display[19] = $hour_graph_step_display[19] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[19] = $hour_graph_step_display[19]/20;
+				}
+			else if ($time=="20") 
+				{
+					$hour_graph_step_display[20] = $hour_graph_step_display[20] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[20] = $hour_graph_step_display[20]/20;
+				}
+			else if ($time=="21") 
+				{
+					$hour_graph_step_display[21] = $hour_graph_step_display[21] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[21] = $hour_graph_step_display[21]/20;
+				}
+			else if ($time=="22") 
+				{
+					$hour_graph_step_display[22] = $hour_graph_step_display[22] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[22] = $hour_graph_step_display[22]/20;
+				}
+			else if ($time=="23") 
+				{
+					$hour_graph_step_display[23] = $hour_graph_step_display[23] + $hour_graph_step_row['session_steps'];
+					$hour_graph_cal_display[23] = $hour_graph_step_display[23]/20;
+				}
+
+		}
+
+	// Store hour step and cal data into js array
+	for($h=0; $h<=23; $h++)
+	{	
+	echo "
+			<script>
+				hour_graph_step[".json_encode($h)."] = ".json_encode($hour_graph_step_display[$h]).";
+				hour_graph_cal[".json_encode($h)."] = ".json_encode($hour_graph_cal_display[$h]).";
+			</script>
+		";
+	}
+	
 
 	// Store and calculate user week step data into array 
 	while($week_graph_step_row = mysql_fetch_array($week_graph_step_data))

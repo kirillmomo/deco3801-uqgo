@@ -46,11 +46,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 
 <!-- JS for dashboard overview chart -->
 <script type="text/javascript">
-	var summaryChart;	// the chart
+	var summaryChart;
 
-	// Loads requested chart data: weekly (steps, distance, calories)
 	function loadSummaryChart(mode) {
-		// Clear previous charts
 		if (summaryChart === undefined) {
 			console.log("no chart");
 		} else {
@@ -58,12 +56,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 			summaryChart.clear();
 			summaryChart.destroy();
 		}
-
-		// get canvas context
 		var ctx = $("#weekly-summary-chart").get(0).getContext("2d");
-		
-		// Set chart data based on mode
 		var data;
+
 		switch (mode) {
 			case 1:
 				data = {
@@ -114,7 +109,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/distance_data.php');
 		summaryChart = new Chart(ctx).Bar(data, chartOptions);
 	}
 
-	// Changes chart data and highlights active switch
 	function switchChartMode(mode) {
 		if (mode === undefined) {mode = 1} // set default mode
 		$("#switch-chart-modes > a").each(function() {
