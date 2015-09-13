@@ -12,6 +12,8 @@
   <script src="lib/ionicframework/ionic.bundle.min.js"></script>
     
   <script src="js/app.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/pedometer.js"></script>
   <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
 
@@ -25,151 +27,8 @@
             console.log(navigator.accelerometer);
         }
         
-        // Time, in seconds, of the current run.
-        var time = 0;
-        // Time in hours:minutes:seconds format.
-        var formatted = "";
-        // Status of counting; while 1 keeps counting up, while 0 pauses counter.
-        var counting = 0;
         // Flag to indicate if the session has started.
         var sessionstarted = 0;
-        // Number of steps taken in the session.
-        var steps = 0;
-        // Distance walked (based of average step distance)
-        var distance = 0;
-        // Accelerometer watchs settings
-        var options = { frequency: 100 };  // Update 20 times a second
-        // Acceleration watch object
-        var stepwatch;
-        // Previously return value of the acceleration function
-        var previousaccel = 9.81;
-        // Flag to indicate if the step counter has found a maximum
-        var maxfound = 0;
-        // Flag to indicate if the step counter has found a minimum
-        var minfound = 0;
-        
-        // Processes acceleration data when the acceleration watcher succeeds in gather data.
-        function accSuccess(acceleration) {
-            
-            // Gets Graphable value from acceleration data.
-            var accelvalue = Math.sqrt(acceleration.x * acceleration.x + acceleration.y * acceleration.y + acceleration.z * acceleration.z);
-            console.log("Accel: " + accelvalue + "  Previous: " +previousaccel);
-            // Checks if graphs maximum is found.
-            if(maxfound == 0){
-                if(accelvalue < previousaccel -3){
-                    // Sets maxFound flag when a max is found
-                    maxfound = 1;
-                }
-            } else {
-                if(accelvalue > previousaccel +3) {
-                    // Sets minFound flag when a max is found
-                    minfound = 1; 
-                }
-            }
-            console.log("MaxFound: " + maxfound + "  MinFound: " +minfound);
-            // If the graph has passed on sequence increment the steps an reset the flags
-            if( maxfound == 1 && minfound == 1){
-                maxfound = 0;
-                minfound = 0;
-                incrementSteps();
-            }
-            // Sets previous acceleration value as the current value.
-            previousaccel = accelvalue;
-        }
-        
-        // Function that runs on accelerometer error.
-        function accError(){
-            alert('Error');    
-        }
-        
-        // Begin the step counting
-        function countSteps(){
-            // Sets and accelerometer watcher.
-            stepwatch = navigator.accelerometer.watchAcceleration(accSuccess, accError, options);
-        }
-        
-        // Function that increments steps and distance
-        function incrementSteps() {
-            steps++;
-            // Increases distance by the average step distance.
-            distance += 0.75;
-            // Updates onscreen values
-            $('#stepdisplay').html(steps);
-            $('#distancedisplay').html(distance + "m");
-            // Logs values
-            console.log("steps: " + steps + "distance: " +distance);
-            
-        }
-        
-        // Starts timer
-        function timer() { 
-            // Converts variable 'time' into hours:minutes:seconds format.
-            var hours = Math.floor(time / 3600);
-            var minutes = Math.floor((time - hours * 3600) / 60);
-            var seconds = time - (hours * 3600) - (minutes * 60);
-            
-            // Adds a leading 0 to numbers that are only 1 digit.
-            if(hours < 10) {hours = "0"+hours;}
-            if(minutes < 10) {minutes = "0"+minutes;}
-            if(seconds < 10) {seconds = "0"+seconds;}
-            
-            //Updates the formatted time value.
-            formatted = hours + ":" + minutes + ":" + seconds;
-            
-            if(counting){
-                // Updates the onscreen timer.
-                $('#runtime').html(formatted);
-                // Increments time when function is run
-                time++;
-                setTimeout('timer()', 1000);
-            }
-        }
-        
-        // Toogles the timer and and off.
-        function pauseToggle() {
-            if(counting){
-                // Renames button to 'Resume' and pauses timer
-                $('#pausetrack').html('Resume');
-                pauseTimer();
-            } else {
-                // Renames button to 'Pause' and resumes timer
-                $('#pausetrack').html('Pause');
-                setTimeout('resumeTimer()', 1000);
-            }
-        }
-        
-        // Redirects once the session is complete
-        function startFinish() {
-            if(sessionstarted == 0){
-                sessionstarted = 1;
-                // Rename Button
-                $('#stoptrack').html('Done');
-                // Begin the Session Timer and Step counter
-                resumeTimer();    
-            } else {
-                sessionstarted = 0;
-                pauseTimer();
-                navigator.accelerometer.clearWatch(stepwatch);
-
-                $("#trackbuttons").slideUp(500);
-                $("#welldone").slideDown(500);                
-                 $("#sharestats").slideDown(0);
-                // window.location = 'sessionstats.html';
-            }
-        }
-        
-        // Sets counting to 0 so the timer stops
-        function pauseTimer() {
-            counting = 0;
-            navigator.accelerometer.clearWatch(stepwatch);
-        }
-        
-        // Sets counting to 1 and begins the timer once again.
-        function resumeTimer() {
-            counting = 1;
-            timer();
-            countSteps();
-        }
         
         // Ends session and redirects to login.
         function logout() {
