@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ionic-AngularJS-Cordova</title>
+
+    <!-- Ionic framework - replace the CDN links with local files and build -->    
+    <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="lib/ionicframework/ionic.bundle.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+
+    <style>
+      .box {height:300px;padding: 10px}
+    </style>
+    <script>
+        // Show Login Form
+        function showLogin() {
+            $("#login").slideDown(600);
+            $("#loginscreen").slideUp(600);
+        }
+        
+        // Hide Login Form
+        function hideLogin() {
+            $("#login").slideUp(600);
+            $("#loginscreen").slideDown(600);
+            $("#logformuser").val("");
+            $("#logformpass").val("");
+        }
+        
+        // Show Register Form
+        function showRegister() {
+            $("#register").slideDown(600);
+            $("#loginscreen").slideUp(600);
+        }
+        
+        // Hide Register Form
+        function hideRegister() {
+            $("#register").slideUp(600);
+            $("#loginscreen").slideDown(600);
+            $("#regformuser").val("");
+            $("#regformpass").val("");
+        }
+        
+        // Login the user
+        function login() {
+            username = $("#logformuser").val();
+            intel.xdk.cache.removeCookie("userid");
+            intel.xdk.cache.setCookie("userid", username, -1);
+            window.location = "index.html";
+        }
+        
+        // Ensure that the user is logged out
+        function checkLogin() {
+            var loggedin = intel.xdk.cache.getCookie("userid");
+            if(loggedin != undefined){
+                window.location = "index.html";
+            }
+        }
+        
+    </script>
+    
+</head>
+<body ng-controller="AppCtrl" onload="checkLogin()">
+    <div id="loginscreen" padding="true">
+        <img id="homelogo" src="img/UQGo_Logo_White.png" alt="UQGo logo" height="100" width="150">
+    
+        <div id="loginbuttons">
+            <button id="logbutton" class="button button-block button-balanced" onclick="showLogin()">
+                Login
+            </button>
+            <button id="regbutton" class="button button-block button-light" onclick="showRegister()">
+                Register
+            </button>  
+        </div>
+    </div>
+    <div id="login">
+        <ion-header-bar class="bar bar-header bar-light">
+            <button class="button" onclick="hideLogin()">Back</button>
+            <h1 id="headertitle" class="title">Login</h1>
+        </ion-header-bar>
+        <div id="regform" class="list list-inset">
+            <form id="logsubmit" type="post">
+                <label class="item item-input">
+                  <input id="logformuser" name="logformuser" type="text" placeholder="Username">
+                </label>
+                <label class="item item-input">
+                    <input id="logformpass" name="logformpass" type="password" placeholder="Password">
+                </label>
+                <button class="button button-block button-balanced" onclick="login()">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+    <div id="register">
+        <ion-header-bar class="bar bar-header bar-light">
+            <button class="button" onclick="hideRegister()">Back</button>
+            <h1 id="headertitle" class="title">Register</h1>
+        </ion-header-bar>
+            <div id="regform" class="list list-inset">
+                <form id="regsubmit" type="post">
+                    <label class="item item-input">
+                      <input id="first" name="first" type="text" placeholder="First Name">
+                    </label>
+                    <label class="item item-input">
+                      <input id="last" name="last" type="text" placeholder="Last Name">
+                    </label>
+                    <label class="item item-input">
+                      <input id="email" name="email" type="text" placeholder="Email">
+                    </label>
+                    <label class="item item-input">
+                      <input id="username" name="username" type="text" placeholder="Username">
+                    </label>
+                    <label class="item item-input">
+                        <input id="password" name="password" type="password" placeholder="Password">
+                    </label>
+                    <button class="button button-block button-balanced" type="submit">
+                        Register
+                    </button>
+                </form>
+            </div>
+                
+    </div>
+        <script type="text/javascript">
+			$("#regsubmit").submit(function(){
+                var postData = $(this).serialize();
+                
+                $.ajax({
+                    type: 'POST',
+                    data: postData,
+                    url: "http://silversquad.uqcloud.net/WebService/postRegisterInfo.php",
+                    success: function(data){
+                        console.log(data);
+                        alert("Registration complete. Please Proceed to login");
+                    },
+                    error: function(data){
+                        console.log(data);
+                        alert("Registration failed. Please try again.");
+                    }
+                });
+                return false;
+            });
+		</script>
+</body>
+</html>

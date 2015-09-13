@@ -1,0 +1,96 @@
+#footer {
+    background-color: #49075E;
+    border-color: #49075E;  
+}
+
+#header {
+    background-color: #49075E;
+    border-color: #49075E;
+}
+#headertitle {
+    font-size: 25px;
+}
+#homelogo {
+    display: block;
+    margin: 0px auto;        
+}
+#hometitle {
+    text-align: center;
+    padding-top: 15%;
+    margin-bottom: 15%;
+}
+#login {
+    z-index: 10;
+    display: none;
+    background-color: #49075E;
+    height: 100%; 
+}
+#loginbuttons {
+    display: block;
+    position: relative;
+    margin: 0;
+    top: 30%;
+    transform: translateY(-75%);
+    padding: 0 5%;
+}
+#loginscreen {
+    
+    background-color: #49075E;
+    height: 100%;
+    padding-top: 15vh;
+}
+#register {
+    display: none;
+    z-index: 10;
+    background-color: #49075E;
+    height: 100%;
+}
+#regform {
+    background-color: #49075E;
+    margin-top: 0px;
+    top: 45%;
+    transform: translateY(-50%);
+    padding: 0 5%;
+}
+#resumetrack {
+ display: none;   
+}
+#runtime {
+    font-size: 4.2em;
+    text-align: center;
+}
+#sharestats{
+    display: none;
+    margin-top: 75px;
+}
+#sharetext {
+    margin-top: 0px;
+    padding-top: 0px;
+    text-align: center;
+}
+
+#statistics {
+    margin-top: 15%;
+}
+#welcome {
+   margin-top: 20%; 
+}
+
+.mainstat {
+    padding-bottom: 5%;   
+}
+.stat {
+    color: #49075E;
+}
+.statlabel {
+    color: dimgrey;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0px;
+}
+.substat {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10%;
+}
