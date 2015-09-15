@@ -4,8 +4,8 @@
 
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/login.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/connect.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/login.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/connect.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/login.php');
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/login.php');
         <p><a href="admin-login.php">Are you an admin?</a></p>
     </div>
     <div class="footer-info">
-        <p>UQ Wellness | Developed by Silversquad.</p>
+        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/page-elements/footer-text.php');?></p>
     </div>
   </body>
 </html>
