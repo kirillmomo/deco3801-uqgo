@@ -170,7 +170,8 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #8AB800; }
+  color: #8AB800;
+  cursor: pointer; }
 a:hover {
   color: #A1C633; }
 
