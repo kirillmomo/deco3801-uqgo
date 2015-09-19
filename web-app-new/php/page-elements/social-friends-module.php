@@ -18,6 +18,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			$("#add-friend-button").find('span').fadeOut(100, "swing", function() {
 				$("#add-friend-button").find('span').text("Back to friends list").fadeIn(300, "swing");
 			});
+			$("#friend-search-box").val("");
 			$("#friend-search-box").attr("placeholder", "Find more people");
 			$("#friend-search-box").attr("onKeyUp", "");
 			$("#friend-search-box").attr("onKeyPress", "searchUsers(event);");
@@ -31,12 +32,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			$("#add-friend-button").find('span').fadeOut(100, "swing", function() {
 				$("#add-friend-button").find('span').text("Add Friend").fadeIn(300, "swing");
 			});
+			$("#friend-search-box").val("");
 			$("#friend-search-box").attr("placeholder", "Filter friends");
 			$("#friend-search-box").attr("onKeyPress", "");
 			$("#friend-search-box").attr("onKeyUp", "filterFriendsList();");
 			$(".search-results").fadeOut(100, "swing", function() {
 				$(".friends-list").fadeIn(100, "swing");
 			});
+			//$(".friends-list").each().slideDown(100, "swing");
 			friendView = true;
 		}
 	}
@@ -44,23 +47,40 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	function filterFriendsList() {
 		var filter = $("#friend-search-box").val();
 		if (filter) {
-			$(".friends-list").find("p:not(:Contains(" + filter + "))").parent().slideUp();
-			$(".friends-list").find("p:Contains(" + filter + ")").parent().slideDown();
+			$(".friends-list").find("p:not(:Contains(" + filter + "))").parent().slideUp(100, "swing");
+			$(".friends-list").find("p:Contains(" + filter + ")").parent().slideDown(100, "swing");
 		} else {
-			$(".friends-list").find("li").slideDown();
+			$(".friends-list").find("li").slideDown(100, "swing");
 		}
 	}
 
 	function searchUsers(event) {
-		// we will use ajax to search users when user presses enter
-		if (event.keyCode == 13) {
+		var searchInput = $("#friend-search-box").val();
+		if (event.keyCode == 13 && searchInput) {
 			console.log("searching");
+			// we will use ajax to search users when user presses enter
 		}
 	}
 
-	function showProfile(user_id) {
+	function showProfile(user_id, item) {
 		// we will use ajax to load user profiles
-		$(".friends-content").text("test showing friend with ID: " + user_id);
+		//$(".friends-content").text("test showing friend with ID: " + user_id);
+		$(".friends-list > li").each(function() {
+			$(this).removeClass("active-list-item")
+		});
+		$(item).addClass("active-list-item");
+		$.ajax({
+			url: "./php/page-elements/view-friend.php",
+			dataType: "html",
+			data: "userid=" + user_id,
+			success: function(data) {
+				$(".friends-content").html(data);
+				$(".friends-content").removeClass("slide-in");
+			},
+			error: function(jqXHR, status, err) {
+				$(".friends-content").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error loading user information. (" + status + ": " + err + ")</p>");
+			}
+		});
 	}
 </script>
 
@@ -76,16 +96,16 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	<?php
 	}
 	?>
-		<!-- EXAMPLE FRIENDS LIST - friends should be echoed like below
-		<li onClick="showProfile('echo user_id here');"><div class="friend-image"></div><p>Johnson Carter</p></li>
-		<li onClick="showProfile('echo user_id here');"><div class="friend-image"></div><p>Johnson Jackson</p></li>
-		<li onClick="showProfile('echo user_id here');"><div class="friend-image"></div><p>Jenson Carter</p></li>
-		<li onClick="showProfile('echo user_id here');"><div class="friend-image"></div><p>Jenson Jackson</p></li>-->
+		<!-- EXAMPLE FRIENDS LIST - friends should be echoed like below -->
+		<!-- <li onClick="showProfile('1', this);"><div class="friend-image"></div><p>Johnson Carter</p></li>
+		<li onClick="showProfile('2', this);"><div class="friend-image"></div><p>Johnson Jackson</p></li>
+		<li onClick="showProfile('3', this);"><div class="friend-image"></div><p>Jenson Carter</p></li>
+		<li onClick="showProfile('4', this);"><div class="friend-image"></div><p>Jenson Jackson</p></li> -->
 	</ul>
 	<ul class="search-results">
 		<p>Type in a name and press Enter</p>
 	</ul>
 </div>
-<div class="friends-content">
+<div class="friends-content slide-in">
 	%profile content%
 </div>

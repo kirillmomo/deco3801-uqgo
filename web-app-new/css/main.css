@@ -294,6 +294,11 @@
 	transition: all 0.2s ease-in-out;
 }
 
+.active-list-item {
+	background: #370547;
+	color: #FFF;
+}
+
 .friends-sidebar ul li p {
 	display: inline-block;
 	margin: 0;
@@ -318,12 +323,6 @@
 	background-size: contain;
 }
 
-.friends-content {
-	background: yellow;
-	float: left;
-	width: 660px;
-}
-
 .search-results {
 	display: none;
 }
@@ -331,4 +330,45 @@
 .search-results > p {
 	text-align: center;
 	opacity: .6;
+}
+
+.friends-content {
+	float: left;
+	width: 660px;
+	margin-left: 25px;
+	transition: all 0.2s ease-in-out;
+}
+
+.slide-in.friends-content {
+	transform: translate(-30px);
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.friends-content .profile-image {
+	float: left;
+	margin: 0 25px;
+}
+
+.friends-content .section {
+	border-bottom: 1px solid #D1D1D1;
+	overflow: auto;
+	padding: 10px;
+}
+
+.friends-content .section:first-of-type p {
+	margin-bottom: 5px;
+}
+
+.friends-content .section:first-of-type button {
+	margin-top: 10px;
+	margin-bottom: 0;
+	float: right;
+	width: 180px;
+}
+
+.friends-content .section:first-of-type button i {
+	font-size: 1.3em;
+	position: relative;
+	left: -10px;
 }
