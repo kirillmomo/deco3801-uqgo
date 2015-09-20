@@ -99,8 +99,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 
 	function showProfile(user_id, item) {
 		// we will use ajax to load user profiles
-		$(".friends-list > li").each(function() {
-			$(this).removeClass("active-list-item")
+		var visibleList = friendView ? ".friends-list" : ".search-results";
+		$(visibleList + " > li").each(function() {
+			$(this).removeClass("active-list-item");
 		});
 		$(item).addClass("active-list-item");
 		$(".friends-content").addClass("slide-in");
