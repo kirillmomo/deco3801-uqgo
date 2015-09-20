@@ -27,6 +27,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			$("#friend-search-box").focus();
 			$("#rank-option").fadeOut(100, "swing");
 			$(".friends-list").fadeOut(100, "swing", function() {
+				$(".search-results").html("<p>Type in a name and press Enter</p>");
 				$(".search-results").fadeIn(100, "swing");
 			});
 			friendView = false;
@@ -78,10 +79,21 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	}
 
 	function searchUsers(event) {
+		// we will use ajax to search users when user presses enter
 		var searchInput = $("#friend-search-box").val();
 		if (event.keyCode == 13 && searchInput) {
-			console.log("searching");
-			// we will use ajax to search users when user presses enter
+			console.log("Searching for " + searchInput);
+			$.ajax({
+			url: "./php/function/get_user_list.php",
+			dataType: "html",
+			data: "search=" + searchInput,
+			success: function(data) {
+				$(".search-results").html(data);
+			},
+			error: function(jqXHR, status, err) {
+				$(".search-results").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error searching for users. (" + status + ": " + err + ")</p>");
+			}
+		});
 		}
 	}
 
@@ -105,6 +117,36 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			}
 		});
 	}
+
+	function addFriend(user_id, button) {
+		$.ajax({
+			url: "./php/function/add_friend.php",
+			dataType: "html",
+			data: "userid=" + user_id,
+			success: function(data) {
+				$(button).html("<i class='fa fa-check'></i> Friend Added");
+				$(button).prop("disabled", true);
+			},
+			error: function(jqXHR, status, err) {
+				console.log("Error adding friend. (" + status + ": " + err + ")");
+			}
+		});
+	}
+
+	function removeFriend(user_id, button) {
+		$.ajax({
+			url: "./php/function/remove_friend.php",
+			dataType: "html",
+			data: "userid=" + user_id,
+			success: function(data) {
+				$(button).html("<i class='fa fa-check'></i> Friend Removed");
+				$(button).prop("disabled", true);
+			},
+			error: function(jqXHR, status, err) {
+				console.log("Error removing friend. (" + status + ": " + err + ")");
+			}
+		});
+	}
 </script>
 
 <div class="friends-sidebar">
@@ -121,7 +163,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	</ul>
 	<ul class="search-results">
 		<!-- List will load here via ajax -->
-		<p>Type in a name and press Enter</p>
 	</ul>
 </div>
 <div class="friends-content slide-in">
