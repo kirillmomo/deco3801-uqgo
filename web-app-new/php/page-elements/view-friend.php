@@ -25,7 +25,7 @@
 	<p class="">placeholder stat will be implemented</p>
 	<p class="">placeholder stat will be implemented</p>
 	<!-- Else, show this notice: -->
-	<p>You must be friends with this user to see their stats.</p>
+	<p><i class="fa fa-info-circle"></i> You must be friends with this user to see their stats.</p>
 
 
 </div>

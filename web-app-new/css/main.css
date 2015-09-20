@@ -373,3 +373,8 @@
 	position: relative;
 	left: -10px;
 }
+
+.section-header {
+	font-weight: bold;
+	text-transform: uppercase;
+}

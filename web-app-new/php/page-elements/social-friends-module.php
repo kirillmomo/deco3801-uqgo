@@ -30,6 +30,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 				$(".search-results").html("<p>Type in a name and press Enter</p>");
 				$(".search-results").fadeIn(100, "swing");
 			});
+			$(".friends-content").addClass("slide-in");
 			friendView = false;
 		} else {
 			// Switch to friend search
@@ -47,6 +48,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			});
 			//$(".friends-list").each().slideDown(100, "swing");
 			filterFriendsList();
+			$(".friends-content").addClass("slide-in");
+			$(".friends-list > li").each(function() {
+				$(this).removeClass("active-list-item");
+			});
 			friendView = true;
 		}
 	}
@@ -98,7 +103,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	}
 
 	function showProfile(user_id, item) {
-		// we will use ajax to load user profiles
+		// We will use ajax to load user profiles
 		var visibleList = friendView ? ".friends-list" : ".search-results";
 		$(visibleList + " > li").each(function() {
 			$(this).removeClass("active-list-item");
@@ -167,5 +172,5 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	</ul>
 </div>
 <div class="friends-content slide-in">
-	%profile content%
+	<!-- Selected profile will load here via ajax -->
 </div>
