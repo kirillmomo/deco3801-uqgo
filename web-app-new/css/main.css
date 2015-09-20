@@ -241,3 +241,140 @@
 .profile-name {
 	font-size: 2em;
 }
+
+.friends-sidebar {
+	min-width: 300px;
+	width: 35%;
+	float: left;
+	border-right: 1px solid #D1D1D1;
+}
+
+.friends-sidebar ul {
+	list-style: none;
+}
+
+#add-friend-button {
+	text-transform: uppercase;
+	display: block;
+	padding: 10px;
+	transition: all 0.2s ease-in-out;
+}
+
+#add-friend-button i {
+	margin: 0 20px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.icon-rotate {
+	transform: rotate(135deg);
+	transition: transform 0.3s ease-in-out;
+}
+
+#add-friend-button:hover {
+	background: #8AB800;
+	color: #FFF;
+	transition: all 0.2s ease-in-out;
+}
+
+#friend-search-box, #rank-option {
+	width: 95%;
+	margin: 8px;
+}
+
+.friends-sidebar ul li {
+	margin: 0;
+	padding: 5px;
+	padding-bottom: 0px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.friends-sidebar ul li:hover {
+	background: #49075E;
+	color: #FFF;
+	transition: all 0.2s ease-in-out;
+}
+
+.active-list-item {
+	background: #370547;
+	color: #FFF;
+}
+
+.friends-sidebar ul li p {
+	display: inline-block;
+	margin: 0;
+	position: relative;
+	top: -13px;
+	text-overflow: ellipsis;
+	width: 230px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.friend-image {
+	display: inline-block;
+	background: #000;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+	background-color: #FFF;
+	background-image: url("../img/user-default.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.search-results {
+	display: none;
+}
+
+.search-results > p {
+	text-align: center;
+	opacity: .6;
+}
+
+.friends-content {
+	float: left;
+	min-width: 660px;
+	width: 60%;
+	margin-left: 25px;
+	transition: all 0.2s ease-in-out;
+}
+
+.slide-in.friends-content {
+	transform: translate(-30px);
+	opacity: 0;
+}
+
+.friends-content .profile-image {
+	float: left;
+	margin: 0 25px;
+}
+
+.friends-content .section {
+	border-bottom: 1px solid #D1D1D1;
+	overflow: auto;
+	padding: 10px;
+}
+
+.friends-content .section:first-of-type p {
+	margin-bottom: 5px;
+}
+
+.friends-content .section:first-of-type button {
+	margin-top: 10px;
+	margin-bottom: 0;
+	float: right;
+	width: 180px;
+}
+
+.friends-content .section:first-of-type button i {
+	font-size: 1.3em;
+	position: relative;
+	left: -10px;
+}
+
+.section-header {
+	font-weight: bold;
+	text-transform: uppercase;
+}

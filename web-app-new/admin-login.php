@@ -4,8 +4,8 @@
 
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/admin_login.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/connect.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/admin_login.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/connect.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/admin_login.php');
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/admin_login.php');
   <head>
     <meta charset="utf-8">
     <title>UQGO - Admin Login</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/admin-login.css">
@@ -41,7 +41,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-1/php/function/admin_login.php');
         <p><a href="index.php">Back to login</a></p>
     </div>
     <div class="footer-info">
-        <p>UQ Wellness | Developed by Silversquad.</p>
+        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/page-elements/footer-text.php');?></p>
     </div>
   </body>
 </html>

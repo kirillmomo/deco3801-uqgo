@@ -20,7 +20,6 @@
           <a onClick="highlightNavItem(this); loadModule('social-profile-module.php');" class="subnav-active-item">Profile</a>
           <a onClick="highlightNavItem(this); loadModule('social-friends-module.php');">Friends</a>
           <a onClick="highlightNavItem(this); loadModule('social-groups-module.php');">Groups</a>
-          <a onClick="highlightNavItem(this); loadModule('social-discover-module.php');">Discover</a>
         </nav>
         <div class="module-content">
           <!-- module content will load here automatically -->

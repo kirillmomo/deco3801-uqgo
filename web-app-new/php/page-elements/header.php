@@ -14,7 +14,7 @@
 	var chartOptions = {
 		barShowStroke: false,
 		responsive: true,
-		scaleFontFamily: "'Raleway', 'Helvetica', 'Arial', sans-serif"
+		scaleFontFamily: "'Lato', 'Helvetica', 'Arial', sans-serif"
 	}
 </script>
 <link href="./img/icon.png" rel="icon" type="image/png">

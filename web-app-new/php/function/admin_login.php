@@ -6,7 +6,7 @@
 	$error_msg="";
 	//if user has logged in, go to admin page
 	if(isset($_SESSION['admin_id'])){
-	header('Location: /v0-1/admin.php');
+	header('Location: /v0-2/admin.php');
 	// header('Location: /Beta/web-app-new/admin.php');
 	}
 
@@ -15,7 +15,7 @@
 	{
 
 	    $username = $_POST['username'];
-	    $password = $_POST['password'];
+	    $password = hash('sha256', $_POST['password']);
 	    
 	    $query = "SELECT * FROM admin WHERE admin_username='$username' and admin_password='$password'";
 	    $data = mysql_query($query,$dbconn);
@@ -32,7 +32,7 @@
 		    {	
 		    	//if username and password match, store admin_id and go to admin page    	
 		    	$_SESSION['admin_id'] = $row['admin_id'];
-		    	header('Location: /v0-1/admin.php');
+		    	header('Location: /v0-2/admin.php');
 				// header('Location: /Beta/web-app-new/admin.php');
 		    }
 		}

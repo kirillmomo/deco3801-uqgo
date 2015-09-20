@@ -4,7 +4,7 @@
 	$error_msg="";
 	//if user has logged in, go to dashboard page
 	if(isset($_SESSION['user_id'])){
-		header('Location: /v0-1/dashboard.php');
+		header('Location: /v0-2/dashboard.php');
 	// header('Location: /Beta/web-app-new/dashboard.php');
 	}
 
@@ -13,7 +13,7 @@
 	{
 
 	    $username = $_POST['username'];
-	    $password = $_POST['password'];
+	    $password = hash('sha256', $_POST['password']);
 	    
 	    $query = "SELECT * FROM user WHERE username='$username' and password='$password'";
 	    $data = mysql_query($query,$dbconn);
@@ -30,7 +30,7 @@
 		    while($row = mysql_fetch_array($data))
 		    {	    	
 		    	$_SESSION['user_id'] = $row['user_id'];
-		    	header('Location: /v0-1/dashboard.php');
+		    	header('Location: /v0-2/dashboard.php');
 				// header('Location: /Beta/web-app-new/dashboard.php');
 		    }
 		}
