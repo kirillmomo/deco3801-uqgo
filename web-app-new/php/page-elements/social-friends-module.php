@@ -7,6 +7,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 
 <script type="text/javascript">
 	var friendView = true;
+	loadFriendsList();
 
 	jQuery.expr[':'].Contains = function(a,i,m){
 	    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
@@ -14,6 +15,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 
 	function toggleFriendSearch() {
 		if (friendView) {
+			// Switch to user search
 			$("#add-friend-button").find('i').addClass("icon-rotate");
 			$("#add-friend-button").find('span').fadeOut(100, "swing", function() {
 				$("#add-friend-button").find('span').text("Back to friends list").fadeIn(300, "swing");
@@ -23,11 +25,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			$("#friend-search-box").attr("onKeyUp", "");
 			$("#friend-search-box").attr("onKeyPress", "searchUsers(event);");
 			$("#friend-search-box").focus();
+			$("#rank-option").fadeOut(100, "swing");
 			$(".friends-list").fadeOut(100, "swing", function() {
 				$(".search-results").fadeIn(100, "swing");
 			});
 			friendView = false;
 		} else {
+			// Switch to friend search
 			$("#add-friend-button").find('i').removeClass("icon-rotate");
 			$("#add-friend-button").find('span').fadeOut(100, "swing", function() {
 				$("#add-friend-button").find('span').text("Add Friend").fadeIn(300, "swing");
@@ -36,12 +40,31 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 			$("#friend-search-box").attr("placeholder", "Filter friends");
 			$("#friend-search-box").attr("onKeyPress", "");
 			$("#friend-search-box").attr("onKeyUp", "filterFriendsList();");
+			$("#rank-option").fadeIn(100, "swing");
 			$(".search-results").fadeOut(100, "swing", function() {
 				$(".friends-list").fadeIn(100, "swing");
 			});
 			//$(".friends-list").each().slideDown(100, "swing");
+			filterFriendsList();
 			friendView = true;
 		}
+	}
+
+	function loadFriendsList() {
+		$("#friend-search-box").val("");
+		var rankBy = $("#rank-option").val();
+		$.ajax({
+			url: "./php/function/get_friends_list.php",
+			dataType: "html",
+			data: "rankBy=" + rankBy,
+			success: function(data) {
+				$(".friends-list").html(data);
+				console.log("Loaded friends list success, sorted by " + rankBy);
+			},
+			error: function(jqXHR, status, err) {
+				$(".friends-list").html("<p><i class='fa fa-exclamation-circle'></i> Error loading user friends list. (" + status + ": " + err + ")</p>");
+			}
+		});
 	}
 
 	function filterFriendsList() {
@@ -64,11 +87,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 
 	function showProfile(user_id, item) {
 		// we will use ajax to load user profiles
-		//$(".friends-content").text("test showing friend with ID: " + user_id);
 		$(".friends-list > li").each(function() {
 			$(this).removeClass("active-list-item")
 		});
 		$(item).addClass("active-list-item");
+		$(".friends-content").addClass("slide-in");
 		$.ajax({
 			url: "./php/page-elements/view-friend.php",
 			dataType: "html",
@@ -87,22 +110,17 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 <div class="friends-sidebar">
 	<a id="add-friend-button" onClick="toggleFriendSearch();"><i class="fa fa-plus"></i><span>Add Friend</span></a>
 	<input id="friend-search-box" type="search" placeholder="Filter friends" onKeyup="filterFriendsList();">
+	<select id="rank-option" onChange="loadFriendsList();">
+		<option value="name" selected="selected">Rank by name</option>
+		<option value="steps">Rank by steps</option>
+		<option value="distance">Rank by distance</option>
+		<option value="calories">Rank by calories</option>
+	</select>
 	<ul class="friends-list">
-	<?php
-	for($i = 0; $i<sizeof($friend_list_display); $i++)
-	{
-	?>
-	<li onClick="showProfile('echo user_id here');"><div class="friend-image"></div><p><?php echo $friend_list_display[$i]; ?></p></li>
-	<?php
-	}
-	?>
-		<!-- EXAMPLE FRIENDS LIST - friends should be echoed like below -->
-		<!-- <li onClick="showProfile('1', this);"><div class="friend-image"></div><p>Johnson Carter</p></li>
-		<li onClick="showProfile('2', this);"><div class="friend-image"></div><p>Johnson Jackson</p></li>
-		<li onClick="showProfile('3', this);"><div class="friend-image"></div><p>Jenson Carter</p></li>
-		<li onClick="showProfile('4', this);"><div class="friend-image"></div><p>Jenson Jackson</p></li> -->
+		<!-- Friends list will load here via ajax -->
 	</ul>
 	<ul class="search-results">
+		<!-- List will load here via ajax -->
 		<p>Type in a name and press Enter</p>
 	</ul>
 </div>

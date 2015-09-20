@@ -243,7 +243,8 @@
 }
 
 .friends-sidebar {
-	width: 300px;
+	min-width: 300px;
+	width: 35%;
 	float: left;
 	border-right: 1px solid #D1D1D1;
 }
@@ -275,7 +276,7 @@
 	transition: all 0.2s ease-in-out;
 }
 
-#friend-search-box {
+#friend-search-box, #rank-option {
 	width: 95%;
 	margin: 8px;
 }
@@ -334,7 +335,8 @@
 
 .friends-content {
 	float: left;
-	width: 660px;
+	min-width: 660px;
+	width: 60%;
 	margin-left: 25px;
 	transition: all 0.2s ease-in-out;
 }
@@ -342,7 +344,6 @@
 .slide-in.friends-content {
 	transform: translate(-30px);
 	opacity: 0;
-	transition: all 0.2s ease-in-out;
 }
 
 .friends-content .profile-image {

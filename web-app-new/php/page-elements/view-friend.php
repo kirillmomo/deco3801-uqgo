@@ -1,5 +1,5 @@
 <?php
-	$user_id = $_GET['userid']; // get the user_id from the ajax request, use this to get other info from db
+	$user_id = $_GET['userid']; // getting user_id from the ajax request, use this to get other info from db
 
 	$first_name = "Test";
 	$last_name = "Name";
@@ -17,4 +17,7 @@
 </div>
 <div class="section">
 	<p class="section-header">Compare Stats</p>
+	<p class="">1023</p>
+	<p class="">1023</p>
+	<p class="">1023</p>
 </div>
