@@ -1,13 +1,9 @@
-<!--<?php
+<?php
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/user_data.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
-<<<<<<< HEAD
 ?>
-=======
-?>-->
->>>>>>> bdc3d15577dc4d7790b537d3565d50108db168c9
 
 <script type="text/javascript">
 	var friendView = true;
