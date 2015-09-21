@@ -30,6 +30,7 @@
 
 	// define variables for PHP
 	$user_id = $_SESSION['user_id'];
+	$user_friend_id = $_SESSION['friend_id'];
 	$user_name="";
 
 	$month_graph_step_display=array();
@@ -39,6 +40,8 @@
 
 	$total_step = 0;
 	$total_calories = 0;
+	$friend_total_step = 0;
+	$friend_total_calories = 0;
 
 	$mon_step_data = 0;
 	$tue_step_data = 0;
@@ -67,6 +70,8 @@
 
 	$total_total_step = 0;
 	$total_total_calories = 0;
+	$friend_total_total_step = 0;
+	$friend_total_total_calories = 0;
 
 	$total_day_step = 0;
 	$total_day_calories = 0;
@@ -78,14 +83,18 @@
 	$total_month_calories = 0;
 
 	// Data SQL query
+	$user_total_query = "SELECT * FROM user WHERE user_id = '$user_id'";
 	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
+	$friend_total_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id'";
 	$hour_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
 	$day_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW())";
 	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
 	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";
 
+	$user_total_data = mysql_query($user_total_query,$dbconn);
     $hour_data = mysql_query($hour_query,$dbconn);
 	$total_data = mysql_query($total_query,$dbconn);
+	$friend_total_data = mysql_query($friend_total_query,$dbconn);
 	$day_data = mysql_query($day_query,$dbconn);
 	$week_data = mysql_query($week_query,$dbconn);
 	$month_data = mysql_query($month_query,$dbconn);
@@ -331,6 +340,10 @@
 	{
 		$total_total_step = $total_total_step+$total_row['session_steps'];
 	}
+	while($friend_total_row = mysql_fetch_array($friend_total_data))
+	{
+		$friend_total_total_step = $friend_total_total_step+$friend_total_row['session_steps'];
+	}
 	while($day_row = mysql_fetch_array($day_data))
 	{
 		$total_day_step = $total_day_step+$day_row['session_steps'];
@@ -347,10 +360,21 @@
 	// Store the data into variable for display 
 	$total_step = $total_total_step;
 	$total_calories = $total_step/20;
+	$friend_total_step = $friend_total_total_step;
+	$friend_total_calories = $friend_total_step/20;
 	$day_step = $total_day_step;
 	$day_calories = $day_step/20;
 	$week_step = $total_week_step;
 	$week_calories = $week_step/20;
 	$month_step = $total_month_step;
 	$month_calories = $month_step/20;
+
+	while($user_total_row = mysql_fetch_array($user_total_data))
+	{
+		if($user_total_row['user_total_step']!=$total_step || $user_total_row['user_total_cal']!=$total_calories);
+		{
+			$user_add_query = "UPDATE user SET user_total_step ='$total_step', user_total_cal ='$total_calories' WHERE user_id = '$user_id'";
+	        mysql_query($user_add_query);
+		}
+	}
 ?>

@@ -1,8 +1,9 @@
 <?php
+
+	// include connect php file
 	include('connect.php');
 
-	//if user hasn't logged in, go back to login page
-
+	// define variables for JS 
 	echo "
 		<script>
 			var hour_graph_distance=[];
@@ -19,12 +20,14 @@
 	";
 
 	$user_id = $_SESSION['user_id'];
+	$user_friend_id = $_SESSION['friend_id'];
 	$user_name="";
 	
 	$hour_graph_distance_display=array();
 	$month_graph_distance_display=array();
 
 	$total_distance = 0;
+	$friend_total_distance = 0;
 
 	$mon_distance_data = 0;
 	$tue_distance_data = 0;
@@ -41,6 +44,7 @@
 	$month_distance = 0;
 
 	$total_total_distance = 0;
+	$friend_total_total_distance = 0;
 
 	$total_day_distance = 0;
 
@@ -49,17 +53,21 @@
 	$total_month_distance = 0;
 
 	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
+	$friend_total_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id'";
 	$hour_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
 	$day_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW())";
 	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
 	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";	
+	$user_total_distance_query = "SELECT * FROM user WHERE user_id = '$user_id'";
 
 	$total_data = mysql_query($total_query,$dbconn);
+	$friend_total_data = mysql_query($friend_total_query,$dbconn);
 	$hour_data = mysql_query($hour_query,$dbconn);
 	$day_data = mysql_query($day_query,$dbconn);
 	$week_data = mysql_query($week_query,$dbconn);
 	$month_data = mysql_query($month_query,$dbconn);
 	$week_graph_distance_data = mysql_query($week_query,$dbconn);
+	$user_total_distance_data = mysql_query($user_total_distance_query,$dbconn);
 
 	// Store and calculate total distance into array 	
 	    while($hour_graph_distance_row = mysql_fetch_array($hour_data))
@@ -244,6 +252,10 @@
 	{
 		$total_total_distance = $total_total_distance+$total_row['session_distance'];
 	}
+	while($friend_total_row = mysql_fetch_array($friend_total_data))
+	{
+		$friend_total_total_distance = $friend_total_total_distance+$friend_total_row['session_distance'];
+	}
 	while($day_row = mysql_fetch_array($day_data))
 	{
 		$total_day_distance = $total_day_distance+$day_row['session_distance'];
@@ -258,7 +270,17 @@
 	}
 
 	$total_distance = $total_total_distance;
+	$friend_total_distance = $friend_total_total_distance;
 	$day_distance = $total_day_distance;
 	$week_distance = $total_week_distance;
 	$month_distance = $total_month_distance;
+
+	while($user_total_distance_row = mysql_fetch_array($user_total_distance_data))
+	{
+		if($user_total_distance_row['user_total_distance']!=$total_distance);
+		{
+			$user_distance_add_query = "UPDATE user SET user_total_distance ='$total_distance' WHERE user_id = '$user_id'";
+	        mysql_query($user_distance_add_query);
+		}
+	}
 ?>

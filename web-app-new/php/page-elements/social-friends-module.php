@@ -159,10 +159,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 	<a id="add-friend-button" onClick="toggleFriendSearch();"><i class="fa fa-plus"></i><span>Add Friend</span></a>
 	<input id="friend-search-box" type="search" placeholder="Filter friends" onKeyup="filterFriendsList();">
 	<select id="rank-option" onChange="loadFriendsList();">
-		<option value="name" selected="selected">Rank by name</option>
-		<option value="steps">Rank by steps</option>
-		<option value="distance">Rank by distance</option>
-		<option value="calories">Rank by calories</option>
+		<option value="first_name" selected="selected">Rank by name</option>
+		<option value="user_total_step">Rank by steps</option>
+		<option value="user_total_distance">Rank by distance</option>
+		<option value="user_total_cal">Rank by calories</option>
 	</select>
 	<ul class="friends-list">
 		<!-- Friends list will load here via ajax -->

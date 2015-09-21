@@ -8,7 +8,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
 <div class="sidebar">
     <div class="user-display">
         <div class="user-display-image"></div>
-        <p id="user-display-name"><?php echo $user_name; ?></p>
+        <p id="user-display-name"><?php echo $first_name; ?> <?php echo $last_name; ?></p>
     </div>
     <nav>
         <a href="dashboard.php" id="nav-item-dashboard"><i class="fa fa-area-chart fa-fw"></i>&nbsp;Dashboard</a>
