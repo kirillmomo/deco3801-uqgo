@@ -13,6 +13,7 @@
     
   <script src="js/app.js"></script>
   <script src="js/timer.js"></script>
+  <script src="js/navbar.js"></script>
   <script src="js/pedometer.js"></script>
   <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
@@ -74,7 +75,11 @@
     </ion-content>
     <div id="footer" class="bar bar-footer bar-royal">
         <div class="title">
-            <img src="img/UQGo_Logo_White.png" alt="UQGo logo" height="40" width="60">
+            <img src="img/icon_dashboard.png" alt="UQGo logo" height="40" width="40" class="footeritem" onclick="dashboard()">
+            <img src="img/icon_social.png" alt="UQGo logo" height="40" width="40" class="footeritem" onclick="social()">
+            <img src="img/UQGo_Logo_White.png" alt="UQGo logo" height="44" width="66" class="footeritem" onclick="index()">
+            <img src="img/icon_challenges.png" alt="UQGo logo" height="40" width="40" class="footeritem" onclick="challenge()">
+            <img src="img/icon_settings.png" alt="UQGo logo" height="40" width="40" class="footeritem" onclick="settings()">
         </div>
     </div>
 

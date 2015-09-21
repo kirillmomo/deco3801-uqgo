@@ -1,8 +1,7 @@
 #footer {
     background-color: #49075E;
-    border-color: #49075E;  
+    border-color: #49075E;
 }
-
 #header {
     background-color: #49075E;
     border-color: #49075E;
@@ -34,7 +33,6 @@
     padding: 0 5%;
 }
 #loginscreen {
-    
     background-color: #49075E;
     height: 100%;
     padding-top: 15vh;
@@ -72,12 +70,38 @@
 #statistics {
     margin-top: 15%;
 }
+#tabnav {
+    margin-bottom: 10%;
+}
+#userimage {
+    float: left;
+    width: 50%;
+    margin-top: 5%;
+}
+#userdetails {
+    float: left;
+    width: 50%;
+    margin-top: 5%;
+    margin-bottom: 20%;
+}
 #welcome {
    margin-top: 20%; 
 }
 
+.bottomcontent {
+    padding-bottom: 50%;
+}
+.footeritem {
+    margin-left: 2%;
+    margin-right: 2%;
+}
 .mainstat {
-    padding-bottom: 5%;   
+    padding-bottom: 5%;
+    text-align: center;
+}
+.proficon {
+    display: block;
+    margin: 0 auto;
 }
 .stat {
     color: #49075E;
@@ -93,4 +117,10 @@
     width: 50%;
     text-align: center;
     padding-bottom: 10%;
+}
+.username {
+    color: #49075E;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0px;
 }
