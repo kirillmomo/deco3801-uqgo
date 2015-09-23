@@ -335,7 +335,7 @@
 
 .friends-content {
 	float: left;
-	min-width: 660px;
+	min-width: 625px;
 	width: 60%;
 	margin-left: 25px;
 	transition: all 0.2s ease-in-out;
