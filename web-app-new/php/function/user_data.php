@@ -106,11 +106,11 @@
 
 		//Search unadded user
 		$search_friend_array = implode(',', $search_user_friend_id);
-		$search_friend_query = "SELECT * FROM user WHERE user_id != $user_id AND user_id NOT IN ($search_friend_array) and first_name LIKE '$search_detail%'  ";	
+		$search_friend_query = "SELECT * FROM user WHERE user_id != $user_id AND user_id NOT IN ($search_friend_array) and first_name LIKE '%$search_detail%' OR user_id != $user_id AND user_id NOT IN ($search_friend_array) and last_name LIKE '%$search_detail%'  ";	
 		$search_friend_data = mysql_query($search_friend_query,$dbconn);
 		if($search_friend_data == false)
 		{
-			$search_friend_query = "SELECT * FROM user WHERE user_id != $user_id and first_name LIKE '$search_detail%' ";	
+			// $search_friend_query = "SELECT * FROM user WHERE user_id != $user_id and first_name LIKE '$search_detail%' ";	
 			$search_friend_data = mysql_query($search_friend_query,$dbconn);
 			while($search_friend_row = mysql_fetch_array($search_friend_data))
 				{
