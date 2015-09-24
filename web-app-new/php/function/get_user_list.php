@@ -9,6 +9,11 @@
 	// Ensure that list returned are not already friends with the user
 
 // EXAMPLE RETURNED LIST - users should be echoed like below
+
+	if($error_msg!="")
+	{
+	?><p><?php echo $error_msg; ?></p><?php
+	}
 for($i = 0; $i<sizeof($search_friend_id); $i++)
 	{
 	?>

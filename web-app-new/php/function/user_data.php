@@ -10,6 +10,7 @@
 	$add_user_id=$_SESSION['add_userid'];
 	$delete_user_id=$_SESSION['delete_userid'];
 	$rank_by=$_SESSION["rank_by"];
+	$error_msg="";
 	$user_name="";
 	$first_name="";
 	$last_name="";
@@ -108,31 +109,24 @@
 		$search_friend_array = implode(',', $search_user_friend_id);
 		$search_friend_query = "SELECT * FROM user WHERE user_id != $user_id AND user_id NOT IN ($search_friend_array) and first_name LIKE '%$search_detail%' OR user_id != $user_id AND user_id NOT IN ($search_friend_array) and last_name LIKE '%$search_detail%'  ";	
 		$search_friend_data = mysql_query($search_friend_query,$dbconn);
-		if($search_friend_data == false)
-		{
-			// $search_friend_query = "SELECT * FROM user WHERE user_id != $user_id and first_name LIKE '$search_detail%' ";	
-			$search_friend_data = mysql_query($search_friend_query,$dbconn);
-			while($search_friend_row = mysql_fetch_array($search_friend_data))
-				{
-					$search_friend_id[$z] = $search_friend_row['user_id'];
-					$search_friend_username[$z] = $search_friend_row['username'];
-					$search_friend_firstname[$z] = $search_friend_row['first_name'];
-					$search_friend_lastname[$z] = $search_friend_row['last_name'];
-					$z++;
-				}
+		$search_friend_data_status = mysql_query($search_friend_query,$dbconn);
 
-		}
-		else
+		if(mysql_fetch_array($search_friend_data_status)==false)
 		{
-			while($search_friend_row = mysql_fetch_array($search_friend_data))
-				{
-					$search_friend_id[$z] = $search_friend_row['user_id'];
-					$search_friend_username[$z] = $search_friend_row['username'];
-					$search_friend_firstname[$z] = $search_friend_row['first_name'];
-					$search_friend_lastname[$z] = $search_friend_row['last_name'];
-					$z++;
-				}
+			$error_msg="Wrong user name or non-registerd user";
 		}
+
+
+
+		while($search_friend_row = mysql_fetch_array($search_friend_data))
+			{
+				$search_friend_id[$z] = $search_friend_row['user_id'];
+				$search_friend_username[$z] = $search_friend_row['username'];
+				$search_friend_firstname[$z] = $search_friend_row['first_name'];
+				$search_friend_lastname[$z] = $search_friend_row['last_name'];
+				$z++;
+			}
+		
 
 		// Add Friend
 		$search_friend_available_query1 = "SELECT * FROM friends WHERE user_id = $user_id AND friend_id = $add_user_id";
@@ -202,4 +196,3 @@
 		unset($_SESSION["friend_id"]);
 		unset($_SESSION["search"]);
 ?>
-<!-- user_id NOT IN ($matches) AND user_id != $user_id AND -->
