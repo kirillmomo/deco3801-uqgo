@@ -113,7 +113,7 @@
 
 		if(mysql_fetch_array($search_friend_data_status)==false)
 		{
-			$error_msg="Wrong user name or non-registerd user";
+			$error_msg="<i class='fa fa-frown-o'></i> No users found.";
 		}
 
 
