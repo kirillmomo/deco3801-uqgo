@@ -1,10 +1,10 @@
 <?php
 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/session_start.php');
 	$search = $_GET['search']; // getting search term from ajax request
 	$_SESSION["search"] = $search;
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/button_status.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-2/php/function/user_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/button_status.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 	// Do a search for user's full names containing the search term
 	// Ensure that list returned are not already friends with the user
 
