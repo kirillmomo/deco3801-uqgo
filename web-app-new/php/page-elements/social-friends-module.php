@@ -133,6 +133,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 			success: function(data) {
 				$(button).html("<i class='fa fa-check'></i> Friend Added");
 				$(button).prop("disabled", true);
+				loadFriendsList();
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error adding friend. (" + status + ": " + err + ")");
@@ -148,6 +149,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 			success: function(data) {
 				$(button).html("<i class='fa fa-check'></i> Friend Removed");
 				$(button).prop("disabled", true);
+				loadFriendsList();
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error removing friend. (" + status + ": " + err + ")");
