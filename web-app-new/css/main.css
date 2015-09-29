@@ -242,14 +242,14 @@
 	font-size: 2em;
 }
 
-.friends-sidebar {
+.friends-sidebar, .sessions-sidebar {
 	min-width: 300px;
 	width: 35%;
 	float: left;
 	border-right: 1px solid #D1D1D1;
 }
 
-.friends-sidebar ul {
+.friends-sidebar ul, .sessions-sidebar ul {
 	list-style: none;
 }
 
@@ -276,7 +276,7 @@
 	transition: all 0.2s ease-in-out;
 }
 
-#friend-search-box, #rank-option {
+#friend-search-box, #rank-option, #time-option {
 	width: 95%;
 	margin: 8px;
 }
@@ -289,7 +289,26 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.friends-sidebar ul li:hover {
+.sessions-sidebar ul li {
+	margin: 0;
+	padding: 10px;
+	padding-bottom: 18px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.sessions-sidebar ul li p {
+	margin: 0;
+}
+
+.sessions-sidebar ul li i {
+	font-size: 2em;
+	position: relative;
+	top: 5px;
+	margin-right: 10px;
+}
+
+.friends-sidebar ul li:hover, .sessions-sidebar ul li:hover {
 	background: #49075E;
 	color: #FFF;
 	transition: all 0.2s ease-in-out;
@@ -333,7 +352,7 @@
 	opacity: .6;
 }
 
-.friends-content {
+.friends-content, .sessions-content {
 	float: left;
 	min-width: 625px;
 	width: 60%;
@@ -377,4 +396,46 @@
 .section-header {
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+.sessions-content {
+		
+}
+
+.session-name {
+	font-size: 1.75em;
+}
+
+.session-info-bar {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #D1D1D1;
+}
+
+.session-info {
+	display: inline-block;
+	width: 24%;
+	text-align: center;
+}
+
+.session-info:not(:last-of-type) {
+	border-right: 1px solid #D1D1D1;
+}
+
+.session-info p {
+	margin: 0;
+}
+
+.session-info-head {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.session-info-data {
+	color: #49075E;
+	font-size: 2em;
+}
+
+#map {
+	height: 500px;
 }
