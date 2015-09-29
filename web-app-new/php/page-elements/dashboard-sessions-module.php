@@ -1,5 +1,6 @@
 <script type="text/javascript">
 	var map;
+	var routeLine;
 
 	loadSessionsList();
 	initMap();
@@ -70,15 +71,36 @@
 	}
 
 	function updateMap(routeLatLng) {
-		// Using hardcoded route for now
-		var routeCoords = [
-		  {lat: -27.495649, lng: 153.011923},
-		  {lat: -27.494493, lng: 153.011716},
-		  {lat: -27.494945, lng: 153.012918},
-		  {lat: -27.496492, lng: 153.013412}
-		];
+		var latlng_array = routeLatLng.split('\n');
+		var array_length = latlng_array.length;
+		var routeCoords = [];
 
-		var route = new google.maps.Polyline({
+		// BUG: can't seem to clear existing polyline :(
+		if (routeLine != null) {
+			console.log("Clearing route Polyline");
+			routeLine.setMap(null);
+		}
+
+		for (var i=0; i < array_length; i++) {
+			latlng = latlng_array[i].replace('(', '');
+			latlng = latlng.replace(')', '');
+			lat = latlng.split(',')[0];
+			lng = latlng.split(',')[1];
+
+			// if(i == 0){
+			// 	var start_lat = lat;
+			// 	var start_lng = lng;
+			// }
+
+			// if(i == length){
+			// 	var end_lat = lat;
+			// 	var end_lng = lng;
+			// }
+
+			routeCoords.push(new google.maps.LatLng(lat, lng));
+		}
+
+		var routeLine = new google.maps.Polyline({
 		  path: routeCoords,
 		  geodesic: true,
 		  strokeColor: '#49075E',
@@ -86,7 +108,7 @@
 		  strokeWeight: 3
 		});
 
-		route.setMap(map);
+		routeLine.setMap(map);
 	}
 
 </script>
