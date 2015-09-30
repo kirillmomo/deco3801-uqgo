@@ -1,6 +1,7 @@
 <script type="text/javascript">
-	var map;
-	var routeLine;
+	var map;			// Google Maps map object
+	var routeCoords;	// Array of Google LatLngs
+	var routeLine; 		// Google Polyline object
 
 	loadSessionsList();
 	initMap();
@@ -50,6 +51,8 @@
 			$(this).removeClass("active-list-item");
 		});
 		$(item).addClass("active-list-item");
+		// $(".sessions-content").fadeOut(200, "swing");
+		$(".sessions-content").addClass("slide-in");
 		$.ajax({
 			url: "./php/function/get_session_info.php",
 			dataType: "json",
@@ -63,6 +66,9 @@
 				var duration = data["duration"]
 				$("#session-duration").text(duration.toString().toHHMMSS());
 				updateMap(data["routeLatLng"]);
+				// $(".sessions-content").fadeIn(200, "swing");
+				// google.maps.event.trigger(map, 'resize');
+				$(".sessions-content").removeClass("slide-in");
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error retrieving session info: " + err);
@@ -73,13 +79,16 @@
 	function updateMap(routeLatLng) {
 		var latlng_array = routeLatLng.split('\n');
 		var array_length = latlng_array.length;
-		var routeCoords = [];
+		var start_lat;
+		var start_lng;
 
-		// BUG: can't seem to clear existing polyline :(
-		if (routeLine != null) {
-			console.log("Clearing route Polyline");
+		if (routeCoords) {
+			routeCoords.length = 0;
 			routeLine.setMap(null);
+			routLine = null;
+			console.log("Existing route cleared");
 		}
+		routeCoords = [];
 
 		for (var i=0; i < array_length; i++) {
 			latlng = latlng_array[i].replace('(', '');
@@ -87,10 +96,10 @@
 			lat = latlng.split(',')[0];
 			lng = latlng.split(',')[1];
 
-			// if(i == 0){
-			// 	var start_lat = lat;
-			// 	var start_lng = lng;
-			// }
+			if(i == 0){
+				start_lat = lat;
+				start_lng = lng;
+			}
 
 			// if(i == length){
 			// 	var end_lat = lat;
@@ -100,7 +109,7 @@
 			routeCoords.push(new google.maps.LatLng(lat, lng));
 		}
 
-		var routeLine = new google.maps.Polyline({
+		routeLine = new google.maps.Polyline({
 		  path: routeCoords,
 		  geodesic: true,
 		  strokeColor: '#49075E',
@@ -109,6 +118,8 @@
 		});
 
 		routeLine.setMap(map);
+		map.setCenter(new google.maps.LatLng(start_lat, start_lng));
+		console.log("Drawed new route on map");
 	}
 
 </script>
@@ -123,7 +134,7 @@
 		<!-- Sessions list will load here via ajax -->
 	</ul>
 </div>
-<div class="sessions-content">
+<div class="sessions-content slide-in">
 	<!-- Selected session content will be injected below via ajax -->
 	<p class="session-name">Session</p>
 	<div class="session-info-bar">

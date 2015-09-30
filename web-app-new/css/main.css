@@ -402,6 +402,11 @@
 		
 }
 
+.slide-in.sessions-content {
+	transform: translate(-30px);
+	opacity: 0;
+}
+
 .session-name {
 	font-size: 1.75em;
 }
