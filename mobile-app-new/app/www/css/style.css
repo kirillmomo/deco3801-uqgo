@@ -95,6 +95,26 @@
     margin-left: 2%;
     margin-right: 2%;
 }
+.groupicon {
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.join {
+    float: right;
+    margin-top: 1%;
+    width: 90px;
+}
+.listinfo {
+    float: left;
+    margin-left: 2.5%;
+}
+.listname {
+    color: #49075E;
+}
+.listdesc{
+    color: dimgrey;
+}
 .mainstat {
     padding-bottom: 5%;
     text-align: center;

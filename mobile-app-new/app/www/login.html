@@ -131,6 +131,7 @@
         <script type="text/javascript">
 			$("#regsubmit").submit(function(){
                 var postData = $(this).serialize();
+                console.log(postData);
                 
                 $.ajax({
                     type: 'POST',
@@ -138,7 +139,7 @@
                     url: "http://silversquad.uqcloud.net/WebService/postRegisterInfo.php",
                     success: function(data){
                         console.log(data);
-                        alert("Registration complete. Please Proceed to login");
+                        alert(data);
                     },
                     error: function(data){
                         console.log(data);

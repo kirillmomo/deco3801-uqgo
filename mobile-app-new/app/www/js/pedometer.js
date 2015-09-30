@@ -17,7 +17,7 @@ function accSuccess(acceleration) {
 
     // Gets Graphable value from acceleration data.
     var accelvalue = Math.sqrt(acceleration.x * acceleration.x + acceleration.y * acceleration.y + acceleration.z * acceleration.z);
-    console.log("Accel: " + accelvalue + "  Previous: " +previousaccel);
+    //console.log("Accel: " + accelvalue + "  Previous: " +previousaccel);
     // Checks if graphs maximum is found.
     if(maxfound == 0){
         if(accelvalue < previousaccel -3){
@@ -30,7 +30,7 @@ function accSuccess(acceleration) {
             minfound = 1; 
         }
     }
-    console.log("MaxFound: " + maxfound + "  MinFound: " +minfound);
+    //console.log("MaxFound: " + maxfound + "  MinFound: " +minfound);
     // If the graph has passed on sequence increment the steps an reset the flags
     if( maxfound == 1 && minfound == 1){
         maxfound = 0;

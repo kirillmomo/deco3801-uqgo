@@ -23,6 +23,10 @@ function timer() {
     if(counting){
         // Updates the onscreen timer.
         $('#runtime').html(formatted);
+        // Get Location once every ten seconds
+        if(time % 10 === 0) {
+            getLocation();
+        }
         // Increments time when function is run
         time++;
         setTimeout('timer()', 1000);
@@ -56,9 +60,9 @@ function startFinish() {
         navigator.accelerometer.clearWatch(stepwatch);
 
         $("#trackbuttons").slideUp(500);
-        $("#welldone").slideDown(500);                
-         $("#sharestats").slideDown(0);
-        // window.location = 'sessionstats.html';
+        $("#welldone").slideDown(500);
+        $("#sharestats").slideDown(0);
+        //postSessionData();
     }
 }
 
@@ -73,4 +77,8 @@ function resumeTimer() {
     counting = 1;
     timer();
     countSteps();
+}
+
+function postSessionData(){
+    
 }
