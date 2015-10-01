@@ -242,25 +242,25 @@
 	font-size: 2em;
 }
 
-.friends-sidebar, .sessions-sidebar {
+.friends-sidebar, .sessions-sidebar, .groups-sidebar {
 	min-width: 300px;
 	width: 35%;
 	float: left;
 	border-right: 1px solid #D1D1D1;
 }
 
-.friends-sidebar ul, .sessions-sidebar ul {
+.friends-sidebar ul, .sessions-sidebar ul, .groups-sidebar ul {
 	list-style: none;
 }
 
-#add-friend-button {
+#add-friend-button, #discover-groups-button, #create-group-button {
 	text-transform: uppercase;
 	display: block;
 	padding: 10px;
 	transition: all 0.2s ease-in-out;
 }
 
-#add-friend-button i {
+#add-friend-button i, #discover-groups-button i, #create-group-button i {
 	margin: 0 20px;
 	transition: transform 0.3s ease-in-out;
 }
@@ -270,18 +270,18 @@
 	transition: transform 0.3s ease-in-out;
 }
 
-#add-friend-button:hover {
+#add-friend-button:hover, #discover-groups-button:hover, #create-group-button:hover {
 	background: #8AB800;
 	color: #FFF;
 	transition: all 0.2s ease-in-out;
 }
 
-#friend-search-box, #rank-option, #time-option {
+#friend-search-box, #rank-option, #time-option, #group-search-box {
 	width: 95%;
 	margin: 8px;
 }
 
-.friends-sidebar ul li {
+.friends-sidebar ul li, .groups-sidebar ul li {
 	margin: 0;
 	padding: 5px;
 	padding-bottom: 0px;
@@ -308,7 +308,7 @@
 	margin-right: 10px;
 }
 
-.friends-sidebar ul li:hover, .sessions-sidebar ul li:hover {
+.friends-sidebar ul li:hover, .sessions-sidebar ul li:hover, .groups-sidebar ul li:hover {
 	background: #49075E;
 	color: #FFF;
 	transition: all 0.2s ease-in-out;
@@ -319,7 +319,7 @@
 	color: #FFF;
 }
 
-.friends-sidebar ul li p {
+.friends-sidebar ul li p, .groups-sidebar ul li p {
 	display: inline-block;
 	margin: 0;
 	position: relative;
@@ -330,7 +330,7 @@
 	overflow: hidden;
 }
 
-.friend-image {
+.friend-image, .group-image {
 	display: inline-block;
 	background: #000;
 	height: 50px;
@@ -343,6 +343,10 @@
 	background-size: contain;
 }
 
+.group-image {
+	background-image: url("../img/group-default.png");
+}
+
 .search-results {
 	display: none;
 }
@@ -352,7 +356,7 @@
 	opacity: .6;
 }
 
-.friends-content, .sessions-content {
+.friends-content, .sessions-content, .groups-content {
 	float: left;
 	min-width: 625px;
 	width: 60%;
@@ -360,34 +364,38 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.slide-in.friends-content {
+.slide-in.friends-content, .slide-in.sessions-content, .slide-in.groups-content {
 	transform: translate(-30px);
 	opacity: 0;
 }
 
-.friends-content .profile-image {
+.friends-content .profile-image, .groups-content .profile-image {
 	float: left;
 	margin: 0 25px;
 }
 
-.friends-content .section {
+.groups-content .profile-image {
+	background-image: url("../img/group-default.png");
+}
+
+.friends-content .section, .groups-content .section {
 	border-bottom: 1px solid #D1D1D1;
 	overflow: auto;
 	padding: 10px;
 }
 
-.friends-content .section:first-of-type p {
+.friends-content .section:first-of-type p, .groups-content .section:first-of-type p {
 	margin-bottom: 5px;
 }
 
-.friends-content .section:first-of-type button {
+.friends-content .section:first-of-type button, .groups-content .section:first-of-type button {
 	margin-top: 10px;
 	margin-bottom: 0;
 	float: right;
 	width: 180px;
 }
 
-.friends-content .section:first-of-type button i {
+.friends-content .section:first-of-type button i, .groups-content .section:first-of-type button i {
 	font-size: 1.3em;
 	position: relative;
 	left: -10px;
@@ -400,11 +408,6 @@
 
 .sessions-content {
 		
-}
-
-.slide-in.sessions-content {
-	transform: translate(-30px);
-	opacity: 0;
 }
 
 .session-name {
