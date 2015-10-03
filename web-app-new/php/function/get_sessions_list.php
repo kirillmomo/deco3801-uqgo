@@ -1,7 +1,16 @@
 <?php
+	// Include Session php file to start PHP session 
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/session_start.php');
 	$filterTime = $_GET['filterTime']; //getting filter option from ajax request
-?>
+	$_SESSION["filter_time"] = $filterTime;
 
-<li onClick="showSession('session_id', this);"><p><i class="fa fa-map-marker"></i> Mon 28/09/2015 4:20PM</p></li>
-<li onClick="showSession('session_id', this);"><p><i class="fa fa-map-marker"></i> Mon 28/09/2015 4:20PM</p></li>
-<li onClick="showSession('session_id', this);"><p><i class="fa fa-map-marker"></i> Mon 28/09/2015 4:20PM</p></li>
+	// Include session_data php file to get user track session data 
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/session_data.php');
+
+	for($i = 0; $i<sizeof($track_session_id); $i++)
+	{
+	?>
+	<li onClick="showSession('<?php echo $track_session_id[$i]; ?>', this);"><p><i class="fa fa-map-marker"></i><?php echo $track_session_time[$i]; ?></p></li>
+	<?php
+	}
+?>

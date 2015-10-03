@@ -192,7 +192,7 @@
 		$a++;
 		}
 
-
+		// Delete friend and search session
 		unset($_SESSION["friend_id"]);
 		unset($_SESSION["search"]);
 ?>
