@@ -7,6 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./js/notification-tray-animation.js"></script>
 <script src="./js/module-loader.js"></script>
+<script src="./js/set-list-height.js"></script>
 <script type="text/javascript">
 	//Global variables
 	var chartFillColour = "#49075E";

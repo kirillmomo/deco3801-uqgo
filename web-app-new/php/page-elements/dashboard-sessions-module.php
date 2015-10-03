@@ -3,6 +3,7 @@
 	var routeCoords;	// Array of Google LatLngs
 	var routeLine; 		// Google Polyline object
 
+	setListHeight();
 	loadSessionsList();
 	initMap();
 	
@@ -123,7 +124,7 @@
 	}
 
 </script>
-<div class="sessions-sidebar">
+<div class="sessions-sidebar module-sidebar">
 	<select id="time-option" onChange="loadSessionsList();">
 		<option value="today">Today</option>
 		<option value="week" selected="selected">This week</option>

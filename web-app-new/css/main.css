@@ -253,7 +253,6 @@
 	list-style: none;
 	overflow: scroll;
 	overflow-x: hidden;
-	height: 500px;
 }
 
 #add-friend-button, #discover-groups-button, #create-group-button {

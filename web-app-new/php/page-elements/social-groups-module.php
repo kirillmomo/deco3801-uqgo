@@ -1,5 +1,6 @@
 <script type="text/javascript">
 	var showingJoined = true;
+	setListHeight();
 	loadJoinedGroupsList();
 
 	jQuery.expr[':'].Contains = function(a,i,m){
@@ -214,7 +215,7 @@
 	}
 </script>
 
-<div class="groups-sidebar">
+<div class="groups-sidebar module-sidebar">
 	<a id="create-group-button" onClick="showCreate();"><i class="fa fa-plus fa-fw"></i><span>Create group</span></a>
 	<a id="discover-groups-button" onClick="toggleGroupSearch();"><i class="fa fa-search fa-fw"></i><span>Discover groups</span></a>
 	<input id="group-search-box" type="search" placeholder="Filter groups" onKeyup="filterGroups();">

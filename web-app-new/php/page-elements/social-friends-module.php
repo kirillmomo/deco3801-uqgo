@@ -8,6 +8,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 
 <script type="text/javascript">
 	var friendView = true;
+	setListHeight();
 	loadFriendsList();
 
 	jQuery.expr[':'].Contains = function(a,i,m){
@@ -158,7 +159,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 	}
 </script>
 
-<div class="friends-sidebar">
+<div class="friends-sidebar module-sidebar">
 	<a id="add-friend-button" onClick="toggleFriendSearch();"><i class="fa fa-plus"></i><span>Add Friend</span></a>
 	<input id="friend-search-box" type="search" placeholder="Filter friends" onKeyup="filterFriendsList();">
 	<select id="rank-option" onChange="loadFriendsList();">
@@ -176,4 +177,4 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 </div>
 <div class="friends-content slide-in">
 	<!-- Selected profile will load here via ajax -->
-</div>
+</div> module-sidebar
