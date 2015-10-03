@@ -4,6 +4,7 @@
 	var routeLine; 		// Google Polyline object
 
 	setListHeight();
+	$(window).resize(setListHeight);
 	loadSessionsList();
 	initMap();
 	

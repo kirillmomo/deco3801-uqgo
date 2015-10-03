@@ -9,6 +9,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 <script type="text/javascript">
 	var friendView = true;
 	setListHeight();
+	$(window).resize(setListHeight);
 	loadFriendsList();
 
 	jQuery.expr[':'].Contains = function(a,i,m){

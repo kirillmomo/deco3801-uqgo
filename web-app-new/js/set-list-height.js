@@ -7,5 +7,4 @@ function setListHeight() {
       subtractHeight += $(this).outerHeight();
   });
   $(".module-sidebar > ul").height(windowHeight - subtractHeight);
-  console.log($(".module-sidebar > ul").height());
 }

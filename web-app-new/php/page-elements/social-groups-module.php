@@ -1,6 +1,7 @@
 <script type="text/javascript">
 	var showingJoined = true;
 	setListHeight();
+	$(window).resize(setListHeight);
 	loadJoinedGroupsList();
 
 	jQuery.expr[':'].Contains = function(a,i,m){
