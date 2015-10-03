@@ -13,5 +13,23 @@
 	<p><button class="button-primary" onClick="leaveGroup('echo group id', this)"><i class="fa fa-minus"></i> Leave Group</button></p>
 </div>
 <div class="section">
-	stuff
+	<p class="section-header">About this group</p>
+	<p>Lorem ipsum dolor sit amet</p>
+</div>
+<div class="section">
+	<p class="section-header">Activity this month</p>
+</div>
+<div class="section">
+	<p class="section-header">Group members</p>
+	<ul class="members-list">
+		<!-- Echo group members in alphabetical order -->
+		<li><div class="friend-image"></div><p>Soap Mactavish Mactavish</p></li>
+		<li><div class="friend-image"></div><p>Captain Price</p></li>
+		<li><div class="friend-image"></div><p>Soap Mactavish</p></li>
+		<li><div class="friend-image"></div><p>Captain Price</p></li>
+		<li><div class="friend-image"></div><p>Soap Mactavish</p></li>
+		<li><div class="friend-image"></div><p>Captain Price</p></li>
+		<li><div class="friend-image"></div><p>Soap Mactavish</p></li>
+		<li><div class="friend-image"></div><p>Captain Price</p></li>
+	</ul>
 </div>

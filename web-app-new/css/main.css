@@ -251,6 +251,9 @@
 
 .friends-sidebar ul, .sessions-sidebar ul, .groups-sidebar ul {
 	list-style: none;
+	overflow: scroll;
+	overflow-x: hidden;
+	height: 500px;
 }
 
 #add-friend-button, #discover-groups-button, #create-group-button {
@@ -465,4 +468,29 @@
 #create-group-submit {
 	margin-top: 20px;
 	width: 181px;
+}
+
+.members-list {
+	list-style: none;
+}
+
+.members-list li {
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #D1D1D1;
+	padding: 5px;
+	width: 150px;
+	height: 150px;
+}
+
+.members-list .friend-image {
+	height: 100px;
+	width: 100px;
+	margin: 0;
+}
+
+.members-list li p {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
