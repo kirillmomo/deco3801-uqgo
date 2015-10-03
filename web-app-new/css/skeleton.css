@@ -236,6 +236,14 @@ input[type="button"].button-primary:focus {
   background-color: #A1C633;
   border-color: #A1C633; }
 
+.button:disabled,
+button:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled,
+input[type="button"]:disabled {
+  opacity: .6;
+  transition: all .5s ease-in-out;
+}
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

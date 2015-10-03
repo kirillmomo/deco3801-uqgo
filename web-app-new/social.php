@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>UQGO - Social</title>
     <?php include "./php/page-elements/header.php";?>
+    <link rel="stylesheet" href="./css/select2.min.css">
+    <script src="./js/select2.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
           $("#nav-item-social").addClass("nav-active-item"); // highlight corresponding nav item in sidebar

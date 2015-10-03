@@ -168,10 +168,47 @@
 			success: function(data) {
 				$(".groups-content").html(data);
 				$(".groups-content").removeClass("slide-in");
+				$(".create-group-form").on('submit', function(e) {
+					e.preventDefault();
+					createGroup();
+				});
+				initMultiSelector();
 			},
 			error: function(jqXHR, status, err) {
 				$(".groups-content").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error loading content. (" + status + ": " + err + ")</p>");
 				console.log("Error loading group creator");
+			}
+		});
+	}
+
+	function initMultiSelector() {
+		$("#creator-group-friends-list").select2({
+			placeholder: "Search or select friends to add"
+		});
+
+		console.log("Multi selector initialised");
+	}
+
+	function createGroup() {
+		// Need to manually serialise the form, the custom select box doesn't serialise properly when multiple values are selected
+		var dataString = "group_name=" + $("#creator-group-name").val() + "&group_description=" + $("#creator-group-description").val() + "&group_friends_list=" + $("#creator-group-friends-list").val();
+		$.ajax({
+			type: "POST",
+			url: "./php/function/create_group.php",
+			data: dataString,
+			success: function(data) {
+				if (data) {
+					console.log("Success creating group: " + data);
+					$("#create-group-submit").html("<i class='fa fa-check'></i> Group Created");
+					$("#create-group-submit").prop("disabled", true);
+					$("#view-new-group").attr("onClick", "showGroup('" + data + "')");
+					$("#view-new-group").removeClass("slide-in");
+				} else {
+					console.log("Error creating group");
+				}
+			},
+			error: function(jqXHR, status, err) {
+				console.log("Error creating group: " + err);
 			}
 		});
 	}
