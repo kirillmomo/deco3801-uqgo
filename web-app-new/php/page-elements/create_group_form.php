@@ -1,3 +1,8 @@
+<?php
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
+?>
+
 <form class="create-group-form">
 	<p class="section-header">Create a new group</p>
 	<label for="creator-group-name">Group name</label>
@@ -6,10 +11,15 @@
 	<textarea id="creator-group-description" name="group_description" placeholder="What is your group about?" required maxlength="300"></textarea>
 	<label for="creator-group-friends-list">Add friends to this group</label>
 	<select name="group_friends_list" id="creator-group-friends-list" class="multi-select-box" multiple="multiple" style="width: 90%">
-		<!-- KIRILL: echo back the friends below in alphabetical order -->
-	  <option value="echo friend_id">Viktor Reznov</option>
-	  <option value="echo friend_id">Jenson Jackson</option>
-	  <option value="echo friend_id">James Ramirez</option>
+		<!--echo back the friends below in alphabetical order -->
+	<?php
+	for($i = 0; $i<sizeof($friend_group_id); $i++)
+	{
+	?>
+	  <option value="<?php echo $friend_group_id[$i]; ?>"><?php echo $friend_group_firstname[$i]; ?> <?php echo $friend_group_lastname[$i]; ?></option>
+	<?php 
+	}
+	?>
 	</select>
 	<button type="submit" class="button-primary" id="create-group-submit">Create Group</button>
 	<button type="button" class="button slide-in" id="view-new-group">View Group <i class="fa fa-arrow-circle-right"></i></button>

@@ -14,10 +14,24 @@
 	{
 	?><p><?php echo $error_msg; ?></p><?php
 	}
-for($i = 0; $i<sizeof($search_friend_id); $i++)
+
+	if(sizeof($search_friend_id)!=0)
 	{
-	?>
-	<li onClick="showProfile('<?php echo $search_friend_id[$i]; ?>', this);"><div class="friend-image"></div><p><?php echo $search_friend_firstname[$i]; ?> <?php echo $search_friend_lastname[$i]; ?></p></li>
-	<?php
+		// echo a list of joined groups
+		for($i = 0; $i<sizeof($search_friend_id); $i++)
+		{
+		?>
+		<li onClick="showProfile('<?php echo $search_friend_id[$i]; ?>', this);"><div class="friend-image"></div><p><?php echo $search_friend_firstname[$i]; ?> <?php echo $search_friend_lastname[$i]; ?></p></li>
+		<?php
+		}
+	}
+	else
+	{
+		for($i = 0; $i<sizeof($search_all_user_id); $i++)
+		{
+		?>
+		<li onClick="showProfile('<?php echo $search_all_user_id[$i]; ?>', this);"><div class="friend-image"></div><p><?php echo $search_all_user_firstname[$i]; ?> <?php echo $search_all_user_lastname[$i]; ?></p></li>
+		<?php
+		}	
 	}
 ?>

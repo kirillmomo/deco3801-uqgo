@@ -1,4 +1,5 @@
 <?php
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/session_start.php');	
 	$track_session_id = $_GET['session_id']; // getting selected session id from ajax request
 	$_SESSION['session_id'] = $track_session_id;
 	// Include session_data php file to get user track session data 

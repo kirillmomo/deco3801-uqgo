@@ -148,7 +148,7 @@
 
 	function leaveGroup(group_id, button) {
 		$.ajax({
-			url: "./php/function/remove_friend.php",
+			url: "./php/function/leave_group.php",
 			dataType: "html",
 			data: "group_id=" + group_id,
 			success: function(data) {

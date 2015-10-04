@@ -26,4 +26,24 @@
 		}
 	}
 
+	$group_button_status_condition="";
+	$group_button_status_user_id=$_SESSION['user_id'];
+	$group_button_status_group_id=$_SESSION['group_id'];
+	$group_button_status_query1 = "SELECT * FROM group_member WHERE group_member_user_id = $group_button_status_user_id AND group_id = $group_button_status_group_id";
+	$group_button_status_data1 = mysql_query($group_button_status_query1,$dbconn);
+	$group_button_status1 = mysql_fetch_array($group_button_status_data1);
+
+	if($group_button_status_user_id!=null && $group_button_status_group_id!=null)
+	{
+
+		if ($group_button_status1==false) 
+		{
+			$group_button_status_condition="not-joined";
+		}
+		else
+		{
+			$group_button_status_condition="joined";
+		}
+	}
+
 ?>

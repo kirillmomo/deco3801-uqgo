@@ -79,4 +79,7 @@
 			$track_session_display_latlng = str_replace(" ","\n",$track_session_display_row['session_latlng']);	
 		}
 
+	// Delete friend and search session
+	unset($_SESSION['session_id']);
+	unset($_SESSION['filter_time']);
 ?>

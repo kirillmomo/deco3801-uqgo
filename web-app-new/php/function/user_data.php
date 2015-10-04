@@ -36,7 +36,16 @@
 	$search_friend_username=array();
 	$search_friend_firstname=array();
 	$search_friend_lastname=array();
+	$search_all_user_id=array();
+	$search_all_user_username=array();
+	$search_all_user_firstname=array();
+	$search_all_user_lastname=array();
+	$friend_group_firstname=array();
+	$friend_group_lastname=array();
+	$friend_group_id=array();
 	$a=0;
+	$b=0;
+	$c=0;
 	$x=0;
 	$y=0;
 	$z=0;
@@ -110,13 +119,14 @@
 		$search_friend_query = "SELECT * FROM user WHERE user_id != $user_id AND user_id NOT IN ($search_friend_array) and first_name LIKE '%$search_detail%' OR user_id != $user_id AND user_id NOT IN ($search_friend_array) and last_name LIKE '%$search_detail%'  ";	
 		$search_friend_data = mysql_query($search_friend_query,$dbconn);
 		$search_friend_data_status = mysql_query($search_friend_query,$dbconn);
+		$search_all_user_query = "SELECT * FROM user WHERE user_id != $user_id AND first_name LIKE '%$search_detail%' OR user_id != $user_id AND last_name LIKE '%$search_detail%'";	
+		$search_all_user_data = mysql_query($search_all_user_query,$dbconn);
+		$search_all_user_data_status = mysql_query($search_all_user_data,$dbconn);
 
-		if(mysql_fetch_array($search_friend_data_status)==false)
+		if(mysql_fetch_array($search_friend_data_status)==false && mysql_fetch_array($search_all_user_data_status)==false)
 		{
 			$error_msg="<i class='fa fa-frown-o'></i> No users found.";
 		}
-
-
 
 		while($search_friend_row = mysql_fetch_array($search_friend_data))
 			{
@@ -125,6 +135,15 @@
 				$search_friend_firstname[$z] = $search_friend_row['first_name'];
 				$search_friend_lastname[$z] = $search_friend_row['last_name'];
 				$z++;
+			}
+
+		while($search_all_user_row = mysql_fetch_array($search_all_user_data))
+			{
+				$search_all_user_id[$b] = $search_all_user_row['user_id'];
+				$search_all_user_username[$b] = $search_all_user_row['username'];
+				$search_all_user_firstname[$b] = $search_all_user_row['first_name'];
+				$search_all_user_lastname[$b] = $search_all_user_row['last_name'];
+				$b++;
 			}
 		
 
@@ -190,6 +209,17 @@
 			$friend_list_lastname[$a] = $rank_by_friend_search_row['last_name'];
 			$friend_list_id[$a]=$rank_by_friend_search_row['user_id'];
 		$a++;
+		}
+
+		$group_friend_search = implode(',', $search_user_friend_id);
+		$group_friend_search_query = "SELECT * FROM user WHERE user_id IN ($group_friend_search) ORDER BY first_name";	
+		$group_friend_search_data = mysql_query($group_friend_search_query,$dbconn);
+		while($group_friend_search_row = mysql_fetch_array($group_friend_search_data))
+		{
+			$friend_group_firstname[$c] = $group_friend_search_row['first_name'];
+			$friend_group_lastname[$c] = $group_friend_search_row['last_name'];
+			$friend_group_id[$c]=$group_friend_search_row['user_id'];
+		$c++;
 		}
 
 		// Delete friend and search session

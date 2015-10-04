@@ -1,3 +1,6 @@
 <?php
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/session_start.php');
 	$group_id = $_GET['group_id']; // getting group_id from the ajax request
+	$_SESSION["leave_groupid"] = $group_id;
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/group_data.php');
 ?>

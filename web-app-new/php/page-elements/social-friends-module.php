@@ -178,4 +178,4 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 </div>
 <div class="friends-content slide-in">
 	<!-- Selected profile will load here via ajax -->
-</div> module-sidebar
+</div> 
