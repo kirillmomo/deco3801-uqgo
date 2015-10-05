@@ -17,7 +17,7 @@
 		<?php
 		}
 	}
-	else
+	elseif($total_joined_group_num==0)
 	{
 		for($i = 0; $i<sizeof($search_all_group_id); $i++)
 		{

@@ -7,6 +7,7 @@
 	$join_group_id = $_SESSION['join_groupid'];
 	$left_group_id  = $_SESSION['leave_groupid'];
 	$total_group_num = 0;
+	$total_joined_group_num=0;
 	$display_group_id = 0;
 	$display_group_name = "";
 	$display_group_date = "";
@@ -37,13 +38,14 @@
 	$total_group_member_query = "SELECT * FROM group_member WHERE group_id = '$group_id'";
 	$group_query = "SELECT * FROM `group` WHERE group_id IN ($search_group_id_array)";
 	$non_joined_group_query = "SELECT * FROM group_member WHERE group_member_user_id = '$group_user_id'";
-	$all_group_query = "SELECT * FROM `group`";
+	$all_group_query = "SELECT * FROM `group` ORDER BY group_name";
 	$group_data = mysql_query($group_query,$dbconn);
 	$group_detail_data = mysql_query($group_detail_query,$dbconn);
 	$total_group_member_data = mysql_query($total_group_member_query,$dbconn);
 	$group_user_data = mysql_query($group_user_query,$dbconn);
 	$non_joined_group_data = mysql_query($non_joined_group_query,$dbconn);
 	$all_group_data = mysql_query($all_group_query,$dbconn);
+	$total_joined_group_num = mysql_num_rows($group_user_data);
 	$total_group_num = mysql_num_rows($total_group_member_data);
 
 	//Search group detail
@@ -84,7 +86,7 @@
 
 	//Search user joined group 
 	$search_group_id_array = implode(',', $user_group_joined_data);
-	$search_group_data_query = "SELECT * FROM `group` WHERE group_id IN ($search_group_id_array)";
+	$search_group_data_query = "SELECT * FROM `group` WHERE group_id IN ($search_group_id_array) ORDER BY group_name";
 	$search_group_info_data = mysql_query($search_group_data_query,$dbconn);
 		
 	while($group_member_row = mysql_fetch_array($search_group_info_data))
@@ -119,7 +121,7 @@
 			$c++;
 		}
 
-	$joining_group_query = "SELECT * FROM group_member WHERE group_id='$join_group_id' AND group_member_user_id = '$group_user_id' ";
+	$joining_group_query = "SELECT * FROM group_member WHERE group_id='$join_group_id' AND group_member_user_id = '$group_user_id'";
 	$status_joining_group = mysql_query($joining_group_query);
 	$status_joining_group_row = mysql_fetch_array($status_joining_group);
 
