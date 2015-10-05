@@ -369,6 +369,7 @@
 .slide-in.friends-content, .slide-in.sessions-content, .slide-in.groups-content, button.slide-in {
 	transform: translate(-30px);
 	opacity: 0;
+	visibility: hidden;
 }
 
 .friends-content .profile-image, .groups-content .profile-image {
