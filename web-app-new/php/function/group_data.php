@@ -1,11 +1,6 @@
 <?php
 	// Include connect php file
 	include('connect.php');
-
-	var_dump($_SESSION['user_id1']);
-	var_dump($_SESSION['user_id2']);
-	var_dump($_SESSION['user_id3']);
-
 	// Define variable
 	$group_user_id = $_SESSION['user_id'];
 	$group_id = $_SESSION['group_id'];
@@ -156,10 +151,11 @@
 				$delete_group_query = "SELECT * FROM `group` WHERE  group_id='$left_group_id' AND group_user_id = '$group_user_id'";
 				$status_delete_group_query = mysql_query($delete_group_query);
 				$status_delete_group_row = mysql_fetch_array($status_delete_group_query);
+				var_dump($status_delete_group_row);
 				if ($status_delete_group_row!=false) 
 				{
-					$delete_group_data_query = "DELETE FROM `group` WHERE  group_id='$left_group_id' AND group_user_id = '$group_user_id'";
-					$delete_group_member_data_query = "DELETE FROM group_member WHERE  group_id='$left_group_id'";
+					$delete_group_data_query = "DELETE * FROM `group` WHERE  group_id='$left_group_id' AND group_user_id = '$group_user_id'";
+					$delete_group_member_data_query = "DELETE * FROM group_member WHERE  group_id='$left_group_id'";
 				}
 	
 	        	
