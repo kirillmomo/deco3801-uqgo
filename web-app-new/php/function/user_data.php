@@ -121,7 +121,7 @@
 		$search_friend_data_status = mysql_query($search_friend_query,$dbconn);
 		$search_all_user_query = "SELECT * FROM user WHERE user_id != $user_id AND first_name LIKE '%$search_detail%' OR user_id != $user_id AND last_name LIKE '%$search_detail%'";	
 		$search_all_user_data = mysql_query($search_all_user_query,$dbconn);
-		$search_all_user_data_status = mysql_query($search_all_user_data,$dbconn);
+		$search_all_user_data_status = mysql_query($search_all_user_query,$dbconn);
 
 		if(mysql_fetch_array($search_friend_data_status)==false && mysql_fetch_array($search_all_user_data_status)==false)
 		{

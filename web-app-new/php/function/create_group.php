@@ -35,6 +35,5 @@
 		
 	}
 
-
 	echo $new_group_id // echo new group's id on success, echo nothing on failure
 ?>
