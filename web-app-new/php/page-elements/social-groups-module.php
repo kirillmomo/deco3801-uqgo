@@ -164,6 +164,9 @@
 
 	function showCreate() {
 		$(".groups-content").addClass("slide-in");
+		if (!showingJoined) {
+			toggleGroupSearch();
+		}
 		$.ajax({
 			url: "./php/page-elements/create_group_form.php",
 			dataType: "html",
@@ -205,6 +208,9 @@
 					$("#create-group-submit").prop("disabled", true);
 					$("#view-new-group").attr("onClick", "showGroup('" + data + "')");
 					$("#view-new-group").removeClass("slide-in");
+					if (showingJoined) {
+						loadGroupsList();
+					}
 				} else {
 					console.log("Error creating group");
 				}
