@@ -209,7 +209,7 @@
 					$("#view-new-group").attr("onClick", "showGroup('" + data + "')");
 					$("#view-new-group").removeClass("slide-in");
 					if (showingJoined) {
-						loadGroupsList();
+						loadJoinedGroupsList();
 					}
 				} else {
 					console.log("Error creating group");
