@@ -21,7 +21,7 @@
 		for($i = 0; $i<sizeof($search_friend_id); $i++)
 		{
 		?>
-		<li onClick="showProfile('<?php echo $search_friend_id[$i]; ?>', this);"><div class="friend-image"></div><p><?php echo $search_friend_firstname[$i]; ?> <?php echo $search_friend_lastname[$i]; ?></p></li>
+		<li onClick="showProfile('<?php echo $search_friend_id[$i]; ?>', this);"><div class="friend-image" style="background-image: url(/profile_img/users/1.jpg)"></div><p><?php echo $search_friend_firstname[$i]; ?> <?php echo $search_friend_lastname[$i]; ?></p></li>
 		<?php
 		}
 	}
@@ -30,7 +30,7 @@
 		for($i = 0; $i<sizeof($search_all_user_id); $i++)
 		{
 		?>
-		<li onClick="showProfile('<?php echo $search_all_user_id[$i]; ?>', this);"><div class="friend-image"></div><p><?php echo $search_all_user_firstname[$i]; ?> <?php echo $search_all_user_lastname[$i]; ?></p></li>
+		<li onClick="showProfile('<?php echo $search_all_user_id[$i]; ?>', this);"><div class="friend-image" style="background-image: url(/profile_img/users/1.jpg)"></div><p><?php echo $search_all_user_firstname[$i]; ?> <?php echo $search_all_user_lastname[$i]; ?></p></li>
 		<?php
 		}	
 	}

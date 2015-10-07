@@ -11,7 +11,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 <div class="container profile">
 	<div class="row">
 		<div class="four columns">
-			<div class="profile-image">
+			<div class="profile-image" style="background-image: url(/profile_img/users/1.jpg)">
 			</div>
 		</div>
 		<div class="eight columns">

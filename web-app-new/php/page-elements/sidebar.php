@@ -7,7 +7,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/user_data.php');
 
 <div class="sidebar">
     <div class="user-display">
-        <div class="user-display-image"></div>
+        <div class="user-display-image" style="background-image: url(/profile_img/users/1.jpg)"></div>
         <p id="user-display-name"><?php echo $first_name; ?> <?php echo $last_name; ?></p>
     </div>
     <nav>

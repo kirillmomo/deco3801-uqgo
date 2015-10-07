@@ -13,7 +13,7 @@
 ?>
 
 <div class="section">
-	<div class="profile-image"></div>
+	<div class="profile-image" style="background-image: url(/profile_img/groups/1.jpg)"></div>
 	<p class="profile-name"><?php echo $display_group_name?></p>
 	<p class="profile-detail"><?php echo $total_group_num?> members</p>
 	<p class="profile-detail">Created in <?php echo $display_group_date?></p>

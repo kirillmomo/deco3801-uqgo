@@ -13,7 +13,7 @@
 		for($i = 0; $i<sizeof($search_non_joined_group_id); $i++)
 		{
 		?>
-		<li onClick="showGroup('<?php echo $search_non_joined_group_id[$i]; ?>', this);"><div class="group-image"></div><p><?php echo $search_non_joined_group_name[$i]; ?></p></li>
+		<li onClick="showGroup('<?php echo $search_non_joined_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/1.jpg)"></div><p><?php echo $search_non_joined_group_name[$i]; ?></p></li>
 		<?php
 		}
 	}
@@ -22,7 +22,7 @@
 		for($i = 0; $i<sizeof($search_all_group_id); $i++)
 		{
 		?>
-		<li onClick="showGroup('<?php echo $search_all_group_id[$i]; ?>', this);"><div class="group-image"></div><p><?php echo $search_all_group_name[$i]; ?></p></li>
+		<li onClick="showGroup('<?php echo $search_all_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/1.jpg)"></div><p><?php echo $search_all_group_name[$i]; ?></p></li>
 		<?php
 		}	
 	}

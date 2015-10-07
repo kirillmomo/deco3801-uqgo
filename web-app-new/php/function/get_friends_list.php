@@ -16,7 +16,7 @@
 	for($i = 0; $i<sizeof($friend_list_display); $i++)
 	{
 	?>
-	<li onClick="showProfile('<?php echo $friend_list_id[$i]; ?>', this);"><div class="friend-image"></div><p><?php echo $friend_list_firstname[$i]; ?> <?php echo $friend_list_lastname[$i]; ?></p></li>
+	<li onClick="showProfile('<?php echo $friend_list_id[$i]; ?>', this);"><div class="friend-image" style="background-image: url(/profile_img/users/1.jpg)"></div><p><?php echo $friend_list_firstname[$i]; ?> <?php echo $friend_list_lastname[$i]; ?></p></li>
 	<?php
 	}
 ?>

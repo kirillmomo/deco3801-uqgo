@@ -11,7 +11,7 @@
 ?>
 
 <div class="section">
-	<div class="profile-image"></div>
+	<div class="profile-image" style="background-image: url(/profile_img/users/1.jpg)"></div>
 	<p class="profile-name"><?php echo $friend_first_name; ?> <?php echo $friend_last_name; ?></p>
 	<p class="profile-detail"><?php echo $friend_age; ?> years old</p>
 	<p class="profile-detail">UQGO user since <?php echo $friend_member_date;?></p>
