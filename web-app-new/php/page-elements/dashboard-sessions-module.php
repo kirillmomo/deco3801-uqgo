@@ -83,6 +83,8 @@
 		var array_length = latlng_array.length;
 		var start_lat;
 		var start_lng;
+		// var end_lat;
+		// var end_lng;
 
 		if (routeCoords) {
 			routeCoords.length = 0;
@@ -103,10 +105,10 @@
 				start_lng = lng;
 			}
 
-			// if(i == length){
-			// 	var end_lat = lat;
-			// 	var end_lng = lng;
-			// }
+			/*if(i == array_length - 1){
+				end_lat = lat;
+				end_lng = lng;
+			}*/
 
 			routeCoords.push(new google.maps.LatLng(lat, lng));
 		}
@@ -118,6 +120,16 @@
 		  strokeOpacity: 0.75,
 		  strokeWeight: 3
 		});
+
+/*		var marker_start = new.google.maps.Marker({
+			position: new google.maps.LatLng(start_lat, start_lng),
+			icon: 'img/marker_start.png'
+		});
+
+		var marker_finish = new.google.maps.Marker({
+			position: new google.maps.LatLng(end_lat, end_lng),
+			icon: 'img/marker_finish.png'
+		});*/
 
 		routeLine.setMap(map);
 		map.setCenter(new google.maps.LatLng(start_lat, start_lng));

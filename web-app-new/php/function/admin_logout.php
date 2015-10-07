@@ -4,6 +4,6 @@
 	session_destroy();
 	
 	// redirect to admin login page
-	header('Location: /v0-3/admin-login.php');
+	header('Location: /v0-4/admin-login.php');
 	// header('Location: /Beta/web-app-new/admin-login.php');
 ?>

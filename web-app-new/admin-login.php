@@ -4,8 +4,8 @@
 
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/admin_login.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/connect.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/admin_login.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/connect.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/admin_login.php');
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/function/admin_login.php');
         <p><a href="index.php">Back to login</a></p>
     </div>
     <div class="footer-info">
-        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-3/php/page-elements/footer-text.php');?></p>
+        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/page-elements/footer-text.php');?></p>
     </div>
   </body>
 </html>
