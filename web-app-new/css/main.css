@@ -242,27 +242,27 @@
 	font-size: 2em;
 }
 
-.friends-sidebar, .sessions-sidebar, .groups-sidebar {
+.friends-sidebar, .sessions-sidebar, .groups-sidebar, .challenges-sidebar {
 	min-width: 300px;
 	width: 35%;
 	float: left;
 	border-right: 1px solid #D1D1D1;
 }
 
-.friends-sidebar ul, .sessions-sidebar ul, .groups-sidebar ul {
+.friends-sidebar ul, .sessions-sidebar ul, .groups-sidebar ul, .challenges-sidebar ul {
 	list-style: none;
 	overflow: scroll;
 	overflow-x: hidden;
 }
 
-#add-friend-button, #discover-groups-button, #create-group-button {
+#add-friend-button, #discover-groups-button, #create-group-button, #create-challenge-button {
 	text-transform: uppercase;
 	display: block;
 	padding: 10px;
 	transition: all 0.2s ease-in-out;
 }
 
-#add-friend-button i, #discover-groups-button i, #create-group-button i {
+#add-friend-button i, #discover-groups-button i, #create-group-button i, #create-challenge-button i {
 	margin: 0 20px;
 	transition: transform 0.3s ease-in-out;
 }
@@ -272,18 +272,18 @@
 	transition: transform 0.3s ease-in-out;
 }
 
-#add-friend-button:hover, #discover-groups-button:hover, #create-group-button:hover {
+#add-friend-button:hover, #discover-groups-button:hover, #create-group-button:hover, #create-challenge-button:hover {
 	background: #8AB800;
 	color: #FFF;
 	transition: all 0.2s ease-in-out;
 }
 
-#friend-search-box, #rank-option, #time-option, #group-search-box {
+#friend-search-box, #rank-option, #time-option, #group-search-box, #challenge-search-box {
 	width: 95%;
 	margin: 8px;
 }
 
-.friends-sidebar ul li, .groups-sidebar ul li {
+.friends-sidebar ul li, .groups-sidebar ul li, .challenges-sidebar ul li {
 	margin: 0;
 	padding: 5px;
 	padding-bottom: 0px;
@@ -310,7 +310,7 @@
 	margin-right: 10px;
 }
 
-.friends-sidebar ul li:hover, .sessions-sidebar ul li:hover, .groups-sidebar ul li:hover {
+.friends-sidebar ul li:hover, .sessions-sidebar ul li:hover, .groups-sidebar ul li:hover, .challenges-sidebar ul li:hover {
 	background: #49075E;
 	color: #FFF;
 	transition: all 0.2s ease-in-out;
@@ -358,7 +358,7 @@
 	opacity: .6;
 }
 
-.friends-content, .sessions-content, .groups-content {
+.friends-content, .sessions-content, .groups-content, .challenges-content {
 	float: left;
 	min-width: 625px;
 	width: 60%;
@@ -366,7 +366,7 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.slide-in.friends-content, .slide-in.sessions-content, .slide-in.groups-content, button.slide-in {
+.slide-in.friends-content, .slide-in.sessions-content, .slide-in.groups-content, .slide-in.challenges-content, button.slide-in {
 	transform: translate(-30px);
 	opacity: 0;
 	visibility: hidden;
@@ -381,24 +381,24 @@
 	background-image: url("../img/group-default.png");
 }
 
-.friends-content .section, .groups-content .section {
+.friends-content .section, .groups-content .section, .challenges-content .section {
 	border-bottom: 1px solid #D1D1D1;
 	overflow: auto;
 	padding: 10px;
 }
 
-.friends-content .section:first-of-type p, .groups-content .section:first-of-type p {
+.friends-content .section:first-of-type p, .groups-content .section:first-of-type p, .challenges-content .section:first-of-type p {
 	margin-bottom: 5px;
 }
 
-.friends-content .section:first-of-type button, .groups-content .section:first-of-type button {
+.friends-content .section:first-of-type button, .groups-content .section:first-of-type button, .challenges-content .section:first-of-type button {
 	margin-top: 10px;
 	margin-bottom: 0;
 	float: right;
 	width: 180px;
 }
 
-.friends-content .section:first-of-type button i, .groups-content .section:first-of-type button i {
+.friends-content .section:first-of-type button i, .groups-content .section:first-of-type button i, .challenges-content .section:first-of-type button i {
 	font-size: 1.3em;
 	position: relative;
 	left: -10px;
@@ -493,4 +493,8 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+.challenges-sidebar ul li p {
+	margin: 0;
 }

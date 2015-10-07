@@ -5,6 +5,8 @@
 
 <form class="create-group-form">
 	<p class="section-header">Create a new group</p>
+	<label for="creator-group-icon">Group picture (optional)</label>
+	<input type="file" name="group_icon" id="creator-group-icon">
 	<label for="creator-group-name">Group name</label>
 	<input type="text" id="creator-group-name" name="group_name" placeholder="Group name" required maxlength="40">
 	<label for="creator-group-description">Group description</label>

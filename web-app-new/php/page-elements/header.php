@@ -12,10 +12,15 @@
 	//Global variables
 	var chartFillColour = "#49075E";
 	var chartHighlightColour = "#49075E";
+	var doughnutProgressColour = "#8AB800";
+	var doughnutRemainingColour = "#D1D1D1";
 	var chartOptions = {
 		barShowStroke: false,
 		responsive: true,
 		scaleFontFamily: "'Lato', 'Helvetica', 'Arial', sans-serif"
-	}
+	};
+	var doughnutOptions = {
+		segmentShowStroke: false
+	};
 </script>
 <link href="./img/icon.png" rel="icon" type="image/png">
