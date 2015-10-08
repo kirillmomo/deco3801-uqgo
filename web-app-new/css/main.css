@@ -498,3 +498,75 @@
 .challenges-sidebar ul li p {
 	margin: 0;
 }
+
+.challenges-list li i {
+	float: left;
+	margin-right: 20px;
+	font-size-adjust: 0.8;
+	height: 50px;
+	display: block;
+	position: relative;
+	top: 15px;
+}
+
+.challenges-list li p:first-of-type {
+	font-weight: bold;
+}
+
+.challenge-description {
+	color: #49075E;
+	font-size-adjust: 0.7;
+}
+
+.progress-left, .progress-right {
+	width: 50%;
+	display: inline-block;
+	text-align: center;
+}
+
+.progress-left {
+	float: left;
+}
+
+.progress-right {
+	height: 200px;
+}
+
+.progress-right p:first-of-type {
+	margin-top: 12%;
+}
+
+.progress-right p, .challenge-days, .challenge-days-remaining {
+	font-size-adjust: 0.7;
+}
+
+.goal-progress, .challenge-days-passed {
+	color: #49075E;
+	font-size-adjust: 1.7;
+}
+
+.challenge-days, .challenge-days-remaining, .challenge-time {
+	text-align: center;
+}
+
+.challenge-days {
+	margin-top: 40px;
+}
+
+.challenge-time p {
+	width: 12%;
+}
+
+.challenge-time {
+	white-space: nowrap;
+}
+
+.challenge-time p, #challenge-time-bar {
+	display: inline-block;
+}
+
+#challenge-time-bar {
+	width: 76%;
+	border: 1px solid #8AB800;
+	border-radius: 5px;
+}

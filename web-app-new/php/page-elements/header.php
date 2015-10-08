@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./css/skeleton.css">
 <link rel="stylesheet" href="./css/main.css">
 <link rel="stylesheet" href="./resources/font-awesome-4.4.0/css/font-awesome.min.css">
+<script src="./js/progressbar.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./js/notification-tray-animation.js"></script>
 <script src="./js/module-loader.js"></script>
@@ -11,16 +12,13 @@
 <script type="text/javascript">
 	//Global variables
 	var chartFillColour = "#49075E";
-	var chartHighlightColour = "#49075E";
+	var chartHighlightColour = "#6D397E";
 	var doughnutProgressColour = "#8AB800";
 	var doughnutRemainingColour = "#D1D1D1";
 	var chartOptions = {
 		barShowStroke: false,
 		responsive: true,
 		scaleFontFamily: "'Lato', 'Helvetica', 'Arial', sans-serif"
-	};
-	var doughnutOptions = {
-		segmentShowStroke: false
 	};
 </script>
 <link href="./img/icon.png" rel="icon" type="image/png">

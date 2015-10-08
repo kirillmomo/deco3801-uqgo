@@ -46,14 +46,14 @@
 	function loadChallengesList() {
 		$("#challenges-search-box").val("");
 		$.ajax({
-			url: "./php/function/get_challenges_list.php",
+			url: "./php/function/get_completed_challenges_list.php",
 			dataType: "html",
 			beforeSend: function() {
 				$(".challenges-list").html("<p><i class='fa fa-circle-o-notch fa-spin'></i> Loading challenges");
 			},
 			success: function(data) {
 				$(".challenges-list").html(data);
-				// $(".challenges-list .fa-calendar").removeClass("fa-calendar").addClass("fa-calendar-check-o");
+				$(".challenges-list .fa-calendar").removeClass("fa-calendar").addClass("fa-calendar-check-o");
 				console.log("Loaded challenges list success");
 			},
 			error: function(jqXHR, status, err) {
@@ -205,39 +205,23 @@
 		line.animate(lineProgress);
 	}
 
-/*	function joinGroup(group_id, button) {
+	function joinChallenge(challenge_id, button) {
 		$.ajax({
-			url: "./php/function/join_group.php",
-			dataType: "html",
-			data: "group_id=" + group_id,
-			success: function(data) {
-				$(button).html("<i class='fa fa-check'></i> Joined Group");
-				$(button).prop("disabled", true);
-				loadGroupsList();
-			},
-			error: function(jqXHR, status, err) {
-				console.log("Error joining group. (" + status + ": " + err + ")");
-			}
-		});
-	}*/
-
-	function leaveChallenge(challenge_id, button) {
-		$.ajax({
-			url: "./php/function/leave_challenge.php",
+			url: "./php/function/join_challenge.php",
 			dataType: "html",
 			data: "challenge_id=" + challenge_id,
 			success: function(data) {
-				$(button).html("<i class='fa fa-check'></i> Left Challenge");
+				$(button).html("<i class='fa fa-check'></i> Joined Challenge");
 				$(button).prop("disabled", true);
 				loadChallengesList();
 			},
 			error: function(jqXHR, status, err) {
-				console.log("Error leaving challenge. (" + status + ": " + err + ")");
+				console.log("Error joining challenge. (" + status + ": " + err + ")");
 			}
 		});
 	}
 
-	function showCreate() {
+/*	function showCreate() {
 		$(".challenges-content").addClass("slide-in");
 		if (!showingJoined) {
 			toggleGroupSearch();
@@ -259,7 +243,7 @@
 				console.log("Error loading challenge creator");
 			}
 		});
-	}
+	}*/
 
 /*	function initMultiSelector() {
 		$("#creator-group-friends-list").select2({
@@ -298,7 +282,6 @@
 </script>
 
 <div class="challenges-sidebar module-sidebar">
-	<a id="create-challenge-button" onClick="showCreate();"><i class="fa fa-plus fa-fw"></i><span>Create challenge</span></a>
 	<input id="challenge-search-box" type="search" placeholder="Filter challenges" onKeyup="filterChallenges();">
 	<ul class="challenges-list">
 		<!-- Challenges list will load here via ajax -->
