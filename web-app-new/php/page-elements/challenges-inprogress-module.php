@@ -239,9 +239,6 @@
 
 	function showCreate() {
 		$(".challenges-content").addClass("slide-in");
-		if (!showingJoined) {
-			toggleGroupSearch();
-		}
 		$.ajax({
 			url: "./php/page-elements/create_challenge_form.php",
 			dataType: "html",
@@ -252,7 +249,6 @@
 					e.preventDefault();
 					createChallenge();
 				});
-				// initMultiSelector();
 			},
 			error: function(jqXHR, status, err) {
 				$(".challenges-content").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error loading content. (" + status + ": " + err + ")</p>");
@@ -261,39 +257,47 @@
 		});
 	}
 
-/*	function initMultiSelector() {
-		$("#creator-group-friends-list").select2({
-			placeholder: "Search or select friends to add"
-		});
-
-		console.log("Multi selector initialised");
-	}*/
-
 	function createChallenge() {
-		// Need to manually serialise the form, the custom select box doesn't serialise properly when multiple values are selected
-		/*var dataString = "group_name=" + $("#creator-group-name").val() + "&group_description=" + $("#creator-group-description").val() + "&group_friends_list=" + $("#creator-group-friends-list").val();
 		$.ajax({
 			type: "POST",
-			url: "./php/function/create_group.php",
-			data: dataString,
+			url: "./php/function/create_challenge.php",
+			data: $(".create-challenge-form").serialize(),
 			success: function(data) {
 				if (data) {
-					console.log("Success creating group: " + data);
-					$("#create-group-submit").html("<i class='fa fa-check'></i> Group Created");
-					$("#create-group-submit").prop("disabled", true);
-					$("#view-new-group").attr("onClick", "showGroup('" + data + "')");
-					$("#view-new-group").removeClass("slide-in");
-					if (showingJoined) {
-						loadJoinedGroupsList();
-					}
+					console.log("Success creating challenge: " + data);
+					$("#create-challenge-submit").html("<i class='fa fa-check'></i> Created");
+					$("#create-challenge-submit").prop("disabled", true);
+					$("#view-new-challenge").attr("onClick", "showChallenge('" + data + "')");
+					$("#view-new-challenge").removeClass("slide-in");
 				} else {
-					console.log("Error creating group");
+					console.log("Error creating challenge");
 				}
 			},
 			error: function(jqXHR, status, err) {
-				console.log("Error creating group: " + err);
+				console.log("Error creating challenge: " + err);
 			}
-		});*/
+		});
+	}
+
+	function previewDate() {
+/*		var days = $("#creator-challenge-duration").val();
+		var date = new Date();
+
+		date.setDate(date.getDate() + days);
+
+		var dd = date.getDate();
+		var mm = date.getMonth() + 1;
+		var yyyy = date.getFullYear();
+
+		if(dd < 10) { dd = "0" + dd; }
+		if(mm < 10) { mm = "0" + mm; }
+
+		var formattedDate = dd + '/'+ mm + '/'+ yyyy;
+
+		$(".date-preview").text(formattedDate);
+		console.log(dd);
+		console.log(date.getMonth());
+		console.log(yyyy);*/
 	}
 </script>
 

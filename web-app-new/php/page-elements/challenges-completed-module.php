@@ -221,6 +221,22 @@
 		});
 	}
 
+	function leaveChallenge(challenge_id, button) {
+		$.ajax({
+			url: "./php/function/leave_challenge.php",
+			dataType: "html",
+			data: "challenge_id=" + challenge_id,
+			success: function(data) {
+				$(button).html("<i class='fa fa-check'></i> Left Challenge");
+				$(button).prop("disabled", true);
+				loadChallengesList();
+			},
+			error: function(jqXHR, status, err) {
+				console.log("Error leaving challenge. (" + status + ": " + err + ")");
+			}
+		});
+	}
+
 /*	function showCreate() {
 		$(".challenges-content").addClass("slide-in");
 		if (!showingJoined) {

@@ -451,7 +451,7 @@
 	height: 500px;
 }
 
-.create-group-form input:not([type="submit"]), .create-group-form textarea {
+.create-group-form input:not([type="submit"]), .create-group-form textarea, .create-challenge-form input[type="text"] {
 	width: 90%;
 	max-width: 90%;
 }
@@ -465,7 +465,7 @@
   border-radius: 0px !important;
 }
 
-#create-group-submit {
+#create-group-submit, #create-challenge-submit {
 	margin-top: 20px;
 	width: 181px;
 }
@@ -569,4 +569,19 @@
 	width: 76%;
 	border: 1px solid #8AB800;
 	border-radius: 5px;
+}
+
+.create-challenge-form input[type="radio"] {
+	
+}
+
+.radio-container label {
+	display: inline;
+	margin-left: 10px;
+	font-weight: normal;
+}
+
+.radio-container {
+	display: inline-block;
+	margin-right: 25px;
 }
