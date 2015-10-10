@@ -653,6 +653,7 @@
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
+	background-size: contain;
 }
 
 .settings-body-form input[type="radio"] {
