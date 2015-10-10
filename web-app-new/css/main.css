@@ -362,7 +362,6 @@
 	float: left;
 	min-width: 625px;
 	width: 60%;
-	margin-left: 25px;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -475,6 +474,10 @@
 
 #map {
 	height: 500px;
+}
+
+.create-group-form, .create-challenge-form {
+	padding-left: 10px;
 }
 
 .create-group-form input:not([type="submit"]), .create-group-form textarea, .create-challenge-form input[type="text"] {
