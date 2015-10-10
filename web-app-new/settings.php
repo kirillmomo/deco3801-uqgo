@@ -7,7 +7,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
           $("#nav-item-settings").addClass("nav-active-item"); // highlight corresponding nav item in sidebar
-          loadModule('settings-xxx-module.php');
+          loadModule('settings-account-module.php');
       });
     </script>
   </head>
@@ -17,8 +17,8 @@
     <div class="content">
         <h1>Settings</h1>
         <nav>
-          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');" class="subnav-active-item">Account</a>
-          <a onClick="highlightNavItem(this); loadModule('settings-xxx-module.php');">Notifications</a>
+          <a onClick="highlightNavItem(this); loadModule('settings-account-module.php');" class="subnav-active-item">Account</a>
+          <a onClick="highlightNavItem(this); loadModule('settings-bodyinfo-module.php');">Body Info</a>
         </nav>
         <div class="module-content">
           <!-- module content will load here automatically -->

@@ -615,3 +615,64 @@
 	display: inline-block;
 	margin-right: 25px;
 }
+
+.section h3 {
+	font-size: 1.5em;
+}
+
+.module-content > .section {
+	border-bottom: 1px solid #D1D1D1;
+	margin-bottom: 10px;
+}
+
+.settings-info-form p, .settings-body-form p {
+	margin: 0;
+}
+
+.settings-info-form label, .settings-body-form label {
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.settings-info-form input:not([type="submit"]), .settings-body-form input:not([type="submit"]) {
+	width: 300px;
+}
+
+#settings-dob-year {
+	width: 109px;
+}
+
+#settings-submit {
+	margin-bottom: 0;
+}
+
+.settings-display-image {
+	border: 1px solid #D1D1D1;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+}
+
+.settings-body-form input[type="radio"] {
+	width: auto;
+	margin-left: 20px;
+}
+
+.radio-label {
+	width: 75px !important;
+	display: inline-block;
+	margin-left: 10px;
+	text-align: left !important;
+	font-weight: normal;
+}
+
+.form-invalid-error {
+	margin: 10px !important;
+	color: #FFF;
+	background-color: #FF4e4e;
+	padding: 5px;
+	width: 250px;
+	display: none;
+}
