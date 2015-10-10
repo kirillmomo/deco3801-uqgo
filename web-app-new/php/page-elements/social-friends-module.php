@@ -8,6 +8,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
 
 <script type="text/javascript">
 	var friendView = true;
+	var compareChart;
 	setListHeight();
 	$(window).resize(setListHeight);
 	loadFriendsList();
@@ -120,6 +121,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
 			success: function(data) {
 				$(".friends-content").html(data);
 				$(".friends-content").removeClass("slide-in");
+				updateChart();
 			},
 			error: function(jqXHR, status, err) {
 				$(".friends-content").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error loading user information. (" + status + ": " + err + ")</p>");
@@ -157,6 +159,88 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
 				console.log("Error removing friend. (" + status + ": " + err + ")");
 			}
 		});
+	}
+
+	function updateChart() {
+		if ($("#compare-chart")[0] == null) {
+			console.log("Not displaying chart, user is not friend");
+			return;
+		}
+		if (compareChart === undefined) {
+			console.log("no chart");
+		} else {
+			console.log("clearing chart");
+			compareChart.clear();
+			compareChart.destroy();
+		}
+		var ctx = $("#compare-chart").get(0).getContext("2d");
+		var compareMode = $("#compare-mode").val();
+		var compareTime = $("#compare-time").val();
+		var labels;
+		var dataMe;
+		var dataFriend;
+
+		if (compareTime == "today") {
+			labels = ["12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"];
+			if (compareMode == "steps") {
+				dataMe = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+			} else if (compareMode == "distance") {
+				dataMe = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+			} else {
+				dataMe = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+			}
+		} else if (compareTime == "week") {
+			labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+			if (compareMode == "steps") {
+				dataMe = [65, 59, 80, 81, 56, 55, 65];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65];
+			} else if (compareMode == "distance") {
+				dataMe = [65, 59, 80, 81, 56, 55, 65];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65];
+			} else {
+				dataMe = [65, 59, 80, 81, 56, 55, 65];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65];
+			}
+		} else {
+			labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+			if (compareMode == "steps") {
+				dataMe = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+			} else if (compareMode == "distance") {
+				dataMe = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+			} else {
+				dataMe = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+				dataFriend = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+			}
+		}
+
+		var data = {
+			labels: labels,
+			datasets: [
+			    {
+			        label: "Me",
+			        fillColor: chartFillColour,
+			        strokeColor: "rgba(220,220,220,0.8)",
+			        highlightFill: chartHighlightColour,
+			        highlightStroke: "rgba(220,220,220,1)",
+			        data: dataMe
+			    },
+			    {
+			        label: "Friend",
+			        fillColor: "#8AB800",
+			        strokeColor: "rgba(220,220,220,0.8)",
+			        highlightFill: "#A1C633",
+			        highlightStroke: "rgba(220,220,220,1)",
+			        data: dataFriend
+			    }
+			]
+		};
+
+		compareChart = new Chart(ctx).Bar(data, chartOptions);
 	}
 </script>
 

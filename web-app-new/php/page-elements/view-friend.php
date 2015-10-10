@@ -36,14 +36,27 @@
 		{?>
 			<p class="section-header">Compare Stats</p>
 			<!-- If user is friends, show stats -->
-			<p class="">Total Step     : <?php echo $friend_total_step?></p>
+<!-- 			<p class="">Total Step     : <?php echo $friend_total_step?></p>
 			<p class="">Total Distance : <?php echo $friend_total_distance?> KM</p>
-			<p class="">Total Calories : <?php echo $friend_total_calories?></p>
+			<p class="">Total Calories : <?php echo $friend_total_calories?></p> -->
+			<select id="compare-mode" onChange="updateChart();">
+				<option value="steps" selected="selected">Steps</option>
+				<option value="distance">Distance</option>
+				<option value="calories">Calories</option>
+			</select>
+			<select id="compare-time" onChange="updateChart();">
+				<option value="today" selected="selected">Today</option>
+				<option value="week">This week</option>
+				<option value="month">Monthly</option>
+			</select>
+			<p class="legend"><span><?php echo $friend_first_name; ?></span> vs. <span>Me</span></p>
+			<canvas id="compare-chart"></canvas>
 	<?php
 		}
 	else if($button_status_condition == "user")
 		{?>
 	<!-- Else, show this notice: -->
+	<p class="section-header">Compare Stats</p>
 	<p><i class="fa fa-info-circle"></i> You must be friends with this user to see their stats.</p>
 	<?php
 		}?>

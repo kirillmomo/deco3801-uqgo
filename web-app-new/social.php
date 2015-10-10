@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>UQGO - Social</title>
     <?php include "./php/page-elements/header.php";?>
+    <script src="./js/Chart.js"></script>
     <link rel="stylesheet" href="./css/select2.min.css">
     <script src="./js/select2.min.js"></script>
     <script type="text/javascript">

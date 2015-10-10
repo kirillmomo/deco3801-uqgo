@@ -387,6 +387,32 @@
 	padding: 10px;
 }
 
+.friends-content .section:nth-of-type(2) {
+	overflow: hidden;
+}
+
+.legend {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #D1D1D1;
+	margin: 0;
+}
+
+.legend span {
+	font-size: 1.25em;
+}
+
+.legend span:first-of-type {
+	color: #49075E;
+	margin-right: 20px;
+}
+
+.legend span:last-of-type {
+	color: #8AB800;
+	margin-left: 20px;
+}
+
 .friends-content .section:first-of-type p, .groups-content .section:first-of-type p, .challenges-content .section:first-of-type p {
 	margin-bottom: 5px;
 }
