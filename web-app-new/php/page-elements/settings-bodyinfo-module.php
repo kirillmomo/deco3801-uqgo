@@ -1,3 +1,10 @@
+<?php
+
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+
+?>
+
 <script type="text/javascript">
 	$(".settings-body-form").on('submit', function(e) {
 		e.preventDefault();
@@ -29,7 +36,7 @@
 		<input id="settings-height" name="height" type="number" min="0" max="300" placeholder="optional"><p/>
 		<p><label for="settings-weight">Weight (kg)</label>
 		<input id="settings-weight" name="weight" type="number" min="0" placeholder="optional"><p/>
-		<p><label>Gender</label><input id="settings-gender-male" type="radio" name="gender" value="male" required><label for="settings-gender-male" class="radio-label">Male</label><input id="settings-gender-female" type="radio" name="gender" value="female" required><label for="settings-gender-female" class="radio-label">Female</label></p>
+		<p><label>Gender</label><input id="settings-gender-male" type="radio" name="gender" value="Male" required><label for="settings-gender-male" class="radio-label">Male</label><input id="settings-gender-female" type="radio" name="gender" value="Female" required><label for="settings-gender-female" class="radio-label">Female</label></p>
 		<button id="settings-submit" type="submit"class="button-primary">Save Info</buton>
 	</form>
 </div>

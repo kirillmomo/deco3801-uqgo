@@ -14,6 +14,8 @@
 	$user_name="";
 	$first_name="";
 	$last_name="";
+	$user_icon="";
+	$user_email = "";
 	$user_age=0;
 	$user_member_date=0;
 	$user_friend_number=0;
@@ -23,9 +25,11 @@
 	$friend_list_id=array();
 	$friend_list_firstname=array();
 	$friend_list_lastname=array();
+	$friend_list_icon=array();
 	$friend_name="";
 	$friend_first_name="";
 	$friend_last_name="";
+	$friend_icon="";
 	$friend_member_date="";
 	$friend_friend_id=0;
 	$friend_age=0;
@@ -72,6 +76,8 @@
 			$user_name = $user_row['username'];
 			$first_name = $user_row['first_name'];
 			$last_name = $user_row['last_name'];
+			$user_icon = $user_row['user_icon'];
+			$user_email = $user_row['user_email'];
 			$user_age = date("Y") - date("Y",strtotime($user_row['user_day_of_birth']));
 			$user_member_date = date("Y",strtotime($user_row['user_date_created']));
 		}
@@ -82,6 +88,7 @@
 			$friend_friend_id = $friend_row['user_id'];
 			$friend_first_name = $friend_row['first_name'];
 			$friend_last_name = $friend_row['last_name'];
+			$friend_icon = $friend_row['user_icon'];
 			$friend_age = date("Y") - date("Y",strtotime($friend_row['user_day_of_birth']));
 			$friend_member_date = date("Y",strtotime($friend_row['user_date_created']));
 		}
@@ -207,6 +214,7 @@
 			$friend_list_display[$a] = $rank_by_friend_search_row['username'];
 			$friend_list_firstname[$a] = $rank_by_friend_search_row['first_name'];
 			$friend_list_lastname[$a] = $rank_by_friend_search_row['last_name'];
+			$friend_list_icon[$a] = $rank_by_friend_search_row['user_icon'];
 			$friend_list_id[$a]=$rank_by_friend_search_row['user_id'];
 		$a++;
 		}

@@ -10,7 +10,7 @@
 	for($i = 0; $i<sizeof($search_group_id); $i++)
 	{
 	?>
-	<li onClick="showGroup('<?php echo $search_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/1.jpg)"></div><p><?php echo $search_group_name[$i]; ?></p></li>
+	<li onClick="showGroup('<?php echo $search_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/<?php echo $search_group_id[$i]; ?>.jpg)"></div><p><?php echo $search_group_name[$i]; ?></p></li>
 	<?php
 	}
 	

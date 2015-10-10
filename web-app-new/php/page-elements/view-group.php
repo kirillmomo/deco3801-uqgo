@@ -13,7 +13,7 @@
 ?>
 
 <div class="section">
-	<div class="profile-image" style="background-image: url(/profile_img/groups/1.jpg)"></div>
+	<div class="profile-image" style="background-image: url(/profile_img/groups/<?php echo $display_group_id?>.jpg)"></div>
 	<p class="profile-name"><?php echo $display_group_name?></p>
 	<p class="profile-detail"><?php echo $total_group_num?> members</p>
 	<p class="profile-detail">Created in <?php echo $display_group_date?></p>
@@ -49,7 +49,7 @@
 		for($i = 0; $i<sizeof($group_member_first_name); $i++)
 		{
 		?>
-		<li><div class="friend-image"></div><p><?php echo $group_member_first_name[$i]?> <?php echo $group_member_last_name[$i]?></p></li>
+		<li><div class="friend-image" style="background-image: url(/profile_img/users/<?php echo $group_member_id[$i]?>.jpg)"></div><p><?php echo $group_member_first_name[$i]?> <?php echo $group_member_last_name[$i]?></p></li>
 		<?php
 		}
 		?>

@@ -1,3 +1,10 @@
+<?php
+
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+
+?>
+
 <script type="text/javascript">
 	$(".settings-info-form").on('submit', function(e) {
 		e.preventDefault();
@@ -37,20 +44,20 @@
 	}
 </script>
 <div class="section"><h3>Profile image</h3>
-	<div class="settings-display-image" style="background-image: url(/profile_img/users/1.jpg)"></div>
+	<div class="settings-display-image" style="background-image: url(/profile_img/users/<?php echo $user_icon ?>.jpg)"></div>
 	<input type="file">
 	<input type="button" value="Update Picture" class="button-primary">
 </div>
 <div class="section"><h3>Personal info</h3>
 	<form class="settings-info-form">
 		<p><label for="settings-first-name">First name</label>
-		<input id="settings-first-name" name="first_name" type="text" required value="echo existing name"><p/>
+		<input id="settings-first-name" name="first_name" type="text" required value="<?php echo $first_name ?>"><p/>
 		<p><label for="settings-last-name">Last name</label>
-		<input id="settings-last-name" name="last_name" type="text" required value="echo existing name"><p/>
+		<input id="settings-last-name" name="last_name" type="text" required value="<?php echo $last_name ?>"><p/>
 		<p><label for="settings-username">Username</label>
-		<input id="settings-username" name="username" type="text" required value="echo existing name"><p/>
+		<input id="settings-username" name="username" type="text" required value="<?php echo $user_name ?>"><p/>
 		<p><label for="settings-email">Email</label>
-		<input id="settings-email" name="email" type="email" required value="echo existing email"><p/>
+		<input id="settings-email" name="email" type="email" required value="<?php echo $user_email ?>"><p/>
 		<p><label>Date of birth</label>
 		<select id="settings-dob-day" name="dob_day" required>
 			<option value="01">01</option>

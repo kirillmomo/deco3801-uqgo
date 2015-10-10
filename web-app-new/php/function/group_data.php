@@ -72,6 +72,7 @@
 		
 	while($search_group_member_row = mysql_fetch_array($search_group_member_data))
 		{
+			$group_member_id[$y] = $search_group_member_row['user_id'];
 			$group_member_first_name[$y] = $search_group_member_row['first_name'];
 			$group_member_last_name[$y] = $search_group_member_row['last_name'];
 			$y++;

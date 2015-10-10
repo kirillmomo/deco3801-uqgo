@@ -16,6 +16,17 @@
 			var fri_distance  = 0;
 			var sat_distance  = 0;
 			var sun_distance  = 0;
+
+			var friend_hour_graph_distance=[];
+			var friend_month_graph_distance=[];
+
+			var friend_mon_distance  = 0;
+			var friend_tue_distance  = 0;
+			var friend_wed_distance  = 0;
+			var friend_thu_distance  = 0;
+			var friend_fri_distance  = 0;
+			var friend_sat_distance  = 0;
+			var friend_sun_distance  = 0;
 		</script>
 	";
 
@@ -25,6 +36,8 @@
 	
 	$hour_graph_distance_display=array();
 	$month_graph_distance_display=array();
+	$friend_hour_graph_distance_display=array();
+	$friend_month_graph_distance_display=array();
 
 	$total_distance = 0;
 	$friend_total_distance = 0;
@@ -36,6 +49,14 @@
 	$fri_distance_data = 0;
 	$sat_distance_data= 0;
 	$sun_distance_data= 0;
+
+	$friend_mon_distance_data = 0;
+	$friend_tue_distance_data = 0;
+	$friend_wed_distance_data = 0;
+	$friend_thu_distance_data = 0;
+	$friend_fri_distance_data = 0;
+	$friend_sat_distance_data= 0;
+	$friend_sun_distance_data= 0;
 
 	$day_distance = 0;
 
@@ -59,6 +80,8 @@
 	$week_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND WEEK(session_date)= WEEK(NOW())";
 	$month_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)= MONTH(NOW())";	
 	$user_total_distance_query = "SELECT * FROM user WHERE user_id = '$user_id'";
+	$friend_hour_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
+	$friend_week_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND WEEK(session_date)= WEEK(NOW())";
 
 	$total_data = mysql_query($total_query,$dbconn);
 	$friend_total_data = mysql_query($friend_total_query,$dbconn);
@@ -68,6 +91,8 @@
 	$month_data = mysql_query($month_query,$dbconn);
 	$week_graph_distance_data = mysql_query($week_query,$dbconn);
 	$user_total_distance_data = mysql_query($user_total_distance_query,$dbconn);
+	$friend_hour_data = mysql_query($friend_hour_query,$dbconn);
+	$friend_week_data = mysql_query($friend_week_query,$dbconn);
 
 	// Store and calculate total distance into array 	
 	    while($hour_graph_distance_row = mysql_fetch_array($hour_data))
@@ -274,6 +299,194 @@
 	$day_distance = $total_day_distance;
 	$week_distance = $total_week_distance;
 	$month_distance = $total_month_distance;
+
+
+	// Store and calculate friend total distance into array 	
+	    while($friend_hour_graph_distance_row = mysql_fetch_array($friend_hour_data))
+		{
+		
+			$time=date("H", strtotime($friend_hour_graph_distance_row['session_date']));
+
+			if($time=="00")
+				{
+					$friend_hour_graph_distance_display[0] = $friend_hour_graph_distance_display[0] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="01") 
+				{
+					$friend_hour_graph_distance_display[1] = $friend_hour_graph_distance_display[1] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="02") 
+				{
+					$friend_hour_graph_distance_display[2] = $friend_hour_graph_distance_display[2] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="03") 
+				{
+					$friend_hour_graph_distance_display[3] = $friend_hour_graph_distance_display[3] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="04") 
+				{
+					$friend_hour_graph_distance_display[4] = $friend_hour_graph_distance_display[4] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="05") 
+				{
+					$friend_hour_graph_distance_display[5] = $friend_hour_graph_distance_display[5] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="06") 
+				{
+					$friend_hour_graph_distance_display[6] = $friend_hour_graph_distance_display[6] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="07") 
+				{
+					$friend_hour_graph_distance_display[7] = $friend_hour_graph_distance_display[7] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="08") 
+				{
+					$friend_hour_graph_distance_display[8] = $friend_hour_graph_distance_display[8] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="09") 
+				{
+					$friend_hour_graph_distance_display[9] = $friend_hour_graph_distance_display[9] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="10") 
+				{
+					$friend_hour_graph_distance_display[10] = $friend_hour_graph_distance_display[10] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="11") 
+				{
+					$friend_hour_graph_distance_display[11] = $friend_hour_graph_distance_display[11] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="12") 
+				{
+					$friend_hour_graph_distance_display[12] = $friend_hour_graph_distance_display[12] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="13") 
+				{
+					$friend_hour_graph_distance_display[13] = $friend_hour_graph_distance_display[13] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="14") 
+				{
+					$friend_hour_graph_distance_display[14] = $friend_hour_graph_distance_display[14] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="15") 
+				{
+					$friend_hour_graph_distance_display[15] = $friend_hour_graph_distance_display[15] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="16") 
+				{
+					$friend_hour_graph_distance_display[16] = $friend_hour_graph_distance_display[16] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="17") 
+				{
+					$friend_hour_graph_distance_display[17] = $friend_hour_graph_distance_display[17] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="18") 
+				{
+					$friend_hour_graph_distance_display[18] = $friend_hour_graph_distance_display[18] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="19") 
+				{
+					$friend_hour_graph_distance_display[19] = $friend_hour_graph_distance_display[19] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="20") 
+				{
+					$friend_hour_graph_distance_display[20] = $friend_hour_graph_distance_display[20] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="21") 
+				{
+					$friend_hour_graph_distance_display[21] = $friend_hour_graph_distance_display[21] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="22") 
+				{
+					$friend_hour_graph_distance_display[22] = $friend_hour_graph_distance_display[22] + $friend_hour_graph_distance_row['session_distance'];
+				}
+			else if ($time=="23") 
+				{
+					$friend_hour_graph_distance_display[23] = $friend_hour_graph_distance_display[23] + $friend_hour_graph_distance_row['session_distance'];
+				}
+
+		}
+
+	// Store hour distance data into js array
+	for($f=0; $f<=23; $f++)
+	{	
+	echo "
+			<script>
+				friend_hour_graph_distance[".json_encode($f)."] = ".json_encode($friend_hour_graph_distance_display[$f]).";
+			</script>
+		";
+	}
+
+	while($friend_week_graph_distance_row = mysql_fetch_array($friend_week_data))
+	{
+		$date=date("D", strtotime($friend_week_graph_distance_row['session_date']));
+		if($date=="Mon")
+			{
+				$friend_mon_distance_data = $friend_mon_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+		else if ($date=="Tue") 
+			{
+				$friend_tue_distance_data = $friend_tue_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+		else if ($date=="Wed") 
+			{
+				$friend_wed_distance_data = $friend_wed_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+		else if ($date=="Thu") 
+			{
+				$friend_thu_distance_data = $friend_thu_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+		else if ($date=="Fri") 
+			{
+				$friend_fri_distance_data = $friend_fri_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+		else if ($date=="Sat") 
+			{
+				$friend_sat_distance_data = $friend_sat_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+		else if ($date=="Sun") 
+			{
+				$friend_sun_distance_data = $friend_sun_distance_data + $friend_week_graph_distance_row['session_distance'];
+			}
+	}
+
+	echo "
+		<script>
+			friend_mon_distance = ".json_encode($friend_mon_distance_data).";
+			friend_tue_distance = ".json_encode($friend_tue_distance_data).";
+			friend_wed_distance = ".json_encode($friend_wed_distance_data).";
+			friend_thu_distance = ".json_encode($friend_thu_distance_data).";
+			friend_fri_distance = ".json_encode($friend_fri_distance_data).";
+			friend_sat_distance = ".json_encode($friend_sat_distance_data).";
+			friend_sun_distance = ".json_encode($friend_sun_distance_data).";
+		</script>
+	";
+
+	for ($b = 0; $b <= 11; $b++) 
+	{
+    $friend_month_graph_distance_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND MONTH(session_date)=".$b."+1";
+    $friend_month_graph_distance_data = mysql_query($friend_month_graph_distance_query,$dbconn);
+    $friend_month_graph_distance_display[$b] = 0;
+
+		while($friend_month_graph_distance_row = mysql_fetch_array($friend_month_graph_distance_data))
+		{
+			$friend_month_graph_distance_display[$b] = $friend_month_graph_distance_display[$b]+$friend_month_graph_distance_row['session_distance'];
+		}
+
+	echo "
+			<script>
+				friend_month_graph_distance[".json_encode($b)."] = ".json_encode($friend_month_graph_distance_display[$b]).";
+			</script>
+		";
+
+	}
+
+
+
+
+
+
+
+
 
 	while($user_total_distance_row = mysql_fetch_array($user_total_distance_data))
 	{

@@ -2,6 +2,8 @@
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/user_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/step_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/distance_data.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
 
 ?>
@@ -183,38 +185,38 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
 		if (compareTime == "today") {
 			labels = ["12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"];
 			if (compareMode == "steps") {
-				dataMe = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+				dataMe = hour_graph_step;
+				dataFriend = friend_hour_graph_step;
 			} else if (compareMode == "distance") {
-				dataMe = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+				dataMe = hour_graph_distance;
+				dataFriend = friend_hour_graph_distance;
 			} else {
-				dataMe = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55, 65, 59, 80, 81, 56, 55];
+				dataMe = hour_graph_cal;
+				dataFriend = friend_hour_graph_cal;
 			}
 		} else if (compareTime == "week") {
 			labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 			if (compareMode == "steps") {
-				dataMe = [65, 59, 80, 81, 56, 55, 65];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65];
+				dataMe = [mon_step,tue_step,wed_step,thu_step,fri_step,sat_step,sun_step];
+				dataFriend = [friend_mon_step,friend_tue_step,friend_wed_step,friend_thu_step,friend_fri_step,friend_sat_step,friend_sun_step];
 			} else if (compareMode == "distance") {
-				dataMe = [65, 59, 80, 81, 56, 55, 65];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65];
+				dataMe = [mon_distance,tue_distance,wed_distance,thu_distance,fri_distance,sat_distance,sun_distance];
+				dataFriend = [friend_mon_distance,friend_tue_distance,friend_wed_distance,friend_thu_distance,friend_fri_distance,friend_sat_distance,friend_sun_distance];
 			} else {
-				dataMe = [65, 59, 80, 81, 56, 55, 65];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65];
+				dataMe = [mon_cal,tue_cal,wed_cal,thu_cal,fri_cal,sat_cal,sun_cal];
+				dataFriend = [friend_mon_cal,friend_tue_cal,friend_wed_cal,friend_thu_cal,friend_fri_cal,friend_sat_cal,friend_sun_cal];
 			}
 		} else {
 			labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 			if (compareMode == "steps") {
-				dataMe = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+				dataMe = month_graph_step;
+				dataFriend = friend_month_graph_step;
 			} else if (compareMode == "distance") {
-				dataMe = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+				dataMe = month_graph_distance;
+				dataFriend = friend_month_graph_distance;
 			} else {
-				dataMe = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
-				dataFriend = [65, 59, 80, 81, 56, 55, 65, 65, 59, 80, 81, 56];
+				dataMe = month_graph_cal;
+				dataFriend = friend_month_graph_cal;
 			}
 		}
 

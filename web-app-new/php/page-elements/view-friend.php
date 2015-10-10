@@ -11,7 +11,7 @@
 ?>
 
 <div class="section">
-	<div class="profile-image" style="background-image: url(/profile_img/users/1.jpg)"></div>
+	<div class="profile-image" style="background-image: url(/profile_img/users/<?php echo $friend_icon; ?>.jpg)"></div>
 	<p class="profile-name"><?php echo $friend_first_name; ?> <?php echo $friend_last_name; ?></p>
 	<p class="profile-detail"><?php echo $friend_age; ?> years old</p>
 	<p class="profile-detail">UQGO user since <?php echo $friend_member_date;?></p>
@@ -49,7 +49,7 @@
 				<option value="week">This week</option>
 				<option value="month">Monthly</option>
 			</select>
-			<p class="legend"><span><?php echo $friend_first_name; ?></span> vs. <span>Me</span></p>
+			<p class="legend"><span>Me</span> vs. <span><?php echo $friend_first_name; ?></span></p>
 			<canvas id="compare-chart"></canvas>
 	<?php
 		}
