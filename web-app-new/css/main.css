@@ -376,6 +376,10 @@
 	margin: 0 25px;
 }
 
+.sessions-content {
+	padding-left: 10px;
+}
+
 .groups-content .profile-image {
 	background-image: url("../img/group-default.png");
 }
