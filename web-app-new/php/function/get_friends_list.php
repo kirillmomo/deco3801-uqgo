@@ -15,9 +15,15 @@
 
 	for($i = 0; $i<sizeof($friend_list_display); $i++)
 	{
-	?>
-	<li onClick="showProfile('<?php echo $friend_list_id[$i]; ?>', this);"><div class="friend-image" style="background-image: url(/profile_img/users/<?php echo $friend_list_icon[$i]; ?>.jpg)"></div><p><?php echo $friend_list_firstname[$i]; ?> <?php echo $friend_list_lastname[$i]; ?></p></li>
-	<?php
+		$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$friend_list_id[$i].'.jpg');
+        if($pic_status==true)
+        {?>
+        <li onClick="showProfile('<?php echo $friend_list_id[$i]; ?>', this);"><div class="friend-image" style="background-image: url(/profile_img/users/<?php echo $friend_list_id[$i]; ?>.jpg)"></div><p><?php echo $friend_list_firstname[$i]; ?> <?php echo $friend_list_lastname[$i]; ?></p></li>
+        <?php }
+        else
+        {?>
+    	<li onClick="showProfile('<?php echo $friend_list_id[$i]; ?>', this);"><div class="friend-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div><p><?php echo $friend_list_firstname[$i]; ?> <?php echo $friend_list_lastname[$i]; ?></p></li>
+    <?php } 
 	}
 ?>
 <!-- EXAMPLE FRIENDS LIST - friends should be echoed like below -->

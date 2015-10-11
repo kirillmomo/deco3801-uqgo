@@ -7,13 +7,24 @@
 	//Include group_data php file to get user join group data 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/button_status.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/group_data.php');
+	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/groups/'.$display_group_id.'.jpg');
 
 
 
 ?>
 
 <div class="section">
-	<div class="profile-image" style="background-image: url(/profile_img/groups/<?php echo $display_group_id?>.jpg)"></div>
+
+	<?php 
+        if($pic_status==true)
+        {?>
+    	<div class="profile-image" style="background-image: url(/profile_img/groups/<?php echo $display_group_id?>.jpg)"></div>
+        <?php }
+        else
+        {?>
+    	<div class="profile-image" style="background-image: url(/profile_img/groups/group-default.jpg)"></div>
+    <?php } ?>
+
 	<p class="profile-name"><?php echo $display_group_name?></p>
 	<p class="profile-detail"><?php echo $total_group_num?> members</p>
 	<p class="profile-detail">Created in <?php echo $display_group_date?></p>
@@ -48,10 +59,17 @@
 		<?php
 		for($i = 0; $i<sizeof($group_member_first_name); $i++)
 		{
-		?>
-		<li><div class="friend-image" style="background-image: url(/profile_img/users/<?php echo $group_member_id[$i]?>.jpg)"></div><p><?php echo $group_member_first_name[$i]?> <?php echo $group_member_last_name[$i]?></p></li>
-		<?php
-		}
+
+			$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$group_member_id[$i].'.jpg');
+	        if($pic_status==true)
+	        {?>
+	        <li><div class="friend-image" style="background-image: url(/profile_img/users/<?php echo $group_member_id[$i]?>.jpg)"></div><p><?php echo $group_member_first_name[$i]?> <?php echo $group_member_last_name[$i]?></p></li>
+	        <?php }
+	        else
+	        {?>
+	    	 <li><div class="friend-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div><p><?php echo $group_member_first_name[$i]?> <?php echo $group_member_last_name[$i]?></p></li>
+	    <?php }
+	    } 
 		?>
 	</ul>
 </div>

@@ -16,6 +16,11 @@
 	$last_name="";
 	$user_icon="";
 	$user_email = "";
+	$user_birth_day = "";
+	$user_birth_month = "";
+	$user_birth_year = "";
+	$user_height = 0;
+	$user_weight = 0;
 	$user_age=0;
 	$user_member_date=0;
 	$user_friend_number=0;
@@ -29,7 +34,6 @@
 	$friend_name="";
 	$friend_first_name="";
 	$friend_last_name="";
-	$friend_icon="";
 	$friend_member_date="";
 	$friend_friend_id=0;
 	$friend_age=0;
@@ -78,7 +82,12 @@
 			$last_name = $user_row['last_name'];
 			$user_icon = $user_row['user_icon'];
 			$user_email = $user_row['user_email'];
+			$user_height = $user_row['user_height'];
+			$user_weight = $user_row['user_weight'];
 			$user_age = date("Y") - date("Y",strtotime($user_row['user_day_of_birth']));
+			$user_birth_day = date("d",strtotime($user_row['user_day_of_birth']));
+			$user_birth_month = date("F",strtotime($user_row['user_day_of_birth']));
+			$user_birth_year = date("Y",strtotime($user_row['user_day_of_birth']));
 			$user_member_date = date("Y",strtotime($user_row['user_date_created']));
 		}
 
@@ -88,7 +97,6 @@
 			$friend_friend_id = $friend_row['user_id'];
 			$friend_first_name = $friend_row['first_name'];
 			$friend_last_name = $friend_row['last_name'];
-			$friend_icon = $friend_row['user_icon'];
 			$friend_age = date("Y") - date("Y",strtotime($friend_row['user_day_of_birth']));
 			$friend_member_date = date("Y",strtotime($friend_row['user_date_created']));
 		}

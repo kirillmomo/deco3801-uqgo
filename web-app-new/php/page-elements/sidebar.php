@@ -3,11 +3,21 @@
 include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/user_data.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$user_id.'.jpg');
+
 ?>
 
 <div class="sidebar">
     <div class="user-display">
-        <div class="user-display-image" style="background-image: url(/profile_img/users/<?php echo $user_icon; ?>.jpg)"></div>
+    <?php 
+        if($pic_status==true)
+        {?>
+        <div class="user-display-image" style="background-image: url(/profile_img/users/<?php echo $user_id; ?>.jpg)"></div>
+        <?php }
+        else
+        {?>
+        <div class="user-display-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div>
+    <?php } ?>
         <p id="user-display-name"><?php echo $first_name; ?> <?php echo $last_name; ?></p>
     </div>
     <nav>

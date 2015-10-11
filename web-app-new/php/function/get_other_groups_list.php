@@ -12,18 +12,32 @@
 		// echo a list of joined groups
 		for($i = 0; $i<sizeof($search_non_joined_group_id); $i++)
 		{
-		?>
-		<li onClick="showGroup('<?php echo $search_non_joined_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/1.jpg)"></div><p><?php echo $search_non_joined_group_name[$i]; ?></p></li>
-		<?php
+
+			$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/groups/'.$search_non_joined_group_id[$i].'.jpg');
+	        if($pic_status==true)
+	        {?>
+	        <li onClick="showGroup('<?php echo $search_non_joined_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/<?php echo $search_non_joined_group_id[$i]; ?>.jpg)"></div><p><?php echo $search_non_joined_group_name[$i]; ?></p></li>
+	        <?php }
+	        else
+	        {?>
+	    	<li onClick="showGroup('<?php echo $search_non_joined_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/group-default.jpg)"></div><p><?php echo $search_non_joined_group_name[$i]; ?></p></li>
+	    	<?php } 
 		}
 	}
 	elseif($total_joined_group_num==0)
 	{
 		for($i = 0; $i<sizeof($search_all_group_id); $i++)
 		{
-		?>
-		<li onClick="showGroup('<?php echo $search_all_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/1.jpg)"></div><p><?php echo $search_all_group_name[$i]; ?></p></li>
-		<?php
+
+			$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/groups/'.$search_all_group_id[$i].'.jpg');
+	        if($pic_status==true)
+	        {?>
+	        <li onClick="showGroup('<?php echo $search_all_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/<?php echo $search_all_group_id[$i]; ?>.jpg)"></div><p><?php echo $search_all_group_name[$i]; ?></p></li>
+	        <?php }
+	        else
+	        {?>
+	    	<li onClick="showGroup('<?php echo $search_all_group_id[$i]; ?>', this);"><div class="group-image" style="background-image: url(/profile_img/groups/group-default.jpg)"></div><p><?php echo $search_all_group_name[$i]; ?></p></li>
+	    	<?php } 
 		}	
 	}
 
