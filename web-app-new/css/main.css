@@ -345,6 +345,7 @@
 	background-image: url("../img/user-default.png");
 	background-repeat: no-repeat;
 	background-size: contain;
+	background-position: center;
 }
 
 .group-image {
