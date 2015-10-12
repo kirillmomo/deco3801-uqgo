@@ -633,7 +633,7 @@
     // Store and calculate friend total monthly step and cal into array 	
 	    while($friend_month_graph_step_row = mysql_fetch_array($friend_month_graph_step_data))
 		{
-			$friend_month_graph_step_display[$b] = $friend_month_graph_step_display[$b]+$month_graph_step_row['session_steps'];
+			$friend_month_graph_step_display[$b] = $friend_month_graph_step_display[$b]+$friend_month_graph_step_row['session_steps'];
 		}
 
 		$friend_month_graph_cal_display[$b] = $friend_month_graph_step_display[$b]/20;

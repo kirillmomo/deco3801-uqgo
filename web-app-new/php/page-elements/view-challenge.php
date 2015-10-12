@@ -43,7 +43,7 @@
 	<div class="progress-right">
 		<div>
 			<p><span class="goal-progress"><?php echo $challenge_detail_progress; ?></span>/<?php echo $challenge_detail_goal; ?></p>
-			<p>steps completed</p>
+			<p><?php echo $challenge_detail_type; ?> completed</p>
 		</div>
 	</div>
 	<p class="challenge-days"><span class="challenge-days-passed"><?php echo $challenge_detail_duration_day_left; ?></span>/<?php echo $challenge_detail_day_left; ?> days passed</p>
