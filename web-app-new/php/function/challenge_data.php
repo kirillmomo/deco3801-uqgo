@@ -11,7 +11,7 @@
 	$challenge_joined_user_query = "SELECT * FROM challenge_member WHERE challenge_id = '$challenge_challenge_id'";
 	$total_challenge_user_num_query = "SELECT * FROM challenge_member WHERE challenge_user_id = '$challenge_challenge_id'";
 	$challenge_detail_query = "SELECT * FROM challenge WHERE challenge_id = '$challenge_challenge_id'";
-	$search_all_challenge_data_query = "SELECT * FROM challenge ORDER BY challenge_name";
+	$search_all_challenge_data_query = "SELECT * FROM challenge WHERE challenge_finish_date >= DATE(NOW()) AND challenge_progress < challenge_goal ORDER BY challenge_name";
 
 	$challenge_user_data = mysql_query($challenge_user_query,$dbconn);
 	$total_joined_challenge_data = mysql_query($challenge_user_query,$dbconn);
