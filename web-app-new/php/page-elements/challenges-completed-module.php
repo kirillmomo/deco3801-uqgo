@@ -164,7 +164,7 @@
 		        this.chart.ctx.textBaseline = 'middle';
 
 		        //put the pabel together based on the given 'skilled' percentage
-		        var valueLabel = ((goalProgress / goalAmount) * 100) + '%';
+		        var valueLabel = (Math.round((goalProgress / goalAmount) * 100)) + '%';
 
 		        //find the center point
 		        var x = this.chart.canvas.clientWidth / 2;
