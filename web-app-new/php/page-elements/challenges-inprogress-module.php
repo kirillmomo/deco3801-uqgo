@@ -269,6 +269,7 @@
 					$("#create-challenge-submit").prop("disabled", true);
 					$("#view-new-challenge").attr("onClick", "showChallenge('" + data + "')");
 					$("#view-new-challenge").removeClass("slide-in");
+					loadChallengesList();
 				} else {
 					console.log("Error creating challenge");
 				}
