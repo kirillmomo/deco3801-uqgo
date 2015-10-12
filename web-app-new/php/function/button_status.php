@@ -46,4 +46,25 @@
 		}
 	}
 
+	$challenge_button_status_condition="";
+	$challenge_button_status_user_id=$_SESSION['user_id'];
+	$challenge_button_status_challenge_id=$_SESSION['challenge_id'];
+	$challenge_button_status_query1 = "SELECT * FROM challenge_member WHERE challenge_user_id = $challenge_button_status_user_id AND challenge_id = $challenge_button_status_challenge_id";
+	$challenge_button_status_data1 = mysql_query($challenge_button_status_query1,$dbconn);
+	$challenge_button_status1 = mysql_fetch_array($challenge_button_status_data1);
+
+	if($challenge_button_status_user_id!=null && $challenge_button_status_challenge_id!=null)
+	{
+
+		if ($challenge_button_status1==false) 
+		{
+			$challenge_button_status_condition="not-joined";
+		}
+		else
+		{
+			$challenge_button_status_condition="joined";
+		}
+	}
+
+
 ?>

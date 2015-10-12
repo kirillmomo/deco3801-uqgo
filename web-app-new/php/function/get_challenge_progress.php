@@ -1,8 +1,12 @@
 <?php
-	$challenge_id = $_GET['challenge_id']; // getting challenge_id from the ajax request
+
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+
+	// Include challenge_data php file to get user challenge data 
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/challenge_data.php');
 
 	// create array of challenge progress info
-	$challenge_progress_info = array('goalProgress' => 400, 'goalAmount' => 1000, 'daysProgressed' => 3, 'daysDuration' => 7);
+	$challenge_progress_info = array('goalProgress' => $challenge_detail_progress, 'goalAmount' => $challenge_detail_goal, 'daysProgressed' => $challenge_detail_duration_day_left, 'daysDuration' => $challenge_detail_day_left);
 
 	// return as json
 	echo json_encode($challenge_progress_info);

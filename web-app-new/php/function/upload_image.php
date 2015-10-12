@@ -19,8 +19,8 @@
           } 
           else 
           {
-              var_dump(move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/profile_img/users/" . $user_id . ".jpg"));
-              // header('Location: /v0-4/settings.php');
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/profile_img/users/" . $user_id . ".jpg");
+              header('Location: /v0-4/settings.php');
           }
         } 
 	}

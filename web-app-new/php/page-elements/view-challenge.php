@@ -5,6 +5,7 @@
 	$challenge_id = $_GET['challenge_id']; // getting challenge_id from the ajax request,
 	$_SESSION['challenge_id'] = $challenge_id;
 	// Include challenge_data php file to get user challenge data 
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/button_status.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/challenge_data.php');
 ?>
 
@@ -18,10 +19,21 @@
 	<p class="profile-detail"><?php echo $total_user_join_num; ?> participants</p>
 	<p class="profile-detail">Duration: <?php echo $challenge_detail_start_date; ?> - <?php echo $challenge_detail_end_date; ?></p>
 	
-		<!-- If user is NOT in group, show Join button: -->
-	<p><button class="button-primary" onClick="joinChallenge('echo challenge_id here', this)"><i class="fa fa-calendar-plus-o"></i> Join Challenge</button></p>
-		<!-- Else, show Leave button: -->
-	<p><button class="button-primary" onClick="leaveChallenge('echo challenge_id here', this)"><i class="fa fa-calendar-minus-o"></i> Leave Challenge</button></p>
+
+
+	<?php
+	if($challenge_button_status_condition == "joined")
+		{?>
+	<!-- If user is NOT in group, show Join button: -->
+	<p><button class="button-primary" onClick="leaveChallenge('<?php echo $challenge_id?>', this)"><i class="fa fa-calendar-minus-o"></i> Leave Challenge</button></p>
+	<?php
+		}
+	else if($challenge_button_status_condition == "not-joined")
+		{?>
+	<!-- Else, show Leave button: -->
+	<p><button class="button-primary" onClick="joinChallenge('<?php echo $challenge_id?>', this)"><i class="fa fa-calendar-plus-o"></i> Join Challenge</button></p>
+	<?php
+		}?>
 </div>
 <div class="section">
 	<p class="section-header">Progress</p>
@@ -30,17 +42,17 @@
 	</div>
 	<div class="progress-right">
 		<div>
-			<p><span class="goal-progress"><?php echo $challenge_inprogress_num; ?></span>/<?php echo $challenge_detail_progress; ?></p>
+			<p><span class="goal-progress"><?php echo $challenge_detail_progress; ?></span>/<?php echo $challenge_detail_goal; ?></p>
 			<p>steps completed</p>
 		</div>
 	</div>
-	<p class="challenge-days"><span class="challenge-days-passed">3</span>/7 days passed</p>
+	<p class="challenge-days"><span class="challenge-days-passed"><?php echo $challenge_detail_duration_day_left; ?></span>/<?php echo $challenge_detail_day_left; ?> days passed</p>
 	<div class="challenge-time">
 		<p><?php echo $challenge_detail_start_date; ?></p>
 		<div id="challenge-time-bar"></div>
 		<p><?php echo $challenge_detail_end_date; ?></p>
 	</div>
-	<p class="challenge-days-remaining">4 days remaining</p>
+	<p class="challenge-days-remaining"><?php echo $challenge_detail_remaining_time_left?> days remaining</p>
 </div>
 <div class="section">
 	<p class="section-header">Participants</p>

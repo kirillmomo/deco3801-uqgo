@@ -2,6 +2,7 @@
 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$user_id.'.jpg');
 
 ?>
 
@@ -44,7 +45,16 @@
 	}
 </script>
 <div class="section"><h3>Profile image</h3>
-	<div class="settings-display-image" style="background-image: url(/profile_img/users/<?php echo $user_id ?>.jpg)"></div>
+
+	<?php 
+        if($pic_status==true)
+        {?>
+    	<div class="settings-display-image" style="background-image: url(/profile_img/users/<?php echo $user_id ?>.jpg)"></div>
+        <?php }
+        else
+        {?>
+    	<div class="settings-display-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div>
+    <?php } ?>
 	<form method="post" action="./php/function/upload_image.php" enctype="multipart/form-data"> 
 	<input type="file" name="file">
 	<input name="button" type="submit" value="Update Picture" class="button-primary">
