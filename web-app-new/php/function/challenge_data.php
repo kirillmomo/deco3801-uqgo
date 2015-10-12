@@ -63,6 +63,10 @@
 	$search_all_challenge_day_left = array();
 	$search_all_challenge_duration_day_left = array();
 	$search_all_challenge_remaining_time_left= array();
+	$complete_challenge_percentage = array();
+	$all_challenge_percentage = array();
+	$unjoined_challenge_percentage = array();
+	$challenge_percentage = array();
 
 	$total_user_join_num = 0;
 	$challenge_detail_name = $challenge_detail_row['challenge_name'];
@@ -132,6 +136,7 @@
 			$search_challenge_day_left[$z] = round((($search_challenge_time_left[$z]/24)/60)/60);
 			$search_challenge_duration_day_left[$z] = round((($search_challenge_duration_left[$z]/24)/60)/60);
 			$search_challenge_remaining_time_left[$z]= $search_challenge_day_left[$z] - $search_challenge_duration_day_left[$z];
+			$challenge_percentage[$z] = ($challenge_member_row['challenge_progress']/$challenge_member_row['challenge_goal'])*100;
 			$z++;
 		}
 
@@ -151,6 +156,7 @@
 			$search_unjoined_challenge_day_left[$c] = round((($search_unjoined_challenge_time_left[$c]/24)/60)/60);
 			$search_unjoined_challenge_duration_day_left[$c] = round((($search_unjoined_challenge_duration_left[$c]/24)/60)/60);
 			$search_unjoined_challenge_remaining_time_left[$c]= $search_unjoined_challenge_day_left[$c] - $search_unjoined_challenge_duration_day_left[$c];
+			$unjoined_challenge_percentage[$c] = ($challenge_unjoined_member_row['challenge_progress']/$challenge_unjoined_member_row['challenge_goal'])*100;
 			$c++;
 		}
 
@@ -165,6 +171,7 @@
 			$search_all_challenge_day_left[$d] = round((($search_all_challenge_time_left[$d]/24)/60)/60);
 			$search_all_challenge_duration_day_left[$d] = round((($search_all_challenge_duration_left[$d]/24)/60)/60);
 			$search_all_challenge_remaining_time_left[$d]= $search_all_challenge_day_left[$d] - $search_all_challenge_duration_day_left[$d];
+			$all_challenge_percentage[$d] = ($all_challenge_row['challenge_progress']/$all_challenge_row['challenge_goal'])*100;
 			$d++;
 		}
 
@@ -217,6 +224,7 @@
 			$search_complete_challenge_day_left[$x] = round((($search_complete_challenge_time_left[$x]/24)/60)/60);
 			$search_complete_challenge_duration_day_left[$x] = round((($search_complete_challenge_duration_left[$x]/24)/60)/60);
 			$search_complete_challenge_remaining_time_left[$x]= $search_complete_challenge_day_left[$x] - $search_complete_challenge_duration_day_left[$x];
+			$complete_challenge_percentage[$x] =  ($complete_challenge_member_row['challenge_progress']/$complete_challenge_member_row['challenge_goal'])*100;
 
 			if ($search_complete_challenge_remaining_time_left[$x]<=-1) 
 			{
