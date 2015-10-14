@@ -20,9 +20,9 @@
 	if ($track_session_filter=="today") 
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id' AND DATE(session_date) = CURDATE()";
-		$track_session_data = mysql_query($track_session_query,$dbconn);
+		$track_session_data = mysqli_query($dbconn, $track_session_query);
 
-		while($track_session_row = mysql_fetch_array($track_session_data))
+		while($track_session_row = mysqli_fetch_array($track_session_data))
 		{
 			$track_session_id[$i] = $track_session_row['session_id']; 
 			$track_session_time[$i] = date('m/d/Y h:i a', strtotime($track_session_row['session_date'])); 
@@ -32,9 +32,9 @@
 	elseif ($track_session_filter=="week") 
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id' AND WEEK(session_date)= WEEK(NOW())";
-		$track_session_data = mysql_query($track_session_query,$dbconn);
+		$track_session_data = mysqli_query($dbconn, $track_session_query);
 
-		while($track_session_row = mysql_fetch_array($track_session_data))
+		while($track_session_row = mysqli_fetch_array($track_session_data))
 		{
 			$track_session_id[$i] = $track_session_row['session_id']; 
 			$track_session_time[$i] = date('m/d/Y h:i a', strtotime($track_session_row['session_date'])); 
@@ -44,9 +44,9 @@
 	elseif ($track_session_filter=="month") 
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id' AND MONTH(session_date)= MONTH(NOW())";
-		$track_session_data = mysql_query($track_session_query,$dbconn);
+		$track_session_data = mysqli_query($dbconn, $track_session_query);
 
-		while($track_session_row = mysql_fetch_array($track_session_data))
+		while($track_session_row = mysqli_fetch_array($track_session_data))
 		{
 			$track_session_id[$i] = $track_session_row['session_id'];
 			$track_session_time[$i] = date('m/d/Y h:i a', strtotime($track_session_row['session_date'])); 
@@ -56,9 +56,9 @@
 	else
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id'";
-		$track_session_data = mysql_query($track_session_query,$dbconn);
+		$track_session_data = mysqli_query($dbconn, $track_session_query);
 
-		while($track_session_row = mysql_fetch_array($track_session_data))
+		while($track_session_row = mysqli_fetch_array($track_session_data))
 		{
 			$track_session_id[$i] = $track_session_row['session_id']; 
 			$track_session_time[$i] = date('m/d/Y h:i a', strtotime($track_session_row['session_date'])); 
@@ -67,9 +67,9 @@
 	}
 
 	$track_session_display_query = "SELECT * FROM session WHERE session_id = '$track_session_display_id'";
-	$track_session_display_data = mysql_query($track_session_display_query,$dbconn);
+	$track_session_display_data = mysqli_query($dbconn, $track_session_display_query);
 
-	while($track_session_display_row = mysql_fetch_array($track_session_display_data))
+	while($track_session_display_row = mysqli_fetch_array($track_session_display_data))
 		{
 			$track_session_display_name = date('m/d/Y h:i a', strtotime($track_session_display_row['session_date']));
 			$track_session_display_steps = $track_session_display_row['session_steps'];

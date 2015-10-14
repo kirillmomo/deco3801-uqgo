@@ -134,19 +134,19 @@
 	$friend_hour_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
 	$friend_week_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND WEEK(session_date)= WEEK(NOW())";
 
-	$user_total_data = mysql_query($user_total_query,$dbconn);
-    $hour_data = mysql_query($hour_query,$dbconn);
-	$total_data = mysql_query($total_query,$dbconn);
-	$friend_total_data = mysql_query($friend_total_query,$dbconn);
-	$day_data = mysql_query($day_query,$dbconn);
-	$week_data = mysql_query($week_query,$dbconn);
-	$month_data = mysql_query($month_query,$dbconn);
-	$week_graph_step_data = mysql_query($week_query,$dbconn);
-	$friend_hour_data = mysql_query($friend_hour_query,$dbconn);
-	$friend_week_data = mysql_query($friend_week_query,$dbconn);
+	$user_total_data = mysqli_query($dbconn, $user_total_query);
+    $hour_data = mysqli_query($dbconn, $hour_query);
+	$total_data = mysqli_query($dbconn, $total_query);
+	$friend_total_data = mysqli_query($dbconn, $friend_total_query);
+	$day_data = mysqli_query($dbconn, $day_query);
+	$week_data = mysqli_query($dbconn, $week_query);
+	$month_data = mysqli_query($dbconn, $month_query);
+	$week_graph_step_data = mysqli_query($dbconn, $week_query);
+	$friend_hour_data = mysqli_query($dbconn, $friend_hour_query);
+	$friend_week_data = mysqli_query($dbconn, $friend_week_query);
 
 	// Store and calculate total hours step and cal into array 	
-	    while($hour_graph_step_row = mysql_fetch_array($hour_data))
+	    while($hour_graph_step_row = mysqli_fetch_array($hour_data, MYSQLI_BOTH))
 		{
 			$time=date("H", strtotime($hour_graph_step_row['session_date']));
 
@@ -286,7 +286,7 @@
 	
 
 	// Store and calculate user week step data into array 
-	while($week_graph_step_row = mysql_fetch_array($week_graph_step_data))
+	while($week_graph_step_row = mysqli_fetch_array($week_graph_step_data, MYSQLI_BOTH))
 		{
 			$date=date("D", strtotime($week_graph_step_row['session_date']));
 			if($date=="Mon")
@@ -358,12 +358,12 @@
 	for ($x = 0; $x <= 11; $x++) 
 	{
     $month_graph_step_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)=".$x."+1";
-    $month_graph_step_data = mysql_query($month_graph_step_query,$dbconn);
+    $month_graph_step_data = mysqli_query($dbconn, $month_graph_step_query);
     $month_graph_step_display[$x] = 0;
     $month_graph_cal_display[$x] = 0;
     	
     // Store and calculate total monthly step and cal into array 	
-	    while($month_graph_step_row = mysql_fetch_array($month_graph_step_data))
+	    while($month_graph_step_row = mysqli_fetch_array($month_graph_step_data, MYSQLI_BOTH))
 		{
 			$month_graph_step_display[$x] = $month_graph_step_display[$x]+$month_graph_step_row['session_steps'];
 		}
@@ -381,23 +381,23 @@
 	}
 
 	// Calculate all the data and store into variable
-	while($total_row = mysql_fetch_array($total_data))
+	while($total_row = mysqli_fetch_array($total_data, MYSQLI_BOTH))
 	{
 		$total_total_step = $total_total_step+$total_row['session_steps'];
 	}
-	while($friend_total_row = mysql_fetch_array($friend_total_data))
+	while($friend_total_row = mysqli_fetch_array($friend_total_data))
 	{
 		$friend_total_total_step = $friend_total_total_step+$friend_total_row['session_steps'];
 	}
-	while($day_row = mysql_fetch_array($day_data))
+	while($day_row = mysqli_fetch_array($day_data))
 	{
 		$total_day_step = $total_day_step+$day_row['session_steps'];
 	}
-	while($week_row = mysql_fetch_array($week_data))
+	while($week_row = mysqli_fetch_array($week_data))
 	{
 		$total_week_step = $total_week_step+$week_row['session_steps'];
 	}
-	while($month_row = mysql_fetch_array($month_data))
+	while($month_row = mysqli_fetch_array($month_data))
 	{
 		$total_month_step = $total_month_step+$month_row['session_steps'];
 	}
@@ -415,7 +415,7 @@
 	$month_calories = $month_step/20;
 
 	// Store and calculate friend hours step and cal into array 	
-	    while($friend_hour_graph_step_row = mysql_fetch_array($friend_hour_data))
+	    while($friend_hour_graph_step_row = mysqli_fetch_array($friend_hour_data, MYSQLI_BOTH))
 		{
 			$time=date("H", strtotime($friend_hour_graph_step_row['session_date']));
 
@@ -554,7 +554,7 @@
 	}
 
 	// Store and calculate friend week step data into array 
-	while($friend_week_graph_step_row = mysql_fetch_array($friend_week_data))
+	while($friend_week_graph_step_row = mysqli_fetch_array($friend_week_data, MYSQLI_BOTH))
 		{
 			$date=date("D", strtotime($friend_week_graph_step_row['session_date']));
 			if($date=="Mon")
@@ -626,12 +626,12 @@
 	for ($b = 0; $b <= 11; $b++) 
 	{
     $friend_month_graph_step_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND MONTH(session_date)=".$b."+1";
-    $friend_month_graph_step_data = mysql_query($friend_month_graph_step_query,$dbconn);
+    $friend_month_graph_step_data = mysqli_query($dbconn, $friend_month_graph_step_query);
     $friend_month_graph_step_display[$b] = 0;
     $friend_month_graph_cal_display[$b] = 0;
     	
     // Store and calculate friend total monthly step and cal into array 	
-	    while($friend_month_graph_step_row = mysql_fetch_array($friend_month_graph_step_data))
+	    while($friend_month_graph_step_row = mysqli_fetch_array($friend_month_graph_step_data, MYSQLI_BOTH))
 		{
 			$friend_month_graph_step_display[$b] = $friend_month_graph_step_display[$b]+$friend_month_graph_step_row['session_steps'];
 		}
@@ -648,12 +648,12 @@
 
 	}
 
-	while($user_total_row = mysql_fetch_array($user_total_data))
+	while($user_total_row = mysqli_fetch_array($user_total_data))
 	{
 		if($user_total_row['user_total_step']!=$total_step || $user_total_row['user_total_cal']!=$total_calories);
 		{
 			$user_add_query = "UPDATE user SET user_total_step ='$total_step', user_total_cal ='$total_calories' WHERE user_id = '$user_id'";
-	        mysql_query($user_add_query);
+	        mysqli_query($dbconn, $user_add_query);
 		}
 	}
 ?>

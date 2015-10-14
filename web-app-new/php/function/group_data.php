@@ -36,20 +36,18 @@
 	$group_user_query = "SELECT * FROM group_member WHERE group_member_user_id = '$group_user_id'";
 	$group_detail_query = "SELECT * FROM `group` WHERE group_id = '$group_id'";
 	$total_group_member_query = "SELECT * FROM group_member WHERE group_id = '$group_id'";
-	$group_query = "SELECT * FROM `group` WHERE group_id IN ($search_group_id_array)";
 	$non_joined_group_query = "SELECT * FROM group_member WHERE group_member_user_id = '$group_user_id'";
 	$all_group_query = "SELECT * FROM `group` ORDER BY group_name";
-	$group_data = mysql_query($group_query,$dbconn);
-	$group_detail_data = mysql_query($group_detail_query,$dbconn);
-	$total_group_member_data = mysql_query($total_group_member_query,$dbconn);
-	$group_user_data = mysql_query($group_user_query,$dbconn);
-	$non_joined_group_data = mysql_query($non_joined_group_query,$dbconn);
-	$all_group_data = mysql_query($all_group_query,$dbconn);
-	$total_joined_group_num = mysql_num_rows($group_user_data);
-	$total_group_num = mysql_num_rows($total_group_member_data);
+	$group_detail_data = mysqli_query($dbconn, $group_detail_query);
+	$total_group_member_data = mysqli_query($dbconn, $total_group_member_query);
+	$group_user_data = mysqli_query($dbconn, $group_user_query);
+	$non_joined_group_data = mysqli_query($dbconn, $non_joined_group_query);
+	$all_group_data = mysqli_query($dbconn, $all_group_query);
+	$total_joined_group_num = mysqli_num_rows($group_user_data);
+	$total_group_num = mysqli_num_rows($total_group_member_data);
 
 	//Search group detail
-	while($group_detail_row = mysql_fetch_array($group_detail_data))
+	while($group_detail_row = mysqli_fetch_array($group_detail_data))
 		{
 			$display_group_id = $group_detail_row['group_id'];
 			$display_group_name = $group_detail_row['group_name'];
@@ -59,7 +57,7 @@
 		}
 
 	//Search group member
-	while($group_member_row = mysql_fetch_array($total_group_member_data))
+	while($group_member_row = mysqli_fetch_array($total_group_member_data))
 		{
 			$search_group_member_id[$x] = $group_member_row['group_member_user_id'];
 			$x++;
@@ -68,9 +66,9 @@
 	// Search member detail
 	$search_group_member_id_array = implode(',', $search_group_member_id);
 	$search_group_member_query = "SELECT * FROM user WHERE user_id IN ($search_group_member_id_array) ORDER BY first_name";
-	$search_group_member_data = mysql_query($search_group_member_query,$dbconn);
+	$search_group_member_data = mysqli_query($dbconn, $search_group_member_query);
 		
-	while($search_group_member_row = mysql_fetch_array($search_group_member_data))
+	while($search_group_member_row = mysqli_fetch_array($search_group_member_data))
 		{
 			$group_member_id[$y] = $search_group_member_row['user_id'];
 			$group_member_first_name[$y] = $search_group_member_row['first_name'];
@@ -79,7 +77,7 @@
 		}
 
 	//Search user joined group
-	while($group_user_row = mysql_fetch_array($group_user_data))
+	while($group_user_row = mysqli_fetch_array($group_user_data))
 		{
 			$user_group_joined_data[$i] = $group_user_row['group_id'];
 			$i++;
@@ -88,9 +86,9 @@
 	//Search user joined group 
 	$search_group_id_array = implode(',', $user_group_joined_data);
 	$search_group_data_query = "SELECT * FROM `group` WHERE group_id IN ($search_group_id_array) ORDER BY group_name";
-	$search_group_info_data = mysql_query($search_group_data_query,$dbconn);
+	$search_group_info_data = mysqli_query($dbconn, $search_group_data_query);
 		
-	while($group_member_row = mysql_fetch_array($search_group_info_data))
+	while($group_member_row = mysqli_fetch_array($search_group_info_data))
 		{
 			$search_group_id[$z] = $group_member_row['group_id'];
 			$search_group_name[$z] = $group_member_row['group_name'];
@@ -98,7 +96,7 @@
 		}
 
 	//Search user unjoined group
-	while($non_joined_group_row = mysql_fetch_array($non_joined_group_data))
+	while($non_joined_group_row = mysqli_fetch_array($non_joined_group_data))
 		{
 			$non_joined_group_id[$b] = $non_joined_group_row['group_id'];
 			$b++;
@@ -106,16 +104,16 @@
 
 	$search_non_joined_group_id_array = implode(',', $non_joined_group_id);
 	$search_non_joined_group_data_query = "SELECT * FROM `group` WHERE group_id NOT IN ($search_non_joined_group_id_array)";
-	$search_non_joined_group_info_data = mysql_query($search_non_joined_group_data_query,$dbconn);
+	$search_non_joined_group_info_data = mysqli_query($dbconn, $search_non_joined_group_data_query);
 		
-	while($search_non_joined_group_row = mysql_fetch_array($search_non_joined_group_info_data))
+	while($search_non_joined_group_row = mysqli_fetch_array($search_non_joined_group_info_data))
 		{
 			$search_non_joined_group_id[$a] = $search_non_joined_group_row['group_id'];
 			$search_non_joined_group_name[$a] = $search_non_joined_group_row['group_name'];
 			$a++;
 		}
 
-	while($all_group_row = mysql_fetch_array($all_group_data))
+	while($all_group_row = mysqli_fetch_array($all_group_data))
 		{
 			$search_all_group_id[$c] = $all_group_row['group_id'];
 			$search_all_group_name[$c] = $all_group_row['group_name'];
@@ -123,8 +121,8 @@
 		}
 
 	$joining_group_query = "SELECT * FROM group_member WHERE group_id='$join_group_id' AND group_member_user_id = '$group_user_id'";
-	$status_joining_group = mysql_query($joining_group_query);
-	$status_joining_group_row = mysql_fetch_array($status_joining_group);
+	$status_joining_group = mysqli_query($dbconn, $joining_group_query);
+	$status_joining_group_row = mysqli_fetch_array($status_joining_group);
 
 	if($join_group_id!=null)
 		{
@@ -132,7 +130,7 @@
 			if ($status_joining_group_row==false) 
 			{
 				$add_join_query = "INSERT INTO group_member SET group_member_user_id='$group_user_id', group_id='$join_group_id'";
-	        	mysql_query($add_join_query);
+	        	mysqli_query($dbconn, $add_join_query);
 	        	unset($_SESSION['join_groupid']);
 			}
 			else
@@ -142,25 +140,25 @@
     	}
 
     $left_group_query = "SELECT * FROM group_member WHERE group_id='$left_group_id' AND group_member_user_id = '$group_user_id'";
-	$status_left_group_query = mysql_query($left_group_query);
-	$status_left_group_row = mysql_fetch_array($status_left_group_query);
+	$status_left_group_query = mysqli_query($dbconn, $left_group_query);
+	$status_left_group_row = mysqli_fetch_array($status_left_group_query);
 	if($left_group_id!=null)
 		{
 
 			if ($status_left_group_row!=false) 
 			{
 				$leave_group_query = "DELETE FROM group_member WHERE  group_id='$left_group_id' AND group_member_user_id = '$group_user_id'";
-				mysql_query($leave_group_query);
+				mysqli_query($dbconn, $leave_group_query);
 				$delete_group_query = "SELECT * FROM `group` WHERE  group_id='$left_group_id' AND group_user_id = '$group_user_id'";
-				$status_delete_group_query = mysql_query($delete_group_query);
-				$status_delete_group_row = mysql_fetch_array($status_delete_group_query);
+				$status_delete_group_query = mysqli_query($dbconn, $delete_group_query);
+				$status_delete_group_row = mysqli_fetch_array($status_delete_group_query, MYSQLI_BOTH);
 				if ($status_delete_group_row!=false) 
 				{
 					
 					$delete_group_member_data_query = "DELETE FROM group_member WHERE group_id ='$left_group_id'";
-					mysql_query($delete_group_member_data_query);
+					mysqli_query($dbconn, $delete_group_member_data_query);
 					$delete_group_data_query = "DELETE FROM `group` WHERE  group_id='$left_group_id' AND group_user_id = '$group_user_id'";
-					mysql_query($delete_group_data_query);
+					mysqli_query($dbconn, $delete_group_data_query);
 				}
 	
 	        	

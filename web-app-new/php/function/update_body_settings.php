@@ -10,6 +10,6 @@
 	if(isset($_POST['height'])||isset($_POST['weight'])||isset($_POST['gender']))
 	{
 	$update_user_query = "UPDATE user SET user_height='$height', user_weight='$weight', user_gender='$gender' WHERE user_id='$user_id'";
-	mysql_query($update_user_query);
+	mysqli_query($dbconn, $update_user_query);
 	}
 ?>

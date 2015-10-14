@@ -3,7 +3,7 @@
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
 ?>
 
-<form class="create-group-form">
+<form class="create-group-form" enctype="multipart/form-data">
 	<p class="section-header">Create a new group</p>
 	<label for="creator-group-icon">Group picture (optional)</label>
 	<input type="file" name="group_icon" id="creator-group-icon">

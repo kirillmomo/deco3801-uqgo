@@ -24,6 +24,9 @@
           }
         } 
 	}
-
+	else
+	{
+		header('Location: /v0-4/settings.php');
+	}
 
 ?>

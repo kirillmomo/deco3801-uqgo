@@ -18,8 +18,8 @@
 	    $password = hash('sha256', $_POST['password']);
 	    
 	    $query = "SELECT * FROM admin WHERE admin_username='$username' and admin_password='$password'";
-	    $data = mysql_query($query,$dbconn);
-	    $num_data = mysql_num_rows($data);
+	    $data = mysqli_query($dbconn, $query);
+	    $num_data = mysqli_num_rows($data);
 	    //if username and password mismatch, display error message
 	    if($num_data==0)
 	    {
@@ -28,7 +28,7 @@
 	    }
 	    else
 	    {
-		    while($row = mysql_fetch_array($data))
+		    while($row = mysqli_fetch_array($data))
 		    {	
 		    	//if username and password match, store admin_id and go to admin page    	
 		    	$_SESSION['admin_id'] = $row['admin_id'];

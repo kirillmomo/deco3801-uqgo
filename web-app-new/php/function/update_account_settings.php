@@ -15,7 +15,7 @@
 	if(isset($_POST['first_name']))
 	{
 	$update_user_query = "UPDATE user SET first_name='$first_name', last_name='$last_name', username='$username', user_email='$email', user_day_of_birth ='$dob' WHERE user_id='$user_id'";
-	mysql_query($update_user_query);
+	mysqli_query($dbconn, $update_user_query);
 	}
 
 ?>

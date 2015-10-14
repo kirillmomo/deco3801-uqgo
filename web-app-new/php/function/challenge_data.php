@@ -13,13 +13,13 @@
 	$challenge_detail_query = "SELECT * FROM challenge WHERE challenge_id = '$challenge_challenge_id'";
 	$search_all_challenge_data_query = "SELECT * FROM challenge WHERE challenge_finish_date >= DATE(NOW()) AND challenge_progress < challenge_goal ORDER BY challenge_name";
 
-	$challenge_user_data = mysql_query($challenge_user_query,$dbconn);
-	$total_joined_challenge_data = mysql_query($challenge_user_query,$dbconn);
-	$challenge_joined_user_data = mysql_query($challenge_joined_user_query,$dbconn);
-	$total_challenge_user_num_data = mysql_query($total_challenge_user_num_query,$dbconn);
-	$challenge_detail_data = mysql_query($challenge_detail_query,$dbconn);
-	$all_challenge_data = mysql_query($search_all_challenge_data_query,$dbconn);
-	$total_joined_challenge_num = mysql_num_rows($total_joined_challenge_data);
+	$challenge_user_data = mysqli_query($dbconn, $challenge_user_query);
+	$total_joined_challenge_data = mysqli_query($dbconn, $challenge_user_query);
+	$challenge_joined_user_data = mysqli_query($dbconn, $challenge_joined_user_query);
+	$total_challenge_user_num_data = mysqli_query($dbconn, $total_challenge_user_num_query);
+	$challenge_detail_data = mysqli_query($dbconn, $challenge_detail_query);
+	$all_challenge_data = mysqli_query($dbconn, $search_all_challenge_data_query);
+	$total_joined_challenge_num = mysqli_num_rows($total_joined_challenge_data);
 
 	$user_challenge_joined_data=array();
 	$challenge_joined_user=array();
@@ -88,7 +88,7 @@
 	$c=0;
 	$d=0;
 
-	while($total_challenge_user_num_row = mysql_fetch_array($total_challenge_user_num_data))
+	while($total_challenge_user_num_row = mysqli_fetch_array($total_challenge_user_num_data))
 		{
 			$total_challenge_user_num_id[$a] = $total_challenge_user_num_row['challenge_id'];
 			$a++;
@@ -96,7 +96,7 @@
 
 		$total_user_join_num=sizeof($total_challenge_user_num_id);
 
-	while($challenge_joined_user_row = mysql_fetch_array($challenge_joined_user_data))
+	while($challenge_joined_user_row = mysqli_fetch_array($challenge_joined_user_data))
 		{
 			$challenge_joined_user[$b] = $challenge_joined_user_row['challenge_user_id'];
 			$b++;
@@ -104,9 +104,9 @@
 
 	$search_challenge_member_id_array = implode(',', $challenge_joined_user);
 	$search_challenge_member_query = "SELECT * FROM user WHERE user_id IN ($search_challenge_member_id_array) ORDER BY first_name";
-	$search_challenge_member_data = mysql_query($search_challenge_member_query,$dbconn);
+	$search_challenge_member_data = mysqli_query($dbconn, $search_challenge_member_query);
 		
-	while($search_challenge_member_row = mysql_fetch_array($search_challenge_member_data))
+	while($search_challenge_member_row = mysqli_fetch_array($search_challenge_member_data))
 		{
 			$search_challenge_joined_user_id[$y] = $search_challenge_member_row['user_id'];
 			$search_challenge_joined_user_first_name[$y] = $search_challenge_member_row['first_name'];
@@ -116,16 +116,16 @@
 
 
 	// Search user joined challenge data
-	while($challenge_user_row = mysql_fetch_array($challenge_user_data))
+	while($challenge_user_row = mysqli_fetch_array($challenge_user_data))
 		{
 			$user_challenge_joined_data[$i] = $challenge_user_row['challenge_id'];
 			$i++;
 		}
 	$search_challenge_id_array = implode(',', $user_challenge_joined_data);
 	$search_challenge_data_query = "SELECT * FROM challenge WHERE challenge_id IN ($search_challenge_id_array) AND challenge_finish_date >= DATE(NOW()) AND challenge_progress < challenge_goal ORDER BY challenge_name";
-	$search_challenge_info_data = mysql_query($search_challenge_data_query,$dbconn);
+	$search_challenge_info_data = mysqli_query($dbconn, $search_challenge_data_query);
 		
-	while($challenge_member_row = mysql_fetch_array($search_challenge_info_data))
+	while($challenge_member_row = mysqli_fetch_array($search_challenge_info_data))
 		{
 			$search_challenge_id[$z] = $challenge_member_row['challenge_id'];
 			$search_challenge_name[$z] = $challenge_member_row['challenge_name'];
@@ -143,9 +143,9 @@
 	//Search unjoined challenge 
 	$search_unjoined_challenge_id_array = implode(',', $user_challenge_joined_data);
 	$search_unjoined_challenge_data_query = "SELECT * FROM challenge WHERE challenge_id NOT IN ($search_unjoined_challenge_id_array) AND challenge_finish_date >= DATE(NOW()) AND challenge_progress < challenge_goal ORDER BY challenge_name";
-	$search_unjoined_challenge_info_data = mysql_query($search_unjoined_challenge_data_query,$dbconn);
+	$search_unjoined_challenge_info_data = mysqli_query($dbconn, $search_unjoined_challenge_data_query);
 		
-	while($challenge_unjoined_member_row = mysql_fetch_array($search_unjoined_challenge_info_data))
+	while($challenge_unjoined_member_row = mysqli_fetch_array($search_unjoined_challenge_info_data))
 		{
 			$search_unjoined_challenge_id[$c] = $challenge_unjoined_member_row['challenge_id'];
 			$search_unjoined_challenge_name[$c] = $challenge_unjoined_member_row['challenge_name'];
@@ -160,7 +160,7 @@
 			$c++;
 		}
 
-	while($all_challenge_row = mysql_fetch_array($all_challenge_data))
+	while($all_challenge_row = mysqli_fetch_array($all_challenge_data))
 		{
 			$search_all_challenge_id[$d] = $all_challenge_row['challenge_id'];
 			$search_all_challenge_name[$d] = $all_challenge_row['challenge_name'];
@@ -178,7 +178,7 @@
 
 
 	// display user joined challenge data
-	while($challenge_detail_row = mysql_fetch_array($challenge_detail_data))
+	while($challenge_detail_row = mysqli_fetch_array($challenge_detail_data))
 		{
 			$challenge_detail_name = $challenge_detail_row['challenge_name'];
 			$challenge_detail_start_date = $challenge_detail_row['challenge_start_date'];
@@ -211,9 +211,9 @@
 
 	$search_complete_challenge_id_array = implode(',', $user_challenge_joined_data);
 	$search_complete_challenge_data_query = "SELECT * FROM challenge WHERE challenge_id IN ($search_complete_challenge_id_array) AND challenge_finish_date <= DATE(NOW()) OR challenge_id IN ($search_complete_challenge_id_array) AND challenge_progress >= challenge_goal";
-	$search_complete_challenge_info_data = mysql_query($search_complete_challenge_data_query,$dbconn);
+	$search_complete_challenge_info_data = mysqli_query($dbconn, $search_complete_challenge_data_query);
 		
-	while($complete_challenge_member_row = mysql_fetch_array($search_complete_challenge_info_data))
+	while($complete_challenge_member_row = mysqli_fetch_array($search_complete_challenge_info_data))
 		{
 			$search_complete_challenge_id[$x] = $complete_challenge_member_row['challenge_id'];
 			$search_complete_challenge_name[$x] = $complete_challenge_member_row['challenge_name'];
@@ -242,8 +242,8 @@
 		}
 
 		$joining_challenge_query = "SELECT * FROM challenge_member WHERE challenge_id='$join_challenge_id' AND challenge_user_id = '$challenge_user_id'";
-		$status_joining_challenge = mysql_query($joining_challenge_query);
-		$status_joining_challenge_row = mysql_fetch_array($status_joining_challenge);
+		$status_joining_challenge = mysqli_query($dbconn, $joining_challenge_query);
+		$status_joining_challenge_row = mysqli_fetch_array($status_joining_challenge);
 
 		if($join_challenge_id!=null)
 			{
@@ -251,7 +251,7 @@
 				if ($status_joining_challenge_row==false) 
 				{
 					$add_join_query = "INSERT INTO challenge_member SET challenge_user_id='$challenge_user_id', challenge_id='$join_challenge_id'";
-		        	mysql_query($add_join_query);
+		        	mysqli_query($dbconn, $add_join_query);
 		        	unset($_SESSION['join_challenge_id']);
 				}
 				else
@@ -261,25 +261,25 @@
 	    	}
 
 	    $left_challenge_query = "SELECT * FROM challenge_member WHERE challenge_id='$leave_challenge_id' AND challenge_user_id = '$challenge_user_id'";
-		$status_left_challenge_query = mysql_query($left_challenge_query);
-		$status_left_challenge_row = mysql_fetch_array($status_left_challenge_query);
+		$status_left_challenge_query = mysqli_query($dbconn, $left_challenge_query);
+		$status_left_challenge_row = mysqli_fetch_array($status_left_challenge_query);
 		if($leave_challenge_id!=null)
 			{
 
 				if ($status_left_challenge_row!=false) 
 				{
 					$leave_challenge_query = "DELETE FROM challenge_member WHERE  challenge_id='$leave_challenge_id' AND challenge_user_id = '$challenge_user_id'";
-					mysql_query($leave_challenge_query);
+					mysqli_query($dbconn, $leave_challenge_query);
 					$delete_challenge_query = "SELECT * FROM challenge WHERE  challenge_id='$leave_challenge_id' AND challenge_user_id = '$challenge_user_id'";
-					$status_delete_challenge_query = mysql_query($delete_challenge_query);
-					$status_delete_challenge_row = mysql_fetch_array($status_delete_challenge_query);
+					$status_delete_challenge_query = mysqli_query($dbconn, $delete_challenge_query);
+					$status_delete_challenge_row = mysqli_fetch_array($status_delete_challenge_query);
 					if ($status_delete_challenge_row!=false) 
 					{
 						
 						$delete_challenge_member_data_query = "DELETE FROM challenge_member WHERE challenge_id ='$leave_challenge_id'";
-						mysql_query($delete_challenge_member_data_query);
+						mysqli_query($dbconn, $delete_challenge_member_data_query);
 						$delete_challenge_data_query = "DELETE FROM challenge WHERE  challenge_id='$leave_challenge_id' AND challenge_user_id = '$challenge_user_id'";
-						mysql_query($delete_challenge_data_query);
+						mysqli_query($dbconn, $delete_challenge_data_query);
 					}
 		
 		        	

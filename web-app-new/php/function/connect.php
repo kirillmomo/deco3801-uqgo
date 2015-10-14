@@ -19,12 +19,13 @@
 	// $dbuser = "root";
 	// $dbpass = "";
 	$dbname = "uq_go_db_v04";	
-	$dbconn = mysql_connect($dbhost, $dbuser, $dbpass);
+	$dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	
 	// if unable connect to the database, show error
 	if(! $dbconn )
 	{
-	  die('Could not connect: ' . mysql_error());
+	  die('Could not connect: ' . mysqli_connect_error());
 	}
-	mysql_select_db($dbname);
+
+	mysqli_select_db($dbconn, $dbname);
 ?>
