@@ -17,6 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/login.php');
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="./img/icon.png" rel="icon" type="image/png">
   </head>
@@ -43,7 +44,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/login.php');
     <div class="footer">
       <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
       <nav>
-        <a href="admin-login.php">Help</a>
+        <a href="help.php">Help</a>
         <a href="admin-login.php">Admin Login</a>
       </nav>
     </div>

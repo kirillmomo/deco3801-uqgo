@@ -17,6 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/admin_login.php');
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/admin-login.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="./img/icon.png" rel="icon" type="image/png">
   </head>
