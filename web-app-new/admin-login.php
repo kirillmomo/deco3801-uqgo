@@ -37,11 +37,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/admin_login.php');
           <input type='submit' id='login' name='login' value='Login' class='button-primary'>
         </form>
     </div>
-    <div class="login-options">
-        <p><a href="index.php">Back to login</a></p>
-    </div>
-    <div class="footer-info">
-        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
+    <div class="footer">
+      <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
+      <nav>
+        <a href="index.php">Back to login</a>
+      </nav>
     </div>
   </body>
 </html>

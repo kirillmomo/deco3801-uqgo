@@ -40,11 +40,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/login.php');
         <h2>New User?</h2>
         <p>Register using the UQGO app.</p>
     </div>
-    <div class="login-options">
-        <p><a href="admin-login.php">Are you an admin?</a></p>
-    </div>
-    <div class="footer-info">
-        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
+    <div class="footer">
+      <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
+      <nav>
+        <a href="admin-login.php">Help</a>
+        <a href="admin-login.php">Admin Login</a>
+      </nav>
     </div>
   </body>
 </html>

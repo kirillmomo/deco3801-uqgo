@@ -68,28 +68,39 @@ h2 {
 	text-align: center;
 }
 
-.login-options {
+.footer {
 	position: fixed;
 	bottom: 0;
-	right: 0;
-	padding-right: 40px;
-}
-
-.login-options a, .footer-info {
-	color: #FFF;
-	text-decoration: none;
 	font-weight: bold;
-	transition: all .2s ease-in;
-}
-
-.login-options a:hover {
-	opacity: .5;
-	transition: all .2s ease-in;
+	padding: 15px;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: rgba(73,7,94,.8)
 }
 
 .footer-info {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	padding-left: 40px;
+	float: left;
+	margin: 0;
+}
+
+.footer nav {
+	float: right;
+	margin: 0;
+}
+
+.footer nav a {
+	color: #FFF;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	transition: all .2s ease-in;
+}
+
+.footer nav a:first-of-type {
+	margin-right: 20px;
+}
+
+.footer nav a:hover {
+	opacity: .5;
+	transition: all .2s ease-in;
 }
