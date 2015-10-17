@@ -1,1 +1,1 @@
-<?php echo "UQ Wellness | Developed by Silversquad. v0.4"; ?>
+<?php echo "UQ Wellness | Developed by Silversquad. v0.5"; ?>

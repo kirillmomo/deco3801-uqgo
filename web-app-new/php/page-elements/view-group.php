@@ -1,12 +1,12 @@
 <?php
 	//Include session php file
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
 	$group_id = $_GET['group_id']; // getting group_id from the ajax request,
 	$_SESSION["group_id"] = $group_id;
 
 	//Include group_data php file to get user join group data 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/button_status.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/group_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/button_status.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/group_data.php');
 	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/groups/'.$display_group_id.'.jpg');
 
 

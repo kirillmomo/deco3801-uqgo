@@ -1,10 +1,10 @@
 <?php
 
 	// Include session php file to start PHP session 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
 
 	// Include challenge_data php file to get user challenge data 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/challenge_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/challenge_data.php');
 
 	for($i = 0; $i<sizeof($search_complete_challenge_id); $i++)
 	{?>

@@ -5,7 +5,7 @@ session_start();
 
 // If session is empty, return to admin login page
 if(empty($_SESSION['admin_id'])){
-    header('Location: /v0-4/admin-login.php');
+    header('Location: /v0-5/admin-login.php');
   // header('Location: /Beta/web-app-new/admin-login.php');
   }    
 ?>

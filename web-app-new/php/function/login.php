@@ -4,7 +4,7 @@
 	$error_msg="";
 	//if user has logged in, go to dashboard page
 	if(isset($_SESSION['user_id'])){
-		header('Location: /v0-4/dashboard.php');
+		header('Location: /v0-5/dashboard.php');
 	// header('Location: /Beta/web-app-new/dashboard.php');
 	}
 
@@ -31,7 +31,7 @@
 		    while($row = mysqli_fetch_array($data))
 		    {	    	
 		    	$_SESSION['user_id'] = $row['user_id'];
-		    	header('Location: /v0-4/dashboard.php');
+		    	header('Location: /v0-5/dashboard.php');
 				// header('Location: /Beta/web-app-new/dashboard.php');
 		    }
 		}

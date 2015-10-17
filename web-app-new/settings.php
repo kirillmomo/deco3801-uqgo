@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/update_account_settings.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/update_account_settings.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">

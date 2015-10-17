@@ -1,6 +1,6 @@
 <?php
 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
 	include('connect.php');
 	$user_id=$_SESSION['user_id'];
 
@@ -20,13 +20,13 @@
           else 
           {
               move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/profile_img/users/" . $user_id . ".jpg");
-              header('Location: /v0-4/settings.php');
+              header('Location: /v0-5/settings.php');
           }
         } 
 	}
 	else
 	{
-		header('Location: /v0-4/settings.php');
+		header('Location: /v0-5/settings.php');
 	}
 
 ?>
