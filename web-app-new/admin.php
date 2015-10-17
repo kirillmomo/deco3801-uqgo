@@ -6,7 +6,6 @@ session_start();
 // If session is empty, return to admin login page
 if(empty($_SESSION['admin_id'])){
     header('Location: /v0-5/admin-login.php');
-  // header('Location: /Beta/web-app-new/admin-login.php');
   }    
 ?>
 
@@ -29,11 +28,20 @@ if(empty($_SESSION['admin_id'])){
             <a href="./php/function/admin_logout.php" id="nav-item-logout"><i class="fa fa-close fa-fw"></i>&nbsp;Logout</a>
         </nav>
     </div>
-    <?php include "./php/page-elements/notification-tray.php";?>
     <div class="content">
         <h1>Reports</h1>
         <div class="module-content">
-          <!-- module content will load here automatically -->
+          <form class="report-filter-form">
+            <p><label>Age</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
+            <p><label>Gender</label><input type="checkbox" value="Male"><label class="checkbox-label">Male</label><input type="checkbox" value="Female"><label class="checkbox-label">Female</label></p>
+            <p><label>Height</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
+           <p> <label>Weight</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
+            <p><label>Steps</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
+            <p><label>Distance</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
+            <p><label>Calories</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
+            <p><label>Date</label><input type="text" placeholder="From"><input type="text" placeholder="To"></p>
+            <input type="submit" value="Generate" class="button-primary"><input type="reset" value="Clear">
+          </form>
         </div>
     </div>
   </body>
