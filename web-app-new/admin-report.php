@@ -1,12 +1,12 @@
 <?php 
-
-//Start session 
 session_start();
 
 // If session is empty, return to admin login page
 if(empty($_SESSION['admin_id'])){
     header('Location: /v0-5/admin-login.php');
-  }    
+  } 
+
+  include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/admin_function.php');   
 ?>
 
 <!DOCTYPE html>
@@ -46,65 +46,18 @@ if(empty($_SESSION['admin_id'])){
               </tr>
             </thead>
             <tbody>
+          <?php for($i = 0; $i<sizeof($user_first_name); $i++)
+              {?>
               <tr>
-                <td>Nigel Thornberry</td>
-                <td>43</td>
-                <td>Male</td>
-                <td>180cm</td>
-                <td>80kg</td>
-                <td>8273</td>
-                <td>82km</td>
-                <td>1029kcal</td>
-              </tr>
-              <tr>
-                <td>Arnold Schnitzel</td>
-                <td>65</td>
-                <td>Male</td>
-                <td>188cm</td>
-                <td>100kg</td>
-                <td>12</td>
-                <td>0.2km</td>
-                <td>5kcal</td>
-              </tr>
-              <tr>
-                <td>Nigel Thornberry</td>
-                <td>43</td>
-                <td>Male</td>
-                <td>180cm</td>
-                <td>80kg</td>
-                <td>8273</td>
-                <td>82km</td>
-                <td>1029kcal</td>
-              </tr>
-              <tr>
-                <td>Arnold Schnitzel</td>
-                <td>65</td>
-                <td>Male</td>
-                <td>188cm</td>
-                <td>100kg</td>
-                <td>12</td>
-                <td>0.2km</td>
-                <td>5kcal</td>
-              </tr>
-              <tr>
-                <td>Nigel Thornberry</td>
-                <td>43</td>
-                <td>Male</td>
-                <td>180cm</td>
-                <td>80kg</td>
-                <td>8273</td>
-                <td>82km</td>
-                <td>1029kcal</td>
-              </tr>
-              <tr>
-                <td>Arnold Schnitzel</td>
-                <td>65</td>
-                <td>Male</td>
-                <td>188cm</td>
-                <td>100kg</td>
-                <td>12</td>
-                <td>0.2km</td>
-                <td>5kcal</td>
+                <td><?php echo $user_first_name[$i]; ?> <?php echo $user_last_name[$i]; ?></td>
+                <td><?php echo $user_age[$i]; ?></td>
+                <td><?php echo $user_gender[$i]; ?></td>
+                <td><?php echo $user_height[$i]; ?></td>
+                <td><?php echo $user_weight[$i]; ?></td>
+                <td><?php echo $session_steps[$i]; ?></td>
+                <td><?php echo $session_distance[$i]; ?> km</td>
+                <td><?php echo $session_cal[$i]; ?> kcal</td>
+                <?php } ?>
               </tr>
             </tbody>
           </table>

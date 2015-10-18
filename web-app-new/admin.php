@@ -31,15 +31,15 @@ if(empty($_SESSION['admin_id'])){
     <div class="content">
         <h1>Reports</h1>
         <div class="module-content">
-          <form class="report-filter-form">
-            <p><label>Age</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
-            <p><label>Gender</label><input type="checkbox" value="Male"><label class="checkbox-label">Male</label><input type="checkbox" value="Female"><label class="checkbox-label">Female</label></p>
-            <p><label>Height</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
-           <p> <label>Weight</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
-            <p><label>Steps</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
-            <p><label>Distance</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
-            <p><label>Calories</label><input type="number" placeholder="Mininum"><input type="number" placeholder="Maximum"></p>
-            <p><label>Date</label><input type="text" placeholder="From"><input type="text" placeholder="To"></p>
+          <form class="report-filter-form" method="post" action="./admin-report.php" enctype="multipart/form-data">
+            <p><label>Age</label><input type="number" Name="min_age" placeholder="Mininum"><input type="number" Name="max_age" placeholder="Maximum"></p>
+            <p><label>Gender</label><input type="checkbox" Name="gender[]" value="Male"><label class="checkbox-label">Male</label><input type="checkbox" Name="gender[]" value="Female"><label class="checkbox-label">Female</label></p>
+            <p><label>Height</label><input type="number" Name="min_height" placeholder="Mininum"><input type="number" Name="max_height" placeholder="Maximum"></p>
+           <p> <label>Weight</label><input type="number" Name="min_weight" placeholder="Mininum"><input type="number" Name="max_weight" placeholder="Maximum"></p>
+            <p><label>Steps</label><input type="number" Name="min_step" placeholder="Mininum"><input type="number" Name="max_step" placeholder="Maximum"></p>
+            <p><label>Distance</label><input type="number" Name="min_distance" placeholder="Mininum"><input type="number" Name="max_distance" placeholder="Maximum"></p>
+            <p><label>Calories</label><input type="number" Name="min_cal" placeholder="Mininum"><input type="number" Name="max_cal" placeholder="Maximum"></p>
+            <p><label>Date</label><input type="date" Name="min_date" placeholder="From"><input type="date" Name="max_date" placeholder="To"></p>
             <input type="submit" value="Generate" class="button-primary"><input type="reset" value="Clear">
           </form>
         </div>

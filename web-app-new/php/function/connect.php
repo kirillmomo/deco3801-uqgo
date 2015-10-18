@@ -18,7 +18,7 @@
 	$dbpass = $logindetail[1];
 	// $dbuser = "root";
 	// $dbpass = "";
-	$dbname = "uq_go_db_v04";	
+	$dbname = "uq_go_db_v05";	
 	$dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	
 	// if unable connect to the database, show error
