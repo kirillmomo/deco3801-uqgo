@@ -15,10 +15,8 @@
 	$max_step=$_POST['max_step'];
 	$min_distance=$_POST['min_distance'];
 	$max_distance=$_POST['max_distance'];
-	$min_cal=$_POST['min_cal'];
-	$max_cal=$_POST['max_cal'];
-	$min_date=$_POST['min_date'];
-	$max_date=$_POST['max_date'];
+	$min_date=date("Y",strtotime($_POST['min_date']))."-".date("m",strtotime($_POST['min_date']))."-".date("d",strtotime($_POST['min_date']));
+	$max_date=date("Y",strtotime($_POST['max_date']))."-".date("m",strtotime($_POST['max_date']))."-".date("d",strtotime($_POST['max_date']))." 23:59:59";
 	$user_first_name = array();
 	$user_last_name = array();
 	$user_age = array();
@@ -30,8 +28,10 @@
 	$session_cal = array();
 	$all_total_data = 0;
 	$i=0;
+	var_dump($min_date);
+	var_dump($max_date);
 
-	if($_POST['min_age']!="")
+	if($_POST['min_age']!=""&& $_POST['max_age']=="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_day_of_birth <= '$min_age'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -50,7 +50,7 @@
 			}
 
 	}
-	else if($_POST['max_age']!="")
+	else if($_POST['min_age']==""&& $_POST['max_age']!="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_day_of_birth >= '$max_age'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -115,7 +115,7 @@
 				$i++;	
 			}	
 	}
-	else if($_POST['min_height']!="")
+	else if($_POST['min_height']!="" && $_POST['max_height']=="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_height >= '$min_height'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -134,7 +134,7 @@
 			}
 
 	}
-	else if($_POST['max_height']!="")
+	else if($_POST['min_height']=="" && $_POST['max_height']!="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_height <= '$max_height'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -171,7 +171,7 @@
 			}	
 	}
 
-	else if($_POST['min_weight']!="")
+	else if($_POST['min_weight']!=""&& $_POST['max_weight']=="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_weight >= '$min_weight'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -190,7 +190,7 @@
 			}
 
 	}
-	else if($_POST['max_weight']!="")
+	else if($_POST['min_weight']==""&& $_POST['max_weight']!="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_weight <= '$max_weight'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -226,7 +226,7 @@
 				$i++;	
 			}	
 	}
-	else if($_POST['min_step']!="")
+	else if($_POST['min_step']!=""&& $_POST['max_step']=="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_steps >= '$min_step'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -245,7 +245,7 @@
 			}
 
 	}
-	else if($_POST['max_step']!="")
+	else if($_POST['min_step']==""&& $_POST['max_step']!="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_steps <= '$max_step'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -281,7 +281,7 @@
 				$i++;	
 			}	
 	}
-	else if($_POST['min_distance']!="")
+	else if($_POST['min_distance']!=""&& $_POST['max_distance']=="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_distance >= '$min_distance'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -300,7 +300,7 @@
 			}
 
 	}
-	else if($_POST['max_distance']!="")
+	else if($_POST['min_distance']==""&& $_POST['max_distance']!="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_distance <= '$max_distance'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
@@ -321,6 +321,61 @@
 	else if($_POST['min_distance']!="" && $_POST['max_distance']!="")
 	{
 		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_distance >= '$min_distance' AND session_distance <= '$max_distance'";
+		$all_user_data = mysqli_query($dbconn, $all_data_query);
+		while($all_user_row = mysqli_fetch_array($all_user_data))
+			{
+				$user_first_name[$i] = $all_user_row['first_name'];
+				$user_last_name[$i] = $all_user_row['last_name'];
+				$user_age[$i] = date("Y") - date("Y",strtotime($all_user_row['user_day_of_birth']));
+				$user_gender[$i] = $all_user_row['user_gender'];
+				$user_height[$i] = $all_user_row['user_height'];
+				$user_weight[$i] = $all_user_row['user_weight'];
+				$session_steps[$i] = $all_user_row['session_steps'];
+				$session_distance[$i] = $all_user_row['session_distance'];
+				$session_cal[$i] = $all_user_row['session_steps']/20;
+				$i++;	
+			}	
+	}
+	else if($_POST['min_date']!="" && $_POST['max_date']=="")
+	{
+		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_date >= '$min_date'";
+		$all_user_data = mysqli_query($dbconn, $all_data_query);
+		while($all_user_row = mysqli_fetch_array($all_user_data))
+			{
+				$user_first_name[$i] = $all_user_row['first_name'];
+				$user_last_name[$i] = $all_user_row['first_name'];
+				$user_age[$i] = date("Y") - date("Y",strtotime($all_user_row['user_day_of_birth']));
+				$user_gender[$i] = $all_user_row['user_gender'];
+				$user_height[$i] = $all_user_row['user_height'];
+				$user_weight[$i] = $all_user_row['user_weight'];
+				$session_steps[$i] = $all_user_row['session_steps'];
+				$session_distance[$i] = $all_user_row['session_distance'];
+				$session_cal[$i] = $all_user_row['session_steps']/20;
+				$i++;	
+			}
+
+	}
+	else if($_POST['min_date']=="" && $_POST['max_date']!="")
+	{
+		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_date <= '$max_date'";
+		$all_user_data = mysqli_query($dbconn, $all_data_query);
+		while($all_user_row = mysqli_fetch_array($all_user_data))
+			{
+				$user_first_name[$i] = $all_user_row['first_name'];
+				$user_last_name[$i] = $all_user_row['last_name'];
+				$user_age[$i] = date("Y") - date("Y",strtotime($all_user_row['user_day_of_birth']));
+				$user_gender[$i] = $all_user_row['user_gender'];
+				$user_height[$i] = $all_user_row['user_height'];
+				$user_weight[$i] = $all_user_row['user_weight'];
+				$session_steps[$i] = $all_user_row['session_steps'];
+				$session_distance[$i] = $all_user_row['session_distance'];
+				$session_cal[$i] = $all_user_row['session_steps']/20;
+				$i++;	
+			}	
+	}
+	else if($_POST['min_date']!="" && $_POST['max_date']!="")
+	{
+		$all_data_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_date >= '$min_date' AND session_date <= '$max_date'";
 		$all_user_data = mysqli_query($dbconn, $all_data_query);
 		while($all_user_row = mysqli_fetch_array($all_user_data))
 			{

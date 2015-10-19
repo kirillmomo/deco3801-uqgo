@@ -38,7 +38,6 @@ if(empty($_SESSION['admin_id'])){
            <p> <label>Weight</label><input type="number" Name="min_weight" placeholder="Mininum"><input type="number" Name="max_weight" placeholder="Maximum"></p>
             <p><label>Steps</label><input type="number" Name="min_step" placeholder="Mininum"><input type="number" Name="max_step" placeholder="Maximum"></p>
             <p><label>Distance</label><input type="number" Name="min_distance" placeholder="Mininum"><input type="number" Name="max_distance" placeholder="Maximum"></p>
-            <p><label>Calories</label><input type="number" Name="min_cal" placeholder="Mininum"><input type="number" Name="max_cal" placeholder="Maximum"></p>
             <p><label>Date</label><input type="date" Name="min_date" placeholder="From"><input type="date" Name="max_date" placeholder="To"></p>
             <input type="submit" value="Generate" class="button-primary"><input type="reset" value="Clear">
           </form>
