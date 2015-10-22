@@ -1,12 +1,12 @@
 <?php 
 
-//Start session 
-session_start();
+// //Start session 
+// session_start();
 
-// If session is empty, return to admin login page
-if(empty($_SESSION['admin_id'])){
-    header('Location: /v0-6/admin-login.php');
-  }    
+// // If session is empty, return to admin login page
+// if(empty($_SESSION['admin_id'])){
+//     header('Location: /v0-6/admin-login.php');
+//   }    
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ if(empty($_SESSION['admin_id'])){
         <div class="module-content">
           <form class="report-filter-form" method="post" action="./admin-report.php" enctype="multipart/form-data">
             <p><label>Age</label><input type="number" Name="min_age" placeholder="Mininum"><input type="number" Name="max_age" placeholder="Maximum"></p>
-            <p><label>Gender</label><input type="checkbox" Name="gender[]" value="Male"><label class="checkbox-label">Male</label><input type="checkbox" Name="gender[]" value="Female"><label class="checkbox-label">Female</label></p>
+            <p><label>Gender</label><input type="checkbox" Name="gender[]" value="Male" id="radio-male"><label class="checkbox-label" for="radio-male">Male</label><input type="checkbox" Name="gender[]" value="Female" id="radio-female"><label class="checkbox-label" for="radio-female">Female</label></p>
             <p><label>Height</label><input type="number" Name="min_height" placeholder="Mininum"><input type="number" Name="max_height" placeholder="Maximum"></p>
            <p> <label>Weight</label><input type="number" Name="min_weight" placeholder="Mininum"><input type="number" Name="max_weight" placeholder="Maximum"></p>
             <p><label>Steps</label><input type="number" Name="min_step" placeholder="Mininum"><input type="number" Name="max_step" placeholder="Maximum"></p>

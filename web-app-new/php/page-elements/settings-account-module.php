@@ -24,7 +24,7 @@
 		if (inputYear > currentYear) {
 			$(".form-invalid-error").text("Invalid date of birth.");
 			$(".form-invalid-error").slideDown();
-			return;
+			return false;
 		}
 		submitForm();
 	}
@@ -37,6 +37,7 @@
 			success: function(data) {
 				console.log("Success saving settings");
 				$("#settings-submit").html("<i class='fa fa-check'></i> Saved");
+				location.reload(true);
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error saving settings: " + err);
@@ -122,6 +123,6 @@
 		</select>
 		<input id="settings-dob-year" name="dob_year" type="number" value="<?php echo $user_birth_year ?>" required placeholder="Year"><p/>
 		<p class="form-invalid-error"></p>
-		<button id="settings-submit" type="submit"class="button-primary">Save Info</buton>
+		<button id="settings-submit" type="submit" class="button-primary">Save Info</buton>
 	</form>
 </div>
