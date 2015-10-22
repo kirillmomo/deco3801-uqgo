@@ -1,17 +1,28 @@
 <?php
 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
 	$user_id = $_GET['userid']; // getting user_id from the ajax request, use this to get other info from db
 	$_SESSION["friend_id"] = $user_id;
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/button_status.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/step_data.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/distance_data.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/button_status.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/step_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/distance_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/user_data.php');
+	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$friend_id.'.jpg');
 
 ?>
 
 <div class="section">
-	<div class="profile-image" style="background-image: url(/profile_img/users/<?php echo $friend_icon; ?>.jpg)"></div>
+
+	 <?php 
+        if($pic_status==true)
+        {?>
+    	<div class="profile-image" style="background-image: url(/profile_img/users/<?php echo $friend_id; ?>.jpg)"></div>
+        <?php }
+        else
+        {?>
+    	<div class="profile-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div>
+    <?php } ?>
+
 	<p class="profile-name"><?php echo $friend_first_name; ?> <?php echo $friend_last_name; ?></p>
 	<p class="profile-detail"><?php echo $friend_age; ?> years old</p>
 	<p class="profile-detail">UQGO user since <?php echo $friend_member_date;?></p>

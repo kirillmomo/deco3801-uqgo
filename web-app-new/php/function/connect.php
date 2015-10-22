@@ -2,7 +2,7 @@
 	// find detail.txt for SQL username and password and store in array
 	$logindetail = array();
 	$i=0;
-	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-4/detail.txt","r");
+	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-5/detail.txt","r");
 
 	while(! feof($file))
 	  {
@@ -18,13 +18,14 @@
 	$dbpass = $logindetail[1];
 	// $dbuser = "root";
 	// $dbpass = "";
-	$dbname = "uq_go_db_v04";	
-	$dbconn = mysql_connect($dbhost, $dbuser, $dbpass);
+	$dbname = "uq_go_db_v05";	
+	$dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	
 	// if unable connect to the database, show error
 	if(! $dbconn )
 	{
-	  die('Could not connect: ' . mysql_error());
+	  die('Could not connect: ' . mysqli_connect_error());
 	}
-	mysql_select_db($dbname);
+
+	mysqli_select_db($dbconn, $dbname);
 ?>

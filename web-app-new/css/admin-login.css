@@ -67,29 +67,3 @@ h2 {
 	color: #49075E;
 	text-align: center;
 }
-
-.login-options {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	padding-right: 40px;
-}
-
-.login-options a, .footer-info {
-	color: #FFF;
-	text-decoration: none;
-	font-weight: bold;
-	transition: all .2s ease-in;
-}
-
-.login-options a:hover {
-	opacity: .5;
-	transition: all .2s ease-in;
-}
-
-.footer-info {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	padding-left: 40px;
-}

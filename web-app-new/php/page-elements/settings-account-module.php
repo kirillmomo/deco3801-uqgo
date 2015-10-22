@@ -1,7 +1,8 @@
 <?php
 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/user_data.php');
+	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$user_id.'.jpg');
 
 ?>
 
@@ -44,9 +45,20 @@
 	}
 </script>
 <div class="section"><h3>Profile image</h3>
-	<div class="settings-display-image" style="background-image: url(/profile_img/users/<?php echo $user_icon ?>.jpg)"></div>
-	<input type="file">
-	<input type="button" value="Update Picture" class="button-primary">
+
+	<?php 
+        if($pic_status==true)
+        {?>
+    	<div class="settings-display-image" style="background-image: url(/profile_img/users/<?php echo $user_id ?>.jpg)"></div>
+        <?php }
+        else
+        {?>
+    	<div class="settings-display-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div>
+    <?php } ?>
+	<form method="post" action="./php/function/upload_image.php" enctype="multipart/form-data"> 
+	<input type="file" name="file">
+	<input name="button" type="submit" value="Update Picture" class="button-primary">
+	</form>
 </div>
 <div class="section"><h3>Personal info</h3>
 	<form class="settings-info-form">
@@ -60,6 +72,7 @@
 		<input id="settings-email" name="email" type="email" required value="<?php echo $user_email ?>"><p/>
 		<p><label>Date of birth</label>
 		<select id="settings-dob-day" name="dob_day" required>
+			<option selected="selected" value="<?php echo $user_birth_day ?>"><?php echo $user_birth_day ?></option>
 			<option value="01">01</option>
 			<option value="02">02</option>
 			<option value="03">03</option>
@@ -93,6 +106,7 @@
 			<option value="31">31</option>
 		</select>
 		<select id="settings-dob-month" name="dob_month" required>
+			<option selected="selected" value="<?php echo date("m",strtotime($user_birth_month)) ?>"><?php echo $user_birth_month ?></option>
 			<option value="01">January</option>
 			<option value="02">February</option>
 			<option value="03">March</option>
@@ -106,7 +120,7 @@
 			<option value="11">November</option>
 			<option value="12">December</option>
 		</select>
-		<input id="settings-dob-year" name="dob_year" type="number" required placeholder="Year"><p/>
+		<input id="settings-dob-year" name="dob_year" type="number" value="<?php echo $user_birth_year ?>" required placeholder="Year"><p/>
 		<p class="form-invalid-error"></p>
 		<button id="settings-submit" type="submit"class="button-primary">Save Info</buton>
 	</form>

@@ -3,16 +3,24 @@
 // Include session_start and user_data file.
 
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/session_start.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/session_start.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/user_data.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/user_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/user_data.php');
+$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$user_id.'.jpg');
 ?>
 
 <div class="container profile">
 	<div class="row">
 		<div class="four columns">
-			<div class="profile-image" style="background-image: url(/profile_img/users/<?php echo $user_icon; ?>.jpg)">
-			</div>
+			 <?php 
+	        if($pic_status==true)
+	        {?>
+	        <div class="profile-image" style="background-image: url(/profile_img/users/<?php echo $user_id; ?>.jpg)"></div>
+	        <?php }
+	        else
+	        {?>
+	        <div class="profile-image" style="background-image: url(/profile_img/users/user-default.jpg)"></div>
+	        <?php } ?>
 		</div>
 		<div class="eight columns">
 			<div class="">

@@ -5,8 +5,7 @@ session_start();
 
 // If session is empty, return to admin login page
 if(empty($_SESSION['admin_id'])){
-    header('Location: /v0-4/admin-login.php');
-  // header('Location: /Beta/web-app-new/admin-login.php');
+    header('Location: /v0-5/admin-login.php');
   }    
 ?>
 
@@ -29,11 +28,19 @@ if(empty($_SESSION['admin_id'])){
             <a href="./php/function/admin_logout.php" id="nav-item-logout"><i class="fa fa-close fa-fw"></i>&nbsp;Logout</a>
         </nav>
     </div>
-    <?php include "./php/page-elements/notification-tray.php";?>
     <div class="content">
         <h1>Reports</h1>
         <div class="module-content">
-          <!-- module content will load here automatically -->
+          <form class="report-filter-form" method="post" action="./admin-report.php" enctype="multipart/form-data">
+            <p><label>Age</label><input type="number" Name="min_age" placeholder="Mininum"><input type="number" Name="max_age" placeholder="Maximum"></p>
+            <p><label>Gender</label><input type="checkbox" Name="gender[]" value="Male"><label class="checkbox-label">Male</label><input type="checkbox" Name="gender[]" value="Female"><label class="checkbox-label">Female</label></p>
+            <p><label>Height</label><input type="number" Name="min_height" placeholder="Mininum"><input type="number" Name="max_height" placeholder="Maximum"></p>
+           <p> <label>Weight</label><input type="number" Name="min_weight" placeholder="Mininum"><input type="number" Name="max_weight" placeholder="Maximum"></p>
+            <p><label>Steps</label><input type="number" Name="min_step" placeholder="Mininum"><input type="number" Name="max_step" placeholder="Maximum"></p>
+            <p><label>Distance</label><input type="number" Name="min_distance" placeholder="Mininum"><input type="number" Name="max_distance" placeholder="Maximum"></p>
+            <p><label>Date</label><input type="date" Name="min_date" placeholder="From"><input type="date" Name="max_date" placeholder="To"></p>
+            <input type="submit" value="Generate" class="button-primary"><input type="reset" value="Clear">
+          </form>
         </div>
     </div>
   </body>

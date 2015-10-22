@@ -4,8 +4,8 @@
 
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
 // include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/admin_login.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/connect.php');
-include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/admin_login.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/connect.php');
+include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/admin_login.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/admin_login.php');
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/admin-login.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="./img/icon.png" rel="icon" type="image/png">
   </head>
@@ -37,11 +38,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/function/admin_login.php');
           <input type='submit' id='login' name='login' value='Login' class='button-primary'>
         </form>
     </div>
-    <div class="login-options">
-        <p><a href="index.php">Back to login</a></p>
-    </div>
-    <div class="footer-info">
-        <p><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-4/php/page-elements/footer-text.php');?></p>
+    <div class="footer">
+      <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
+      <nav>
+        <a href="index.php">Back to login</a>
+      </nav>
     </div>
   </body>
 </html>

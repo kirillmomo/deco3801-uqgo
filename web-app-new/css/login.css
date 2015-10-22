@@ -85,30 +85,28 @@ form input[type=submit] {
 	margin: 0;
 }
 
-.login-options {
+.help {
+	display: none;
 	position: fixed;
-	bottom: 0;
-	right: 0;
-	padding-right: 40px;
+	top: 25%;
+	left: 50%;
+	margin-left: -390px;
+	width: 640px;
+	height: 390px;
+	text-align: center;
+	z-index: 20;
 }
 
-.login-options a, .footer-info {
-	color: #FFF;
-	text-decoration: none;
-	font-weight: bold;
-	transition: all .2s ease-in;
-}
-
-.login-options a:hover {
-	opacity: .5;
-	transition: all .2s ease-in;
-}
-
-.footer-info {
+.overlay {
+	display: none;
+	background-color: #000;
+	opacity: 0.5;
 	position: fixed;
-	bottom: 0;
+	width: 100%;
+	height: 100%;
+	top: 0;
 	left: 0;
-	padding-left: 40px;
+	z-index: 19;
 }
 
 /*Animations*/
