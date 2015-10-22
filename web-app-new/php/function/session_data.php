@@ -66,11 +66,7 @@
 		}
 	}
 
-<<<<<<< HEAD
 	$track_session_display_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_id = '$track_session_display_id'";
-=======
-	$track_session_display_query = "SELECT * FROM session WHERE session_id = '$track_session_display_id'";
->>>>>>> origin/beta
 	$track_session_display_data = mysqli_query($dbconn, $track_session_display_query);
 
 	while($track_session_display_row = mysqli_fetch_array($track_session_display_data))
