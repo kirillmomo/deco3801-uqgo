@@ -196,11 +196,19 @@
 
 	function createGroup() {
 		// Need to manually serialise the form, the custom select box doesn't serialise properly when multiple values are selected
-		var dataString = "group_name=" + $("#creator-group-name").val() + "&group_description=" + $("#creator-group-description").val() + "&group_friends_list=" + $("#creator-group-friends-list").val();
+		// var dataString = "group_name=" + $("#creator-group-name").val() + "&group_description=" + $("#creator-group-description").val() + "&group_friends_list=" + $("#creator-group-friends-list").val();
+		var formData = new FormData($(".create-group-form").get(0));
+		console.log(formData);
 		$.ajax({
 			type: "POST",
 			url: "./php/function/create_group.php",
-			data: dataString,
+			data: formData,
+		    processData: false,
+		    contentType: false,
+		    beforeSend: function() {
+				$("#create-group-submit").prop("disabled", true);
+		    	$("#create-group-submit").html("<i class='fa fa-circle-o-notch fa-spin'></i> Creating Group");
+		    },
 			success: function(data) {
 				if (data) {
 					console.log("Success creating group: " + data);
