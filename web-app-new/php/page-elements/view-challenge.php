@@ -1,12 +1,12 @@
 <?php
 	// Include session php file to start PHP session 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 
 	$challenge_id = $_GET['challenge_id']; // getting challenge_id from the ajax request,
 	$_SESSION['challenge_id'] = $challenge_id;
 	// Include challenge_data php file to get user challenge data 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/button_status.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/challenge_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/button_status.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/challenge_data.php');
 ?>
 
 <div class="section">

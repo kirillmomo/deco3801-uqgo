@@ -25,7 +25,7 @@
   <body>
     <h1>UQGO: Startup Guide</h1>
     <div class="footer">
-      <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/footer-text.php');?></p>
+      <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/footer-text.php');?></p>
       <nav>
         <a href="index.php">Back to login</a>
       </nav>

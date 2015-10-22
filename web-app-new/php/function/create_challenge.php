@@ -1,6 +1,6 @@
 <?php
 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 	// Include connect php file
 	include('connect.php');
 

@@ -5,7 +5,7 @@
     <title>UQGO - Dashboard</title>
     <?php
     // include "./php/page-elements/header.php"; 
-    include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/header.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/header.php');
     ?>
     <script src="./js/Chart.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK9O0kWtRPAQe1ik_-8_O28b2OmxrQiZE"></script>
@@ -20,8 +20,8 @@
   <?php
   // include "./php/page-elements/sidebar.php"; 
   // include "./php/page-elements/notification-tray.php";
-  include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/sidebar.php');
-  include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/page-elements/notification-tray.php');
+  include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/sidebar.php');
+  include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/notification-tray.php');
   ?>
     <div class="content">
         <h1>Dashboard</h1>

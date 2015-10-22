@@ -2,7 +2,7 @@
 	// find detail.txt for SQL username and password and store in array
 	$logindetail = array();
 	$i=0;
-	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-5/detail.txt","r");
+	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-6/detail.txt","r");
 
 	while(! feof($file))
 	  {

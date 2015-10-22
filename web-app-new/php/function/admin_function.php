@@ -1,7 +1,7 @@
 <?php
 	
 	// Include session_strat.php and connect.php
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 	include('connect.php');
 
 	$min_age=(date("Y") - $_POST['min_age'])."-12-31";

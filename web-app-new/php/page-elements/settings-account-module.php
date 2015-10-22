@@ -1,7 +1,7 @@
 <?php
 
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/session_start.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/v0-5/php/function/user_data.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$user_id.'.jpg');
 
 ?>
