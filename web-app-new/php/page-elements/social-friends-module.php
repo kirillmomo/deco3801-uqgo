@@ -137,7 +137,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 			dataType: "html",
 			data: "userid=" + user_id,
 			success: function(data) {
-				$(button).html("<i class='fa fa-check'></i> Friend Added");
+				$(button).html("<i class='fa fa-check'></i> Request Sent");
 				$(button).prop("disabled", true);
 				loadFriendsList();
 			},

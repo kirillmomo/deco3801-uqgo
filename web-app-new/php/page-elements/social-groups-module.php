@@ -197,7 +197,9 @@
 	function createGroup() {
 		// Need to manually serialise the form, the custom select box doesn't serialise properly when multiple values are selected
 		// var dataString = "group_name=" + $("#creator-group-name").val() + "&group_description=" + $("#creator-group-description").val() + "&group_friends_list=" + $("#creator-group-friends-list").val();
+		var inviteFriends = $("#creator-group-friends-list").val();
 		var formData = new FormData($(".create-group-form").get(0));
+		formData.append("inviteFriends", inviteFriends);
 		console.log(formData);
 		$.ajax({
 			type: "POST",
