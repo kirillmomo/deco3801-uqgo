@@ -53,17 +53,29 @@
 	<div class="group-activity-bar">
 		<div class="activity-box">
 			<p class="activity-header">Steps</p>
+<<<<<<< Updated upstream
 			<p class="activity-data">1024</p>
+=======
+			<p class="activity-data"><?php echo $group_activity_step?></p>
+>>>>>>> Stashed changes
 			<p class="activity-unit">steps</p>
 		</div>
 		<div class="activity-box">
 			<p class="activity-header">Distance</p>
+<<<<<<< Updated upstream
 			<p class="activity-data">102</p>
+=======
+			<p class="activity-data"><?php echo $group_activity_distance?></p>
+>>>>>>> Stashed changes
 			<p class="activity-unit">km</p>
 		</div>
 		<div class="activity-box">
 			<p class="activity-header">Calories</p>
+<<<<<<< Updated upstream
 			<p class="activity-data">12000</p>
+=======
+			<p class="activity-data"><?php echo $group_activity_cal?></p>
+>>>>>>> Stashed changes
 			<p class="activity-unit">kcal</p>
 		</div>
 	</div>

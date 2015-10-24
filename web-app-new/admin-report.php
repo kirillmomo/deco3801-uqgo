@@ -35,7 +35,6 @@ if(empty($_SESSION['admin_id'])){
           <table class="report-table">
             <thead>
               <tr>
-                <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Height</th>
@@ -49,7 +48,6 @@ if(empty($_SESSION['admin_id'])){
           <?php for($i = 0; $i<sizeof($user_first_name); $i++)
               {?>
               <tr>
-                <td><?php echo $user_first_name[$i]; ?> <?php echo $user_last_name[$i]; ?></td>
                 <td><?php echo $user_age[$i]; ?></td>
                 <td><?php echo $user_gender[$i]; ?></td>
                 <td><?php echo $user_height[$i]; ?></td>

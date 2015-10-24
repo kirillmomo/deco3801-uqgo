@@ -76,6 +76,31 @@
 			$y++;
 		}
 
+	$search_group_activity_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_id IN ($search_group_member_id_array) AND MONTH(session_date)=MONTH(NOW()) ORDER BY first_name";
+	$search_group_member_activity_data = mysqli_query($dbconn, $search_group_activity_query);
+		
+	while($search_group_activity_row = mysqli_fetch_array($search_group_member_activity_data))
+		{
+			$group_activity_step = $search_group_activity_row['session_steps'] + $group_activity_step;
+			$group_activity_distance = $search_group_activity_row['session_distance'] + $group_activity_distance;
+			if($search_group_activity_row['user_gender']=="Male")
+			{
+				$BMR = 66 + (13.75 * $search_group_activity_row['user_weight']) + (5 * $search_group_activity_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($search_group_activity_row['user_day_of_birth']))));
+				$MET = 2;
+				$group_single_activity_cal = round(($BMR/24)*$MET*($search_group_activity_row['session_time_length']/3600));
+				$group_activity_cal = $group_single_activity_cal + $group_activity_cal;
+			}
+			else
+			{
+				$BMR = 655 + (13.75 * $search_group_activity_row['user_weight']) + (5 * $search_group_activity_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($search_group_activity_row['user_day_of_birth']))));
+				$MET = 2;
+				$group_single_activity_cal = round(($BMR/24)*$MET*($search_group_activity_row['session_time_length']/3600));
+				$group_activity_cal = $group_single_activity_cal + $group_activity_cal;
+			}
+			$y++;
+		}
+
+
 	//Search user joined group
 	while($group_user_row = mysqli_fetch_array($group_user_data))
 		{

@@ -51,9 +51,13 @@
 	$friend_group_firstname=array();
 	$friend_group_lastname=array();
 	$friend_group_id=array();
+	$search_friend_request_user_id = array();
+	$search_friend_request_first_name = array();
+	$search_friend_request_last_name = array();
 	$a=0;
 	$b=0;
 	$c=0;
+	$d=0;
 	$x=0;
 	$y=0;
 	$z=0;
@@ -160,6 +164,18 @@
 				$search_all_user_lastname[$b] = $search_all_user_row['last_name'];
 				$b++;
 			}
+
+		// Search friend request
+		
+		$search_friend_request_query = "SELECT * FROM user INNER JOIN friend_request ON user.user_id = friend_request.user_id WHERE request_friend_id = $user_id";
+		$search_friend_request_data=mysqli_query($dbconn, $search_friend_request_query);
+		while($search_friend_request_row = mysqli_fetch_array($search_friend_request_data))
+			{
+				$search_friend_request_user_id[$d] = $search_friend_request_row['user_id'];
+				$search_friend_request_first_name[$d] = $search_friend_request_row['first_name'];
+				$search_friend_request_last_name[$d] = $search_friend_request_row['last_name'];
+				$d++;
+			}
 		
 
 		// Add Friend
@@ -167,6 +183,8 @@
 		$search_friend_available_query2 = "SELECT * FROM friends WHERE user_id = $add_user_id AND friend_id = $user_id";
 		$search_friend_delete_query1 = "SELECT * FROM friends WHERE user_id = $user_id AND friend_id = $delete_user_id";
 		$search_friend_delete_query2 = "SELECT * FROM friends WHERE user_id = $delete_user_id AND friend_id = $user_id";
+		$check_friend_request_query1 = "SELECT * FROM friend_request WHERE user_id = $user_id AND request_friend_id = $add_user_id";
+		$check_friend_request_query2 = "SELECT * FROM friend_request WHERE user_id = $add_user_id AND request_friend_id = $user_id";
 		$search_friend_available_data1 = mysqli_query($dbconn, $search_friend_available_query1);
 		$search_friend_available_data2 = mysqli_query($dbconn, $search_friend_available_query2);
 		$status_search_friend_available1 = mysqli_fetch_array($search_friend_available_data1);
@@ -175,13 +193,17 @@
 		$search_friend_delete_data2 = mysqli_query($dbconn, $search_friend_delete_query2);
 		$status_search_friend_delete1 = mysqli_fetch_array($search_friend_delete_data1);
 		$status_search_friend_delete2 = mysqli_fetch_array($search_friend_delete_data2);
-
+		$check_friend_request_data1=mysqli_query($dbconn, $check_friend_request_query1);
+		$check_friend_request_data2=mysqli_query($dbconn, $check_friend_request_query2);
+		$check_friend_request_available1=mysqli_fetch_array($check_friend_request_data1);
+		$check_friend_request_available2=mysqli_fetch_array($check_friend_request_data2);
+		
 		if($add_user_id!=null)
 		{
 
-			if ($status_search_friend_available1==false && $status_search_friend_available2==false) 
+			if ($status_search_friend_available1==false && $status_search_friend_available2==false && $check_friend_request_available1==false && $check_friend_request_available2==false) 
 			{
-				$add_query = "INSERT INTO friends SET user_id='$user_id', friend_id='$add_user_id'";
+				$add_query = "INSERT INTO friend_request SET user_id='$user_id', request_friend_id='$add_user_id'";
 	        	mysqli_query($dbconn, $add_query);
 	        	unset($_SESSION["add_userid"]);
 			}

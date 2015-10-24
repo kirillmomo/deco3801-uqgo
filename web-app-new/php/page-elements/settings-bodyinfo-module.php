@@ -33,9 +33,9 @@
 <div class="section"><h3>Body info</h3>
 	<form class="settings-body-form">
 		<p><label for="settings-height">Height (cm)</label>
-		<input id="settings-height" name="height" type="number" min="0" max="300" placeholder="optional"><p/>
+		<input id="settings-height" name="height" type="number" min="0" max="300" required value="<?php echo $user_height ?>" placeholder="optional"><p/>
 		<p><label for="settings-weight">Weight (kg)</label>
-		<input id="settings-weight" name="weight" type="number" min="0" placeholder="optional"><p/>
+		<input id="settings-weight" name="weight" type="number" min="0" max "300" required value="<?php echo $user_weight ?>" placeholder="optional"><p/>
 		<p><label>Gender</label><input id="settings-gender-male" type="radio" name="gender" value="Male" required><label for="settings-gender-male" class="radio-label">Male</label><input id="settings-gender-female" type="radio" name="gender" value="Female" required><label for="settings-gender-female" class="radio-label">Female</label></p>
 		<button id="settings-submit" type="submit"class="button-primary">Save Info</buton>
 	</form>

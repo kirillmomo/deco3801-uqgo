@@ -6,7 +6,7 @@
 	$group_name = $_POST['group_name'];
 	$group_user_id = $_SESSION['user_id'];
 	$group_description = $_POST['group_description'];
-	$group_friends_list = $_POST['group_friends_list']; // this will be received in the format: 1,2,3,.. WARNING: CAN ALSO BE NULL, so dont access it if it's null.
+	$group_friends_list = $_POST['inviteFriends']; // this will be received in the format: 1,2,3,.. WARNING: CAN ALSO BE NULL, so dont access it if it's null.
 	$friend_id_array = explode(",", $group_friends_list); // this is the array of the friend's IDs to add to the group
 	$add_groud_friend_array = implode(',', $friend_id_array);
 	$new_group_id = 0;
@@ -76,7 +76,6 @@
 		        }
 	        } 
 		}
-		var_dump($temp);
 
 	echo $new_group_id // echo new group's id on success, echo nothing on failure
 ?>
