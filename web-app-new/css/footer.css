@@ -35,3 +35,7 @@
 	opacity: .5;
 	transition: all .2s ease-in;
 }
+
+.footer nav a i {
+	margin-right: 8px;
+}
