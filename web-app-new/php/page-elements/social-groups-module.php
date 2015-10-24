@@ -113,7 +113,9 @@
 		$(".groups-list > li").each(function() {
 			$(this).removeClass("active-list-item");
 		});
-		$(item).addClass("active-list-item");
+		if (item != undefined) {
+			$(item).addClass("active-list-item");
+		}
 		$(".groups-content").addClass("slide-in");
 		$.ajax({
 			url: "./php/page-elements/view-group.php",
@@ -138,7 +140,8 @@
 			success: function(data) {
 				$(button).html("<i class='fa fa-check'></i> Joined Group");
 				$(button).prop("disabled", true);
-				loadGroupsList();
+				toggleGroupSearch();
+				showGroup(group_id);
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error joining group. (" + status + ": " + err + ")");
@@ -154,7 +157,8 @@
 			success: function(data) {
 				$(button).html("<i class='fa fa-check'></i> Left Group");
 				$(button).prop("disabled", true);
-				loadGroupsList();
+				loadJoinedGroupsList();
+				$(".groups-content").addClass("slide-in");
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error leaving group. (" + status + ": " + err + ")");

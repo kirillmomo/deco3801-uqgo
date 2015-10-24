@@ -230,6 +230,7 @@
 				$(button).html("<i class='fa fa-check'></i> Left Challenge");
 				$(button).prop("disabled", true);
 				loadChallengesList();
+				$(".challenges-content").addClass("slide-in");
 			},
 			error: function(jqXHR, status, err) {
 				console.log("Error leaving challenge. (" + status + ": " + err + ")");
