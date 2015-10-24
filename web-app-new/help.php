@@ -11,17 +11,6 @@
     <link rel="stylesheet" href="./resources/font-awesome-4.4.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="./img/icon.png" rel="icon" type="image/png">
-    <script type="text/javascript">
-      function showHelp() {
-        $(".help").show();
-        $(".overlay").show();
-      }
-
-      function hideHelp() {
-        $(".help").hide();
-        $(".overlay").hide();
-      }
-    </script>
   </head>
   <body>
     <h1>UQGO: Startup Guide</h1>
