@@ -41,7 +41,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/admin_login.php');
     <div class="footer">
       <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/footer-text.php');?></p>
       <nav>
-        <a href="index.php">Back to login</a>
+        <a href="index.php"><i class="fa fa-arrow-circle-left"></i> Back to login</a>
       </nav>
     </div>
   </body>

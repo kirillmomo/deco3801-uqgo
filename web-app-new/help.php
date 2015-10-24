@@ -27,7 +27,7 @@
     <div class="footer">
       <p class="footer-info"><?php include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/footer-text.php');?></p>
       <nav>
-        <a href="index.php">Back to login</a>
+        <a href="index.php"><i class="fa fa-arrow-circle-left"></i> Back to login</a>
       </nav>
     </div>
     <div class="video"><iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/6F3iLdoFM20?autoplay=0" frameborder="0"/></div>
