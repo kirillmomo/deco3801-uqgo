@@ -7,7 +7,7 @@
 <div class="notification-darkness" onClick="hideNotificationTray();">
 </div>
 <script type="text/javascript">
-	var pollTime = 5000; // Notification polling time
+	var pollTime = 10000; // Notification polling time
 	var alreadyNotified = false;
 	$("#notify").hide();
 	getRequests();

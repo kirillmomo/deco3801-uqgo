@@ -713,3 +713,32 @@
 	border-color: #FFF;
 	opacity: 0.7;
 }
+
+.group-activity-bar {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.activity-box {
+	display: inline-block;
+	width: 30%;
+}
+
+.activity-box:not(:last-child) {
+	border-right: 1px solid #d1d1d1;
+}
+
+.activity-box p {
+	margin: 0;
+}
+
+.activity-header {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.activity-data {
+	color: #49075E;
+	font-size: 1.8em;
+}

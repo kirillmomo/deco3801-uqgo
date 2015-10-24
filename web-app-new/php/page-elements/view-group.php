@@ -50,7 +50,23 @@
 </div>
 <div class="section">
 	<p class="section-header">Activity this month</p>
-	<p><?php echo $display_group_acti?></p>
+	<div class="group-activity-bar">
+		<div class="activity-box">
+			<p class="activity-header">Steps</p>
+			<p class="activity-data">1024</p>
+			<p class="activity-unit">steps</p>
+		</div>
+		<div class="activity-box">
+			<p class="activity-header">Distance</p>
+			<p class="activity-data">102</p>
+			<p class="activity-unit">km</p>
+		</div>
+		<div class="activity-box">
+			<p class="activity-header">Calories</p>
+			<p class="activity-data">12000</p>
+			<p class="activity-unit">kcal</p>
+		</div>
+	</div>
 </div>
 <div class="section">
 	<p class="section-header">Group members</p>
