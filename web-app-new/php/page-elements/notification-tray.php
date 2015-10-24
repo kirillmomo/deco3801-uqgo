@@ -50,11 +50,7 @@
 		$.ajax({
 			url: "./php/function/accept_friend_request.php",
 			dataType: "html",
-<<<<<<< Updated upstream
-			data: friend_id = friend_id,
-=======
 			data: "friend_id=" + friend_id,
->>>>>>> Stashed changes
 			success: function(data) {
 				console.log("Success accepting friend request.");
 				manuallyGetRequests();
@@ -69,11 +65,7 @@
 		$.ajax({
 			url: "./php/function/decline_friend_request.php",
 			dataType: "html",
-<<<<<<< Updated upstream
-			data: friend_id = friend_id,
-=======
 			data: "friend_id=" + friend_id,
->>>>>>> Stashed changes
 			success: function(data) {
 				console.log("Success declining friend request.");
 				manuallyGetRequests();
