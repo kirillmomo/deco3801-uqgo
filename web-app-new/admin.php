@@ -35,7 +35,7 @@ if(empty($_SESSION['admin_id'])){
             <p><label>Age</label><input type="number" Name="min_age" placeholder="Mininum"><input type="number" Name="max_age" placeholder="Maximum"></p>
             <p><label>Gender</label><input type="checkbox" Name="gender[]" value="Male" id="radio-male"><label class="checkbox-label" for="radio-male">Male</label><input type="checkbox" Name="gender[]" value="Female" id="radio-female"><label class="checkbox-label" for="radio-female">Female</label></p>
             <p><label>Height</label><input type="number" Name="min_height" placeholder="Mininum"><input type="number" Name="max_height" placeholder="Maximum"></p>
-           <p> <label>Weight</label><input type="number" Name="min_weight" placeholder="Mininum"><input type="number" Name="max_weight" placeholder="Maximum"></p>
+            <p><label>Weight</label><input type="number" Name="min_weight" placeholder="Mininum"><input type="number" Name="max_weight" placeholder="Maximum"></p>
             <p><label>Steps</label><input type="number" Name="min_step" placeholder="Mininum"><input type="number" Name="max_step" placeholder="Maximum"></p>
             <p><label>Distance</label><input type="number" Name="min_distance" placeholder="Mininum"><input type="number" Name="max_distance" placeholder="Maximum"></p>
             <p><label>Date</label><input type="date" Name="min_date" placeholder="From"><input type="date" Name="max_date" placeholder="To"></p>

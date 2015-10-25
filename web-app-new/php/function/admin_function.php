@@ -26,6 +26,7 @@
 	$session_steps = array();
 	$session_distance = array();
 	$session_cal = array();
+
 	$all_total_data = 0;
 	$i=0;
 
@@ -47,13 +48,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
@@ -77,13 +78,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -106,13 +107,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -146,13 +147,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -175,13 +176,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
@@ -205,13 +206,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -234,13 +235,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -264,13 +265,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
@@ -294,13 +295,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -323,13 +324,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -352,13 +353,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
@@ -382,13 +383,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -411,13 +412,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -440,13 +441,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
@@ -470,13 +471,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -499,13 +500,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -528,13 +529,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
@@ -558,13 +559,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -587,13 +588,13 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}	
@@ -616,15 +617,30 @@
 				{
 					$BMR = 66 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				else
 				{
 					$BMR = 655 + (13.75 * $user_weight[$i]) + (5 * $user_height[$i]) - (6.76 * $user_age[$i]);
 					$MET = 2;
-					$session_cal[$i] = round(($BMR/24)*$MET*$all_user_row['session_time_length']);
+					$session_cal[$i] = round(($BMR/24)*$MET*($all_user_row['session_time_length']/3600));
 				}
 				$i++;	
 			}
 	}
+
+	 $_SESSION['user_age_arr_xls'] = $user_age;
+	 $_SESSION['user_gender_arr_xls'] = $user_gender;
+	 $_SESSION['user_height_arr_xls'] = $user_height;
+	 $_SESSION['user_weight_arr_xls'] = $user_weight;
+	 $_SESSION['session_steps_arr_xls'] = $session_steps;
+	 $_SESSION['session_distance_arr_xls'] = $session_distance;
+	 $_SESSION['session_cal_arr_xls'] = $session_cal;
+	 $_SESSION['user_age_arr_pdf'] = $user_age;
+	 $_SESSION['user_gender_arr_pdf'] = $user_gender;
+	 $_SESSION['user_height_arr_pdf'] = $user_height;
+	 $_SESSION['user_weight_arr_pdf'] = $user_weight;
+	 $_SESSION['session_steps_arr_pdf'] = $session_steps;
+	 $_SESSION['session_distance_arr_pdf'] = $session_distance;
+	 $_SESSION['session_cal_arr_pdf'] = $session_cal;
 ?>

@@ -30,7 +30,7 @@ if(empty($_SESSION['admin_id'])){
     </div>
     <div class="content">
         <h1>Reports</h1>
-        <div class="button-bar"><a href="admin.php" class="button button-primary"><i class="fa fa-arrow-circle-left"></i> New Report</a><button><i class="fa fa-file-pdf-o"></i> Export PDF</button><button><i class="fa fa-file-excel-o"></i> Export XLSX</button></div>
+        <div class="button-bar"><a href="admin.php" class="button button-primary"><i class="fa fa-arrow-circle-left"></i> New Report</a><a href="./php/function/export_pdf.php"><button><i class="fa fa-file-pdf-o"></i> Export PDF</button></a><a href="./php/function/export_xls.php"><button><i class="fa fa-file-excel-o"></i> Export XLS</button></a></div>
         <div class="module-content">
           <table class="report-table">
             <thead>
@@ -45,7 +45,7 @@ if(empty($_SESSION['admin_id'])){
               </tr>
             </thead>
             <tbody>
-          <?php for($i = 0; $i<sizeof($user_first_name); $i++)
+          <?php for($i = 0; $i<sizeof($user_age); $i++)
               {?>
               <tr>
                 <td><?php echo $user_age[$i]; ?></td>

@@ -87,6 +87,8 @@
 	$b=0;
 	$c=0;
 	$d=0;
+	$e=0;
+	$f=0;
 
 	while($total_challenge_user_num_row = mysqli_fetch_array($total_challenge_user_num_data))
 		{
@@ -290,6 +292,4 @@
 					unset($_SESSION["leave_challange_id"]);
 				}
 	    	}
-
-
 ?>
