@@ -7,7 +7,7 @@
 	// var_dump(get_class_methods($pdf));
 
 	// Column widths
-    $w = array(27, 27, 27, 27, 27, 27, 28);
+    $w = array(23.5, 23.5, 23.5, 23.5, 23.5, 23.5, 24, 24);
 
 	$pdf->AddPage();
 
@@ -20,7 +20,7 @@
     // Line break
     $pdf->Ln(20);
 
-    $pdf->SetFont('Arial','',12);   
+    $pdf->SetFont('Arial','',10);   
     $pdf->Cell($w[1],6,"Number",1,0,'C');
     $pdf->Cell($w[1],6,"Age",1,0,'C');
     $pdf->Cell($w[2],6,"Gender",1,0,'C');

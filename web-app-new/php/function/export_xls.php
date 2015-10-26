@@ -10,7 +10,7 @@ if(empty($_SESSION['admin_id'])){
 $contents="Report\nNumber\tAge\tGender\tHeight(cm)\tWeight(KG)\tSteps\tDistance(KM)\tCalories(Kcal)\n";
 for($i = 0; $i<sizeof($_SESSION['user_age_arr_xls']); $i++)
 {
-$contents.=$i+1."\t";
+$contents.=($i+1)."\t";
 $contents.=$_SESSION['user_age_arr_xls'][$i]."\t";
 $contents.=$_SESSION['user_gender_arr_xls'][$i]."\t";
 $contents.=$_SESSION['user_height_arr_xls'][$i]."\t";
@@ -23,6 +23,7 @@ $contents = strip_tags($contents); // remove html and php tags etc.
 Header("Content-Disposition: attachment; filename=uqgo_report_".date("Y-m-d").".xls");
 print $contents;
 exit;
+
 
 unset($_SESSION["user_age_arr_xls"]);
 unset($_SESSION["user_gender_arr_xls"]);

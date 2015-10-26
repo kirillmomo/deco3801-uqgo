@@ -157,14 +157,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[0] = $hour_graph_cal + $hour_graph_cal_display[0];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[0] = $hour_graph_cal + $hour_graph_cal_display[0];
 					}
 					
@@ -176,14 +176,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[1] = $hour_graph_cal + $hour_graph_cal_display[1];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[1] = $hour_graph_cal + $hour_graph_cal_display[1];
 					}
 				}
@@ -194,14 +194,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[2] = $hour_graph_cal + $hour_graph_cal_display[2];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[2] = $hour_graph_cal + $hour_graph_cal_display[2];
 					}
 				}
@@ -212,14 +212,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[3] = $hour_graph_cal + $hour_graph_cal_display[3];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[3] = $hour_graph_cal + $hour_graph_cal_display[3];
 					}
 				}
@@ -230,14 +230,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[4] = $hour_graph_cal + $hour_graph_cal_display[4];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[4] = $hour_graph_cal + $hour_graph_cal_display[4];
 					}
 				}
@@ -248,14 +248,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[5] = $hour_graph_cal + $hour_graph_cal_display[5];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[5] = $hour_graph_cal + $hour_graph_cal_display[5];
 					}
 				}
@@ -266,14 +266,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[6] = $hour_graph_cal + $hour_graph_cal_display[6];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[6] = $hour_graph_cal + $hour_graph_cal_display[6];
 					}
 				}
@@ -284,14 +284,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[7] = $hour_graph_cal + $hour_graph_cal_display[7];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[7] = $hour_graph_cal + $hour_graph_cal_display[7];
 					}
 				}
@@ -302,14 +302,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[8] = $hour_graph_cal + $hour_graph_cal_display[8];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[8] = $hour_graph_cal + $hour_graph_cal_display[8];
 					}
 				}
@@ -320,14 +320,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[9] = $hour_graph_cal + $hour_graph_cal_display[9];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[9] = $hour_graph_cal + $hour_graph_cal_display[9];
 					}
 				}
@@ -338,14 +338,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[10] = $hour_graph_cal + $hour_graph_cal_display[10];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[10] = $hour_graph_cal + $hour_graph_cal_display[10];
 					}
 				}
@@ -356,14 +356,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[11] = $hour_graph_cal + $hour_graph_cal_display[11];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[11] = $hour_graph_cal + $hour_graph_cal_display[11];
 					}
 				}
@@ -374,14 +374,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[12] = $hour_graph_cal + $hour_graph_cal_display[12];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[12] = $hour_graph_cal + $hour_graph_cal_display[12];
 					}
 				}
@@ -392,14 +392,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[13] = $hour_graph_cal + $hour_graph_cal_display[13];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal_display[13] = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal_display[13] = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[13] = $hour_graph_cal + $hour_graph_cal_display[13];
 					}
 				}
@@ -410,14 +410,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[14] = $hour_graph_cal + $hour_graph_cal_display[14];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[14] = $hour_graph_cal + $hour_graph_cal_display[14];
 					}
 				}
@@ -428,14 +428,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[15] = $hour_graph_cal + $hour_graph_cal_display[15];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[15] = $hour_graph_cal + $hour_graph_cal_display[15];
 					}
 				}
@@ -446,14 +446,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[16] = $hour_graph_cal + $hour_graph_cal_display[16];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[16] = $hour_graph_cal + $hour_graph_cal_display[16];
 					}
 				}
@@ -464,14 +464,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[17] = $hour_graph_cal + $hour_graph_cal_display[17];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[17] = $hour_graph_cal + $hour_graph_cal_display[17];
 					}
 				}
@@ -482,14 +482,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[18] = $hour_graph_cal + $hour_graph_cal_display[18];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[18] = $hour_graph_cal + $hour_graph_cal_display[18];
 					}
 				}
@@ -500,14 +500,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[19] = $hour_graph_cal + $hour_graph_cal_display[19];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[19] = $hour_graph_cal + $hour_graph_cal_display[19];
 					}
 				}
@@ -518,14 +518,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[20] = $hour_graph_cal + $hour_graph_cal_display[20];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[20] = $hour_graph_cal + $hour_graph_cal_display[20];
 					}
 				}
@@ -536,14 +536,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[21] = $hour_graph_cal + $hour_graph_cal_display[21];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[21] = $hour_graph_cal + $hour_graph_cal_display[21];
 					}
 				}
@@ -554,14 +554,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[22] = $hour_graph_cal + $hour_graph_cal_display[22];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[22] = $hour_graph_cal + $hour_graph_cal_display[22];
 					}
 				}
@@ -572,14 +572,14 @@
 					{
 						$BMR = 66 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[23] = $hour_graph_cal + $hour_graph_cal_display[23];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $hour_graph_step_row['user_weight']) + (5 * $hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/3600));
+						$hour_graph_cal = round(($BMR/24)*$MET*($hour_graph_step_row['session_time_length']/60));
 						$hour_graph_cal_display[23] = $hour_graph_cal + $hour_graph_cal_display[23];
 					}
 				}
@@ -610,14 +610,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$mon_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$mon_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$mon_cal_data = $mon_cal + $mon_cal_data ;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$mon_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$mon_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$mon_cal_data = $mon_cal + $mon_cal_data ;
 					}
 				}
@@ -629,14 +629,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$tue_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$tue_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$tue_cal_data = $tue_cal + $tue_cal_data ;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$tue_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$tue_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$tue_cal_data = $tue_cal + $tue_cal_data ;
 					}
 				}
@@ -648,14 +648,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$wed_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$wed_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$wed_cal_data = $wed_cal + $wed_cal_data ;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$wed_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$wed_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$wed_cal_data = $wed_cal + $wed_cal_data ;
 					}
 				}
@@ -667,14 +667,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$thu_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$thu_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$thu_cal_data = $thu_cal + $thu_cal_data ;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$thu_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$thu_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$thu_cal_data = $thu_cal + $thu_cal_data ;
 					}
 				}
@@ -686,14 +686,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$fri_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$fri_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$fri_cal_data = $fri_cal + $fri_cal_data ;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$fri_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$fri_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$fri_cal_data = $fri_cal + $fri_cal_data ;
 					}
 				}
@@ -705,14 +705,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$sat_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$sat_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$sat_cal_data = $sat_cal + $sat_cal_data ;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$sat_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$sat_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$sat_cal_data = $sat_cal + $sat_cal_data ;
 					}
 				}
@@ -725,14 +725,14 @@
 					{
 						$BMR = 66 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$sun_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$sun_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$sun_cal_data = $sun_cal_data + $sun_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $week_graph_step_row['user_weight']) + (5 * $week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$sun_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/3600));
+						$sun_cal = round(($BMR/24)*$MET*($week_graph_step_row['session_time_length']/60));
 						$sun_cal_data = $sun_cal_data + $sun_cal;
 					}
 				}
@@ -782,14 +782,14 @@
 			{
 				$BMR = 66 + (13.75 * $month_graph_step_row['user_weight']) + (5 * $month_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($month_graph_step_row['user_day_of_birth']))));
 				$MET = 2;
-				$month_graph_cal = round(($BMR/24)*$MET*($month_graph_step_row['session_time_length']/3600));
+				$month_graph_cal = round(($BMR/24)*$MET*($month_graph_step_row['session_time_length']/60));
 				$month_graph_cal_display[$x] = $month_graph_cal + $month_graph_cal_display[$x];
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $month_graph_step_row['user_weight']) + (5 * $month_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($month_graph_step_row['user_day_of_birth']))));
 				$MET = 2;
-				$month_graph_cal = round(($BMR/24)*$MET*($month_graph_step_row['session_time_length']/3600));
+				$month_graph_cal = round(($BMR/24)*$MET*($month_graph_step_row['session_time_length']/60));
 				$month_graph_cal_display[$x] = $month_graph_cal + $month_graph_cal_display[$x];
 			}
 		}
@@ -812,14 +812,14 @@
 			{
 				$BMR = 66 + (13.75 * $total_row['user_weight']) + (5 * $total_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($total_row['user_day_of_birth']))));
 				$MET = 2;
-				$calories = round(($BMR/24)*$MET*($total_row['session_time_length']/3600));
+				$calories = round(($BMR/24)*$MET*($total_row['session_time_length']/60));
 				$total_calories = $calories + $total_calories;
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $total_row['user_weight']) + (5 * $total_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($total_row['user_day_of_birth']))));
 				$MET = 2;
-				$calories = round(($BMR/24)*$MET*($total_row['session_time_length']/3600));
+				$calories = round(($BMR/24)*$MET*($total_row['session_time_length']/60));
 				$total_calories = $calories + $total_calories;
 			}
 	}
@@ -830,14 +830,14 @@
 			{
 				$BMR = 66 + (13.75 * $friend_total_row['user_weight']) + (5 * $friend_total_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_total_row['user_day_of_birth']))));
 				$MET = 2;
-				$friend_calories = round(($BMR/24)*$MET*($friend_total_row['session_time_length']/3600));
+				$friend_calories = round(($BMR/24)*$MET*($friend_total_row['session_time_length']/60));
 				$friend_total_calories = $friend_calories + $friend_total_calories;
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $friend_total_row['user_weight']) + (5 * $friend_total_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_total_row['user_day_of_birth']))));
 				$MET = 2;
-				$friend_calories = round(($BMR/24)*$MET*($friend_total_row['session_time_length']/3600));
+				$friend_calories = round(($BMR/24)*$MET*($friend_total_row['session_time_length']/60));
 				$friend_total_calories = $friend_calories + $friend_total_calories;
 			}
 	}
@@ -849,14 +849,14 @@
 			{
 				$BMR = 66 + (13.75 * $day_row['user_weight']) + (5 * $day_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($day_row['user_day_of_birth']))));
 				$MET = 2;
-				$total_day_calories = round(($BMR/24)*$MET*($day_row['session_time_length']/3600));
+				$total_day_calories = round(($BMR/24)*$MET*($day_row['session_time_length']/60));
 				$day_calories = $total_day_calories + $day_calories;
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $day_row['user_weight']) + (5 * $day_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($day_row['user_day_of_birth']))));
 				$MET = 2;
-				$total_day_calories = round(($BMR/24)*$MET*($day_row['session_time_length']/3600));
+				$total_day_calories = round(($BMR/24)*$MET*($day_row['session_time_length']/60));
 				$day_calories = $total_day_calories + $day_calories;
 			}
 	}
@@ -868,14 +868,14 @@
 			{
 				$BMR = 66 + (13.75 * $week_row['user_weight']) + (5 * $week_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_row['user_day_of_birth']))));
 				$MET = 2;
-				$total_week_calories = round(($BMR/24)*$MET*($week_row['session_time_length']/3600));
+				$total_week_calories = round(($BMR/24)*$MET*($week_row['session_time_length']/60));
 				$week_calories = $total_week_calories + $week_calories;
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $week_row['user_weight']) + (5 * $week_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($week_row['user_day_of_birth']))));
 				$MET = 2;
-				$total_week_calories = round(($BMR/24)*$MET*($week_row['session_time_length']/3600));
+				$total_week_calories = round(($BMR/24)*$MET*($week_row['session_time_length']/60));
 				$week_calories = $total_week_calories + $week_calories;
 			}
 	}
@@ -887,14 +887,14 @@
 			{
 				$BMR = 66 + (13.75 * $month_row['user_weight']) + (5 * $month_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($month_row['user_day_of_birth']))));
 				$MET = 2;
-				$total_month_calories = round(($BMR/24)*$MET*($month_row['session_time_length']/3600));
+				$total_month_calories = round(($BMR/24)*$MET*($month_row['session_time_length']/60));
 				$month_calories = $total_month_calories + $month_calories;
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $month_row['user_weight']) + (5 * $month_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($month_row['user_day_of_birth']))));
 				$MET = 2;
-				$total_month_calories = round(($BMR/24)*$MET*($month_row['session_time_length']/3600));
+				$total_month_calories = round(($BMR/24)*$MET*($month_row['session_time_length']/60));
 				$month_calories = $total_month_calories + $month_calories;
 			}
 	}
@@ -918,14 +918,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[0] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[0];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[0] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[0];
 					}
 				}
@@ -936,14 +936,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[1] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[1];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[1] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[1];
 					}
 				}
@@ -954,14 +954,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[2] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[2];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[2] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[2];
 					}
 				}
@@ -972,14 +972,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[3] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[3];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[3] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[3];
 					}
 				}
@@ -990,14 +990,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[4] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[4];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[4] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[4];
 					}
 				}
@@ -1008,14 +1008,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[5] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[5];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[5] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[5];
 					}
 				}
@@ -1026,14 +1026,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[6] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[6];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[6] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[6];
 					}
 				}
@@ -1044,14 +1044,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[7] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[7];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[7] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[7];
 					}
 				}
@@ -1062,14 +1062,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[8] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[8];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[8] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[8];
 					}
 				}
@@ -1080,14 +1080,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[9] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[9];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[9] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[9];
 					}
 				}
@@ -1098,14 +1098,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[10] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[10];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[10] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[10];
 					}
 				}
@@ -1116,14 +1116,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[11] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[11];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[11] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[11];
 					}
 				}
@@ -1134,14 +1134,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[12] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[12];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[12] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[12];
 					}
 				}
@@ -1152,14 +1152,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[13] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[13];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[13] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[13];
 					}
 				}
@@ -1170,14 +1170,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[14] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[14];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[14] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[14];
 					}
 				}
@@ -1188,14 +1188,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[15] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[15];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[15] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[15];
 					}
 				}
@@ -1206,14 +1206,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[16] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[16];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[16] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[16];
 					}
 				}
@@ -1224,14 +1224,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[17] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[17];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[17] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[17];
 					}
 				}
@@ -1242,14 +1242,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[18] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[18];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[18] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[18];
 					}
 				}
@@ -1260,14 +1260,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[19] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[19];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[19] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[19];
 					}
 				}
@@ -1278,14 +1278,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[20] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[20];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[20] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[20];
 					}
 				}
@@ -1296,14 +1296,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[21] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[21];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[21] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[21];
 					}
 				}
@@ -1314,14 +1314,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[22] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[22];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[22] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[22];
 					}
 				}
@@ -1332,14 +1332,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[23] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[23];
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_hour_graph_step_row['user_weight']) + (5 * $friend_hour_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_hour_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/3600));
+						$friend_hour_graph_cal = round(($BMR/24)*$MET*($friend_hour_graph_step_row['session_time_length']/60));
 						$friend_hour_graph_cal_display[23] = $friend_hour_graph_cal + $friend_hour_graph_cal_display[23];
 					}
 				}
@@ -1368,14 +1368,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_mon_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_mon_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_mon_cal_data = $friend_mon_cal_data + $friend_mon_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_mon_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_mon_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_mon_cal_data = $friend_mon_cal_data + $friend_mon_cal;
 					}
 				}
@@ -1386,14 +1386,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_tue_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_tue_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_tue_cal_data = $friend_tue_cal_data + $friend_tue_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_tue_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_tue_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_tue_cal_data = $friend_tue_cal_data + $friend_tue_cal;
 					}
 				}
@@ -1404,14 +1404,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_wed_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_wed_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_wed_cal_data = $friend_wed_cal_data + $friend_wed_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_wed_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_wed_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_wed_cal_data = $friend_wed_cal_data + $friend_wed_cal;
 					}
 				}
@@ -1422,14 +1422,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_thu_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_thu_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_thu_cal_data = $friend_thu_cal_data + $friend_thu_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_thu_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_thu_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_thu_cal_data = $friend_thu_cal_data + $friend_thu_cal;
 					}
 				}
@@ -1440,14 +1440,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_fri_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_fri_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_fri_cal_data = $friend_fri_cal_data + $friend_fri_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_fri_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_fri_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_fri_cal_data = $friend_fri_cal_data + $friend_fri_cal;
 					}
 				}
@@ -1458,14 +1458,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_sat_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_sat_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_sat_cal_data = $friend_sat_cal_data + $friend_sat_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_sat_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_sat_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_sat_cal_data = $friend_sat_cal_data + $friend_sat_cal;
 					}
 				}
@@ -1476,14 +1476,14 @@
 					{
 						$BMR = 66 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_sun_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_sun_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_sun_cal_data = $friend_sun_cal_data + $friend_sun_cal;
 					}
 					else
 					{
 						$BMR = 655 + (13.75 * $friend_week_graph_step_row['user_weight']) + (5 * $friend_week_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_week_graph_step_row['user_day_of_birth']))));
 						$MET = 2;
-						$friend_sun_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/3600));
+						$friend_sun_cal = round(($BMR/24)*$MET*($friend_week_graph_step_row['session_time_length']/60));
 						$friend_sun_cal_data = $friend_sun_cal_data + $friend_sun_cal;
 					}
 				}
@@ -1532,14 +1532,14 @@
 			{
 				$BMR = 66 + (13.75 * $friend_month_graph_step_row['user_weight']) + (5 * $friend_month_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_month_graph_step_row['user_day_of_birth']))));
 				$MET = 2;
-				$friend_month_graph_cal = round(($BMR/24)*$MET*($friend_month_graph_step_row['session_time_length']/3600));
+				$friend_month_graph_cal = round(($BMR/24)*$MET*($friend_month_graph_step_row['session_time_length']/60));
 				$friend_month_graph_cal_display[$b] = $friend_month_graph_cal + $friend_month_graph_cal_display[$x];
 			}
 			else
 			{
 				$BMR = 655 + (13.75 * $friend_month_graph_step_row['user_weight']) + (5 * $friend_month_graph_step_row['user_height']) - (6.76 * (date("Y") - date("Y",strtotime($friend_month_graph_step_row['user_day_of_birth']))));
 				$MET = 2;
-				$friend_month_graph_cal = round(($BMR/24)*$MET*($friend_month_graph_step_row['session_time_length']/3600));
+				$friend_month_graph_cal = round(($BMR/24)*$MET*($friend_month_graph_step_row['session_time_length']/60));
 				$friend_month_graph_cal_display[$b] = $friend_month_graph_cal + $friend_month_graph_cal_display[$x];
 			}
 		}

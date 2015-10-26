@@ -36,7 +36,7 @@
 		<input id="settings-height" name="height" type="number" min="0" max="300" required value="<?php echo $user_height ?>" placeholder="optional"><p/>
 		<p><label for="settings-weight">Weight (kg)</label>
 		<input id="settings-weight" name="weight" type="number" min="0" max "300" required value="<?php echo $user_weight ?>" placeholder="optional"><p/>
-		<p><label>Gender</label><input id="settings-gender-male" type="radio" name="gender" value="Male" required><label for="settings-gender-male" class="radio-label">Male</label><input id="settings-gender-female" type="radio" name="gender" value="Female" required><label for="settings-gender-female" class="radio-label">Female</label></p>
+		<p><label>Gender</label><input id="settings-gender-male" type="radio" name="gender" value="Male" required checked><label for="settings-gender-male" class="radio-label">Male</label><input id="settings-gender-female" type="radio" name="gender" value="Female" required checked><label for="settings-gender-female" class="radio-label">Female</label></p>
 		<button id="settings-submit" type="submit"class="button-primary">Save Info</buton>
 	</form>
 </div>

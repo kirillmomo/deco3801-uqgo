@@ -1,6 +1,7 @@
 <?php
 	// Include connect php file
 	include('connect.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/challenge_progress_sync.php');
 
 	$challenge_user_id = $_SESSION['user_id'];
 	$challenge_challenge_id = $_SESSION['challenge_id'];
