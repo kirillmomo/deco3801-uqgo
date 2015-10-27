@@ -9,53 +9,102 @@
   <!-- Ionic framework - replace the CDN links with local files and build -->    
   <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/ionicons.css">
   <script src="lib/ionicframework/ionic.bundle.min.js"></script>
     
   <script src="js/app.js"></script>
   <script src="js/navbar.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/universal.js"></script>
 
   <style>
       .box {height:300px;padding: 10px}
   </style>
-    <script>
-        
-        // Log the user out
-        function logout() {
-            intel.xdk.cache.removeCookie("userid");
-            window.location = "login.html";
-        }
-        
-        // Redirects to logout if the user isn't logged in 
-        function logoutRedirect() {
-            var loggedin = intel.xdk.cache.getCookie("userid");
-            if(loggedin == undefined){
-                window.location = "login.html";
-            }
-        }
     
-    </script>
 </head>
 
-<body ng-controller="AppCtrl">
+<body ng-controller="AppCtrl" onload="makeVersionChanges()" onclick="makeVersionChanges()">
 
     <ion-tabs id="tabnav" class="tabs-balanced tabs-top tabs-icon-only">
 
         <ion-tab title="Account" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Account</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <div class="topspace"></div>
+                <form id="regsubmit" type="post">
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input id="first" name="first" type="text" value="Dwayne">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Last Name</span>
+                        <input id="last" name="last" type="text" value="Johnson">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Username</span>
+                        <input id="email" name="email" type="text" value="uqgo">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Email</span>
+                        <input id="username" name="username" type="text" value="uqgo@uqgo">
+                    </label>
+                    
+                    <button class="button button-block button-balanced settingsave" type="submit">
+                        Save Info
+                    </button>
+                </form>
+            </ion-content>
+        </ion-tab>
+        
+        <ion-tab title="Body Info" >
+            <ion-header-bar id="header" class="bar bar-header bar-positive">
+                <h1 id="headertitle" class="title">Notifications</h1>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
+            </ion-header-bar>
+            
+            <ion-content class="listtab">
+                <div class="topspace"></div>
+                <form id="regsubmit" type="post">
+                    <label class="item item-input">
+                        <span class="input-label">Height (cms)</span>
+                        <input id="first" name="first" type="text">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Weight (kgs)</span>
+                        <input id="last" name="last" type="text">
+                    </label>
+                    <label class="item item-input item-select">
+                        <div class="input-label dropdown">
+                            Gender
+                        </div>
+                        <select>
+                            <option selected>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </label>
+                    
+                    <button class="button button-block button-balanced settingsave" type="submit">
+                        Save Info
+                    </button>
+                </form>
             </ion-content>
         </ion-tab>
         
         <ion-tab title="Notifications" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Notifications</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
             <ion-content>

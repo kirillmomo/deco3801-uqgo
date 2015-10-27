@@ -1,3 +1,5 @@
+// Flag to indicate if the session has started.
+var sessionstarted = 0;
 // Time, in seconds, of the current run.
 var time = 0;
 // Time in hours:minutes:seconds format.
@@ -24,7 +26,7 @@ function timer() {
         // Updates the onscreen timer.
         $('#runtime').html(formatted);
         // Get Location once every ten seconds
-        if(time % 10 === 0) {
+        if(time % 30 === 0) {
             getLocation();
         }
         // Increments time when function is run
@@ -62,7 +64,7 @@ function startFinish() {
         $("#trackbuttons").slideUp(500);
         $("#welldone").slideDown(500);
         $("#sharestats").slideDown(0);
-        //postSessionData();
+        postSessionData();
     }
 }
 
@@ -80,5 +82,27 @@ function resumeTimer() {
 }
 
 function postSessionData(){
+    var walkduration = time;
+    var walkdist = parseFloat(distance/1000);
+    var walksteps = steps;
+    var walklatlogn = route;
+    console.log("time: " + walkduration);
+    console.log("dist: " + walkdist);
+    console.log("steps: " + walksteps);
+    console.log("route: " + walklatlogn);
     
+    // String sent to the Web Service
+    var dataString = 'steps=' + walksteps + '&distance=' + walkdist + '&duration=' + walkduration + '&route=' + walklatlogn;
+    console.log(dataString);
+    
+    // AJAX code for submition
+    $.ajax({
+        type: "POST",
+        url: "http://silversquad.uqcloud.net/WebService/postSessionInfo.php",
+        data: dataString,
+        cache: false,
+        success: function(result){
+            alert("Data successfully recorded.");
+        }
+    });
 }

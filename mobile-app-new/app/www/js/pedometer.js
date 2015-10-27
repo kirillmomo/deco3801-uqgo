@@ -1,3 +1,4 @@
+// Steps made during the session
 var steps = 0;
 // Distance walked (based of average step distance)
 var distance = 0;
@@ -61,6 +62,6 @@ function incrementSteps() {
     $('#stepdisplay').html(steps);
     $('#distancedisplay').html(distance + "m");
     // Logs values
-    console.log("steps: " + steps + "distance: " +distance);
+    console.log("steps: " + steps + " distance: " +distance);
 
 }

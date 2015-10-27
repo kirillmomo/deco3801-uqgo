@@ -8,16 +8,16 @@ if (isset($_POST['username'])) {
     include("connect.php");
 
     $username = $_POST['username'];
-    $Password = $_POST['password'];
+    $Password = hash('sha256', $_POST['password']);
 
     //Query for user's data
-    $query_info = "SELECT * FROM `user` WHERE `username`='".$Name."' AND `password`='".$Password."'";
+    $query = "SELECT * FROM user WHERE username='$username' and password='$password'";
+    $data = mysqli_query($dbconn, $query);
 
-    $result = mysql_query($dbconn, $query);
-
-    while($row = mysql_fetch_array($result)){
+    while($row = mysql_fetch_array($data)){
 
         $newJSON = array();
+            $newJSON["userid"] = $row['user_id'];
             $newJSON["username"] = $row['username'];
             $newJSON["password"] = $row['password'];
             // join it as a JSON

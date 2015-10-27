@@ -9,12 +9,14 @@
   <!-- Ionic framework - replace the CDN links with local files and build -->    
   <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/ionicons.css">
   <script src="lib/ionicframework/ionic.bundle.min.js"></script>
     
   <script src="js/app.js"></script>
   <script src="js/navbar.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/universal.js"></script>
 
   <style>
       .box {height:300px;padding: 10px}
@@ -25,20 +27,6 @@
         function track(){
             window.location = "track.html";
         }
-        
-        // Log the user out
-        function logout() {
-            intel.xdk.cache.removeCookie("userid");
-            window.location = "login.html";
-        }
-        
-        // Redirects to logout if the user isn't logged in 
-        function logoutRedirect() {
-            var loggedin = intel.xdk.cache.getCookie("userid");
-            if(loggedin == undefined){
-                window.location = "login.html";
-            }
-        }
     
     </script>
 </head>
@@ -47,7 +35,9 @@
 
     <ion-header-bar id="header" class="bar bar-header bar-positive">
         <h1 id="headertitle" class="title">UQ GO</h1>
-        <button class="button button-light" onclick="logout()">Logout</button>
+        <button class="button button-light button-clear" onclick="logout()">
+            Logout <i class="icon ion-close-round "></i>
+        </button>
     </ion-header-bar>
     <ion-content padding="true">
         <div id="welcome">

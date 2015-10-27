@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "543cf4f4-9821-421a-9cc2-9282335a8cca",
-      "lastModifiedDate": 1443590212074,
+      "lastModifiedDate": 1444055130763,
       "creationDate": 1443590153727
     },
     "XDK-app-designer": "false",
@@ -142,7 +142,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "UQGO-new",
+        "appName_": "UQGO",
         "appID_": "xdk.intel.cordova.template.lite",
         "appAccess_": {
           "mode": "legacy",
@@ -376,5 +376,8 @@
     "gameMetadata": {},
     "projectTags": [],
     "testDirectory": "test"
+  },
+  "editorTab": {
+    "showLiveDevelopmentTasksPanel": false
   }
 }

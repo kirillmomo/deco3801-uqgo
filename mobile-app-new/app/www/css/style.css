@@ -1,6 +1,32 @@
+#completedcontent {
+    display: none;
+}
+#friendcontent {
+    display: none;
+}
 #footer {
     background-color: #49075E;
     border-color: #49075E;
+}
+#groupcontent {
+    display: none;
+}
+#groupimage {
+    float: left;
+    width: 50%;
+    margin-top: 5%;
+}
+#groupdetails {
+    float: left;
+    width: 50%;
+    margin-top: 5%;
+    margin-bottom: 20%;
+}
+#frienddetails {
+    float: left;
+    width: 50%;
+    margin-top: 5%;
+    margin-bottom: 2%;
 }
 #header {
     background-color: #49075E;
@@ -36,6 +62,12 @@
     background-color: #49075E;
     height: 100%;
     padding-top: 15vh;
+}
+#objective {
+    margin-top: 10%;
+}
+#progresscontent {
+    display: none;
 }
 #register {
     display: none;
@@ -88,12 +120,87 @@
    margin-top: 20%; 
 }
 
-.bottomcontent {
-    padding-bottom: 50%;
+.back {
+    min-height: 30px;
+}
+.backbutton {
+    width: 100%;
+    padding-top: 4%;
+    padding-left: 9%;
+}
+.bottomspace {
+    min-height: 60px;
+}
+.dropdown {
+    max-width: 120px;
 }
 .footeritem {
     margin-left: 2%;
     margin-right: 2%;
+}
+.graphtitle {
+    color: #49075E;
+    padding-left: 35px;
+}
+.graphlabels {
+    float: left;
+    width: 25%;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+.clabel {
+    font-size: 20px;
+    text-align: right;
+    line-height: 60px;
+}
+.wlabel{
+    font-size: 20px;
+    text-align: right;
+    line-height: 30px;
+}
+.mlabel{
+    font-size: 15px;
+    text-align: right;
+    line-height: 13px;
+}
+.graphdata {
+    float: left;
+    width: 75%;
+    padding-right: 25px;
+}
+.graphbuttons {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+.cgraphbar {
+    height: 25px;
+    margin-top: 10px;
+    line-height: 30px;
+    font-size: 15px;
+    padding-left: 5px;
+    font-weight: bold;
+    color: white;
+}
+.wgraphbar {
+    background-color: #6c3;
+    height: 30px;
+    margin-top: 10px;
+    line-height: 30px;
+    font-size: 15px;
+    padding-left: 5px;
+    font-weight: bold;
+    color: white;
+}
+.mgraphbar {
+    background-color: #6c3;
+    height: 13px;
+    margin-top: 10px;
+    line-height: 13px;
+    font-size: 11px;
+    padding-left: 5px;
+    font-weight: bold;
+    color: white;
 }
 .groupicon {
     float: left;
@@ -110,18 +217,63 @@
     margin-left: 2.5%;
 }
 .listname {
+    text-align: left;
     color: #49075E;
 }
 .listdesc{
     color: dimgrey;
+    text-align: left;
+}
+.listtab {
+    margin-top: 60px;      
 }
 .mainstat {
     padding-bottom: 5%;
     text-align: center;
 }
+.metricdisplay {
+    float: left;
+    display: inline-block;
+    line-height: 55px;
+    font-size: 50px;
+}
+.metricstats {
+    margin-top: 10%;
+}
 .proficon {
     display: block;
     margin: 0 auto;
+}
+.progressbar {
+    background-color: #d1d1d1;
+    padding: 3px;
+    margin-left: 9%;
+    margin-right: 9%;
+}
+
+.progressdisplay {
+    background-color: #6c3;
+    width: 100%;
+    height: 20px;
+}
+.search {
+    width: 25%;
+    float: right;
+    height: 10px;
+    margin-right: 10px;
+}
+.searchbox {
+    width: 65%;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.searchitem {
+    width: 100%;
+}
+.settingsave {
+    width: 100px;
+    margin-top: 10px;
 }
 .stat {
     color: #49075E;
@@ -132,11 +284,23 @@
     font-size: 1.5em;
     margin: 0px;
 }
+.subcontent {
+    padding-left: 9%;
+}
+.subheading {
+    color: #49075E;
+}
 .substat {
     float: left;
     width: 50%;
     text-align: center;
     padding-bottom: 10%;
+}
+.topspaceandroid {
+    margin-top: 60px;
+}
+.topspaceios {
+    margin-top: 10px;   
 }
 .username {
     color: #49075E;

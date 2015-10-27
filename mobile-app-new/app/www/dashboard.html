@@ -9,73 +9,420 @@
   <!-- Ionic framework - replace the CDN links with local files and build -->    
   <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/ionicons.css">
   <script src="lib/ionicframework/ionic.bundle.min.js"></script>
     
   <script src="js/app.js"></script>
   <script src="js/navbar.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/universal.js"></script>
 
   <style>
       .box {height:300px;padding: 10px}
   </style>
     <script>
         
-        // Log the user out
-        function logout() {
-            intel.xdk.cache.removeCookie("userid");
-            window.location = "login.html";
+        function showGraph(graph) {
+            $(graph).slideDown(600);
+            $(".dashtab").slideUp(600);
         }
         
-        // Redirects to logout if the user isn't logged in 
-        function logoutRedirect() {
-            var loggedin = intel.xdk.cache.getCookie("userid");
-            if(loggedin == undefined){
-                window.location = "login.html";
-            }
+        function hideGraph(graph) {
+            $(".dashtab").slideDown(600);
+            $(graph).slideUp(600);
         }
     
     </script>
 </head>
 
-<body ng-controller="AppCtrl">
+<body ng-controller="AppCtrl" onload="makeVersionChanges()" onclick="makeVersionChanges()">
 
     <ion-tabs id="tabnav" class="tabs-balanced tabs-top tabs-icon-only">
 
         <ion-tab title="Overview" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Overview</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <h2 class="graphtitle">Steps This Week</h2>
+                <div id="overview" class="graph">
+                    <div class="graphlabels">
+                        <h3 class="wlabel">Mon</h3>
+                        <h3 class="wlabel">Tues</h3>
+                        <h3 class="wlabel">Wed</h3>
+                        <h3 class="wlabel">Thur</h3>
+                        <h3 class="wlabel">Fri</h3>
+                        <h3 class="wlabel">Sat</h3>
+                        <h3 class="wlabel">Sun</h3>
+                    </div>
+                    
+                    <div class="graphdata">
+                        <div id="M" class="wgraphbar" style="width: 100%">1000</div>
+                        <div id="Tu" class="wgraphbar" style="width: 92%">920</div>
+                        <div id="W" class="wgraphbar" style="width: 78%">780</div>
+                        <div id="Th" class="wgraphbar" style="width: 42%">420</div>
+                        <div id="F" class="wgraphbar" style="width: 65%">650</div>
+                        <div id="Sa" class="wgraphbar" style="width: 55%">550</div>
+                        <div id="Su" class="wgraphbar" style="width: 20%">200</div>
+                    </div>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
         
         <ion-tab title="Steps" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Steps</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <div class="dashtab">
+                    <div class="metricstats">
+                        <div id="today" class="substat">
+                            <h3 class="stat">200</h3>
+                            <h4 class="statlabel">Today</h4>
+                        </div>
+
+                        <div id="thisweek" class="substat">
+                            <h3 class="stat">4520</h3>
+                            <h4 class="statlabel">This Week</h4>
+                        </div>
+
+                        <div id="thismonth" class="substat">
+                            <h3 class="stat">17820</h3>
+                            <h4 class="statlabel">This Month</h4>
+                        </div>
+
+                        <div id="alltime" class="substat">
+                            <h3 class="stat">32540</h3>
+                            <h4 class="statlabel">All Time</h4>
+                        </div>
+                    </div>
+                    
+                    <hr style="width:90%;">
+                    <div class="graphbuttons">
+                        <h3 class="subheading">View Graphs</h3>
+                        <br>
+                        <button class="button button-balanced"  style="width:45%; float:right;" onclick="showGraph('#weeksteps')">This Week</button>
+                        <button class="button button-balanced"  style="width:45%; float:left;" onclick="showGraph('#monthlysteps')">Monthly</button>
+                    </div>
+                </div>
+                
+                <div id="weeksteps" style="display:none;">
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideGraph('#weeksteps')">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="graphtitle">Steps This Week</h2>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="wlabel">Mon</h3>
+                            <h3 class="wlabel">Tues</h3>
+                            <h3 class="wlabel">Wed</h3>
+                            <h3 class="wlabel">Thur</h3>
+                            <h3 class="wlabel">Fri</h3>
+                            <h3 class="wlabel">Sat</h3>
+                            <h3 class="wlabel">Sun</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="M" class="wgraphbar" style="width: 100%">1000</div>
+                            <div id="Tu" class="wgraphbar" style="width: 92%">920</div>
+                            <div id="W" class="wgraphbar" style="width: 78%">780</div>
+                            <div id="Th" class="wgraphbar" style="width: 42%">420</div>
+                            <div id="F" class="wgraphbar" style="width: 65%">650</div>
+                            <div id="Sa" class="wgraphbar" style="width: 55%">550</div>
+                            <div id="Su" class="wgraphbar" style="width: 20%">200</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="monthlysteps" style="display:none;">
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideGraph('#monthlysteps')">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="graphtitle">Montly Steps</h2>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="mlabel">Jan</h3>
+                            <h3 class="mlabel">Feb</h3>
+                            <h3 class="mlabel">Mar</h3>
+                            <h3 class="mlabel">Apr</h3>
+                            <h3 class="mlabel">May</h3>
+                            <h3 class="mlabel">June</h3>
+                            <h3 class="mlabel">July</h3>
+                            <h3 class="mlabel">Aug</h3>
+                            <h3 class="mlabel">Sept</h3>
+                            <h3 class="mlabel">Oct</h3>
+                            <h3 class="mlabel">Nov</h3>
+                            <h3 class="mlabel">Dec</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="Jan" class="mgraphbar" style="width: 62%">11000</div>
+                            <div id="Feb" class="mgraphbar" style="width: 84%">14920</div>
+                            <div id="Mar" class="mgraphbar" style="width: 72%">12780</div>
+                            <div id="Apr" class="mgraphbar" style="width: 81%">14420</div>
+                            <div id="May" class="mgraphbar" style="width: 93%">16650</div>
+                            <div id="June" class="mgraphbar" style="width: 70%">12550</div>
+                            <div id="July" class="mgraphbar" style="width: 74%">13200</div>
+                            <div id="Aug" class="mgraphbar" style="width: 97%">17250</div>
+                            <div id="Sept" class="mgraphbar" style="width: 53%">9420</div>
+                            <div id="Oct" class="mgraphbar" style="width: 100%">17820</div>
+                            <div id="Nov" class="mgraphbar" style="width: 7%">0</div>
+                            <div id="Dec" class="mgraphbar" style="width: 7%">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
 
         <ion-tab title="Distance">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Distance</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <div class="dashtab">
+                    <div class="metricstats">
+                        <div id="today" class="substat">
+                            <h3 class="stat">50m</h3>
+                            <h4 class="statlabel">Today</h4>
+                        </div>
+
+                        <div id="thisweek" class="substat">
+                            <h3 class="stat">1.13m</h3>
+                            <h4 class="statlabel">This Week</h4>
+                        </div>
+
+                        <div id="thismonth" class="substat">
+                            <h3 class="stat">3.25km</h3>
+                            <h4 class="statlabel">This Month</h4>
+                        </div>
+
+                        <div id="alltime" class="substat">
+                            <h3 class="stat">22.54km</h3>
+                            <h4 class="statlabel">All Time</h4>
+                        </div>
+                    </div>
+                    
+                    <hr style="width:90%;">
+                    <div class="graphbuttons">
+                        <h3 class="subheading">View Graphs</h3>
+                        <br>
+                        <button class="button button-balanced"  style="width:45%; float:right;" onclick="showGraph('#weekdist')">This Week</button>
+                        <button class="button button-balanced"  style="width:45%; float:left;" onclick="showGraph('#monthlydist')">Monthly</button>
+                    </div>
+                </div>
+                
+                <div id="weekdist" style="display:none;">
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideGraph('#weekdist')">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="graphtitle">Distance This Week</h2>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="wlabel">Mon</h3>
+                            <h3 class="wlabel">Tues</h3>
+                            <h3 class="wlabel">Wed</h3>
+                            <h3 class="wlabel">Thur</h3>
+                            <h3 class="wlabel">Fri</h3>
+                            <h3 class="wlabel">Sat</h3>
+                            <h3 class="wlabel">Sun</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="M" class="wgraphbar" style="width: 100%">250</div>
+                            <div id="Tu" class="wgraphbar" style="width: 92%">230</div>
+                            <div id="W" class="wgraphbar" style="width: 78%">195</div>
+                            <div id="Th" class="wgraphbar" style="width: 42%">105</div>
+                            <div id="F" class="wgraphbar" style="width: 65%">163</div>
+                            <div id="Sa" class="wgraphbar" style="width: 55%">138</div>
+                            <div id="Su" class="wgraphbar" style="width: 20%">50</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="monthlydist" style="display:none;">
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideGraph('#monthlydist')">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="graphtitle">Monthly Distance</h2>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="mlabel">Jan</h3>
+                            <h3 class="mlabel">Feb</h3>
+                            <h3 class="mlabel">Mar</h3>
+                            <h3 class="mlabel">Apr</h3>
+                            <h3 class="mlabel">May</h3>
+                            <h3 class="mlabel">June</h3>
+                            <h3 class="mlabel">July</h3>
+                            <h3 class="mlabel">Aug</h3>
+                            <h3 class="mlabel">Sept</h3>
+                            <h3 class="mlabel">Oct</h3>
+                            <h3 class="mlabel">Nov</h3>
+                            <h3 class="mlabel">Dec</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="Jan" class="mgraphbar" style="width: 62%">2015</div>
+                            <div id="Feb" class="mgraphbar" style="width: 84%">2730</div>
+                            <div id="Mar" class="mgraphbar" style="width: 72%">2340</div>
+                            <div id="Apr" class="mgraphbar" style="width: 81%">2632</div>
+                            <div id="May" class="mgraphbar" style="width: 93%">3022</div>
+                            <div id="June" class="mgraphbar" style="width: 70%">2275</div>
+                            <div id="July" class="mgraphbar" style="width: 74%">2405</div>
+                            <div id="Aug" class="mgraphbar" style="width: 97%">3152</div>
+                            <div id="Sept" class="mgraphbar" style="width: 53%">1722</div>
+                            <div id="Oct" class="mgraphbar" style="width: 100%">3250</div>
+                            <div id="Nov" class="mgraphbar" style="width: 7%">0</div>
+                            <div id="Dec" class="mgraphbar" style="width: 7%">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="topspace"></div>
             </ion-content>
         </ion-tab>
 
         <ion-tab title="Calories">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Calories</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
+            </ion-header-bar>
+            
+            <ion-content class="listtab">
+                <div class="dashtab">
+                    <div class="metricstats">
+                        <div id="today" class="substat">
+                            <h3 class="stat">50cal</h3>
+                            <h4 class="statlabel">Today</h4>
+                        </div>
+
+                        <div id="thisweek" class="substat">
+                            <h3 class="stat">974cal</h3>
+                            <h4 class="statlabel">This Week</h4>
+                        </div>
+
+                        <div id="thismonth" class="substat">
+                            <h3 class="stat">4.20kCal</h3>
+                            <h4 class="statlabel">This Month</h4>
+                        </div>
+
+                        <div id="alltime" class="substat">
+                            <h3 class="stat">31.03kCal</h3>
+                            <h4 class="statlabel">All Time</h4>
+                        </div>
+                    </div>
+                    
+                    <hr style="width:90%;">
+                    <div class="graphbuttons">
+                        <h3 class="subheading">View Graphs</h3>
+                        <br>
+                        <button class="button button-balanced"  style="width:45%; float:right;" onclick="showGraph('#weekdist')">This Week</button>
+                        <button class="button button-balanced"  style="width:45%; float:left;" onclick="showGraph('#monthlydist')">Monthly</button>
+                    </div>
+                </div>
+                
+                <div id="weekdist" style="display:none;">
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideGraph('#weekdist')">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="graphtitle">Distance This Week</h2>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="wlabel">Mon</h3>
+                            <h3 class="wlabel">Tues</h3>
+                            <h3 class="wlabel">Wed</h3>
+                            <h3 class="wlabel">Thur</h3>
+                            <h3 class="wlabel">Fri</h3>
+                            <h3 class="wlabel">Sat</h3>
+                            <h3 class="wlabel">Sun</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="M" class="wgraphbar" style="width: 100%">200</div>
+                            <div id="Tu" class="wgraphbar" style="width: 90%">180</div>
+                            <div id="W" class="wgraphbar" style="width: 84%">168</div>
+                            <div id="Th" class="wgraphbar" style="width: 42%">84</div>
+                            <div id="F" class="wgraphbar" style="width: 79%">158</div>
+                            <div id="Sa" class="wgraphbar" style="width: 72%">144</div>
+                            <div id="Su" class="wgraphbar" style="width: 25%">50</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="monthlydist" style="display:none;">
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideGraph('#monthlydist')">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="graphtitle">Monthly Distance</h2>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="mlabel">Jan</h3>
+                            <h3 class="mlabel">Feb</h3>
+                            <h3 class="mlabel">Mar</h3>
+                            <h3 class="mlabel">Apr</h3>
+                            <h3 class="mlabel">May</h3>
+                            <h3 class="mlabel">June</h3>
+                            <h3 class="mlabel">July</h3>
+                            <h3 class="mlabel">Aug</h3>
+                            <h3 class="mlabel">Sept</h3>
+                            <h3 class="mlabel">Oct</h3>
+                            <h3 class="mlabel">Nov</h3>
+                            <h3 class="mlabel">Dec</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="Jan" class="mgraphbar" style="width: 85%">3600</div>
+                            <div id="Feb" class="mgraphbar" style="width: 70%">2950</div>
+                            <div id="Mar" class="mgraphbar" style="width: 96%">4020</div>
+                            <div id="Apr" class="mgraphbar" style="width: 85%">3560</div>
+                            <div id="May" class="mgraphbar" style="width: 63%">2650</div>
+                            <div id="June" class="mgraphbar" style="width: 58%">2450</div>
+                            <div id="July" class="mgraphbar" style="width: 45%">1900</div>
+                            <div id="Aug" class="mgraphbar" style="width: 76%">3200</div>
+                            <div id="Sept" class="mgraphbar" style="width: 60%">2500</div>
+                            <div id="Oct" class="mgraphbar" style="width: 100%">4200</div>
+                            <div id="Nov" class="mgraphbar" style="width: 7%">0</div>
+                            <div id="Dec" class="mgraphbar" style="width: 7%">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomspace"></div>
+            </ion-content>
+        </ion-tab>
+        
+        <ion-tab title="Sessions">
+            <ion-header-bar id="header" class="bar bar-header bar-positive">
+                <h1 id="headertitle" class="title">Sessions</h1>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
             <ion-content>

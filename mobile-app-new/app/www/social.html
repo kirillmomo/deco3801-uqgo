@@ -9,46 +9,57 @@
   <!-- Ionic framework - replace the CDN links with local files and build -->    
   <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/ionicons.css">
   <script src="lib/ionicframework/ionic.bundle.min.js"></script>
     
   <script src="js/app.js"></script>
   <script src="js/navbar.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/universal.js"></script>
 
   <style>
       .box {height:300px;padding: 10px}
   </style>
     <script>
         
-        // Log the user out
-        function logout() {
-            intel.xdk.cache.removeCookie("userid");
-            window.location = "login.html";
+        function showFriend(num) {
+            $("#friendcontent").slideDown(600);
+            $("#friendlist").slideUp(600);
+            console.log(intel.xdk.device.osversion);
         }
         
-        // Redirects to logout if the user isn't logged in 
-        function logoutRedirect() {
-            var loggedin = intel.xdk.cache.getCookie("userid");
-            if(loggedin == undefined){
-                window.location = "login.html";
-            }
+        function hideFriend(num) {
+            $("#friendcontent").slideUp(600);
+            $("#friendlist").slideDown(600);
+        }
+        
+        function showGroup(num) {
+            $("#groupcontent").slideDown(600);
+            $("#grouplist").slideUp(600);
+        }
+        
+        function hideGroup(num) {
+            $("#groupcontent").slideUp(600);
+            $("#grouplist").slideDown(600);
         }
     </script>
 </head>
 
-<body ng-controller="AppCtrl">
-
+<body ng-controller="AppCtrl" onload="makeVersionChanges()" onclick="makeVersionChanges()">
+    
     <ion-tabs id="tabnav" class="tabs-balanced tabs-top tabs-icon-only">
 
         <!-- Profile Tab -->
         <ion-tab title="Profile" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Profile</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content class="bottomcontent">
+            <ion-content>
                 <div id="userimage">
                     <img src="img/user-default-circled.png" alt="Profile Icon" class="proficon" height="100" width="100"/>
                     <h4 class="username">uqgo uqgo</h4>
@@ -74,55 +85,92 @@
                         <h4 class="statlabel">Challenges</h4>
                     </div>
                 </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
 
         <!-- Friends Tab -->
-        <ion-tab title="Friends">
+        <ion-tab title="Friends" on-select="makeVersionChanges()">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Friends</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content class="bottomcontent">
-                <h1>Friends</h1>
-                <ul class="list">
-                    <li class="item">
-                        <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
-                        <div class="listinfo">
-                            <h2 class="listname">uqgo1</h2>
-                            <h4 class="listdesc">420 steps this week</h4>
-                            <h4 class="listdesc">Member since 2015</h4>
-                        </div>
-                        <button class="join button button-balanced">
-                            Friends
+            <ion-content class="listtab">
+                <div id=friendlist>
+                    <div class="list list-inset searchbox">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search">
+                        </label>
+                    </div>
+                    <button class="search button button-light">Search</button>
+                    <ul class="list">
+                        <button class="searchitem item" onclick="showFriend(1)">
+                            <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" onclick="showFriend(1)" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">uqgo2</h2>
+                                <h4 class="listdesc">420 steps this week</h4>
+                                <h4 class="listdesc">Member since 2015</h4>
+                            </div>
                         </button>
-                    </li>
-                    
-                    <li class="item">
-                        <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
-                        <div class="listinfo">
-                            <h2 class="listname">uqgo2</h2>
-                            <h4 class="listdesc">420 steps this week</h4>
-                            <h4 class="listdesc">Member since 2015</h4>
-                        </div>
-                        <button class="join button button-balanced">
-                            Friends
+
+                        <button class="searchitem item" onclick="showFriend(2)">
+                            <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" onclick="showFriend(2)" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">uqgo3</h2>
+                                <h4 class="listdesc">420 steps this week</h4>
+                                <h4 class="listdesc">Member since 2015</h4>
+                            </div>
                         </button>
-                    </li>
-                    
-                    <li class="item">
-                        <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
-                        <div class="listinfo">
-                            <h2 class="listname">uqgo3</h2>
-                            <h4 class="listdesc">420 steps this week</h4>
-                            <h4 class="listdesc">Member since 2015</h4>
-                        </div>
-                        <button class="join button button-light">
-                            + Friend
+
+                        <Button class="searchitem item" onclick="showFriend(3)">
+                            <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" onclick="showFriend(3)" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">uqgo4</h2>
+                                <h4 class="listdesc">420 steps this week</h4>
+                                <h4 class="listdesc">Member since 2015</h4>
+                            </div>
+                        </Button>
+                    </ul>
+                </div>
+                
+                <div id=friendcontent>
+                    <div class="backbutton">
+                        <button class="button button-light" onclick="hideFriend(1)">
+                            <i class="icon ion-chevron-left"></i> Back
                         </button>
-                    </li>
-                </ul>
+                    </div>
+                    <div id="userimage">
+                        <img src="img/user-default-circled.png" alt="Profile Icon" class="proficon" height="100" width="100"/>
+                        <h4 class="username">uqgo2 uqgo2</h4>
+                    </div>
+                    <div id="frienddetails">
+                        <h4>Age: 25</h4>
+                        <h4>Member Since 2015</h4>
+                        <h4 style="color:#6c3;">My stats last week</h4>
+                        <h4 style="color:#49075E;">uqgo2's stats last week</h4>
+                    </div>
+                    <div id="overview" class="graph">
+                        <div class="graphlabels">
+                            <h3 class="clabel">Steps</h3>
+                            <h3 class="clabel">Dist</h3>
+                            <h3 class="clabel">Cal</h3>
+                        </div>
+
+                        <div class="graphdata">
+                            <div id="M" class="cgraphbar" style="width: 100%; background-color: #6c3;">1000</div>
+                            <div id="Tu" class="cgraphbar" style="width: 92%; background-color: #49075E;">920</div>
+                            <div id="W" class="cgraphbar" style="width: 100%;background-color: #6c3;">420</div>
+                            <div id="Th" class="cgraphbar" style="width: 95%; background-color: #49075E;">400</div>
+                            <div id="F" class="cgraphbar" style="width: 100%;background-color: #6c3;">650</div>
+                            <div id="Sa" class="cgraphbar" style="width: 85%; background-color: #49075E;">550</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
 
@@ -130,48 +178,95 @@
         <ion-tab title="Groups">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Groups</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content class="bottomcontent">
-                <h1>Groups</h1>
-                <ul class="list">
-                    <li class="item">
-                        <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
-                        <div class="listinfo">
-                            <h2 class="listname">Group 1</h2>
-                            <h4 class="listdesc">Tech Savvy</h4>
-                            <h4 class="listdesc">420 members</h4>
-                        </div>
-                        <button class="join button button-balanced">
-                            Joined
+            <ion-content class="listtab">
+                <div id="grouplist">
+                    <div class="list list-inset searchbox">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search">
+                        </label>
+                    </div>
+                    <button class="search button button-light">Search</button>
+                    <ul class="list">
+                        <li class="searchitem item" onclick="showGroup(1)">
+                            <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" onclick="showGroup(1)" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Group 1</h2>
+                                <h4 class="listdesc">Fusion Squad</h4>
+                                <h4 class="listdesc">2 members</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                Joined
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showGroup(2)">
+                            <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" onclick="showGroup(2)" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Group 2</h2>
+                                <h4 class="listdesc">Respect Crew</h4>
+                                <h4 class="listdesc">2 members</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                Joined
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showGroup(3)">
+                            <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" onclick="showGroup(3)" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Group 3</h2>
+                                <h4 class="listdesc">Silversquad</h4>
+                                <h4 class="listdesc">3 members</h4>
+                            </div>
+                            <button class="join button button-light">
+                                + Join
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="bottomspace"></div>
+                </div>
+                
+                <div id=groupcontent>
+                    <div class="backbutton">
+                    <button class="button button-light" onclick="hideGroup(1)">
+                            <i class="icon ion-chevron-left"></i> Back
                         </button>
-                    </li>
-                    
-                    <li class="item">
-                        <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
-                        <div class="listinfo">
-                            <h2 class="listname">Group 2</h2>
-                            <h4 class="listdesc">The Collab</h4>
-                            <h4 class="listdesc">420 members</h4>
+                    </div>
+                    <div id="groupimage">
+                        <img src="img/user-default-circled.png" alt="Profile Icon" class="proficon" height="100" width="100"/>
+                        <h4 class="username">Group Name</h4>
+                    </div>
+                    <div id="groupdetails">
+                        <h4>Members: 2</h4>
+                        <h4>Created: Oct 2015</h4>
+
+                    </div>
+                    <hr>
+                    <div id="groupdescription" class="subcontent">
+                        <h3 class="subheading">About Group</h3>
+                        <h5>Respect</h5>
+                    </div>
+                    <hr>
+                    <div id="groupmembers" class="subcontent">
+                        <h3 class="subheading">Group Members</h3>
+                        <div id="userimage">
+                            <img src="img/user-default-circled.png" alt="Profile Icon" class="proficon" height="50" width="50"/>
+                            <h5 class="username">uqgo2 uqgo2</h5>
                         </div>
-                        <button class="join button button-balanced">
-                            Joined
-                        </button>
-                    </li>
-                    
-                    <li class="item">
-                        <img src="img/user-default-circled.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
-                        <div class="listinfo">
-                            <h2 class="listname">Group 3</h2>
-                            <h4 class="listdesc">Where it at mang?</h4>
-                            <h4 class="listdesc">420 members</h4>
+                        <div id="userimage">
+                            <img src="img/user-default-circled.png" alt="Profile Icon" class="proficon" height="50" width="50"/>
+                            <h5 class="username">uqgo3 uqgo3</h5>
                         </div>
-                        <button class="join button button-light">
-                            + Join
-                        </button>
-                    </li>
-                </ul>
+                    </div>
+                    <div class="bottomspace"></div>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
 

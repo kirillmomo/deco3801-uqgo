@@ -9,66 +9,307 @@
   <!-- Ionic framework - replace the CDN links with local files and build -->    
   <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/ionicons.css">
   <script src="lib/ionicframework/ionic.bundle.min.js"></script>
     
   <script src="js/app.js"></script>
   <script src="js/navbar.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
   <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/universal.js"></script>
 
   <style>
       .box {height:300px;padding: 10px}
   </style>
     <script>
         
-        // Log the user out
-        function logout() {
-            intel.xdk.cache.removeCookie("userid");
-            window.location = "login.html";
-        }
-        
-        // Redirects to logout if the user isn't logged in 
-        function logoutRedirect() {
-            var loggedin = intel.xdk.cache.getCookie("userid");
-            if(loggedin == undefined){
-                window.location = "login.html";
+        function showProgress(num) {
+            $("#progresscontent").slideDown(600);
+            $("#progresslist").slideUp(600);
+            
+            if(num === 1) {
+                $(".progressdisplay").css("width", "83%");
+                $(".objvalue").html("Walk 1000 Steps");
+                $(".numprogress").html("830/1000 Steps");
+            } else if (num === 2) {
+                $(".progressdisplay").css("width", "33%");
+                $(".objvalue").html("Walk 3000 Metres");
+                $(".numprogress").html("1000/3000 Metres");
+            } else if (num === 3) {
+                $(".progressdisplay").css("width", "55%");
+                $(".objvalue").html("Burn 1000 Kcals");
+                $(".numprogress").html("550/1000 Kcals");
+            } else {
+                $(".progressdisplay").css("width", "100%");
             }
         }
-    
+        
+        function hideProgress(num) {
+            $("#progresscontent").slideUp(600);
+            $("#progresslist").slideDown(600);
+        }
+        
+        function showCompleted(num) {
+            $("#completedcontent").slideDown(600);
+            $("#completedlist").slideUp(600);
+            
+            if(num === 1) {
+                $(".progressdisplay").css("width", "100%");
+                $(".objvalue").html("Walk 500 Steps");
+                $(".numprogress").html("500/500 Steps");
+            } else if (num === 2) {
+                $(".progressdisplay").css("width", "100%");
+                $(".objvalue").html("Walk 1000 Metres");
+                $(".numprogress").html("1000/1000 Metres");
+            } else if (num === 3) {
+                $(".progressdisplay").css("width", "100%");
+                $(".objvalue").html("Burn 500 Kcals");
+                $(".numprogress").html("500/500 Kcals");
+            } else {
+                $(".progressdisplay").css("width", "100%");
+            }
+        }
+        
+        function hideCompleted(num) {
+            $("#completedcontent").slideUp(600);
+            $("#completedlist").slideDown(600);
+        }
     </script>
 </head>
 
-<body ng-controller="AppCtrl">
+<body ng-controller="AppCtrl" onload="makeVersionChanges()" onclick="makeVersionChanges()">
 
     <ion-tabs id="tabnav" class="tabs-balanced tabs-top tabs-icon-only">
 
-        <ion-tab title="Joined" >
+        <ion-tab title="In Progress" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
-                <h1 id="headertitle" class="title">Joined</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <h1 id="headertitle" class="title">In Progress</h1>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <div class="topspace"></div>
+                <div id="progresslist">
+                    <div class="list list-inset searchbox">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search">
+                        </label>
+                    </div>
+                    <button class="search button button-light">Search</button>
+                    <ul class="list">
+                        <li class="searchitem item" type="button" onclick="showProgress(1)" >
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 1</h2>
+                                <h4 class="listdesc">83% Progress</h4>
+                                <h4 class="listdesc">3 days left</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                View
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showProgress(2)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 2</h2>
+                                <h4 class="listdesc">33% Progress</h4>
+                                <h4 class="listdesc">3 days left</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                View
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showProgress(3)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 3</h2>
+                                <h4 class="listdesc">55% Progress</h4>
+                                <h4 class="listdesc">3 days left</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                View
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id=progresscontent>
+                    <div class="backbutton">
+                    <button class="button button-light" onclick="hideProgress(1)">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <div id="objective" class="subcontent">
+                        <h4 class="subheading">Objective</h4>
+                        <h5 class="objvalue">Walk 1000 Steps</h5>
+                    </div>
+                    <hr>
+                    <div id="challengedetails" class="subcontent">
+                        <h4 class="subheading">Details</h4>
+                        <h5 class="participants">20 Participants</h5>
+                        <h5 class="duration">Duration: 1/10/15 - 8/10/15</h5>
+                    </div>
+                    <hr>
+                    <div id="challengeprogress" class="subcontent">
+                        <h4 class="subheading">Progress</h4>
+                        <h5 class="numprogress">830/1000 Steps</h5>
+                    </div>
+                    <div class="progressbar">
+                      <div class="progressdisplay"></div>
+                    </div>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
         
-        <ion-tab title="Create" >
+        <ion-tab title="Completed" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
-                <h1 id="headertitle" class="title">Create</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <h1 id="headertitle" class="title">Completed</h1>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <div class="topspace"></div>
+                <div id="completedlist">
+                    <div class="list list-inset searchbox">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search">
+                        </label>
+                    </div>
+                    <button class="search button button-light">Search</button>
+                    <ul class="list">
+                        <li class="searchitem item" onclick="showCompleted(1)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 1</h2>
+                                <h4 class="listdesc">Walk 500 Steps</h4>
+                                <h4 class="listdesc">19/09/15</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                View
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showCompleted(2)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 2</h2>
+                                <h4 class="listdesc">Walk 1000 Metres</h4>
+                                <h4 class="listdesc">19/09/15</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                View
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showCompleted(3)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 3</h2>
+                                <h4 class="listdesc">Burn 500 Kcals</h4>
+                                <h4 class="listdesc">19/09/15</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                View
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id=completedcontent>
+                    <div class="backbutton">
+                    <button class="button button-light" onclick="hideCompleted(1)">
+                            <i class="icon ion-chevron-left"></i> Back
+                        </button>
+                    </div>
+                    <div id="objective" class="subcontent">
+                        <h4 class="subheading">Objective</h4>
+                        <h5 class="objvalue">Walk 500 Steps</h5>
+                    </div>
+                    <hr>
+                    <div id="challengedetails" class="subcontent">
+                        <h4 class="subheading">Details</h4>
+                        <h5 class="duration">Completed: 19/09/15</h5>
+                        <h5 class="participants">10 Others Completed</h5>
+                    </div>
+                    <hr>
+                    <div id="challengeprogress" class="subcontent">
+                        <h4 class="subheading">Progress</h4>
+                        <h5 class="numprogress">500/5000 Steps</h5>
+                    </div>
+                    <div class="progressbar">
+                      <div class="progressdisplay"></div>
+                    </div>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
 
         <ion-tab title="Discover">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Discover</h1>
-                <button class="button button-light" onclick="logout()">Logout</button>
+                <button class="button button-light button-clear" onclick="logout()">
+                    Logout <i class="icon ion-close-round "></i>
+                </button>
             </ion-header-bar>
             
-            <ion-content>
+            <ion-content class="listtab">
+                <div class="topspace"></div>
+                <div id="progresslist">
+                    <div class="list list-inset searchbox">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search">
+                        </label>
+                    </div>
+                    <button class="search button button-light">Search</button>
+                    <ul class="list">
+                        <li class="searchitem item" onclick="showFriend(1)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 1</h2>
+                                <h4 class="listdesc">Walk 1000 Steps</h4>
+                                <h4 class="listdesc">420 Participants</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                Accepted
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showFriend(2)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 2</h2>
+                                <h4 class="listdesc">Walk 3000 Metres</h4>
+                                <h4 class="listdesc">20 Participants</h4>
+                            </div>
+                            <button class="join button button-balanced">
+                                Accepted
+                            </button>
+                        </li>
+
+                        <li class="searchitem item" onclick="showFriend(3)">
+                            <img src="img/icon_challenges_alt.png" alt="Group Icon" class="groupicon" height="65" width="65"/>
+                            <div class="listinfo">
+                                <h2 class="listname">Challenge 3</h2>
+                                <h4 class="listdesc">Burn 2000 Kcals</h4>
+                                <h4 class="listdesc">20 Participants</h4>
+                            </div>
+                            <button class="join button button-light">
+                                + Accept
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
 

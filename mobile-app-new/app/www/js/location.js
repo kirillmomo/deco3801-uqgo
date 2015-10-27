@@ -1,20 +1,20 @@
 // string list of Latlongs path of the run
 var route = "";
 // Geolocation watch settings
-var geosettings = { timeout: 9500, enableHighAccuracy: true };
+var geosettings = { timeout: 30000, enableHighAccuracy: true };
 
 function geoSuccess(position) {
     // handle geolocation data
-    var data = position.coords.latitude + ", " + position.coords.longitude;
+    var data = "(" + position.coords.latitude + "," + position.coords.longitude + ")";
     console.log('location: ' +data);
-    route+=data + '\n';
+    route+=data + ' ';
     console.log(route);
-    alert(route);
+    //alert(route);
 }
 
 function geoError() {
     // handle geolocation error
-    alert("Geolocation Error occured");
+    console.log("Geolocation Error occured");
 }
 
 function getLocation() {
