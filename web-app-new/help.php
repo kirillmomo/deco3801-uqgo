@@ -20,6 +20,6 @@
         <a href="index.php"><i class="fa fa-arrow-circle-left fa-fw"></i> Back to login</a>
       </nav>
     </div>
-    <div class="video"><iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/6F3iLdoFM20?autoplay=0" frameborder="0"/></div>
+    <div class="video"><iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/xjQeZ-nQdQE?autoplay=0" frameborder="0"/></div>
   </body>
 </html>
