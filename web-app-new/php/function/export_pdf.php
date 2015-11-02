@@ -4,7 +4,7 @@
     // The website address http://www.fpdf.org/
     
 	session_start();
-	include('fpdf.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/v0-6/resources/fpdf/fpdf.php');
 
 	$pdf=new FPDF();
 
