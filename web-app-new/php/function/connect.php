@@ -1,9 +1,9 @@
 <?php
-	// find detail.txt for SQL username and password and store in array
+	// find detail.txt for SQL username and password and store in array 
 	$logindetail = array();
 	$i=0;
 	$file = fopen($_SERVER['DOCUMENT_ROOT']."/v0-6/detail.txt","r");
-
+	// read the file
 	while(! feof($file))
 	  {
 	  $logindetail[$i] = trim(fgets($file));
@@ -16,8 +16,6 @@
 	$dbhost = "localhost";
 	$dbuser = $logindetail[0];
 	$dbpass = $logindetail[1];
-	// $dbuser = "root";
-	// $dbpass = "";
 	$dbname = "uq_go_db_v06";	
 	$dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	

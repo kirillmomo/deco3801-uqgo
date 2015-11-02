@@ -1,8 +1,15 @@
 <?php
-	session_start();
+	
+	// Include session_strat.php and connect.php
+	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 	include('connect.php');
+
+	// In this php file it will get all the user session data at specific challenge and specific range of date
+
+	// SQL code which search challenge that havent being being finish or havent expire
 	$search_all_challenge_data_query = "SELECT * FROM challenge WHERE challenge_finish_date >= DATE(NOW()) AND challenge_progress < challenge_goal ORDER BY challenge_name";
 	$all_challenge_data = mysqli_query($dbconn, $search_all_challenge_data_query);
+	// Store all challenge data into variable
 	while($all_challenge_row2 = mysqli_fetch_array($all_challenge_data))
 		{
 			$all_challenge_id = $all_challenge_row2['challenge_id'];
@@ -12,15 +19,19 @@
 			$all_challenge_member_query = "SELECT * FROM challenge_member WHERE challenge_id='$all_challenge_id'";
 			$all_challenge_member_data = mysqli_query($dbconn, $all_challenge_member_query);
 			$e=0;
+			// Store all challenge member id into variable
 			while($all_challenge_member_row = mysqli_fetch_array($all_challenge_member_data))
 			{
 				$challenge_member_id[$e]=$all_challenge_member_row['challenge_user_id'];
 				$e++;
 			}
+
+			// search all user session 
 			$all_challenge_member_id = implode(',', $challenge_member_id);
 			$all_challenge_member_session_query = "SELECT * FROM session WHERE session_user_id IN ($all_challenge_member_id) AND session_date BETWEEN '$all_challenge_start_date' AND '$all_challenge_end_date'";
 			$all_challenge_member_session_data = mysqli_query($dbconn, $all_challenge_member_session_query);
 			$challenge_session_data=0;
+			// search user session data at by the user id that store in challenge_member_id
 			while($all_challenge_member_session_row = mysqli_fetch_array($all_challenge_member_session_data))
 			{
 				if($all_challenge_goal_type=="steps")
@@ -52,6 +63,7 @@
 				$f++;
 			}
 
+			// store the progress of challenge into database
 			if($challenge_session_data>=$all_challenge_row2['challenge_goal'])
 			{
 				$challenge_goal = $all_challenge_row2['challenge_goal'];

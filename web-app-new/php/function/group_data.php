@@ -63,7 +63,7 @@
 			$x++;
 		}
 
-	// Search member detail
+	// Search group member detail
 	$search_group_member_id_array = implode(',', $search_group_member_id);
 	$search_group_member_query = "SELECT * FROM user WHERE user_id IN ($search_group_member_id_array) ORDER BY first_name";
 	$search_group_member_data = mysqli_query($dbconn, $search_group_member_query);
@@ -75,7 +75,7 @@
 			$group_member_last_name[$y] = $search_group_member_row['last_name'];
 			$y++;
 		}
-
+	// Search group member activity everymonth
 	$search_group_activity_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE user_id IN ($search_group_member_id_array) AND MONTH(session_date)=MONTH(NOW()) ORDER BY first_name";
 	$search_group_member_activity_data = mysqli_query($dbconn, $search_group_activity_query);
 		
@@ -144,7 +144,7 @@
 			$search_all_group_name[$c] = $all_group_row['group_name'];
 			$c++;
 		}
-
+	 // join group function
 	$joining_group_query = "SELECT * FROM group_member WHERE group_id='$join_group_id' AND group_member_user_id = '$group_user_id'";
 	$status_joining_group = mysqli_query($dbconn, $joining_group_query);
 	$status_joining_group_row = mysqli_fetch_array($status_joining_group);
@@ -163,7 +163,7 @@
 				unset($_SESSION['join_groupid']);
 			}
     	}
-
+    // leave group function
     $left_group_query = "SELECT * FROM group_member WHERE group_id='$left_group_id' AND group_member_user_id = '$group_user_id'";
 	$status_left_group_query = mysqli_query($dbconn, $left_group_query);
 	$status_left_group_row = mysqli_fetch_array($status_left_group_query);

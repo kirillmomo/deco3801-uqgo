@@ -30,6 +30,7 @@
 		</script>
 	";
 
+	// define all the variable
 	$user_id = $_SESSION['user_id'];
 	$user_friend_id = $_SESSION['friend_id'];
 	$user_name="";
@@ -73,6 +74,7 @@
 
 	$total_month_distance = 0;
 
+	// SQL code
 	$total_query = "SELECT * FROM session WHERE session_user_id = '$user_id'";
 	$friend_total_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id'";
 	$hour_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
@@ -82,7 +84,7 @@
 	$user_total_distance_query = "SELECT * FROM user WHERE user_id = '$user_id'";
 	$friend_hour_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND DATE(session_date) = DATE(NOW()) AND HOUR(session_date)";
 	$friend_week_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND WEEK(session_date)= WEEK(NOW())";
-
+	// execute the sql code
 	$total_data = mysqli_query($dbconn, $total_query);
 	$friend_total_data = mysqli_query($dbconn, $friend_total_query);
 	$hour_data = mysqli_query($dbconn, $hour_query);
@@ -209,6 +211,7 @@
 		";
 	}
 
+	// Store weekly distance data into array
 	while($week_graph_distance_row = mysqli_fetch_array($week_graph_distance_data))
 	{
 		$date=date("D", strtotime($week_graph_distance_row['session_date']));
@@ -241,7 +244,7 @@
 				$sun_distance_data = $sun_distance_data + $week_graph_distance_row['session_distance'];
 			}
 	}
-
+	// Store weekly distance data into js array
 	echo "
 		<script>
 			mon_distance = ".json_encode($mon_distance_data).";
@@ -253,7 +256,7 @@
 			sun_distance = ".json_encode($sun_distance_data).";
 		</script>
 	";
-
+	// Store monthly distance data into array
 	for ($x = 0; $x <= 11; $x++) 
 	{
     $month_graph_distance_query = "SELECT * FROM session WHERE session_user_id = '$user_id' AND MONTH(session_date)=".$x."+1";
@@ -265,6 +268,7 @@
 			$month_graph_distance_display[$x] = $month_graph_distance_display[$x]+$month_graph_distance_row['session_distance'];
 		}
 
+	// Store monthly distance data into js array
 	echo "
 			<script>
 				month_graph_distance[".json_encode($x)."] = ".json_encode($month_graph_distance_display[$x]).";
@@ -272,7 +276,7 @@
 		";
 
 	}
-
+	// calculate total distance for compare friend state, day, week and month distance 
 	while($total_row = mysqli_fetch_array($total_data))
 	{
 		$total_total_distance = $total_total_distance+$total_row['session_distance'];
@@ -415,7 +419,7 @@
 			</script>
 		";
 	}
-
+	// Store and calculate friend week distance into array 
 	while($friend_week_graph_distance_row = mysqli_fetch_array($friend_week_data))
 	{
 		$date=date("D", strtotime($friend_week_graph_distance_row['session_date']));
@@ -448,7 +452,7 @@
 				$friend_sun_distance_data = $friend_sun_distance_data + $friend_week_graph_distance_row['session_distance'];
 			}
 	}
-
+	// Store week distance data into js array
 	echo "
 		<script>
 			friend_mon_distance = ".json_encode($friend_mon_distance_data).";
@@ -460,7 +464,7 @@
 			friend_sun_distance = ".json_encode($friend_sun_distance_data).";
 		</script>
 	";
-
+	// Store friend month distance data
 	for ($b = 0; $b <= 11; $b++) 
 	{
     $friend_month_graph_distance_query = "SELECT * FROM session WHERE session_user_id = '$user_friend_id' AND MONTH(session_date)=".$b."+1";
@@ -471,7 +475,7 @@
 		{
 			$friend_month_graph_distance_display[$b] = $friend_month_graph_distance_display[$b]+$friend_month_graph_distance_row['session_distance'];
 		}
-
+	// Store friend month distance data into js array
 	echo "
 			<script>
 				friend_month_graph_distance[".json_encode($b)."] = ".json_encode($friend_month_graph_distance_display[$b]).";
@@ -480,14 +484,7 @@
 
 	}
 
-
-
-
-
-
-
-
-
+	// Update user total distance everytime user login
 	while($user_total_distance_row = mysqli_fetch_array($user_total_distance_data))
 	{
 		if($user_total_distance_row['user_total_distance']!=$total_distance);

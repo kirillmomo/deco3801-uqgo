@@ -5,11 +5,8 @@
 	$_SESSION["search"] = $search;
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/button_status.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
-	// Do a search for user's full names containing the search term
-	// Ensure that list returned are not already friends with the user
-
-// EXAMPLE RETURNED LIST - users should be echoed like below
-
+	
+	// search unadded user list
 	if($error_msg!="")
 	{
 	?><p><?php echo $error_msg; ?></p><?php
@@ -17,7 +14,6 @@
 	
 	if(sizeof($search_friend_id)!=0)
 	{
-		// echo a list of joined groups
 		for($i = 0; $i<sizeof($search_friend_id); $i++)
 		{
 			$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/users/'.$search_friend_id[$i].'.jpg');

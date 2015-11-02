@@ -17,6 +17,7 @@
 	$track_session_display_latlng = "";
 	$i=0;
 
+	// Search today session
 	if ($track_session_filter=="today") 
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id' AND DATE(session_date) = CURDATE()";
@@ -29,6 +30,7 @@
 			$i++;
 		}
 	}
+	// Search this week session
 	elseif ($track_session_filter=="week") 
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id' AND WEEK(session_date)= WEEK(NOW())";
@@ -41,6 +43,7 @@
 			$i++;
 		}
 	}
+	// Search this month session
 	elseif ($track_session_filter=="month") 
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id' AND MONTH(session_date)= MONTH(NOW())";
@@ -53,6 +56,7 @@
 			$i++;
 		}
 	}
+	// search all session
 	else
 	{
 		$track_session_query = "SELECT * FROM session WHERE session_user_id = '$track_session_user_id'";
@@ -65,7 +69,7 @@
 			$i++;
 		}
 	}
-
+	// get specific session data and display it on the session page.
 	$track_session_display_query = "SELECT * FROM user INNER JOIN session ON user.user_id = session.session_user_id WHERE session_id = '$track_session_display_id'";
 	$track_session_display_data = mysqli_query($dbconn, $track_session_display_query);
 

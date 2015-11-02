@@ -7,7 +7,6 @@
 	//if user has logged in, go to admin page
 	if(isset($_SESSION['admin_id'])){
 	header('Location: /v0-6/admin.php');
-	// header('Location: /Beta/web-app-new/admin.php');
 	}
 
 	//Login Verification
@@ -33,7 +32,6 @@
 		    	//if username and password match, store admin_id and go to admin page    	
 		    	$_SESSION['admin_id'] = $row['admin_id'];
 		    	header('Location: /v0-6/admin.php');
-				// header('Location: /Beta/web-app-new/admin.php');
 		    }
 		}
 	}

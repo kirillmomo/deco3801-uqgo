@@ -1,4 +1,6 @@
 <?php
+
+	// Update user detail
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 	include('connect.php');
 	$user_id=$_SESSION['user_id'];

@@ -7,6 +7,7 @@
 	// Include session_data php file to get user track session data 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_data.php');
 
+	// display all the user session list
 	for($i = 0; $i<sizeof($track_session_id); $i++)
 	{
 	?>

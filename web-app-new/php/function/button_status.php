@@ -3,6 +3,7 @@
 	// Include connect php file
 	include('connect.php');
 
+	// define variable
 	$button_status_condition="";
 	$button_status_user_id=$_SESSION['user_id'];
 	$button_status_friend_id=$_SESSION['friend_id'];
@@ -13,6 +14,7 @@
 	$button_status1 = mysqli_fetch_array($button_status_data1);
 	$button_status2 = mysqli_fetch_array($button_status_data2);
 
+	// Condition which button display on view_friend.php
 	if($button_status_friend_id!=null && $button_status_user_id!=null)
 	{
 
@@ -25,7 +27,7 @@
 			$button_status_condition="friend";
 		}
 	}
-
+	// Condition which button display on view_group.php
 	$group_button_status_condition="";
 	$group_button_status_user_id=$_SESSION['user_id'];
 	$group_button_status_group_id=$_SESSION['group_id'];
@@ -45,7 +47,7 @@
 			$group_button_status_condition="joined";
 		}
 	}
-
+	// Condition which button display on view_challenge.php
 	$challenge_button_status_condition="";
 	$challenge_button_status_user_id=$_SESSION['user_id'];
 	$challenge_button_status_challenge_id=$_SESSION['challenge_id'];

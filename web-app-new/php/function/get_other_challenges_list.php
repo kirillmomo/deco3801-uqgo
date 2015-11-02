@@ -3,12 +3,12 @@
 	// Include session php file to start PHP session 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 
-	// Include group_data php file to get user group data 
+	// Include group_data php file to get user challenge data 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/challenge_data.php');
 
+	// display all unjoined challenge list
 	if(sizeof($search_unjoined_challenge_id)!=0)
 	{
-		// echo a list of joined groups
 		for($i = 0; $i<sizeof($search_unjoined_challenge_id); $i++)
 		{
 

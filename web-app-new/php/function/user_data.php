@@ -235,7 +235,7 @@
 			}
     	}
 
-
+    	// list user friend list by rank
     	$rank_by_friend_search = implode(',', $search_user_friend_id);
 		$rank_by_friend_search_query = "SELECT * FROM user WHERE user_id IN ($rank_by_friend_search) ORDER BY $rank_by DESC";	
 		$rank_by_friend_search_data = mysqli_query($dbconn, $rank_by_friend_search_query);
@@ -248,7 +248,7 @@
 			$friend_list_id[$a]=$rank_by_friend_search_row['user_id'];
 		$a++;
 		}
-
+		// list group friend list by alphabert order
 		$group_friend_search = implode(',', $search_user_friend_id);
 		$group_friend_search_query = "SELECT * FROM user WHERE user_id IN ($group_friend_search) ORDER BY first_name";	
 		$group_friend_search_data = mysqli_query($dbconn, $group_friend_search_query);

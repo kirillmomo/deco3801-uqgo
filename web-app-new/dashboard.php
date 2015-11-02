@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>UQGO - Dashboard</title>
     <?php
-    // include "./php/page-elements/header.php"; 
     include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/header.php');
     ?>
     <script src="./js/Chart.js"></script>
@@ -18,8 +17,6 @@
   </head>
   <body>
   <?php
-  // include "./php/page-elements/sidebar.php"; 
-  // include "./php/page-elements/notification-tray.php";
   include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/sidebar.php');
   include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/page-elements/notification-tray.php');
   ?>

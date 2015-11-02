@@ -5,5 +5,4 @@
 	
 	// redirect to admin login page
 	header('Location: /v0-6/admin-login.php');
-	// header('Location: /Beta/web-app-new/admin-login.php');
 ?>

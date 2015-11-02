@@ -1553,7 +1553,7 @@
 		";
 
 	}
-
+	// update user total step/total cal when user is login
 	while($user_total_row = mysqli_fetch_array($user_total_data))
 	{
 		if($user_total_row['user_total_step']!=$total_step || $user_total_row['user_total_cal']!=$total_calories);
@@ -1563,7 +1563,3 @@
 		}
 	}
 ?>
-
-<script>
-				// alert(<?php echo $user_friend_id; ?>);
-</script>

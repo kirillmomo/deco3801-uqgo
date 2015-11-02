@@ -7,6 +7,7 @@
 	//Include group_data php file to get user join group data 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/button_status.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/group_data.php');
+	// Store picture location into $pic_status
 	$pic_status = is_file($_SERVER['DOCUMENT_ROOT'].'/profile_img/groups/'.$display_group_id.'.jpg');
 
 

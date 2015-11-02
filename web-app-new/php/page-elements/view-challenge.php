@@ -1,7 +1,6 @@
 <?php
 	// Include session php file to start PHP session 
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
-
 	$challenge_id = $_GET['challenge_id']; // getting challenge_id from the ajax request,
 	$_SESSION['challenge_id'] = $challenge_id;
 	// Include challenge_data php file to get user challenge data 
@@ -15,7 +14,7 @@
 			*Complete 1000 steps in 7 days
 			*Walk 1000km in 7 days
 			*Burn 10000 calories in 7 days-->
-	<p class="profile-detail challenge-description">Complete <?php echo $challenge_detail_progress; ?> <?php echo $challenge_detail_type; ?>  in <?php echo $challenge_detail_day_left; ?> days</p>
+	<p class="profile-detail challenge-description">Complete <?php echo $challenge_detail_goal; ?> <?php echo $challenge_detail_type; ?>  in <?php echo $challenge_detail_day_left; ?> days</p>
 	<p class="profile-detail"><?php echo $total_user_join_num; ?> participants</p>
 	<p class="profile-detail">Duration: <?php echo $challenge_detail_start_date; ?> - <?php echo $challenge_detail_end_date; ?></p>
 	

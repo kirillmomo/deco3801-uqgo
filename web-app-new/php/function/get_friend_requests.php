@@ -1,7 +1,7 @@
 <?php
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/session_start.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
-
+	// display all the friend request
 	for($i = 0; $i<sizeof($search_friend_request_user_id); $i++)
 	{
 		?>

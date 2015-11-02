@@ -2,8 +2,6 @@
 
 // Include connect and login file.
 
-// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/connect.php');
-// include($_SERVER['DOCUMENT_ROOT'].'/Beta/web-app-new/php/function/login.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/connect.php');
 include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/login.php');
 ?>

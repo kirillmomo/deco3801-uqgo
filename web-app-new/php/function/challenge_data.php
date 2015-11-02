@@ -97,7 +97,6 @@
 			$a++;
 		}
 
-		$total_user_join_num=sizeof($total_challenge_user_num_id);
 
 	while($challenge_joined_user_row = mysqli_fetch_array($challenge_joined_user_data))
 		{
@@ -116,6 +115,8 @@
 			$search_challenge_joined_user_last_name[$y] = $search_challenge_member_row['last_name'];
 			$y++;
 		}
+
+		$total_user_join_num=sizeof($search_challenge_joined_user_id);
 
 
 	// Search user joined challenge data

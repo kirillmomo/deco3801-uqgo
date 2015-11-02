@@ -5,7 +5,6 @@ session_start();
 if(empty($_SESSION['admin_id'])){
     header('Location: /v0-6/admin-login.php');
   } 
-
   include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/admin_function.php');   
 ?>
 
