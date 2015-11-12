@@ -7,7 +7,7 @@ function getOSVersion() {
 
 // Make changes based on the version of the application.
 function makeVersionChanges() {
-    // 1 character osversion means device is apple
+    // 1 character osversion means device is apple otherwise android
     if(osversion.length === 1) {
         $(".listtab").addClass("topspaceios");
         console.log("OS Version Apple");
@@ -19,6 +19,7 @@ function makeVersionChanges() {
 
 // Log the user out
 function logout() {
+    // Remove user id cookie
     intel.xdk.cache.removeCookie("userid");
     window.location = "login.html";
 }

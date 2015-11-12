@@ -23,20 +23,28 @@
   </style>
     <script>
         
+        // Open expanded view for in progress challenge.
         function showProgress(num) {
             $("#progresscontent").slideDown(600);
             $("#progresslist").slideUp(600);
             
+            // Edit view contents to display data from chosen challenge
             if(num === 1) {
+                // Change percentage filled on progress bar
                 $(".progressdisplay").css("width", "83%");
+                // Edit text based content
                 $(".objvalue").html("Walk 1000 Steps");
                 $(".numprogress").html("830/1000 Steps");
             } else if (num === 2) {
+                // Change percentage filled on progress bar
                 $(".progressdisplay").css("width", "33%");
+                // Edit text based content
                 $(".objvalue").html("Walk 3000 Metres");
                 $(".numprogress").html("1000/3000 Metres");
             } else if (num === 3) {
+                // Change percentage filled on progress bar
                 $(".progressdisplay").css("width", "55%");
+                // Edit text based content
                 $(".objvalue").html("Burn 1000 Kcals");
                 $(".numprogress").html("550/1000 Kcals");
             } else {
@@ -44,25 +52,34 @@
             }
         }
         
+        // Hide expanded view for in progress challenges
         function hideProgress(num) {
             $("#progresscontent").slideUp(600);
             $("#progresslist").slideDown(600);
         }
         
+        // Open expanded view of completed challenge
         function showCompleted(num) {
             $("#completedcontent").slideDown(600);
             $("#completedlist").slideUp(600);
             
+            // Edit view contents to display data from chosen challenge
             if(num === 1) {
+                // Change percentage filled on progress bar
                 $(".progressdisplay").css("width", "100%");
+                // Edit text based content
                 $(".objvalue").html("Walk 500 Steps");
                 $(".numprogress").html("500/500 Steps");
             } else if (num === 2) {
+                // Change percentage filled on progress bar
                 $(".progressdisplay").css("width", "100%");
+                // Edit text based content
                 $(".objvalue").html("Walk 1000 Metres");
                 $(".numprogress").html("1000/1000 Metres");
             } else if (num === 3) {
+                // Change percentage filled on progress bar
                 $(".progressdisplay").css("width", "100%");
+                // Edit text based content
                 $(".objvalue").html("Burn 500 Kcals");
                 $(".numprogress").html("500/500 Kcals");
             } else {
@@ -70,6 +87,7 @@
             }
         }
         
+        // Hide expanded view of completed challenge
         function hideCompleted(num) {
             $("#completedcontent").slideUp(600);
             $("#completedlist").slideDown(600);
@@ -81,6 +99,7 @@
 
     <ion-tabs id="tabnav" class="tabs-balanced tabs-top tabs-icon-only">
 
+        <!-- In Progress Tab -->
         <ion-tab title="In Progress" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">In Progress</h1>
@@ -138,6 +157,7 @@
                     </ul>
                 </div>
                 
+                <!-- In Progress Expanded View -->
                 <div id=progresscontent>
                     <div class="backbutton">
                     <button class="button button-light" onclick="hideProgress(1)">
@@ -167,6 +187,7 @@
             </ion-content>
         </ion-tab>
         
+        <!-- Completed Tab -->
         <ion-tab title="Completed" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Completed</h1>
@@ -224,6 +245,7 @@
                     </ul>
                 </div>
                 
+                <!-- Completed Expanded View -->
                 <div id=completedcontent>
                     <div class="backbutton">
                     <button class="button button-light" onclick="hideCompleted(1)">
@@ -253,6 +275,7 @@
             </ion-content>
         </ion-tab>
 
+        <!-- Discover Tab -->
         <ion-tab title="Discover">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Discover</h1>

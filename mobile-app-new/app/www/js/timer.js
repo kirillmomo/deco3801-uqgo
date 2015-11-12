@@ -25,7 +25,7 @@ function timer() {
     if(counting){
         // Updates the onscreen timer.
         $('#runtime').html(formatted);
-        // Get Location once every ten seconds
+        // Get Location once every thirty seconds
         if(time % 30 === 0) {
             getLocation();
         }
@@ -51,12 +51,14 @@ function pauseToggle() {
 // Redirects once the session is complete
 function startFinish() {
     if(sessionstarted == 0){
+        // Start session
         sessionstarted = 1;
         // Rename Button
         $('#stoptrack').html('Done');
         // Begin the Session Timer and Step counter
         resumeTimer();    
     } else {
+        // Ends session
         sessionstarted = 0;
         pauseTimer();
         navigator.accelerometer.clearWatch(stepwatch);
@@ -82,6 +84,7 @@ function resumeTimer() {
 }
 
 function postSessionData(){
+    // Gather Session Data
     var walkduration = time;
     var walkdist = parseFloat(distance/1000);
     var walksteps = steps;

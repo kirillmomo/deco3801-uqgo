@@ -23,22 +23,25 @@
   </style>
     <script>
         
+        // Opens friend profile view
         function showFriend(num) {
             $("#friendcontent").slideDown(600);
             $("#friendlist").slideUp(600);
-            console.log(intel.xdk.device.osversion);
         }
         
+        // Closes friend profile view
         function hideFriend(num) {
             $("#friendcontent").slideUp(600);
             $("#friendlist").slideDown(600);
         }
         
+        // Open Group's expanded view
         function showGroup(num) {
             $("#groupcontent").slideDown(600);
             $("#grouplist").slideUp(600);
         }
         
+        // Closes Group's expanded view
         function hideGroup(num) {
             $("#groupcontent").slideUp(600);
             $("#grouplist").slideDown(600);
@@ -137,6 +140,7 @@
                     </ul>
                 </div>
                 
+                <!-- Friend Profile View -->
                 <div id=friendcontent>
                     <div class="backbutton">
                         <button class="button button-light" onclick="hideFriend(1)">
@@ -232,6 +236,7 @@
                     <div class="bottomspace"></div>
                 </div>
                 
+                <!-- Group Expanded View -->
                 <div id=groupcontent>
                     <div class="backbutton">
                     <button class="button button-light" onclick="hideGroup(1)">

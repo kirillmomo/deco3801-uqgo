@@ -23,11 +23,13 @@
   </style>
     <script>
         
+        // Open a desired Graph
         function showGraph(graph) {
             $(graph).slideDown(600);
             $(".dashtab").slideUp(600);
         }
         
+        // Hide a desired Graph
         function hideGraph(graph) {
             $(".dashtab").slideDown(600);
             $(graph).slideUp(600);
@@ -40,6 +42,7 @@
 
     <ion-tabs id="tabnav" class="tabs-balanced tabs-top tabs-icon-only">
 
+        <!-- Overview Tab -->
         <ion-tab title="Overview" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Overview</h1>
@@ -51,6 +54,7 @@
             <ion-content class="listtab">
                 <h2 class="graphtitle">Steps This Week</h2>
                 <div id="overview" class="graph">
+                    <!-- Graph Labels -->
                     <div class="graphlabels">
                         <h3 class="wlabel">Mon</h3>
                         <h3 class="wlabel">Tues</h3>
@@ -61,6 +65,7 @@
                         <h3 class="wlabel">Sun</h3>
                     </div>
                     
+                    <!-- Graph data (Bars) -->
                     <div class="graphdata">
                         <div id="M" class="wgraphbar" style="width: 100%">1000</div>
                         <div id="Tu" class="wgraphbar" style="width: 92%">920</div>
@@ -74,7 +79,8 @@
                 <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
-        
+ 
+        <!-- Steps Tab -->       
         <ion-tab title="Steps" >
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Steps</h1>
@@ -124,6 +130,7 @@
                     </div>
                     <h2 class="graphtitle">Steps This Week</h2>
                     <div id="overview" class="graph">
+                        <!-- Graph Labels -->
                         <div class="graphlabels">
                             <h3 class="wlabel">Mon</h3>
                             <h3 class="wlabel">Tues</h3>
@@ -154,6 +161,7 @@
                     </div>
                     <h2 class="graphtitle">Montly Steps</h2>
                     <div id="overview" class="graph">
+                        <!-- Graph Labels -->
                         <div class="graphlabels">
                             <h3 class="mlabel">Jan</h3>
                             <h3 class="mlabel">Feb</h3>
@@ -189,6 +197,7 @@
             </ion-content>
         </ion-tab>
 
+        <!-- Distance Tab -->
         <ion-tab title="Distance">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Distance</h1>
@@ -238,6 +247,7 @@
                     </div>
                     <h2 class="graphtitle">Distance This Week</h2>
                     <div id="overview" class="graph">
+                        <!-- Graph Labels -->  
                         <div class="graphlabels">
                             <h3 class="wlabel">Mon</h3>
                             <h3 class="wlabel">Tues</h3>
@@ -268,6 +278,7 @@
                     </div>
                     <h2 class="graphtitle">Monthly Distance</h2>
                     <div id="overview" class="graph">
+                        <!-- Graph Labels -->  
                         <div class="graphlabels">
                             <h3 class="mlabel">Jan</h3>
                             <h3 class="mlabel">Feb</h3>
@@ -303,6 +314,7 @@
             </ion-content>
         </ion-tab>
 
+        <!-- Calories Tab -->
         <ion-tab title="Calories">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Calories</h1>
@@ -352,6 +364,7 @@
                     </div>
                     <h2 class="graphtitle">Distance This Week</h2>
                     <div id="overview" class="graph">
+                        <!-- Graph Labels -->  
                         <div class="graphlabels">
                             <h3 class="wlabel">Mon</h3>
                             <h3 class="wlabel">Tues</h3>
@@ -382,6 +395,7 @@
                     </div>
                     <h2 class="graphtitle">Monthly Distance</h2>
                     <div id="overview" class="graph">
+                        <!-- Graph Labels -->  
                         <div class="graphlabels">
                             <h3 class="mlabel">Jan</h3>
                             <h3 class="mlabel">Feb</h3>
@@ -416,7 +430,8 @@
                 <div class="bottomspace"></div>
             </ion-content>
         </ion-tab>
-        
+   
+        <!-- Sessions Tab -->     
         <ion-tab title="Sessions">
             <ion-header-bar id="header" class="bar bar-header bar-positive">
                 <h1 id="headertitle" class="title">Sessions</h1>

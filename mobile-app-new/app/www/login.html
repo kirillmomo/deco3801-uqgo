@@ -31,6 +31,7 @@
         function hideLogin() {
             $("#login").slideUp(600);
             $("#loginscreen").slideDown(600);
+            // Remove values typed in the textfields
             $("#logformuser").val("");
             $("#logformpass").val("");
         }
@@ -45,6 +46,7 @@
         function hideRegister() {
             $("#register").slideUp(600);
             $("#loginscreen").slideDown(600);
+            // Remove values typed in the textfields
             $("#regformuser").val("");
             $("#regformpass").val("");
         }
@@ -52,14 +54,18 @@
         // Login the user
         function login() {
             username = $("#logformuser").val();
+            // Ensure no userid cookie already exists
             intel.xdk.cache.removeCookie("userid");
+            // Create a user ID cookie with the usersname
             intel.xdk.cache.setCookie("userid", username, -1);
             window.location = "index.html";
         }
         
         // Ensure that the user is logged out
+        // Currently inoperable as mobile prototype does not require login
         function checkLogin() {
             var loggedin = intel.xdk.cache.getCookie("userid");
+            // Redirects user to login if no userid cookie is present
             if(loggedin != undefined){
                 window.location = "index.html";
             }
@@ -130,18 +136,21 @@
                 
     </div>
         <script type="text/javascript">
+            // Submit Register Form data to the database.
 			$("#regsubmit").submit(function(){
                 var postData = $(this).serialize();
                 console.log(postData);
-                
+                // Create AJAX object for sending data
                 $.ajax({
                     type: 'POST',
                     data: postData,
                     url: "http://silversquad.uqcloud.net/WebService/postRegisterInfo.php",
                     success: function(data){
+                        // Logs return data on successful post to web service
                         console.log(data);
                     },
                     error: function(data){
+                        // Actions taken when the post encouters an error
                         console.log(data);
                         alert("Registration failed. Please try again.");
                     }

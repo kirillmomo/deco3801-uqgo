@@ -3,17 +3,18 @@ var route = "";
 // Geolocation watch settings
 var geosettings = { timeout: 30000, enableHighAccuracy: true };
 
+// Process location data
 function geoSuccess(position) {
-    // handle geolocation data
+    // Format data for databse insertion
     var data = "(" + position.coords.latitude + "," + position.coords.longitude + ")";
     console.log('location: ' +data);
+    // Append location to route string
     route+=data + ' ';
     console.log(route);
-    //alert(route);
 }
 
+// Handle error with Geolocation
 function geoError() {
-    // handle geolocation error
     console.log("Geolocation Error occured");
 }
 
