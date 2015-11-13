@@ -8,6 +8,7 @@
 	    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
 	};
 
+	// Switch between joined groups or discover groups modes
 	function toggleGroupSearch() {
 		if (showingJoined) {
 			// Show nonjoined groups
@@ -43,6 +44,7 @@
 		}
 	}
 
+	// Displays list of joined groups
 	function loadJoinedGroupsList() {
 		$("#group-search-box").val("");
 		$.ajax({
@@ -61,6 +63,7 @@
 		});
 	}
 
+	// Displays list of other existing groups
 	function loadOtherGroupsList() {
 		$("#group-search-box").val("");
 		$.ajax({
@@ -79,6 +82,7 @@
 		});
 	}
 
+	// Filters groups
 	function filterGroups() {
 		var filter = $("#group-search-box").val();
 		if (filter) {
@@ -89,25 +93,7 @@
 		}
 	}
 
-	/*function searchGroups(event) {
-		// we will use ajax to search users when user presses enter
-		var searchInput = $("#friend-search-box").val();
-		if (event.keyCode == 13 && searchInput) {
-			console.log("Searching for " + searchInput);
-			$.ajax({
-			url: "./php/function/get_user_list.php",
-			dataType: "html",
-			data: "search=" + searchInput,
-			success: function(data) {
-				$(".search-results").html(data);
-			},
-			error: function(jqXHR, status, err) {
-				$(".search-results").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error searching for users. (" + status + ": " + err + ")</p>");
-			}
-		});
-		}
-	}*/
-
+	// Shows group info
 	function showGroup(group_id, item) {
 		// We will use ajax to load group profiles
 		$(".groups-list > li").each(function() {
@@ -132,6 +118,7 @@
 		});
 	}
 
+	// Invokes join group function on server
 	function joinGroup(group_id, button) {
 		$.ajax({
 			url: "./php/function/join_group.php",
@@ -149,6 +136,7 @@
 		});
 	}
 
+	// Invokes leave group function on server
 	function leaveGroup(group_id, button) {
 		$.ajax({
 			url: "./php/function/leave_group.php",
@@ -166,6 +154,7 @@
 		});
 	}
 
+	// Display group creator form
 	function showCreate() {
 		$(".groups-content").addClass("slide-in");
 		if (!showingJoined) {
@@ -190,6 +179,7 @@
 		});
 	}
 
+	// Initialise custom multi select (drop down for friends)
 	function initMultiSelector() {
 		$("#creator-group-friends-list").select2({
 			placeholder: "Search or select friends to add"
@@ -198,9 +188,9 @@
 		console.log("Multi selector initialised");
 	}
 
+	// Serialises form and sends to server, invokes create group function on server
 	function createGroup() {
-		// Need to manually serialise the form, the custom select box doesn't serialise properly when multiple values are selected
-		// var dataString = "group_name=" + $("#creator-group-name").val() + "&group_description=" + $("#creator-group-description").val() + "&group_friends_list=" + $("#creator-group-friends-list").val();
+		// The custom select box doesn't serialise properly when multiple values are selected, so need to append it to the serialised data
 		var inviteFriends = $("#creator-group-friends-list").val();
 		var formData = new FormData($(".create-group-form").get(0));
 		formData.append("inviteFriends", inviteFriends);
@@ -217,6 +207,7 @@
 		    },
 			success: function(data) {
 				if (data) {
+					// Show feedback and display button to view group
 					console.log("Success creating group: " + data);
 					$("#create-group-submit").html("<i class='fa fa-check'></i> Group Created");
 					$("#create-group-submit").prop("disabled", true);

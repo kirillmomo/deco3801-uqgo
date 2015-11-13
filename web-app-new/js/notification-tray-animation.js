@@ -17,7 +17,3 @@ function hideNotificationTray() {
   $(".notification-tray").removeClass("tray-visible");
   $(".notification-darkness").stop().fadeOut(300, "swing");
 }
-
-function dismissNotificationItem() {
-
-}

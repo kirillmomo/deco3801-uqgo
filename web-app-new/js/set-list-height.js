@@ -1,3 +1,4 @@
+// Dynamically sets the list height based on viewport height (e.g. friends lists, etc)
 function setListHeight() {
   var windowHeight = $(window).height();
   var subtractHeight = 200; // extra padding

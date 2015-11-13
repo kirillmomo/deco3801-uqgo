@@ -1,5 +1,4 @@
 <script type="text/javascript">
-	// var showingJoined = true;
 	setListHeight();
 	$(window).resize(setListHeight);
 	loadChallengesList();
@@ -8,6 +7,7 @@
 	    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
 	};
 
+	// Displays the completed challenges on the list
 	function loadChallengesList() {
 		$("#challenges-search-box").val("");
 		$.ajax({
@@ -27,6 +27,7 @@
 		});
 	}
 
+	// Filters challenges
 	function filterChallenges() {
 		var filter = $("#challenge-search-box").val();
 		if (filter) {
@@ -37,6 +38,7 @@
 		}
 	}
 
+	// Displays the selected challenge information
 	function showChallenge(challenge_id, item) {
 		// We will use ajax to load challenge profiles
 		$(".challenges-list > li").each(function() {
@@ -60,6 +62,7 @@
 		});
 	}
 
+	// Gets the challenge days passed/remaining
 	function retrieveProgressDays(challenge_id) {
 		$.ajax({
 			url: "./php/function/get_challenge_progress.php",
@@ -75,6 +78,7 @@
 		});
 	}
 
+	// Displays the goal progress and duration
 	function showProgressDays(progressData) {
 		var goalProgress = progressData["goalProgress"];
 		var goalAmount = progressData["goalAmount"];
@@ -133,6 +137,7 @@
 		line.animate(lineProgress);
 	}
 
+	// Invokes join challenge function on server
 	function joinChallenge(challenge_id, button) {
 		$.ajax({
 			url: "./php/function/join_challenge.php",

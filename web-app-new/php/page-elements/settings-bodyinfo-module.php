@@ -6,6 +6,7 @@
 ?>
 
 <script type="text/javascript">
+	// Intercept default behaviour of form submission
 	$(".settings-body-form").on('submit', function(e) {
 		e.preventDefault();
 		submitForm();
@@ -15,6 +16,7 @@
 		$("#settings-submit").html("Save Info");
 	});
 
+	// Submits form
 	function submitForm() {
 		$.ajax({
 			type: "POST",

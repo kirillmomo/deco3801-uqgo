@@ -18,6 +18,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 	    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
 	};
 
+	// Switch between friend mode or add friend modes
 	function toggleFriendSearch() {
 		if (friendView) {
 			// Switch to user search
@@ -51,7 +52,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 			$(".search-results").fadeOut(100, "swing", function() {
 				$(".friends-list").fadeIn(100, "swing");
 			});
-			//$(".friends-list").each().slideDown(100, "swing");
 			filterFriendsList();
 			$(".friends-content").addClass("slide-in");
 			$(".friends-list > li").each(function() {
@@ -61,6 +61,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		}
 	}
 
+	// Displays list of friends
 	function loadFriendsList() {
 		$("#friend-search-box").val("");
 		var rankBy = $("#rank-option").val();
@@ -78,6 +79,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		});
 	}
 
+	// Filters friends
 	function filterFriendsList() {
 		var filter = $("#friend-search-box").val();
 		if (filter) {
@@ -88,6 +90,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		}
 	}
 
+	// Performs search on other users
 	function searchUsers(event) {
 		// we will use ajax to search users when user presses enter
 		var searchInput = $("#friend-search-box").val();
@@ -107,6 +110,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		}
 	}
 
+	// Shows friend/user profile
 	function showProfile(user_id, item) {
 		// We will use ajax to load user profiles
 		var visibleList = friendView ? ".friends-list" : ".search-results";
@@ -130,6 +134,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		});
 	}
 
+	// Invokes friend request on server
 	function addFriend(user_id, button) {
 		$.ajax({
 			url: "./php/function/add_friend.php",
@@ -146,6 +151,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		});
 	}
 
+	// Invokes removing friend on server
 	function removeFriend(user_id, button) {
 		$.ajax({
 			url: "./php/function/remove_friend.php",
@@ -162,11 +168,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/v0-6/php/function/user_data.php');
 		});
 	}
 
+	// Redraws stats chart
 	function updateChart() {
+		// Don't show chart if user is not friends
 		if ($("#compare-chart")[0] == null) {
 			console.log("Not displaying chart, user is not friend");
 			return;
 		}
+		// Clear existing chart
 		if (compareChart === undefined) {
 			console.log("no chart");
 		} else {

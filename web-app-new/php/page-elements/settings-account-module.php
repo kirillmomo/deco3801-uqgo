@@ -8,17 +8,20 @@
 ?>
 
 <script type="text/javascript">
+	// Intercept default behaviour of form submission
 	$(".settings-info-form").on('submit', function(e) {
 		e.preventDefault();
 		validateForm();
 	});
 
+	// Hide validation messages on form change
 	$(".settings-info-form").on('change', function(e) {
 		$(".form-invalid-error").slideUp();
 		$(".form-invalid-error").empty();
 		$("#settings-submit").html("Save Info");
 	});
 
+	// Validates the form
 	function validateForm() {
 		var currentYear = new Date().getFullYear();
 		var inputYear = $("#settings-dob-year").val();
@@ -30,6 +33,7 @@
 		submitForm();
 	}
 
+	// Submits form
 	function submitForm() {
 		$.ajax({
 			type: "POST",

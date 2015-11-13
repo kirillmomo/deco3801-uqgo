@@ -13,6 +13,7 @@
 	getRequests();
 	var requestTimer = setInterval(getRequests, pollTime);
 
+	// Determine whether to notify the user based on new friend requests
 	function updateNotifications() {
 		var requestCount = $(".notification-list").children().length;
 		var star = $("#notify");
@@ -31,6 +32,7 @@
 		}
 	}
 
+	// Retrieve the friend requests
 	function getRequests() {
 		$.ajax({
 			url: "./php/function/get_friend_requests.php",
@@ -46,6 +48,7 @@
 		});
 	}
 
+	// Invokes accepting friend on server
 	function acceptFriend(friend_id) {
 		$.ajax({
 			url: "./php/function/accept_friend_request.php",
@@ -61,6 +64,7 @@
 		});
 	}
 
+	// Invoes declining friend on server
 	function declineFriend(friend_id) {
 		$.ajax({
 			url: "./php/function/decline_friend_request.php",
@@ -76,6 +80,7 @@
 		});
 	}
 
+	// Suspends auto updates to retrieve friend requests
 	function manuallyGetRequests() {
 		clearInterval(requestTimer);
 		getRequests();

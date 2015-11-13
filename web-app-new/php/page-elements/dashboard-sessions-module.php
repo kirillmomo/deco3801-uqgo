@@ -8,6 +8,7 @@
 	loadSessionsList();
 	initMap();
 	
+	// Initialise Google map
 	function initMap() {
 	  map = new google.maps.Map(document.getElementById('map'), {
 	    center: {lat: -27.495649, lng: 153.011923},
@@ -31,6 +32,7 @@
 	    return time;
 	}
 
+	// Displays list of sessions
 	function loadSessionsList() {
 		var filterTime = $("#time-option").val();
 		$.ajax({
@@ -48,12 +50,12 @@
 		});
 	}
 
+	// Displays session info
 	function showSession(session_id, item) {
 		$(".sessions-list > li").each(function() {
 			$(this).removeClass("active-list-item");
 		});
 		$(item).addClass("active-list-item");
-		// $(".sessions-content").fadeOut(200, "swing");
 		$(".sessions-content").addClass("slide-in");
 		$.ajax({
 			url: "./php/function/get_session_info.php",
@@ -61,6 +63,7 @@
 			data: "session_id=" + session_id,
 			success: function(data) {
 				console.log("Success retrieving session info.");
+				// Insert data into session template
 				$(".session-name").text(data["session_name"]);
 				$("#session-steps").text(data["steps"]);
 				$("#session-distance").text(data["distance"]);
@@ -68,8 +71,6 @@
 				var duration = data["duration"]
 				$("#session-duration").text(duration.toString().toHHMMSS());
 				updateMap(data["routeLatLng"]);
-				// $(".sessions-content").fadeIn(200, "swing");
-				// google.maps.event.trigger(map, 'resize');
 				$(".sessions-content").removeClass("slide-in");
 			},
 			error: function(jqXHR, status, err) {
@@ -78,6 +79,7 @@
 		});
 	}
 
+	// Updates the route on the map
 	function updateMap(routeLatLng) {
 		var latlng_array = routeLatLng.split('\n');
 		var array_length = latlng_array.length;
@@ -86,6 +88,7 @@
 		// var end_lat;
 		// var end_lng;
 
+		// Reset route and coords if already exists
 		if (routeCoords) {
 			routeCoords.length = 0;
 			routeLine.setMap(null);
@@ -94,6 +97,7 @@
 		}
 		routeCoords = [];
 
+		// Parse the latlngs in the array
 		for (var i=0; i < array_length; i++) {
 			latlng = latlng_array[i].replace('(', '');
 			latlng = latlng.replace(')', '');
@@ -113,6 +117,7 @@
 			routeCoords.push(new google.maps.LatLng(lat, lng));
 		}
 
+		// Create line
 		routeLine = new google.maps.Polyline({
 		  path: routeCoords,
 		  geodesic: true,
@@ -121,6 +126,7 @@
 		  strokeWeight: 3
 		});
 
+		// Create map markers
 /*		var marker_start = new.google.maps.Marker({
 			position: new google.maps.LatLng(start_lat, start_lng),
 			icon: 'img/marker_start.png'
@@ -135,7 +141,6 @@
 		map.setCenter(new google.maps.LatLng(start_lat, start_lng));
 		console.log("Drawed new route on map");
 	}
-
 </script>
 <div class="sessions-sidebar module-sidebar">
 	<select id="time-option" onChange="loadSessionsList();">

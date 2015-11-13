@@ -1,5 +1,4 @@
 <script type="text/javascript">
-	// var showingJoined = true;
 	setListHeight();
 	$(window).resize(setListHeight);
 	loadChallengesList();
@@ -8,41 +7,7 @@
 	    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
 	};
 
-	/*function toggleGroupSearch() {
-		if (showingJoined) {
-			// Show nonjoined groups
-			$("#discover-groups-button").find('i').fadeOut(100, "swing", function() {
-				$("#discover-groups-button").find('i').removeClass("fa-search").addClass("fa-chevron-left").fadeIn(200, "swing");
-			});
-			$("#discover-groups-button").find('span').fadeOut(100, "swing", function() {
-				$("#discover-groups-button").find('span').text("Back to my groups").fadeIn(200, "swing");
-			});
-			$("#group-search-box").val("");
-			$("#group-search-box").focus();
-			$(".groups-content").addClass("slide-in");
-			showingJoined = false;
-			loadOtherGroupsList();
-			console.log("Showing nonjoined groups");
-		} else {
-			// Show joined groups
-			$("#discover-groups-button").find('i').fadeOut(100, "swing", function() {
-				$("#discover-groups-button").find('i').removeClass("fa-chevron-left").addClass("fa-search").fadeIn(200, "swing");
-			});
-			$("#discover-groups-button").find('span').fadeOut(100, "swing", function() {
-				$("#discover-groups-button").find('span').text("Discover groups").fadeIn(200, "swing");
-			});
-			$("#group-search-box").val("");
-			filterGroups();
-			$(".groups-content").addClass("slide-in");
-			$(".groups-list > li").each(function() {
-				$(this).removeClass("active-list-item");
-			});
-			showingJoined = true;
-			loadJoinedGroupsList();
-			console.log("Showing joined groups");
-		}
-	}*/
-
+	// Displays the completed challenges on the list
 	function loadChallengesList() {
 		$("#challenges-search-box").val("");
 		$.ajax({
@@ -62,24 +27,7 @@
 		});
 	}
 
-/*	function loadOtherGroupsList() {
-		$("#group-search-box").val("");
-		$.ajax({
-			url: "./php/function/get_other_groups_list.php",
-			dataType: "html",
-			beforeSend: function() {
-				$(".groups-list").html("<p><i class='fa fa-circle-o-notch fa-spin'></i> Loading groups");
-			},
-			success: function(data) {
-				$(".groups-list").html(data);
-				console.log("Loaded groups list success");
-			},
-			error: function(jqXHR, status, err) {
-				$(".groups-list").html("<p><i class='fa fa-exclamation-circle'></i> Error loading groups. (" + status + ": " + err + ")</p>");
-			}
-		});
-	}*/
-
+	// Filters challenges
 	function filterChallenges() {
 		var filter = $("#challenge-search-box").val();
 		if (filter) {
@@ -90,25 +38,7 @@
 		}
 	}
 
-	/*function searchGroups(event) {
-		// we will use ajax to search users when user presses enter
-		var searchInput = $("#friend-search-box").val();
-		if (event.keyCode == 13 && searchInput) {
-			console.log("Searching for " + searchInput);
-			$.ajax({
-			url: "./php/function/get_user_list.php",
-			dataType: "html",
-			data: "search=" + searchInput,
-			success: function(data) {
-				$(".search-results").html(data);
-			},
-			error: function(jqXHR, status, err) {
-				$(".search-results").html("<p class='module-error'><i class='fa fa-exclamation-circle'></i> Error searching for users. (" + status + ": " + err + ")</p>");
-			}
-		});
-		}
-	}*/
-
+	// Displays the selected challenge information
 	function showChallenge(challenge_id, item) {
 		// We will use ajax to load challenge profiles
 		$(".challenges-list > li").each(function() {
@@ -132,6 +62,7 @@
 		});
 	}
 
+	// Gets the challenge days passed/remaining
 	function retrieveProgressDays(challenge_id) {
 		$.ajax({
 			url: "./php/function/get_challenge_progress.php",
@@ -147,6 +78,7 @@
 		});
 	}
 
+	// Displays the goal progress and duration
 	function showProgressDays(progressData) {
 		var goalProgress = progressData["goalProgress"];
 		var goalAmount = progressData["goalAmount"];
@@ -205,22 +137,7 @@
 		line.animate(lineProgress);
 	}
 
-/*	function joinGroup(group_id, button) {
-		$.ajax({
-			url: "./php/function/join_group.php",
-			dataType: "html",
-			data: "group_id=" + group_id,
-			success: function(data) {
-				$(button).html("<i class='fa fa-check'></i> Joined Group");
-				$(button).prop("disabled", true);
-				loadGroupsList();
-			},
-			error: function(jqXHR, status, err) {
-				console.log("Error joining group. (" + status + ": " + err + ")");
-			}
-		});
-	}*/
-
+	// Invokes leave challenge function on server
 	function leaveChallenge(challenge_id, button) {
 		$.ajax({
 			url: "./php/function/leave_challenge.php",
@@ -238,6 +155,7 @@
 		});
 	}
 
+	// Displays the challenge creator form
 	function showCreate() {
 		$(".challenges-content").addClass("slide-in");
 		$.ajax({
@@ -258,6 +176,7 @@
 		});
 	}
 
+	// Sends form data to server and invokes create challenge function on server
 	function createChallenge() {
 		$.ajax({
 			type: "POST",
@@ -279,27 +198,6 @@
 				console.log("Error creating challenge: " + err);
 			}
 		});
-	}
-
-	function previewDate() {
-/*		var days = $("#creator-challenge-duration").val();
-		var date = new Date();
-
-		date.setDate(date.getDate() + days);
-
-		var dd = date.getDate();
-		var mm = date.getMonth() + 1;
-		var yyyy = date.getFullYear();
-
-		if(dd < 10) { dd = "0" + dd; }
-		if(mm < 10) { mm = "0" + mm; }
-
-		var formattedDate = dd + '/'+ mm + '/'+ yyyy;
-
-		$(".date-preview").text(formattedDate);
-		console.log(dd);
-		console.log(date.getMonth());
-		console.log(yyyy);*/
 	}
 </script>
 
